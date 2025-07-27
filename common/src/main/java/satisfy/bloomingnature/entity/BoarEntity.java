@@ -24,11 +24,6 @@ public class BoarEntity extends Pig {
     private static final Ingredient FOOD_ITEMS;
 
     @Override
-    protected float getStandingEyeHeight(Pose pose, EntityDimensions entityDimensions) {
-        return this.isBaby() ? entityDimensions.height * 0.2F : entityDimensions.height * 0.3F;
-    }
-
-    @Override
     protected SoundEvent getAmbientSound() {
         return SoundRegistry.BOAR_AMBIENT.get();
     }

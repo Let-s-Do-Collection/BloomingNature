@@ -1,6 +1,7 @@
 package satisfy.bloomingnature.world.placers;
 
 import com.mojang.serialization.Codec;
+import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -21,7 +22,7 @@ public class TaigaFoliagePlacer extends FoliagePlacer {
         this.trunkHeight = trunkHeight;
     }
 
-    public static final Codec<TaigaFoliagePlacer> CODEC = RecordCodecBuilder.create(instance ->
+    public static final MapCodec<TaigaFoliagePlacer> CODEC = RecordCodecBuilder.mapCodec(instance ->
             foliagePlacerParts(instance)
                     .and(IntProvider.codec(0, 24).fieldOf("trunk_height").forGetter(placer -> placer.trunkHeight))
                     .apply(instance, TaigaFoliagePlacer::new));

@@ -13,7 +13,7 @@ import net.minecraft.world.entity.Entity;
 import satisfy.bloomingnature.util.BloomingNatureIdentifier;
 
 public class TurkeyModel<T extends Entity> extends AgeableListModel<T> {
-    public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(new BloomingNatureIdentifier("turkey"), "main");
+    public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(BloomingNatureIdentifier.of("turkey"), "main");
     private final ModelPart right_leg;
     private final ModelPart left_leg;
     private final ModelPart body;
@@ -63,13 +63,13 @@ public class TurkeyModel<T extends Entity> extends AgeableListModel<T> {
     }
 
     @Override
-    public void renderToBuffer(PoseStack matrices, VertexConsumer vertexConsumer, int light, int overlay, float red, float green, float blue, float alpha) {
-        body.render(matrices, vertexConsumer, light, overlay, red, green, blue, alpha);
-        head.render(matrices, vertexConsumer, light, overlay, red, green, blue, alpha);
-        left_leg.render(matrices, vertexConsumer, light, overlay, red, green, blue, alpha);
-        right_leg.render(matrices, vertexConsumer, light, overlay, red, green, blue, alpha);
-        left_wing.render(matrices, vertexConsumer, light, overlay, red, green, blue, alpha);
-        right_wing.render(matrices, vertexConsumer, light, overlay, red, green, blue, alpha);
+    public void renderToBuffer(PoseStack matrices, VertexConsumer vertexConsumer, int i, int j, int k) {
+        body.render(matrices, vertexConsumer, i, j, k);
+        head.render(matrices, vertexConsumer, i, j, k);
+        left_leg.render(matrices, vertexConsumer, i, j, k);
+        right_leg.render(matrices, vertexConsumer, i, j, k);
+        left_wing.render(matrices, vertexConsumer, i, j, k);
+        right_wing.render(matrices, vertexConsumer, i, j, k);
     }
 
     @Override

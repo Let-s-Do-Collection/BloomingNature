@@ -11,10 +11,11 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.Entity;
 import satisfy.bloomingnature.BloomingNature;
+import satisfy.bloomingnature.util.BloomingNatureIdentifier;
 
 public class DeerModel<T extends Entity> extends HierarchicalModel<T> {
 
-    public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation(BloomingNature.MOD_ID, "deer"), "main");
+    public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(BloomingNatureIdentifier.of( "deer"), "main");
     private final ModelPart deer;
     private final ModelPart head;
     private final ModelPart leftHindLeg;
@@ -85,8 +86,8 @@ public class DeerModel<T extends Entity> extends HierarchicalModel<T> {
     }
 
     @Override
-    public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
-        deer.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+    public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int i, int j, int k) {
+        deer.render(poseStack, vertexConsumer, i, j, k);
     }
 
     @Override

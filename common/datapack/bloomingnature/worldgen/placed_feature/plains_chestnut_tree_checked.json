@@ -1,0 +1,21 @@
+{
+  "feature": "bloomingnature:plains_chestnut_tree",
+  "placement": [
+    {
+      "type": "minecraft:block_predicate_filter",
+      "predicate": {
+        "type": "minecraft:would_survive",
+        "state": {
+          "Name": "bloomingnature:chestnut_sapling",
+          "Properties": {
+            "stage": "0"
+          }
+        }
+      }
+    },
+    {
+      "type": "minecraft:heightmap",
+      "heightmap": "OCEAN_FLOOR_WG"
+    }
+  ]
+}

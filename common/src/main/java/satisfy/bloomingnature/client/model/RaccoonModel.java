@@ -17,7 +17,7 @@ import satisfy.bloomingnature.util.BloomingNatureIdentifier;
 
 @Environment(EnvType.CLIENT)
 public class RaccoonModel<T extends RaccoonEntity> extends HierarchicalModel<T> {
-        public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(new BloomingNatureIdentifier("raccoon"), "main");
+        public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(BloomingNatureIdentifier.of("raccoon"), "main");
 
     private final ModelPart body;
     private final ModelPart head;
@@ -129,14 +129,14 @@ public class RaccoonModel<T extends RaccoonEntity> extends HierarchicalModel<T> 
 
 
     @Override
-    public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
-        body.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-        head.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-        leftHindLeg.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-        rightHindLeg.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-        leftFrontLeg.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-        rightFrontLeg.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-        tail.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+    public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, int red) {
+        body.render(poseStack, vertexConsumer, packedLight, packedOverlay, red);
+        head.render(poseStack, vertexConsumer, packedLight, packedOverlay, red);
+        leftHindLeg.render(poseStack, vertexConsumer, packedLight, packedOverlay, red);
+        rightHindLeg.render(poseStack, vertexConsumer, packedLight, packedOverlay, red);
+        leftFrontLeg.render(poseStack, vertexConsumer, packedLight, packedOverlay, red);
+        rightFrontLeg.render(poseStack, vertexConsumer, packedLight, packedOverlay, red);
+        tail.render(poseStack, vertexConsumer, packedLight, packedOverlay, red);
     }
 
     @Override

@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "planks",
+  "ingredients": [
+    {
+      "tag": "bloomingnature:swamp_oak_logs"
+    }
+  ],
+  "result": {
+    "count": 4,
+    "id": "bloomingnature:swamp_oak_planks"
+  }
+}

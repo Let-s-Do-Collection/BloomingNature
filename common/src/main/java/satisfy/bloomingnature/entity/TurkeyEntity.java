@@ -17,7 +17,7 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.pathfinder.BlockPathTypes;
+import net.minecraft.world.level.pathfinder.PathType;
 import net.minecraft.world.phys.Vec3;
 import org.jetbrains.annotations.Nullable;
 import satisfy.bloomingnature.registry.EntityRegistry;
@@ -36,7 +36,7 @@ public class TurkeyEntity extends Chicken {
 
     public TurkeyEntity(EntityType<? extends TurkeyEntity> entityType, Level level) {
         super(entityType, level);
-        this.setPathfindingMalus(BlockPathTypes.WATER, 0.0F);
+        this.setPathfindingMalus(PathType.WATER, 0.0F);
     }
 
 
@@ -53,7 +53,7 @@ public class TurkeyEntity extends Chicken {
     }
 
     protected float getStandingEyeHeight(Pose pose, EntityDimensions entityDimensions) {
-        return this.isBaby() ? entityDimensions.height * 0.85F : entityDimensions.height * 0.92F;
+        return this.isBaby() ? entityDimensions.height() * 0.85F : entityDimensions.height() * 0.92F;
     }
 
     public static AttributeSupplier.Builder createMobAttributes() {
@@ -130,10 +130,9 @@ public class TurkeyEntity extends Chicken {
 
 
     @Override
-    public int getExperienceReward() {
-        return this.isPelicanJockey() ? 12 : super.getExperienceReward();
+    protected int getBaseExperienceReward() {
+        return this.isPelicanJockey() ? 12 : super.getBaseExperienceReward();
     }
-
 
     @Override
     protected void positionRider(Entity entity, MoveFunction moveFunction) {
@@ -144,7 +143,7 @@ public class TurkeyEntity extends Chicken {
         float i = 0.0F;
         double yOffset = -0.18;
 
-        moveFunction.accept(entity, this.getX() + (double)(0.1F * f), this.getY(0.5) + entity.getMyRidingOffset() + yOffset, this.getZ() - (double)(0.1F * g));
+        moveFunction.accept(entity, this.getX() + (double)(0.1F * f), this.getY(0.5) + entity.getVehicleAttachmentPoint(this).y + yOffset, this.getZ() - (double)(0.1F * g));
 
         if (entity instanceof LivingEntity) {
             ((LivingEntity)entity).yBodyRot = this.yBodyRot;

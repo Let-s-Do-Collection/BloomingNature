@@ -10,9 +10,10 @@ import org.jetbrains.annotations.NotNull;
 import satisfy.bloomingnature.BloomingNature;
 import satisfy.bloomingnature.client.model.TurkeyModel;
 import satisfy.bloomingnature.entity.TurkeyEntity;
+import satisfy.bloomingnature.util.BloomingNatureIdentifier;
 
 public class TurkeyRenderer extends MobRenderer<TurkeyEntity, TurkeyModel<TurkeyEntity>> {
-    private static final ResourceLocation TEXTURE = new ResourceLocation(BloomingNature.MOD_ID, "textures/entity/turkey.png");
+    private static final ResourceLocation TEXTURE = BloomingNatureIdentifier.of( "textures/entity/turkey.png");
 
     public TurkeyRenderer(EntityRendererProvider.Context context) {
         super(context, new TurkeyModel<>(context.bakeLayer(TurkeyModel.LAYER_LOCATION)), 0.7f);

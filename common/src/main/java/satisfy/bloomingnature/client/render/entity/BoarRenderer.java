@@ -14,7 +14,7 @@ import satisfy.bloomingnature.util.BloomingNatureIdentifier;
 
 @Environment(value = EnvType.CLIENT)
 public class BoarRenderer extends MobRenderer<BoarEntity, BoarModel<BoarEntity>> {
-    private static final ResourceLocation TEXTURE = new BloomingNatureIdentifier("textures/entity/boar.png");
+    private static final ResourceLocation TEXTURE = BloomingNatureIdentifier.of("textures/entity/boar.png");
 
     public BoarRenderer(EntityRendererProvider.Context context) {
         super(context, new BoarModel(context.bakeLayer(BoarModel.LAYER_LOCATION)), 0.7f);

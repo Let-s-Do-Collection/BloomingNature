@@ -14,7 +14,7 @@ import satisfy.bloomingnature.util.BloomingNatureIdentifier;
 
 @Environment(value = EnvType.CLIENT)
 public class DeerRenderer extends MobRenderer<DeerEntity, DeerModel<DeerEntity>> {
-    private static final ResourceLocation TEXTURE = new BloomingNatureIdentifier("textures/entity/deer.png");
+    private static final ResourceLocation TEXTURE = BloomingNatureIdentifier.of("textures/entity/deer.png");
 
     public DeerRenderer(EntityRendererProvider.Context context) {
         super(context, new DeerModel(context.bakeLayer(DeerModel.LAYER_LOCATION)), 0.7f);

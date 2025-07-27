@@ -24,11 +24,6 @@ public class MuddyPigEntity extends Pig {
     private static final Ingredient FOOD_ITEMS;
 
     @Override
-    protected float getStandingEyeHeight(Pose pose, EntityDimensions entityDimensions) {
-        return this.isBaby() ? entityDimensions.height * 0.4F : entityDimensions.height * 0.5F;
-    }
-
-    @Override
     protected SoundEvent getAmbientSound() {
         return SoundEvents.PIG_AMBIENT;
     }

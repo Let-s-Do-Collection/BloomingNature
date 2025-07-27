@@ -34,79 +34,79 @@ public class EntityRegistry {
             () -> EntityType.Builder.of(WanderingGardenerEntity::new, MobCategory.CREATURE)
                     .sized(0.6f, 1.95f)
                     .clientTrackingRange(10)
-                    .build(new BloomingNatureIdentifier("wandering_gardener").toString()));
+                    .build(BloomingNatureIdentifier.of("wandering_gardener").toString()));
 
     public static final RegistrySupplier<EntityType<RedWolfEntity>> RED_WOLF = create("red_wolf",
             () -> EntityType.Builder.of(RedWolfEntity::new, MobCategory.CREATURE)
                     .sized(0.4f, 1.5f)
                     .clientTrackingRange(10)
-                    .build(new BloomingNatureIdentifier("red_wolf").toString()));
+                    .build(BloomingNatureIdentifier.of("red_wolf").toString()));
 
     public static final RegistrySupplier<EntityType<PelicanEntity>> PELICAN = create("pelican",
             () -> EntityType.Builder.of(PelicanEntity::new, MobCategory.CREATURE)
                     .sized(0.9f, 1.3f)
-                    .build(new BloomingNatureIdentifier("pelican").toString())
+                    .build(BloomingNatureIdentifier.of("pelican").toString())
     );
 
     public static final RegistrySupplier<EntityType<RaccoonEntity>> RACCOON = create("raccoon",
             () -> EntityType.Builder.of(RaccoonEntity::new, MobCategory.CREATURE)
                     .sized(0.9f, 1.3f)
-                    .build(new BloomingNatureIdentifier("raccoon").toString())
+                    .build(BloomingNatureIdentifier.of("raccoon").toString())
     );
 
     public static final RegistrySupplier<EntityType<MossySheepEntity>> MOSSY_SHEEP = create("mossy_sheep",
             () -> EntityType.Builder.of(MossySheepEntity::new, MobCategory.CREATURE)
                     .sized(0.9f, 1.3f)
-                    .build(new ResourceLocation(BloomingNature.MOD_ID, "mossy_sheep").toString())
+                    .build(BloomingNatureIdentifier.of( "mossy_sheep").toString())
     );
 
     public static final RegistrySupplier<EntityType<SquirrelEntity>> SQUIRREL = create("squirrel",
             () -> EntityType.Builder.of(SquirrelEntity::new, MobCategory.CREATURE)
                     .sized(0.9f, 1.3f)
-                    .build(new BloomingNatureIdentifier("raccoon").toString())
+                    .build(BloomingNatureIdentifier.of("raccoon").toString())
     );
 
     public static final RegistrySupplier<EntityType<MuddyPigEntity>> MUDDY_PIG = create("muddy_pig",
             () -> EntityType.Builder.of(MuddyPigEntity::new, MobCategory.CREATURE)
                     .sized(0.9f, 1.3f)
-                    .build(new BloomingNatureIdentifier("muddy_pig").toString())
+                    .build(BloomingNatureIdentifier.of("muddy_pig").toString())
     );
 
     public static final RegistrySupplier<EntityType<TurkeyEntity>> TURKEY = create("turkey",
             () -> EntityType.Builder.of(TurkeyEntity::new, MobCategory.CREATURE)
                     .sized(0.9f, 1.3f)
-                    .build(new BloomingNatureIdentifier("turkey").toString())
+                    .build(BloomingNatureIdentifier.of("turkey").toString())
     );
 
     public static final RegistrySupplier<EntityType<DeerEntity>> DEER = create("deer",
             () -> EntityType.Builder.of(DeerEntity::new, MobCategory.CREATURE)
-                    .build(new BloomingNatureIdentifier("deer").toString())
+                    .build(BloomingNatureIdentifier.of("deer").toString())
     );
 
     public static final RegistrySupplier<EntityType<OwlEntity>> OWL = create("owl",
             () -> EntityType.Builder.of(OwlEntity::new, MobCategory.CREATURE)
-                    .build(new BloomingNatureIdentifier("owl").toString())
+                    .build(BloomingNatureIdentifier.of("owl").toString())
     );
 
     public static final RegistrySupplier<EntityType<TermiteEntity>> TERMITE = create("termite",
             () -> EntityType.Builder.of(TermiteEntity::new, MobCategory.MONSTER)
-                    .build(new BloomingNatureIdentifier("termite").toString())
+                    .build(BloomingNatureIdentifier.of("termite").toString())
     );
 
     public static final RegistrySupplier<EntityType<BoarEntity>> BOAR = create("boar",
             () -> EntityType.Builder.of(BoarEntity::new, MobCategory.CREATURE)
-                    .build(new BloomingNatureIdentifier("boar").toString())
+                    .build(BloomingNatureIdentifier.of("boar").toString())
     );
 
     public static final RegistrySupplier<EntityType<BisonEntity>> BISON = create("bison",
             () -> EntityType.Builder.of(BisonEntity::new, MobCategory.CREATURE)
-                    .build(new BloomingNatureIdentifier("bison").toString())
+                    .build(BloomingNatureIdentifier.of("bison").toString())
     );
 
 
 
     public static <T extends EntityType<?>> RegistrySupplier<T> create(final String path, final Supplier<T> type) {
-        return ENTITY_TYPES.register(new BloomingNatureIdentifier(path), type);
+        return ENTITY_TYPES.register(BloomingNatureIdentifier.of(path), type);
     }
 
     public static void init() {

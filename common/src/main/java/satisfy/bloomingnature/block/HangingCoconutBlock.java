@@ -9,6 +9,7 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
 public class HangingCoconutBlock extends Block {
+
     public HangingCoconutBlock(Properties properties) {
         super(properties);
     }

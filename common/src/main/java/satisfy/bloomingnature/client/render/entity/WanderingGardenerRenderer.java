@@ -12,7 +12,7 @@ import satisfy.bloomingnature.util.BloomingNatureIdentifier;
 
 @Environment(value = EnvType.CLIENT)
 public class WanderingGardenerRenderer<T extends WanderingGardenerEntity> extends MobRenderer<T, WanderingGardenerModel<T>> {
-    private static final ResourceLocation TEXTURE = new BloomingNatureIdentifier("textures/entity/wandering_gardener.png");
+    private static final ResourceLocation TEXTURE = BloomingNatureIdentifier.of("textures/entity/wandering_gardener.png");
 
     public WanderingGardenerRenderer(EntityRendererProvider.Context context) {
         super(context, new WanderingGardenerModel<>(context.bakeLayer(WanderingGardenerModel.LAYER_LOCATION)), 0.7f);

@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "green_dye",
+  "ingredients": [
+    {
+      "item": "bloomingnature:begonie"
+    }
+  ],
+  "result": {
+    "id": "minecraft:green_dye"
+  }
+}

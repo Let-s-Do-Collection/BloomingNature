@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "planks",
+  "ingredients": [
+    {
+      "tag": "bloomingnature:fan_palm_logs"
+    }
+  ],
+  "result": {
+    "count": 4,
+    "id": "bloomingnature:fan_palm_planks"
+  }
+}

@@ -5,6 +5,7 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.function.Supplier;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.level.block.Block;
 import satisfy.bloomingnature.entity.TermiteEntity; // Import your TermiteEntity class
@@ -50,7 +51,7 @@ public class TermiteBlock extends Block {
         super.spawnAfterBreak(blockState, serverLevel, blockPos, itemStack, bl);
 
         if (serverLevel.getGameRules().getBoolean(GameRules.RULE_DOBLOCKDROPS) &&
-                EnchantmentHelper.getItemEnchantmentLevel(Enchantments.SILK_TOUCH, itemStack) == 0) {
+                EnchantmentHelper.getItemEnchantmentLevel(serverLevel.getServer().registryAccess().lookupOrThrow(Registries.ENCHANTMENT).getOrThrow(Enchantments.SILK_TOUCH), itemStack) == 0) {
 
             if (serverLevel.random.nextFloat() < 0.5F) {
                 int numTermites = serverLevel.random.nextInt(2) + 3;

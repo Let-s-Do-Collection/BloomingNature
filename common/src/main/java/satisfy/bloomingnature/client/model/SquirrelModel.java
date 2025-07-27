@@ -13,10 +13,11 @@ import net.minecraft.util.Mth;
 import org.jetbrains.annotations.NotNull;
 import satisfy.bloomingnature.BloomingNature;
 import satisfy.bloomingnature.entity.SquirrelEntity;
+import satisfy.bloomingnature.util.BloomingNatureIdentifier;
 
 @Environment(EnvType.CLIENT)
 public class SquirrelModel extends AgeableListModel<SquirrelEntity> {
-    public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation(BloomingNature.MOD_ID, "squirrel"), "main");
+    public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(BloomingNatureIdentifier.of( "squirrel"), "main");
     private final ModelPart head;
     private final ModelPart body;
     private final ModelPart leftArm;

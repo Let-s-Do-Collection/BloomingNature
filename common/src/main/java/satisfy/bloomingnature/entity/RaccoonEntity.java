@@ -38,10 +38,11 @@ public class RaccoonEntity extends Animal {
     private static final int FLAG_DEFENDING = 128;
     private int ticksSinceEaten;
 
-    protected void defineSynchedData() {
-        super.defineSynchedData();
-        this.entityData.define(DATA_TYPE_ID, 0);
-        this.entityData.define(DATA_FLAGS_ID, (byte)0);
+    @Override
+    protected void defineSynchedData(SynchedEntityData.Builder builder) {
+        super.defineSynchedData(builder);
+        builder.define(DATA_TYPE_ID, 0);
+        builder.define(DATA_FLAGS_ID, (byte)0);
     }
 
     @Override
@@ -95,13 +96,6 @@ public class RaccoonEntity extends Animal {
 
     public float getTailAngle() {
         return (0.55F - (this.getMaxHealth() - this.getHealth()) * 0.02F) * 3.1415927F;
-    }
-
-
-
-    @Override
-    protected float getStandingEyeHeight(Pose pose, EntityDimensions entityDimensions) {
-        return this.isBaby() ? entityDimensions.height * 0.4F : entityDimensions.height * 0.5F;
     }
 
     @Override

@@ -11,7 +11,7 @@ import net.minecraft.world.entity.ai.navigation.PathNavigation;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.LeavesBlock;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.pathfinder.BlockPathTypes;
+import net.minecraft.world.level.pathfinder.PathType;
 import net.minecraft.world.level.pathfinder.WalkNodeEvaluator;
 
 import java.util.EnumSet;
@@ -75,14 +75,14 @@ public class BetterFollowOwnerGoal extends Goal {
 
     public void start() {
         this.updateCountdownTicks = 0;
-        this.oldWaterPathfindingPenalty = this.tameable.getPathfindingMalus(BlockPathTypes.WATER);
-        this.tameable.setPathfindingMalus(BlockPathTypes.WATER, 0.0F);
+        this.oldWaterPathfindingPenalty = this.tameable.getPathfindingMalus(PathType.WATER);
+        this.tameable.setPathfindingMalus(PathType.WATER, 0.0F);
     }
 
     public void stop() {
         this.owner = null;
         this.navigation.stop();
-        this.tameable.setPathfindingMalus(BlockPathTypes.WATER, this.oldWaterPathfindingPenalty);
+        this.tameable.setPathfindingMalus(PathType.WATER, this.oldWaterPathfindingPenalty);
     }
 
     public void tick() {
@@ -147,8 +147,8 @@ public class BetterFollowOwnerGoal extends Goal {
     }
 
     protected boolean canTeleportTo(BlockPos pos) {
-        BlockPathTypes pathNodeType = WalkNodeEvaluator.getBlockPathTypeStatic(this.level, pos.mutable());
-        if (pathNodeType != BlockPathTypes.WALKABLE) {
+        PathType pathNodeType = WalkNodeEvaluator.getPathTypeStatic(tameable, pos.mutable());
+        if (pathNodeType != PathType.WALKABLE) {
             return false;
         } else {
             BlockState blockState = this.level.getBlockState(pos.below());

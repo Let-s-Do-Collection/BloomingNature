@@ -9,11 +9,12 @@ import org.jetbrains.annotations.NotNull;
 import satisfy.bloomingnature.BloomingNature;
 import satisfy.bloomingnature.client.model.BisonModel;
 import satisfy.bloomingnature.entity.BisonEntity;
+import satisfy.bloomingnature.util.BloomingNatureIdentifier;
 
 
 public class BisonRenderer extends MobRenderer<BisonEntity, BisonModel<BisonEntity>> {
 
-    private static final ResourceLocation TEXTURE = new ResourceLocation(BloomingNature.MOD_ID, "textures/entity/bison.png");
+    private static final ResourceLocation TEXTURE = BloomingNatureIdentifier.of( "textures/entity/bison.png");
 
     public BisonRenderer(EntityRendererProvider.Context context) {
         super(context, new BisonModel<>(context.bakeLayer(BisonModel.LAYER_LOCATION)), 0.9f);

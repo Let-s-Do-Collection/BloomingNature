@@ -9,9 +9,10 @@ import net.minecraft.util.Mth;
 import satisfy.bloomingnature.BloomingNature;
 import satisfy.bloomingnature.client.model.PelicanModel;
 import satisfy.bloomingnature.entity.PelicanEntity;
+import satisfy.bloomingnature.util.BloomingNatureIdentifier;
 
 public class PelicanRenderer extends MobRenderer<PelicanEntity, PelicanModel<PelicanEntity>> {
-    private static final ResourceLocation TEXTURE = new ResourceLocation(BloomingNature.MOD_ID, "textures/entity/pelican.png");
+    private static final ResourceLocation TEXTURE = BloomingNatureIdentifier.of( "textures/entity/pelican.png");
 
     public PelicanRenderer(EntityRendererProvider.Context context) {
         super(context, new PelicanModel<>(context.bakeLayer(PelicanModel.LAYER_LOCATION)), 0.7f);

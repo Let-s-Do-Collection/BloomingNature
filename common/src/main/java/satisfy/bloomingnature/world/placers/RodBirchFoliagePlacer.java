@@ -1,6 +1,7 @@
 package satisfy.bloomingnature.world.placers;
 
 import com.mojang.serialization.Codec;
+import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -88,7 +89,7 @@ public class RodBirchFoliagePlacer extends FoliagePlacer
         }
     }
 
-    public static final Codec<RodBirchFoliagePlacer> CODEC = RecordCodecBuilder.create(
+    public static final MapCodec<RodBirchFoliagePlacer> CODEC = RecordCodecBuilder.mapCodec(
             (instance)->foliagePlacerParts(instance)
                     .and(
                             Codec.intRange(0, 16).fieldOf("height").forGetter((cdc)->cdc.height)

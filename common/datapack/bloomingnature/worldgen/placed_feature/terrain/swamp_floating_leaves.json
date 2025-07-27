@@ -1,0 +1,19 @@
+{
+  "feature": "bloomingnature:terrain/swamp_floating_leaves",
+  "placement": [
+    {
+      "type": "minecraft:count",
+      "count": 18
+    },
+    {
+      "type": "minecraft:in_square"
+    },
+    {
+      "type": "minecraft:heightmap",
+      "heightmap": "WORLD_SURFACE_WG"
+    },
+    {
+      "type": "minecraft:biome"
+    }
+  ]
+}

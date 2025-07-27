@@ -13,7 +13,7 @@ import net.minecraft.world.entity.Entity;
 import satisfy.bloomingnature.util.BloomingNatureIdentifier;
 
 public class PelicanModel<T extends Entity> extends AgeableListModel<T> {
-    public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(new BloomingNatureIdentifier("pelican"), "main");
+    public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(BloomingNatureIdentifier.of("pelican"), "main");
 
     private final ModelPart body;
     private final ModelPart head;
@@ -59,14 +59,14 @@ public class PelicanModel<T extends Entity> extends AgeableListModel<T> {
     }
 
     @Override
-    public void renderToBuffer(PoseStack matrices, VertexConsumer vertexConsumer, int light, int overlay, float red, float green, float blue, float alpha) {
-        body.render(matrices, vertexConsumer, light, overlay, red, green, blue, alpha);
-        head.render(matrices, vertexConsumer, light, overlay, red, green, blue, alpha);
-        leg0.render(matrices, vertexConsumer, light, overlay, red, green, blue, alpha);
-        leg1.render(matrices, vertexConsumer, light, overlay, red, green, blue, alpha);
-        wing0.render(matrices, vertexConsumer, light, overlay, red, green, blue, alpha);
-        wing1.render(matrices, vertexConsumer, light, overlay, red, green, blue, alpha);
-        beak.render(matrices, vertexConsumer, light, overlay, red, green, blue, alpha);
+    public void renderToBuffer(PoseStack matrices, VertexConsumer vertexConsumer, int light, int overlay, int red) {
+        body.render(matrices, vertexConsumer, light, overlay, red);
+        head.render(matrices, vertexConsumer, light, overlay, red);
+        leg0.render(matrices, vertexConsumer, light, overlay, red);
+        leg1.render(matrices, vertexConsumer, light, overlay, red);
+        wing0.render(matrices, vertexConsumer, light, overlay, red);
+        wing1.render(matrices, vertexConsumer, light, overlay, red);
+        beak.render(matrices, vertexConsumer, light, overlay, red);
     }
 
     @Override

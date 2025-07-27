@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "redstone",
+  "group": "wooden_pressure_plate",
+  "key": {
+    "#": {
+      "item": "bloomingnature:swamp_cypress_planks"
+    }
+  },
+  "pattern": [
+    "##"
+  ],
+  "result": {
+    "id": "bloomingnature:swamp_cypress_pressure_plate",
+    "count": 1
+  },
+  "show_notification": true
+}

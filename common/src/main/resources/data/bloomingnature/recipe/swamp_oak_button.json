@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "redstone",
+  "group": "wooden_button",
+  "ingredients": [
+    {
+      "item": "bloomingnature:swamp_oak_planks"
+    }
+  ],
+  "result": {
+    "id": "bloomingnature:swamp_oak_button",
+    "count": 1
+  }
+}

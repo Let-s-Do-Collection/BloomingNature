@@ -14,25 +14,25 @@ import net.minecraft.world.level.block.Block;
 import satisfy.bloomingnature.util.BloomingNatureIdentifier;
 
 public class BoatsAndSignsRegistry {
-    public static ResourceLocation ASPEN_BOAT_TYPE = new BloomingNatureIdentifier("aspen");
-    public static ResourceLocation LARCH_BOAT_TYPE = new BloomingNatureIdentifier("larch");
-    public static ResourceLocation SWAMP_OAK_BOAT_TYPE = new BloomingNatureIdentifier("swamp_oak");
-    public static ResourceLocation BAOBAB_BOAT_TYPE = new BloomingNatureIdentifier("baobab");
-    public static ResourceLocation FAN_PALM_BOAT_TYPE = new BloomingNatureIdentifier("fan_palm");
-    public static ResourceLocation FIR_BOAT_TYPE = new BloomingNatureIdentifier("fir");
-    public static ResourceLocation SWAMP_CYPRESS_BOAT_TYPE = new BloomingNatureIdentifier("swamp_cypress");
-    public static ResourceLocation CHESTNUT_BOAT_TYPE = new BloomingNatureIdentifier("chestnut");
-    public static ResourceLocation EBONY_BOAT_TYPE = new BloomingNatureIdentifier("ebony");
+    public static ResourceLocation ASPEN_BOAT_TYPE = BloomingNatureIdentifier.of("aspen");
+    public static ResourceLocation LARCH_BOAT_TYPE = BloomingNatureIdentifier.of("larch");
+    public static ResourceLocation SWAMP_OAK_BOAT_TYPE = BloomingNatureIdentifier.of("swamp_oak");
+    public static ResourceLocation BAOBAB_BOAT_TYPE = BloomingNatureIdentifier.of("baobab");
+    public static ResourceLocation FAN_PALM_BOAT_TYPE = BloomingNatureIdentifier.of("fan_palm");
+    public static ResourceLocation FIR_BOAT_TYPE = BloomingNatureIdentifier.of("fir");
+    public static ResourceLocation SWAMP_CYPRESS_BOAT_TYPE = BloomingNatureIdentifier.of("swamp_cypress");
+    public static ResourceLocation CHESTNUT_BOAT_TYPE = BloomingNatureIdentifier.of("chestnut");
+    public static ResourceLocation EBONY_BOAT_TYPE = BloomingNatureIdentifier.of("ebony");
 
-    public static final ResourceLocation ASPEN_SIGN_TEXTURE = new BloomingNatureIdentifier("entity/signs/aspen");
-    public static final ResourceLocation LARCH_SIGN_TEXTURE = new BloomingNatureIdentifier("entity/signs/larch");
-    public static final ResourceLocation SWAMP_OAK_SIGN_TEXTURE = new BloomingNatureIdentifier("entity/signs/swamp_oak");
-    public static final ResourceLocation BAOBAB_SIGN_TEXTURE = new BloomingNatureIdentifier("entity/signs/baobab");
-    public static final ResourceLocation FAN_PALM_SIGN_TEXTURE = new BloomingNatureIdentifier("entity/signs/fan_palm");
-    public static final ResourceLocation FIR_SIGN_TEXTURE = new BloomingNatureIdentifier("entity/signs/fir");
-    public static final ResourceLocation SWAMP_CYPRESS_SIGN_TEXTURE = new BloomingNatureIdentifier("entity/signs/swamp_cypress");
-    public static final ResourceLocation CHESTNUT_SIGN_TEXTURE = new BloomingNatureIdentifier("entity/signs/chestnut");
-    public static final ResourceLocation EBONY_SIGN_TEXTURE = new BloomingNatureIdentifier("entity/signs/ebony");
+    public static final ResourceLocation ASPEN_SIGN_TEXTURE = BloomingNatureIdentifier.of("entity/signs/aspen");
+    public static final ResourceLocation LARCH_SIGN_TEXTURE = BloomingNatureIdentifier.of("entity/signs/larch");
+    public static final ResourceLocation SWAMP_OAK_SIGN_TEXTURE = BloomingNatureIdentifier.of("entity/signs/swamp_oak");
+    public static final ResourceLocation BAOBAB_SIGN_TEXTURE = BloomingNatureIdentifier.of("entity/signs/baobab");
+    public static final ResourceLocation FAN_PALM_SIGN_TEXTURE = BloomingNatureIdentifier.of("entity/signs/fan_palm");
+    public static final ResourceLocation FIR_SIGN_TEXTURE = BloomingNatureIdentifier.of("entity/signs/fir");
+    public static final ResourceLocation SWAMP_CYPRESS_SIGN_TEXTURE = BloomingNatureIdentifier.of("entity/signs/swamp_cypress");
+    public static final ResourceLocation CHESTNUT_SIGN_TEXTURE = BloomingNatureIdentifier.of("entity/signs/chestnut");
+    public static final ResourceLocation EBONY_SIGN_TEXTURE = BloomingNatureIdentifier.of("entity/signs/ebony");
 
     public static final RegistrySupplier<Block> ASPEN_SIGN = ObjectRegistry.registerWithoutItem("aspen_sign", () -> TerraformSignHelper.getSign(ASPEN_SIGN_TEXTURE));
     public static final RegistrySupplier<Block> ASPEN_WALL_SIGN = ObjectRegistry.registerWithoutItem("aspen_wall_sign", () -> TerraformSignHelper.getWallSign(ASPEN_SIGN_TEXTURE));
@@ -62,24 +62,24 @@ public class BoatsAndSignsRegistry {
     public static final RegistrySupplier<Block> SWAMP_CYPRESS_WALL_SIGN = ObjectRegistry.registerWithoutItem("swamp_cypress_wall_sign", () -> TerraformSignHelper.getWallSign(SWAMP_CYPRESS_SIGN_TEXTURE));
     public static final RegistrySupplier<Item> SWAMP_CYPRESS_SIGN_ITEM = ObjectRegistry.registerItem("swamp_cypress_sign", () -> new SignItem(ObjectRegistry.getSettings().stacksTo(16), SWAMP_CYPRESS_SIGN.get(), SWAMP_CYPRESS_WALL_SIGN.get()));
 
-    public static final ResourceLocation ASPEN_HANGING_SIGN_TEXTURE = new BloomingNatureIdentifier("entity/signs/hanging/aspen");
-    public static final ResourceLocation ASPEN_HANGING_SIGN_GUI_TEXTURE = new BloomingNatureIdentifier("textures/gui/hanging_signs/aspen");
-    public static final ResourceLocation LARCH_HANGING_SIGN_TEXTURE = new BloomingNatureIdentifier("entity/signs/hanging/larch");
-    public static final ResourceLocation LARCH_HANGING_SIGN_GUI_TEXTURE = new BloomingNatureIdentifier("textures/gui/hanging_signs/larch");
-    public static final ResourceLocation SWAMP_OAK_HANGING_SIGN_TEXTURE = new BloomingNatureIdentifier("entity/signs/hanging/swamp_oak");
-    public static final ResourceLocation SWAMP_OAK_HANGING_SIGN_GUI_TEXTURE = new BloomingNatureIdentifier("textures/gui/hanging_signs/swamp_oak");
-    public static final ResourceLocation BAOBAB_HANGING_SIGN_TEXTURE = new BloomingNatureIdentifier("entity/signs/hanging/baobab");
-    public static final ResourceLocation BAOBAB_HANGING_SIGN_GUI_TEXTURE = new BloomingNatureIdentifier("textures/gui/hanging_signs/baobab");
-    public static final ResourceLocation FAN_PALM_HANGING_SIGN_TEXTURE = new BloomingNatureIdentifier("entity/signs/hanging/fan_palm");
-    public static final ResourceLocation FAN_PALM_HANGING_SIGN_GUI_TEXTURE = new BloomingNatureIdentifier("textures/gui/hanging_signs/fan_palm");
-    public static final ResourceLocation FIR_HANGING_SIGN_TEXTURE = new BloomingNatureIdentifier("entity/signs/hanging/fir");
-    public static final ResourceLocation FIR_HANGING_SIGN_GUI_TEXTURE = new BloomingNatureIdentifier("textures/gui/hanging_signs/fir");
-    public static final ResourceLocation CHESTNUT_HANGING_SIGN_TEXTURE = new BloomingNatureIdentifier("entity/signs/hanging/chestnut");
-    public static final ResourceLocation CHESTNUT_HANGING_SIGN_GUI_TEXTURE = new BloomingNatureIdentifier("textures/gui/hanging_signs/chestnut");
-    public static final ResourceLocation EBONY_HANGING_SIGN_TEXTURE = new BloomingNatureIdentifier("entity/signs/hanging/ebony");
-    public static final ResourceLocation EBONY_HANGING_SIGN_GUI_TEXTURE = new BloomingNatureIdentifier("textures/gui/hanging_signs/ebony");
-    public static final ResourceLocation SWAMP_CYPRESS_HANGING_SIGN_TEXTURE = new BloomingNatureIdentifier("entity/signs/hanging/swamp_cypress");
-    public static final ResourceLocation SWAMP_CYPRESS_HANGING_SIGN_GUI_TEXTURE = new BloomingNatureIdentifier("textures/gui/hanging_signs/swamp_cypress");
+    public static final ResourceLocation ASPEN_HANGING_SIGN_TEXTURE = BloomingNatureIdentifier.of("entity/signs/hanging/aspen");
+    public static final ResourceLocation ASPEN_HANGING_SIGN_GUI_TEXTURE = BloomingNatureIdentifier.of("textures/gui/hanging_signs/aspen");
+    public static final ResourceLocation LARCH_HANGING_SIGN_TEXTURE = BloomingNatureIdentifier.of("entity/signs/hanging/larch");
+    public static final ResourceLocation LARCH_HANGING_SIGN_GUI_TEXTURE = BloomingNatureIdentifier.of("textures/gui/hanging_signs/larch");
+    public static final ResourceLocation SWAMP_OAK_HANGING_SIGN_TEXTURE = BloomingNatureIdentifier.of("entity/signs/hanging/swamp_oak");
+    public static final ResourceLocation SWAMP_OAK_HANGING_SIGN_GUI_TEXTURE = BloomingNatureIdentifier.of("textures/gui/hanging_signs/swamp_oak");
+    public static final ResourceLocation BAOBAB_HANGING_SIGN_TEXTURE = BloomingNatureIdentifier.of("entity/signs/hanging/baobab");
+    public static final ResourceLocation BAOBAB_HANGING_SIGN_GUI_TEXTURE = BloomingNatureIdentifier.of("textures/gui/hanging_signs/baobab");
+    public static final ResourceLocation FAN_PALM_HANGING_SIGN_TEXTURE = BloomingNatureIdentifier.of("entity/signs/hanging/fan_palm");
+    public static final ResourceLocation FAN_PALM_HANGING_SIGN_GUI_TEXTURE = BloomingNatureIdentifier.of("textures/gui/hanging_signs/fan_palm");
+    public static final ResourceLocation FIR_HANGING_SIGN_TEXTURE = BloomingNatureIdentifier.of("entity/signs/hanging/fir");
+    public static final ResourceLocation FIR_HANGING_SIGN_GUI_TEXTURE = BloomingNatureIdentifier.of("textures/gui/hanging_signs/fir");
+    public static final ResourceLocation CHESTNUT_HANGING_SIGN_TEXTURE = BloomingNatureIdentifier.of("entity/signs/hanging/chestnut");
+    public static final ResourceLocation CHESTNUT_HANGING_SIGN_GUI_TEXTURE = BloomingNatureIdentifier.of("textures/gui/hanging_signs/chestnut");
+    public static final ResourceLocation EBONY_HANGING_SIGN_TEXTURE = BloomingNatureIdentifier.of("entity/signs/hanging/ebony");
+    public static final ResourceLocation EBONY_HANGING_SIGN_GUI_TEXTURE = BloomingNatureIdentifier.of("textures/gui/hanging_signs/ebony");
+    public static final ResourceLocation SWAMP_CYPRESS_HANGING_SIGN_TEXTURE = BloomingNatureIdentifier.of("entity/signs/hanging/swamp_cypress");
+    public static final ResourceLocation SWAMP_CYPRESS_HANGING_SIGN_GUI_TEXTURE = BloomingNatureIdentifier.of("textures/gui/hanging_signs/swamp_cypress");
 
 
     public static final RegistrySupplier<Block> ASPEN_HANGING_SIGN = ObjectRegistry.registerWithoutItem("aspen_hanging_sign", () -> TerraformSignHelper.getHangingSign(ASPEN_HANGING_SIGN_TEXTURE, ASPEN_HANGING_SIGN_GUI_TEXTURE));

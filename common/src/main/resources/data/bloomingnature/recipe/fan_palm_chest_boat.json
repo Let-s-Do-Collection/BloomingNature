@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "chest_boat",
+  "ingredients": [
+    {
+      "item": "minecraft:chest"
+    },
+    {
+      "item": "bloomingnature:fan_palm_boat"
+    }
+  ],
+  "result": {
+    "id": "bloomingnature:fan_palm_chest_boat"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 1,
+  "ingredient": {
+    "item": "bloomingnature:laterit"
+  },
+  "result": {
+    "id": "bloomingnature:laterit_bricks",
+    "count": 1
+  }
+}

@@ -20,7 +20,7 @@ public class SinkInSandBlock extends SinkInBlock {
 
     @Override
     public void entityInside(BlockState blockState, Level level, BlockPos blockPos, Entity entity) {
-        if (!(entity instanceof LivingEntity) || entity.getFeetBlockState().is(this)) {
+        if (!(entity instanceof LivingEntity) || entity.getInBlockState().is(this)) {
             entity.makeStuckInBlock(blockState, new Vec3(0.8999999761581421, 1.5, 0.8999999761581421));
             if (level.isClientSide) {
                 RandomSource randomSource = level.getRandom();

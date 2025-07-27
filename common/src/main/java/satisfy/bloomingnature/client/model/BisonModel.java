@@ -13,7 +13,7 @@ import org.jetbrains.annotations.NotNull;
 import satisfy.bloomingnature.util.BloomingNatureIdentifier;
 
 public class BisonModel<T extends Entity> extends HierarchicalModel<T> {
-    public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(new BloomingNatureIdentifier("bison"), "main");
+    public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(BloomingNatureIdentifier.of("bison"), "main");
     private final ModelPart legbackleft;
     private final ModelPart legbackright;
     private final ModelPart body;
@@ -81,12 +81,13 @@ public class BisonModel<T extends Entity> extends HierarchicalModel<T> {
         this.legbackleft.xRot = this.legfrontright.xRot;
     }
 
-    public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
-        legbackleft.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-        legbackright.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-        body.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-        legfrontleft.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-        legfrontright.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+    @Override
+    public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int i, int j, int k) {
+        legbackleft.render(poseStack, vertexConsumer, i, j, k);
+        legbackright.render(poseStack, vertexConsumer, i, j, k);
+        body.render(poseStack, vertexConsumer, i, j, k);
+        legfrontleft.render(poseStack, vertexConsumer, i, j, k);
+        legfrontright.render(poseStack, vertexConsumer, i, j, k);
     }
 
     @Override

@@ -18,7 +18,7 @@ import satisfy.bloomingnature.util.BloomingNatureIdentifier;
 @Environment(EnvType.CLIENT)
 public class WanderingGardenerModel<T extends WanderingTrader> extends HierarchicalModel<T> {
 
-    public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(new BloomingNatureIdentifier("wandering_gardener"), "main");
+    public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(BloomingNatureIdentifier.of("wandering_gardener"), "main");
     private final ModelPart body;
     private final ModelPart head;
     private final ModelPart RightLeg;
@@ -90,8 +90,8 @@ public class WanderingGardenerModel<T extends WanderingTrader> extends Hierarchi
     }
 
     @Override
-    public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
-        body.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+    public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int i, int j, int k) {
+        body.render(poseStack, vertexConsumer, i, j, k);
     }
 
     @Override

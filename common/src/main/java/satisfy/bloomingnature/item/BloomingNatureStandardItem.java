@@ -15,11 +15,11 @@ import java.util.List;
 
 public class BloomingNatureStandardItem extends StandardItem {
     public BloomingNatureStandardItem(Properties properties) {
-        super(properties, new BloomingNatureIdentifier("textures/standard/bloomingnature_standard.png"), () -> new MobEffectInstance(MobEffects.DAMAGE_BOOST, 200, 1, true, false, true));
+        super(properties, BloomingNatureIdentifier.of("textures/standard/bloomingnature_standard.png"), () -> new MobEffectInstance(MobEffects.DAMAGE_BOOST, 200, 1, true, false, true));
     }
 
     @Override
-    public void appendHoverText(ItemStack itemStack, @Nullable Level level, List<Component> tooltip, TooltipFlag tooltipFlag) {
+    public void appendHoverText(ItemStack itemStack, TooltipContext tooltipContext, List<Component> tooltip, TooltipFlag tooltipFlag) {
         tooltip.add(Component.translatable("tooltip.bloomingnature.thankyou_1").withStyle(ChatFormatting.ITALIC, ChatFormatting.GRAY));
         tooltip.add(Component.empty());
         tooltip.add(Component.translatable("tooltip.bloomingnature.thankyou_2").withStyle(ChatFormatting.DARK_PURPLE));

@@ -78,10 +78,10 @@ public class SquirrelEntity extends Animal {
     }
 
     @Override
-    protected void defineSynchedData() {
-        super.defineSynchedData();
-        this.entityData.define(DATA_FLAGS_ID, (byte)0);
-        this.entityData.define(DATA_TRUSTING, false);
+    protected void defineSynchedData(SynchedEntityData.Builder builder) {
+        super.defineSynchedData(builder);
+        builder.define(DATA_FLAGS_ID, (byte)0);
+        builder.define(DATA_TRUSTING, false);
     }
 
     @Override
@@ -163,7 +163,7 @@ public class SquirrelEntity extends Animal {
 
     @Override
     public boolean canTakeItem(ItemStack pItemstack) {
-        EquipmentSlot equipmentslot = Mob.getEquipmentSlotForItem(pItemstack);
+        EquipmentSlot equipmentslot = this.getEquipmentSlotForItem(pItemstack);
         if (!this.getItemBySlot(equipmentslot).isEmpty() || this.isBaby() || !this.isTrusting()) {
             return false;
         } else {
@@ -239,18 +239,8 @@ public class SquirrelEntity extends Animal {
     }
 
     @Override
-    public boolean canBeLeashed(Player pPlayer) {
+    public boolean canBeLeashed() {
         return this.isTrusting();
-    }
-
-    @Override
-    protected float getStandingEyeHeight(Pose pose, EntityDimensions size) {
-        return size.height * (this.isBaby() ? 0.6f : 0.7f);
-    }
-
-    @Override
-    public EntityDimensions getDimensions(Pose pose) {
-        return super.getDimensions(pose).scale(1.0f, this.isBaby() ? 1.4f : 1.0f);
     }
 
     @Override

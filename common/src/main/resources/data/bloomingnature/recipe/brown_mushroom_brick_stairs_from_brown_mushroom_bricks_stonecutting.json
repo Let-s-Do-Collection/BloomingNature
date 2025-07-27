@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 1,
+  "ingredient": {
+    "item": "bloomingnature:brown_mushroom_bricks"
+  },
+  "result": {
+    "id": "bloomingnature:brown_mushroom_brick_stairs",
+    "count": 1
+  }
+}

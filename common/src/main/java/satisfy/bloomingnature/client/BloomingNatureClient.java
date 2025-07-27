@@ -18,6 +18,7 @@ import satisfy.bloomingnature.client.model.*;
 import satisfy.bloomingnature.client.render.entity.*;
 import satisfy.bloomingnature.registry.EntityRegistry;
 import satisfy.bloomingnature.registry.ObjectRegistry;
+import satisfy.bloomingnature.util.BloomingNatureIdentifier;
 
 @Environment(EnvType.CLIENT)
 public class BloomingNatureClient {
@@ -69,8 +70,8 @@ public class BloomingNatureClient {
         }, ObjectRegistry.MOSSY_LATERIT.get());
     }
 
-    public static final ModelLayerLocation MOSSY_SHEEP_FUR = new ModelLayerLocation(new ResourceLocation(BloomingNature.MOD_ID, "mossy_sheep_"), "fur");
-    public static final ModelLayerLocation MOSSY_SHEEP_MODEL_LAYER = new ModelLayerLocation(new ResourceLocation(BloomingNature.MOD_ID, "mossy_sheep"), "main");
+    public static final ModelLayerLocation MOSSY_SHEEP_FUR = new ModelLayerLocation(BloomingNatureIdentifier.of( "mossy_sheep_"), "fur");
+    public static final ModelLayerLocation MOSSY_SHEEP_MODEL_LAYER = new ModelLayerLocation(BloomingNatureIdentifier.of( "mossy_sheep"), "main");
 
 
     public static void preInitClient() {

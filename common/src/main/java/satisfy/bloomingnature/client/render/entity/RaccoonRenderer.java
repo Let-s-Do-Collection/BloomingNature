@@ -15,15 +15,16 @@ import satisfy.bloomingnature.util.BloomingNatureIdentifier;
 
 @Environment(value = EnvType.CLIENT)
 public class RaccoonRenderer extends MobRenderer<RaccoonEntity, RaccoonModel<RaccoonEntity>> {
-    private static final ResourceLocation RACCOON_TEXTURE = new BloomingNatureIdentifier("textures/entity/raccoon.png");
-    private static final ResourceLocation RACOON_SLEEP_TEXTURE = new BloomingNatureIdentifier("textures/entity/raccoon.png");
+    private static final ResourceLocation RACCOON_TEXTURE = BloomingNatureIdentifier.of("textures/entity/raccoon.png");
+    private static final ResourceLocation RACOON_SLEEP_TEXTURE = BloomingNatureIdentifier.of("textures/entity/raccoon.png");
 
     public RaccoonRenderer(EntityRendererProvider.Context context) {
         super(context, new RaccoonModel(context.bakeLayer(RaccoonModel.LAYER_LOCATION)), 0.7f);
     }
-    
-    protected void setupRotations(RaccoonEntity raccoon, PoseStack poseStack, float f, float g, float h) {
-        super.setupRotations(raccoon, poseStack, f, g, h);
+
+    @Override
+    protected void setupRotations(RaccoonEntity livingEntity, PoseStack poseStack, float f, float g, float h, float i) {
+        super.setupRotations(livingEntity, poseStack, f, g, h, i);
     }
 
     protected float getBob(RaccoonEntity RaccoonEntity, float f) {

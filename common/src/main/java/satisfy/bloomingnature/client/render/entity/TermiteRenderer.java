@@ -12,7 +12,7 @@ import satisfy.bloomingnature.util.BloomingNatureIdentifier;
 
 @Environment(value = EnvType.CLIENT)
 public class TermiteRenderer extends MobRenderer<TermiteEntity, TermiteModel<TermiteEntity>> {
-    private static final ResourceLocation TEXTURE = new BloomingNatureIdentifier("textures/entity/termite.png");
+    private static final ResourceLocation TEXTURE = BloomingNatureIdentifier.of("textures/entity/termite.png");
 
     public TermiteRenderer(EntityRendererProvider.Context context) {
         super(context, new TermiteModel(context.bakeLayer(TermiteModel.LAYER_LOCATION)), 0.2f);

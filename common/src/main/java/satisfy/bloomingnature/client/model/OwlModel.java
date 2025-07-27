@@ -13,7 +13,7 @@ import satisfy.bloomingnature.util.BloomingNatureIdentifier;
 
 public class OwlModel extends AgeableListModel<OwlEntity> implements HeadedModel {
 
-    public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(new BloomingNatureIdentifier("owl"), "main");
+    public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(BloomingNatureIdentifier.of("owl"), "main");
     private final ModelPart leg_right;
     private final ModelPart leg_left;
     private final ModelPart body;

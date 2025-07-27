@@ -7,10 +7,11 @@ import net.minecraft.resources.ResourceLocation;
 import satisfy.bloomingnature.BloomingNature;
 import satisfy.bloomingnature.client.BloomingNatureClient;
 import satisfy.bloomingnature.entity.SheepEntity;
+import satisfy.bloomingnature.util.BloomingNatureIdentifier;
 
 public class MossySheepRenderer extends MobRenderer<SheepEntity, SheepModel<SheepEntity>> {
 
-    private static final ResourceLocation TEXTURE = new ResourceLocation(BloomingNature.MOD_ID, "textures/entity/mossy_sheep.png");
+    private static final ResourceLocation TEXTURE = BloomingNatureIdentifier.of( "textures/entity/mossy_sheep.png");
 
     public MossySheepRenderer(EntityRendererProvider.Context context) {
         super(context, new SheepModel<>(context.bakeLayer(BloomingNatureClient.MOSSY_SHEEP_MODEL_LAYER)), 0.7f);

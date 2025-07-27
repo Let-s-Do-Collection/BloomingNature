@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "redstone",
+  "group": "wooden_button",
+  "ingredients": [
+    {
+      "item": "bloomingnature:baobab_planks"
+    }
+  ],
+  "result": {
+    "id": "bloomingnature:baobab_button"
+  }
+}

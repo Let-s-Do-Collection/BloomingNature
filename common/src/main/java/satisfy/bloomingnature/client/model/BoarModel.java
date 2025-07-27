@@ -20,7 +20,7 @@ import satisfy.bloomingnature.util.BloomingNatureIdentifier;
 @Environment(EnvType.CLIENT)
 public class BoarModel<T extends Pig> extends HierarchicalModel<T> {
 
-    public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(new BloomingNatureIdentifier("boar"), "main");
+    public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(BloomingNatureIdentifier.of("boar"), "main");
     private final ModelPart body;
     private final ModelPart head;
 
@@ -106,14 +106,13 @@ public class BoarModel<T extends Pig> extends HierarchicalModel<T> {
         this.leftHindLeg.xRot = this.rightFrontLeg.xRot;
     }
 
-
     @Override
-    public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
-        body.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-        rightHindLeg.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-        leftHindLeg.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-        rightFrontLeg.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-        leftFrontLeg.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+    public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int i, int j, int k) {
+        body.render(poseStack, vertexConsumer, i, j, k);
+        rightHindLeg.render(poseStack, vertexConsumer, i, j, k);
+        leftHindLeg.render(poseStack, vertexConsumer, i, j, k);
+        rightFrontLeg.render(poseStack, vertexConsumer, i, j, k);
+        leftFrontLeg.render(poseStack, vertexConsumer, i, j, k);
     }
 
     @Override

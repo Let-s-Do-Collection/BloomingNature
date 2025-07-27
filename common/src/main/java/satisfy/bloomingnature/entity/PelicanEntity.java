@@ -24,7 +24,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.pathfinder.BlockPathTypes;
+import net.minecraft.world.level.pathfinder.PathType;
 import net.minecraft.world.phys.Vec3;
 import org.jetbrains.annotations.Nullable;
 import satisfy.bloomingnature.registry.EntityRegistry;
@@ -43,7 +43,7 @@ public class PelicanEntity extends Animal {
 
     public PelicanEntity(EntityType<? extends PelicanEntity> entityType, Level level) {
         super(entityType, level);
-        this.setPathfindingMalus(BlockPathTypes.WATER, 0.0F);
+        this.setPathfindingMalus(PathType.WATER, 0.0F);
     }
 
 
@@ -74,11 +74,6 @@ public class PelicanEntity extends Animal {
         BlockState state = level.getBlockState(pos.below());
 
         return ((state.is(Blocks.GRASS_BLOCK) || state.is(BlockTags.SAND))) && level.getRawBrightness(pos, 0) > 2;
-    }
-
-    @Override
-    protected float getStandingEyeHeight(Pose pose, EntityDimensions entityDimensions) {
-        return this.isBaby() ? entityDimensions.height * 0.4F : entityDimensions.height * 0.4F;
     }
 
     public static AttributeSupplier.Builder createMobAttributes() {
@@ -148,10 +143,9 @@ public class PelicanEntity extends Animal {
     }
 
     @Override
-    public int getExperienceReward() {
-        return this.isPelicanJockey() ? 12 : super.getExperienceReward();
+    protected int getBaseExperienceReward() {
+        return this.isPelicanJockey() ? 12 : super.getBaseExperienceReward();
     }
-
 
     @Override
     protected void positionRider(Entity entity, Entity.MoveFunction moveFunction) {
@@ -162,7 +156,7 @@ public class PelicanEntity extends Animal {
         float i = 0.0F;
         double yOffset = -0.18;
 
-        moveFunction.accept(entity, this.getX() + (double)(0.1F * f), this.getY(0.5) + entity.getMyRidingOffset() + yOffset, this.getZ() - (double)(0.1F * g));
+        moveFunction.accept(entity, this.getX() + (double)(0.1F * f), this.getY(0.5) + entity.getVehicleAttachmentPoint(this).y + yOffset, this.getZ() - (double)(0.1F * g));
 
         if (entity instanceof LivingEntity) {
             ((LivingEntity)entity).yBodyRot = this.yBodyRot;

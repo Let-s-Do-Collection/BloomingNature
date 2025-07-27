@@ -12,6 +12,9 @@ Explore a redesigned overworld: new animals, reshaped biomes, livelier landscape
 '''
 logoFile = "pack.png"
 
+[[mixins]]
+config = "bloomingnature-common.mixins.json"
+
 [[dependencies.bloomingnature]]
 modId = "neoforge"
 mandatory = true

@@ -8,6 +8,7 @@ import net.minecraft.resources.ResourceLocation;
 import satisfy.bloomingnature.BloomingNature;
 import satisfy.bloomingnature.client.model.SquirrelModel;
 import satisfy.bloomingnature.entity.SquirrelEntity;
+import satisfy.bloomingnature.util.BloomingNatureIdentifier;
 
 
 @Environment(EnvType.CLIENT)
@@ -19,6 +20,6 @@ public class SquirrelRenderer extends MobRenderer<SquirrelEntity, SquirrelModel>
 
     @Override
     public ResourceLocation getTextureLocation(SquirrelEntity entity) {
-        return new ResourceLocation(BloomingNature.MOD_ID, "textures/entity/squirrel.png");
+        return BloomingNatureIdentifier.of( "textures/entity/squirrel.png");
     }
 }

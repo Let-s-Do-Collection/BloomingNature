@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "redstone",
+  "group": "wooden_pressure_plate",
+  "key": {
+    "#": {
+      "item": "bloomingnature:fir_planks"
+    }
+  },
+  "pattern": [
+    "##"
+  ],
+  "result": {
+    "id": "bloomingnature:fir_pressure_plate"
+  },
+  "show_notification": true
+}

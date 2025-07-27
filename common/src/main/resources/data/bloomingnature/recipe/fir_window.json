@@ -1,0 +1,20 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "GGG",
+        "G#G",
+        "GGG"
+    ],
+    "key": {
+        "#": {
+            "item": "minecraft:glass_pane"
+        },
+        "G": {
+            "item": "bloomingnature:fir_planks"
+        }
+    },
+    "result": {
+        "id": "bloomingnature:fir_window",
+        "count": 16
+    }
+}

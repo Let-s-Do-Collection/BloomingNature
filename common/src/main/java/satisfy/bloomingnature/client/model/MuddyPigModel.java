@@ -16,7 +16,7 @@ import satisfy.bloomingnature.util.BloomingNatureIdentifier;
 
 @Environment(EnvType.CLIENT)
 public class MuddyPigModel<T extends Pig> extends HierarchicalModel<T> {
-    public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(new BloomingNatureIdentifier("muddy_pig"), "main");
+    public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(BloomingNatureIdentifier.of("muddy_pig"), "main");
     private final ModelPart root;
     private final ModelPart body;
     private final ModelPart head;
@@ -71,13 +71,13 @@ public class MuddyPigModel<T extends Pig> extends HierarchicalModel<T> {
     }
 
     @Override
-    public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
-        body.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-        head.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-        leg0.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-        leg1.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-        leg2.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
-        leg3.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+    public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int i, int j, int k) {
+        body.render(poseStack, vertexConsumer, i, j, k);
+        head.render(poseStack, vertexConsumer, i, j, k);
+        leg0.render(poseStack, vertexConsumer, i, j, k);
+        leg1.render(poseStack, vertexConsumer, i, j, k);
+        leg2.render(poseStack, vertexConsumer, i, j, k);
+        leg3.render(poseStack, vertexConsumer, i, j, k);
     }
 
     @Override

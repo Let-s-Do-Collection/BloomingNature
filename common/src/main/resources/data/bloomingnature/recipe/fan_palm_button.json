@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "redstone",
+  "group": "wooden_button",
+  "ingredients": [
+    {
+      "tag": "bloomingnature:fan_palm_planks"
+    }
+  ],
+  "result": {
+    "id": "bloomingnature:fan_palm_button"
+  }
+}

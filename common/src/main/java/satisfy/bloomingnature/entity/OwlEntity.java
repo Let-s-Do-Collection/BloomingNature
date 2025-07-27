@@ -2,6 +2,7 @@ package satisfy.bloomingnature.entity;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
@@ -9,6 +10,7 @@ import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.tags.BlockTags;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
@@ -27,6 +29,8 @@ import net.minecraft.world.entity.ai.navigation.PathNavigation;
 import net.minecraft.world.entity.ai.util.LandRandomPos;
 import net.minecraft.world.entity.animal.ShoulderRidingEntity;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.food.FoodProperties;
+import net.minecraft.world.food.Foods;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
@@ -34,7 +38,7 @@ import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.LeavesBlock;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.pathfinder.BlockPathTypes;
+import net.minecraft.world.level.pathfinder.PathType;
 import net.minecraft.world.phys.Vec3;
 import org.jetbrains.annotations.Nullable;
 import satisfy.bloomingnature.entity.ai.FlyingFollowOwnerGoal;
@@ -53,7 +57,7 @@ public class OwlEntity extends ShoulderRidingEntity
 {
     private static final EntityDataAccessor<Integer> STANDING_STATE = SynchedEntityData.defineId(OwlEntity.class, EntityDataSerializers.INT);
     private static final EntityDataAccessor<Integer> OWL_STATE = SynchedEntityData.defineId(OwlEntity.class, EntityDataSerializers.INT);
-    private static final EntityDimensions FLYING_DIMENSION = new EntityDimensions(0.7F, 1.4F, false);
+    private static final EntityDimensions FLYING_DIMENSION = EntityDimensions.fixed(0.7F, 1.4F);
     private static final Predicate<LivingEntity> IS_OWL_TARGET = e->e.getType().is(TagsRegistry.OWL_TARGETS);
 
     private float leaningPitch;
@@ -63,8 +67,8 @@ public class OwlEntity extends ShoulderRidingEntity
         super(entityType, level);
 
         this.moveControl = new FlyingMoveControl(this, 0, false);
-        this.setPathfindingMalus(BlockPathTypes.DAMAGE_FIRE, -1.0F);
-        this.setPathfindingMalus(BlockPathTypes.DANGER_FIRE, -1.0F);
+        this.setPathfindingMalus(PathType.DAMAGE_FIRE, -1.0F);
+        this.setPathfindingMalus(PathType.DANGER_FIRE, -1.0F);
     }
 
     public static boolean checkSpawnRules(EntityType<OwlEntity> owlEntityEntityType, ServerLevelAccessor level, MobSpawnType mobSpawnType, BlockPos pos, RandomSource randomSource)
@@ -105,7 +109,7 @@ public class OwlEntity extends ShoulderRidingEntity
         UUID uUID = this.getOwnerUUID();
         if (uUID != null) {
             owl.setOwnerUUID(uUID);
-            owl.setTame(true);
+            owl.setTame(true, true);
         }
         return owl;
     }
@@ -148,10 +152,10 @@ public class OwlEntity extends ShoulderRidingEntity
     }
 
     @Override
-    public void setTame(boolean tamed) {
-        super.setTame(tamed);
+    public void setTame(boolean bl, boolean bl2) {
+        super.setTame(bl, bl2);
 
-        if(tamed)
+        if(bl)
         {
             this.getAttribute(Attributes.MAX_HEALTH).setBaseValue(20.0D);
             this.getAttribute(Attributes.ATTACK_DAMAGE).setBaseValue(4.0D);
@@ -162,7 +166,6 @@ public class OwlEntity extends ShoulderRidingEntity
             this.getAttribute(Attributes.MAX_HEALTH).setBaseValue(6.0D);
             this.getAttribute(Attributes.ATTACK_DAMAGE).setBaseValue(2.0D);
         }
-
     }
 
     @Override
@@ -180,7 +183,7 @@ public class OwlEntity extends ShoulderRidingEntity
                         stack.shrink(1);
                     }
 
-                    this.heal((float) item.getFoodProperties().getNutrition());
+                    this.heal((float) item.getDefaultInstance().getOrDefault(DataComponents.FOOD, Foods.APPLE).nutrition());
                 }
                 return InteractionResult.SUCCESS;
             }
@@ -230,9 +233,8 @@ public class OwlEntity extends ShoulderRidingEntity
     }
 
     @Override
-    public boolean isFood(ItemStack stack) {
-        Item item = stack.getItem();
-        return item.isEdible() && item.getFoodProperties().isMeat();
+    public boolean isFood(ItemStack item) {
+        return item.has(DataComponents.FOOD) && item.is(ItemTags.MEAT);
     }
 
     @Override
@@ -250,17 +252,14 @@ public class OwlEntity extends ShoulderRidingEntity
         setStandingState(StandingState.values()[tag.getInt("StandingState")]);
     }
 
-    @Override
-    public EntityDimensions getDimensions(Pose pose) {
-        return getStandingState() == StandingState.STANDING ? super.getDimensions(pose) : FLYING_DIMENSION;
-    }
 
     @Override
-    protected void defineSynchedData() {
-        super.defineSynchedData();
-        getEntityData().define(STANDING_STATE, 0);
-        getEntityData().define(OWL_STATE, 0);
+    protected void defineSynchedData(SynchedEntityData.Builder builder) {
+        super.defineSynchedData(builder);
+        builder.define(STANDING_STATE, 0);
+        builder.define(OWL_STATE, 0);
     }
+
     @Override
     public boolean causeFallDamage(float f, float g, DamageSource damageSource) {
         return false;

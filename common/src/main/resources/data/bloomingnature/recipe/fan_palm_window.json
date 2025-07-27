@@ -1,0 +1,20 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "GGG",
+        "G#G",
+        "GGG"
+    ],
+    "key": {
+        "#": {
+            "item": "minecraft:glass_pane"
+        },
+        "G": {
+            "tag": "bloomingnature:fan_palm_planks"
+        }
+    },
+    "result": {
+        "id": "bloomingnature:fan_palm_window",
+        "count": 16
+    }
+}

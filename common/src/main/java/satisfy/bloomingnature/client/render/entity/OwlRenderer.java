@@ -11,10 +11,11 @@ import net.minecraft.util.Mth;
 import satisfy.bloomingnature.BloomingNature;
 import satisfy.bloomingnature.client.model.OwlModel;
 import satisfy.bloomingnature.entity.OwlEntity;
+import satisfy.bloomingnature.util.BloomingNatureIdentifier;
 
 public class OwlRenderer extends MobRenderer<OwlEntity, OwlModel>
 {
-    private static final ResourceLocation TEXTURE = new ResourceLocation(BloomingNature.MOD_ID, "textures/entity/owl.png");
+    private static final ResourceLocation TEXTURE = BloomingNatureIdentifier.of( "textures/entity/owl.png");
 
     public OwlRenderer(EntityRendererProvider.Context context) {
         super(context, new OwlModel(context.bakeLayer(OwlModel.LAYER_LOCATION)), 0.5F);
@@ -26,29 +27,27 @@ public class OwlRenderer extends MobRenderer<OwlEntity, OwlModel>
     }
 
     @Override
-    protected void renderNameTag(OwlEntity entity, Component component, PoseStack poseStack, MultiBufferSource multiBufferSource, int i)
-    {
+    protected void renderNameTag(OwlEntity entity, Component component, PoseStack poseStack, MultiBufferSource multiBufferSource, int i, float f) {
         poseStack.pushPose();
         if(entity.isBaby())
             poseStack.translate(0, 0.5F, 0);
-
-        super.renderNameTag(entity, component, poseStack, multiBufferSource, i);
-
+        super.renderNameTag(entity, component, poseStack, multiBufferSource, i, f);
         poseStack.popPose();
     }
 
     @Override
-    protected void setupRotations(OwlEntity owl, PoseStack poseStack, float f, float g, float h) {
-        super.setupRotations(owl, poseStack, f, g, h);
-        if(owl.isInSittingPose()) poseStack.translate(0, 0F, 0);
+    protected void setupRotations(OwlEntity livingEntity, PoseStack poseStack, float f, float g, float h, float i) {
+        super.setupRotations(livingEntity, poseStack, f, g, h, i);
+        if(livingEntity.isInSittingPose()) poseStack.translate(0, 0F, 0);
 
-        float i = owl.getSwimAmount(h);
+        float k = livingEntity.getSwimAmount(h);
 
-        poseStack.translate(0, (i / 7F) / 2F, (i / 7F) / 2F);
-        if(i > 0.0F)
+        poseStack.translate(0, (k / 7F) / 2F, (k / 7F) / 2F);
+        if(k > 0.0F)
         {
-            poseStack.mulPose(Axis.XP.rotationDegrees(Mth.lerp(i, 0, -7.0F)));
+            poseStack.mulPose(Axis.XP.rotationDegrees(Mth.lerp(k, 0, -7.0F)));
         }
         poseStack.scale(0.75F, 0.75F, 0.75F);
     }
+
 }

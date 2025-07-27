@@ -60,7 +60,7 @@ public class DeerEntity extends Animal {
     protected void registerGoals() {
         this.goalSelector.addGoal(0, new FloatGoal(this));
         this.goalSelector.addGoal(1, new BreedGoal(this, 1.15D));
-        this.goalSelector.addGoal(2, new TemptGoal(this, 1.2D, Ingredient.of(Items.GRASS), false));
+        this.goalSelector.addGoal(2, new TemptGoal(this, 1.2D, Ingredient.of(Items.SHORT_GRASS), false));
         this.goalSelector.addGoal(3, new FollowParentGoal(this, 1.1D));
         this.goalSelector.addGoal(4, new WaterAvoidingRandomStrollGoal(this, 1.1D));
         this.goalSelector.addGoal(5, new LookAtPlayerGoal(this, Player.class, 3f));
@@ -72,11 +72,6 @@ public class DeerEntity extends Animal {
 
     public static AttributeSupplier.Builder createMobAttributes() {
         return Mob.createMobAttributes().add(Attributes.MOVEMENT_SPEED, 0.27000001192092896).add(Attributes.MAX_HEALTH, 10.0).add(Attributes.ATTACK_DAMAGE, 1.5);
-    }
-
-    @Override
-    protected float getStandingEyeHeight(Pose pose, EntityDimensions entityDimensions) {
-        return this.isBaby() ? entityDimensions.height * 0.4F : entityDimensions.height * 0.5F;
     }
 
     @Override
@@ -104,6 +99,6 @@ public class DeerEntity extends Animal {
 
     @Override
     public boolean isFood(ItemStack itemStack) {
-        return itemStack.is(Items.GRASS);
+        return itemStack.is(Items.SHORT_GRASS);
     }
 }

@@ -11,6 +11,7 @@ import net.minecraft.tags.BiomeTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
+import net.minecraft.world.entity.SpawnPlacementTypes;
 import net.minecraft.world.entity.SpawnPlacements;
 import net.minecraft.world.entity.ambient.AmbientCreature;
 import net.minecraft.world.level.biome.Biome;
@@ -33,7 +34,7 @@ public class BloomingNatureFabric implements ModInitializer {
         BloomingNature.commonInit();
         CompostableRegistry.init();
         addSpawns();
-        addBiomeModification();
+        //addBiomeModification(); - TODO fixme datapacks
     }
 
     void addSpawns() {
@@ -58,29 +59,29 @@ public class BloomingNatureFabric implements ModInitializer {
         addMobSpawn(BiomeTags.IS_JUNGLE, EntityType.FROG, 8, 3, 4);
         addMobSpawn(BiomeTags.IS_SAVANNA, EntityRegistry.TERMITE.get(), 10, 3, 4);
 
-        SpawnPlacements.register(EntityRegistry.SQUIRREL.get(), SpawnPlacements.Type.ON_GROUND,
+        SpawnPlacements.register(EntityRegistry.SQUIRREL.get(), SpawnPlacementTypes.ON_GROUND,
                 Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, AmbientCreature::checkMobSpawnRules);
-        SpawnPlacements.register(EntityRegistry.TERMITE.get(), SpawnPlacements.Type.ON_GROUND,
+        SpawnPlacements.register(EntityRegistry.TERMITE.get(), SpawnPlacementTypes.ON_GROUND,
                 Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, AmbientCreature::checkMobSpawnRules);
-        SpawnPlacements.register(EntityRegistry.OWL.get(), SpawnPlacements.Type.ON_GROUND,
+        SpawnPlacements.register(EntityRegistry.OWL.get(), SpawnPlacementTypes.ON_GROUND,
                 Heightmap.Types.MOTION_BLOCKING, AmbientCreature::checkMobSpawnRules);
-        SpawnPlacements.register(EntityRegistry.TURKEY.get(), SpawnPlacements.Type.ON_GROUND,
+        SpawnPlacements.register(EntityRegistry.TURKEY.get(), SpawnPlacementTypes.ON_GROUND,
                 Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, AmbientCreature::checkMobSpawnRules);
-        SpawnPlacements.register(EntityRegistry.RACCOON.get(), SpawnPlacements.Type.ON_GROUND,
+        SpawnPlacements.register(EntityRegistry.RACCOON.get(), SpawnPlacementTypes.ON_GROUND,
                 Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, AmbientCreature::checkMobSpawnRules);
-        SpawnPlacements.register(EntityRegistry.PELICAN.get(), SpawnPlacements.Type.ON_GROUND,
+        SpawnPlacements.register(EntityRegistry.PELICAN.get(), SpawnPlacementTypes.ON_GROUND,
                 Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, AmbientCreature::checkMobSpawnRules);
-        SpawnPlacements.register(EntityRegistry.MUDDY_PIG.get(), SpawnPlacements.Type.ON_GROUND,
+        SpawnPlacements.register(EntityRegistry.MUDDY_PIG.get(), SpawnPlacementTypes.ON_GROUND,
                 Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, AmbientCreature::checkMobSpawnRules);
-        SpawnPlacements.register(EntityRegistry.DEER.get(), SpawnPlacements.Type.ON_GROUND,
+        SpawnPlacements.register(EntityRegistry.DEER.get(), SpawnPlacementTypes.ON_GROUND,
                 Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, AmbientCreature::checkMobSpawnRules);
-        SpawnPlacements.register(EntityRegistry.MOSSY_SHEEP.get(), SpawnPlacements.Type.ON_GROUND,
+        SpawnPlacements.register(EntityRegistry.MOSSY_SHEEP.get(), SpawnPlacementTypes.ON_GROUND,
                 Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, AmbientCreature::checkMobSpawnRules);
-        SpawnPlacements.register(EntityRegistry.RED_WOLF.get(), SpawnPlacements.Type.ON_GROUND,
+        SpawnPlacements.register(EntityRegistry.RED_WOLF.get(), SpawnPlacementTypes.ON_GROUND,
                 Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, AmbientCreature::checkMobSpawnRules);
-        SpawnPlacements.register(EntityRegistry.BOAR.get(), SpawnPlacements.Type.ON_GROUND,
+        SpawnPlacements.register(EntityRegistry.BOAR.get(), SpawnPlacementTypes.ON_GROUND,
                 Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, AmbientCreature::checkMobSpawnRules);
-        SpawnPlacements.register(EntityRegistry.BISON.get(), SpawnPlacements.Type.ON_GROUND,
+        SpawnPlacements.register(EntityRegistry.BISON.get(), SpawnPlacementTypes.ON_GROUND,
                 Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, AmbientCreature::checkMobSpawnRules);
     }
 
@@ -97,7 +98,7 @@ public class BloomingNatureFabric implements ModInitializer {
     }
 
     void addBiomeModification() {
-        BiomeModification world = BiomeModifications.create(new BloomingNatureIdentifier("world_features"));
+        BiomeModification world = BiomeModifications.create(BloomingNatureIdentifier.of("world_features"));
         Predicate<BiomeSelectionContext> overworld = getBloomingNatureSelector("overworld");
         Predicate<BiomeSelectionContext> plains = getBloomingNatureSelector("plains");
         Predicate<BiomeSelectionContext> aspen = getBloomingNatureSelector("aspen");
@@ -180,7 +181,6 @@ public class BloomingNatureFabric implements ModInitializer {
 
         world.add(ModificationPhase.ADDITIONS, beach, ctx -> ctx.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.FAN_PALM_TREE_KEY));
         world.add(ModificationPhase.ADDITIONS, beach, ctx -> ctx.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.BEACH_FLOWERS_KEY));
-
         world.add(ModificationPhase.ADDITIONS, desert, ctx -> ctx.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.QUICKSAND_KEY));
 
         world.add(ModificationPhase.ADDITIONS, plains, ctx -> ctx.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.PLAINS_BN_TREES));
@@ -361,6 +361,6 @@ public class BloomingNatureFabric implements ModInitializer {
     }
 
     private static Predicate<BiomeSelectionContext> getBloomingNatureSelector(String path) {
-        return BiomeSelectors.tag(TagKey.create(Registries.BIOME, new BloomingNatureIdentifier(path)));
+        return BiomeSelectors.tag(TagKey.create(Registries.BIOME, BloomingNatureIdentifier.of(path)));
     }
 }

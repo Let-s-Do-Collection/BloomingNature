@@ -10,7 +10,7 @@ import net.minecraft.world.entity.Entity;
 import satisfy.bloomingnature.util.BloomingNatureIdentifier;
 
 public class TermiteModel<T extends Entity> extends HierarchicalModel<T> {
-	public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(new BloomingNatureIdentifier("termite"), "main");
+	public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(BloomingNatureIdentifier.of("termite"), "main");
 	private final ModelPart body;
 	private final ModelPart head;
 

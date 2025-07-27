@@ -14,7 +14,7 @@ import satisfy.bloomingnature.util.BloomingNatureIdentifier;
 
 @Environment(value = EnvType.CLIENT)
 public class MuddyPigRenderer extends MobRenderer<MuddyPigEntity, MuddyPigModel<MuddyPigEntity>> {
-    private static final ResourceLocation TEXTURE = new BloomingNatureIdentifier("textures/entity/muddy_pig.png");
+    private static final ResourceLocation TEXTURE = BloomingNatureIdentifier.of("textures/entity/muddy_pig.png");
 
     public MuddyPigRenderer(EntityRendererProvider.Context context) {
         super(context, new MuddyPigModel(context.bakeLayer(MuddyPigModel.LAYER_LOCATION)), 0.7f);

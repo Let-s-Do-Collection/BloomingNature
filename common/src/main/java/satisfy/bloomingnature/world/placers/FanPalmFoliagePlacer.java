@@ -1,6 +1,7 @@
 package satisfy.bloomingnature.world.placers;
 
 import com.mojang.serialization.Codec;
+import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -16,7 +17,7 @@ import satisfy.bloomingnature.registry.PlacerTypesRegistry;
 public class FanPalmFoliagePlacer extends FoliagePlacer {
     private final int leafLength;
     public int foliageHeight(RandomSource p_225719_, int p_225720_, TreeConfiguration p_225721_) {return 5;}
-    public static final Codec<FanPalmFoliagePlacer> CODEC = RecordCodecBuilder.create(instance ->
+    public static final MapCodec<FanPalmFoliagePlacer> CODEC = RecordCodecBuilder.mapCodec(instance ->
             foliagePlacerParts(instance).and(
                     Codec.intRange(0, 16).fieldOf("leaf_length").forGetter(placer -> placer.leafLength)
             ).apply(instance, FanPalmFoliagePlacer::new)

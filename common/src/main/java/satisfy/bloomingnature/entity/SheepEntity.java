@@ -3,6 +3,7 @@ package satisfy.bloomingnature.entity;
 import com.google.common.collect.Maps;
 import java.util.Map;
 import net.minecraft.Util;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
@@ -20,14 +21,15 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.storage.loot.BuiltInLootTables;
+import net.minecraft.world.level.storage.loot.LootTable;
 import satisfy.bloomingnature.registry.EntityRegistry;
 
 public class SheepEntity extends Sheep {
     private final Block woolBlock;
 
-    private final ResourceLocation lootTable;
+    private final ResourceKey<LootTable> lootTable;
 
-    public SheepEntity(EntityType<? extends Sheep> entityType, Level world, Block woolBlock, ResourceLocation lootTable) {
+    public SheepEntity(EntityType<? extends Sheep> entityType, Level world, Block woolBlock, ResourceKey<LootTable> lootTable) {
         super(entityType, world);
         this.woolBlock = woolBlock;
         this.lootTable = lootTable;
@@ -78,7 +80,7 @@ public class SheepEntity extends Sheep {
     }
 
     @Override
-    public ResourceLocation getDefaultLootTable() {
+    public ResourceKey<LootTable> getDefaultLootTable() {
         if (this.isSheared()) {
             return this.getType().getDefaultLootTable();
         }
