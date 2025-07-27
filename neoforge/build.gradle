@@ -1,47 +1,44 @@
 plugins {
-    id "com.github.johnrengelman.shadow" version "7.1.2"
+    id "com.github.johnrengelman.shadow" version "8.0.0"
 }
 
 architectury {
     platformSetupLoomIde()
-    forge()
+    neoForge()
 }
 
 loom {
     accessWidenerPath = project(":common").loom.accessWidenerPath
 
-    forge {
-        convertAccessWideners = true
-        extraAccessWideners.add loom.accessWidenerPath.get().asFile.name
+    neoForge {
     }
 }
 
 
-def jarFileName = 'letsdo-bloomingnature-forge'
+def jarFileName = 'letsdo-bloomingnature-neoforge'
 
 archivesBaseName = jarFileName
-
 
 configurations {
     common
     shadowCommon
     compileClasspath.extendsFrom common
     runtimeClasspath.extendsFrom common
-    developmentForge.extendsFrom common
+    developmentNeoForge.extendsFrom common
 }
 
 dependencies {
-    forge "net.minecraftforge:forge:${rootProject.forge_version}"
-    modApi "dev.architectury:architectury-forge:${rootProject.architectury_version}"
-    //modImplementation "maven.modrinth:do-api:${project.doapi_version}-forge"
+    neoForge "net.neoforged:neoforge:${rootProject.forge_version}"
+    modApi "dev.architectury:architectury-neoforge:${rootProject.architectury_version}"
+    modImplementation "maven.modrinth:do-api:${project.doapi_version}-neoforge"
     common(project(path: ":common", configuration: "namedElements")) { transitive false }
-    shadowCommon(project(path: ":common", configuration: "transformProductionForge")) { transitive = false }
+    shadowCommon(project(path: ":common", configuration: "transformProductionNeoForge")) { transitive false }
 }
 
 processResources {
     inputs.property "version", project.version
 
-    filesMatching("META-INF/mods.toml") {
+    filesMatching("META-INF/neoforge.neoforge.mods.toml") {
         expand "version": project.version
     }
 }
@@ -57,6 +54,7 @@ shadowJar {
 remapJar {
     input.set shadowJar.archiveFile
     dependsOn shadowJar
+	atAccessWideners.add(loom.accessWidenerPath.get().asFile.getName())
 }
 
 sourcesJar {

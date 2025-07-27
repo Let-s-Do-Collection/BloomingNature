@@ -27,7 +27,7 @@
   },
   "depends": {
     "fabric": "*",
-    "minecraft": ">=1.20",
+    "minecraft": ">=1.21.1",
     "architectury": ">=9.0.8",
     "doapi": ">=1.2.10"
   }
