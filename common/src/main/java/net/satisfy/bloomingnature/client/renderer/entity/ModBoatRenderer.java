@@ -39,8 +39,8 @@ public class ModBoatRenderer<T extends ModBoatEntity> extends EntityRenderer<T> 
 
     private ListModel<Boat> createBoatModel(EntityRendererProvider.Context context, ModBoatEntity.Type type, boolean hasChest) {
         ModelLayerLocation modelLayerLocation = hasChest ?
-                new ModelLayerLocation(new ResourceLocation(BloomingNature.MOD_ID, type.getChestModelLocation()), "main")
-                : new ModelLayerLocation(new ResourceLocation(BloomingNature.MOD_ID, type.getModelLocation()), "main");
+                new ModelLayerLocation(ResourceLocation.fromNamespaceAndPath(BloomingNature.MOD_ID, type.getChestModelLocation()), "main")
+                : new ModelLayerLocation(ResourceLocation.fromNamespaceAndPath(BloomingNature.MOD_ID, type.getModelLocation()), "main");
         ModelPart modelPart = context.bakeLayer(modelLayerLocation);
         return hasChest ? new ChestBoatModel(modelPart) : new BoatModel(modelPart);
     }
@@ -70,7 +70,7 @@ public class ModBoatRenderer<T extends ModBoatEntity> extends EntityRenderer<T> 
         matrixStack.mulPose(Axis.YP.rotationDegrees(90.0f));
         listModel.setupAnim(entity, partialTicks, 0.0f, -0.1f, 0.0f, 0.0f);
         VertexConsumer vertexConsumer = buffer.getBuffer(listModel.renderType(resourceLocation));
-        listModel.renderToBuffer(matrixStack, vertexConsumer, packedLight, OverlayTexture.NO_OVERLAY, 1.0f, 1.0f, 1.0f, 1.0f);
+        listModel.renderToBuffer(matrixStack, vertexConsumer, packedLight, OverlayTexture.NO_OVERLAY, 0xFFFFFF);
         if (!entity.isUnderWater()) {
             VertexConsumer vertexConsumer2 = buffer.getBuffer(RenderType.waterMask());
             if (listModel instanceof WaterPatchModel waterPatchModel) {

@@ -1,6 +1,6 @@
 package net.satisfy.bloomingnature.core.world.placers;
 
-import com.mojang.serialization.Codec;
+import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -15,13 +15,13 @@ import net.satisfy.bloomingnature.core.registry.PlacerTypesRegistry;
 import org.jetbrains.annotations.NotNull;
 
 public class RodBirchFoliagePlacer extends FoliagePlacer {
-    public static final Codec<RodBirchFoliagePlacer> CODEC = RecordCodecBuilder.create(
-            (instance) -> foliagePlacerParts(instance)
-                    .and(
-                            Codec.intRange(0, 16).fieldOf("height").forGetter((cdc) -> cdc.height)
-                    ).and(
-                            Codec.FLOAT.fieldOf("offset_chance").forGetter((cdc) -> cdc.offsetChance)
-                    ).apply(instance, RodBirchFoliagePlacer::new));
+    public static final MapCodec<RodBirchFoliagePlacer> CODEC = RecordCodecBuilder.mapCodec(instance ->
+            foliagePlacerParts(instance)
+                    .and(com.mojang.serialization.Codec.intRange(0, 16).fieldOf("height").forGetter(cdc -> cdc.height))
+                    .and(com.mojang.serialization.Codec.FLOAT.fieldOf("offset_chance").forGetter(cdc -> cdc.offsetChance))
+                    .apply(instance, RodBirchFoliagePlacer::new)
+    );
+
     protected final int height;
     protected final float offsetChance;
 

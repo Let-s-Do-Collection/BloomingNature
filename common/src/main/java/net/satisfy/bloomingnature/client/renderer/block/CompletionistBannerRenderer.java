@@ -22,7 +22,7 @@ import net.satisfy.bloomingnature.core.block.CompletionistWallBannerBlock;
 import net.satisfy.bloomingnature.core.block.entity.CompletionistBannerEntity;
 
 public class CompletionistBannerRenderer implements BlockEntityRenderer<CompletionistBannerEntity> {
-    public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation(BloomingNature.MOD_ID, "banner"), "main");
+    public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(ResourceLocation.fromNamespaceAndPath(BloomingNature.MOD_ID, "banner"), "main");
 
     public static final String FLAG = "flag";
     private static final String POLE = "pole";

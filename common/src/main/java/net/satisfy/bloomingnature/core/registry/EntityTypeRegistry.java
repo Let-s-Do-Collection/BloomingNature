@@ -24,8 +24,8 @@ public class EntityTypeRegistry {
     public static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITY_TYPES = DeferredRegister.create(BloomingNature.MOD_ID, Registries.BLOCK_ENTITY_TYPE);
     private static final DeferredRegister<EntityType<?>> ENTITY_TYPES = DeferredRegister.create(BloomingNature.MOD_ID, Registries.ENTITY_TYPE);
 
-    public static final RegistrySupplier<EntityType<WanderingGardenerEntity>> WANDERING_GARDENER = registerEntity("wandering_gardener", () -> EntityType.Builder.of(WanderingGardenerEntity::new, MobCategory.CREATURE).sized(0.6f, 1.95f).clientTrackingRange(10).build(new BloomingNatureIdentifier("wandering_gardener").toString()));
-    public static final RegistrySupplier<EntityType<TermiteEntity>> TERMITE = registerEntity("termite", () -> EntityType.Builder.of(TermiteEntity::new, MobCategory.MONSTER).build(new BloomingNatureIdentifier("termite").toString()));
+    public static final RegistrySupplier<EntityType<WanderingGardenerEntity>> WANDERING_GARDENER = registerEntityType("wandering_gardener", () -> EntityType.Builder.of(WanderingGardenerEntity::new, MobCategory.CREATURE).sized(0.6f, 1.95f).clientTrackingRange(10).build(BloomingNatureIdentifier.of("wandering_gardener").toString()));
+    public static final RegistrySupplier<EntityType<TermiteEntity>> TERMITE = registerEntityType("termite", () -> EntityType.Builder.of(TermiteEntity::new, MobCategory.MONSTER).build(BloomingNatureIdentifier.of("termite").toString()));
     public static final Supplier<EntityType<ModBoatEntity>> MOD_BOAT = PlatformHelper.registerBoatType("mod_boat", ModBoatEntity::new, MobCategory.MISC, 1.375F, 0.5625F, 10);
     public static final Supplier<EntityType<ModChestBoatEntity>> MOD_CHEST_BOAT = PlatformHelper.registerBoatType("mod_chest_boat", ModChestBoatEntity::new, MobCategory.MISC, 1.375F, 0.5625F, 10);
 
@@ -61,12 +61,12 @@ public class EntityTypeRegistry {
             ObjectRegistry.CACTUS_HANGING_SIGN.get(), ObjectRegistry.CACTUS_WALL_HANGING_SIGN.get()
     ).build(null));
 
-    public static <T extends EntityType<?>> RegistrySupplier<T> registerEntity(final String path, final Supplier<T> type) {
-        return ENTITY_TYPES.register(new BloomingNatureIdentifier(path), type);
+    private static <T extends EntityType<?>> RegistrySupplier<T> registerEntityType(final String path, final Supplier<T> type) {
+        return ENTITY_TYPES.register(BloomingNatureIdentifier.of(path), type);
     }
 
     private static <T extends BlockEntityType<?>> RegistrySupplier<T> registerBlockEntity(final String path, final Supplier<T> type) {
-        return BLOCK_ENTITY_TYPES.register(new BloomingNatureIdentifier(path), type);
+        return BLOCK_ENTITY_TYPES.register(BloomingNatureIdentifier.of(path), type);
     }
 
     static void registerAttributes() {

@@ -23,7 +23,7 @@ import java.util.function.Predicate;
 
 public class BloomingNatureFabric implements ModInitializer {
     private static Predicate<BiomeSelectionContext> getBloomingNatureSelector(String path) {
-        return BiomeSelectors.tag(TagKey.create(Registries.BIOME, new BloomingNatureIdentifier(path)));
+        return BiomeSelectors.tag(TagKey.create(Registries.BIOME, BloomingNatureIdentifier.of(path)));
     }
 
     @Override
@@ -36,7 +36,7 @@ public class BloomingNatureFabric implements ModInitializer {
 
         Optional<ModContainer> modContainer = FabricLoader.getInstance().getModContainer(BloomingNature.MOD_ID);
         modContainer.ifPresent(container -> ResourceManagerHelper.registerBuiltinResourcePack(
-                new ResourceLocation(BloomingNature.MOD_ID, "bushy_leaves"),
+                ResourceLocation.fromNamespaceAndPath(BloomingNature.MOD_ID, "bushy_leaves"),
                 container,
                 ResourcePackActivationType.NORMAL
         ));
@@ -44,7 +44,7 @@ public class BloomingNatureFabric implements ModInitializer {
 
     void addBiomeModification() {
         ConfigFabric config = AutoConfig.getConfigHolder(ConfigFabric.class).getConfig();
-        BiomeModification world = BiomeModifications.create(new BloomingNatureIdentifier("world_features"));
+        BiomeModification world = BiomeModifications.create(BloomingNatureIdentifier.of("world_features"));
         Predicate<BiomeSelectionContext> overworld = getBloomingNatureSelector("overworld");
         Predicate<BiomeSelectionContext> plains = getBloomingNatureSelector("plains");
         Predicate<BiomeSelectionContext> river = getBloomingNatureSelector("river");

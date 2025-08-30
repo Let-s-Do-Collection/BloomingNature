@@ -23,7 +23,6 @@ import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.NotNull;
 
-@SuppressWarnings("deprecation")
 public class SinkInBlock extends Block {
     private static final VoxelShape FALLING_COLLISION_SHAPE = Shapes.box(0.0, 0.0, 0.0, 1.0, 0.8999999761581421, 1.0);
 
@@ -40,7 +39,7 @@ public class SinkInBlock extends Block {
     }
 
     public void entityInside(BlockState blockState, Level level, BlockPos blockPos, Entity entity) {
-        if (!(entity instanceof LivingEntity) || entity.getFeetBlockState().is(this)) {
+        if (!(entity instanceof LivingEntity) || level.getBlockState(BlockPos.containing(entity.getX(), entity.getY() - 0.2, entity.getZ())).is(this)) {
             entity.makeStuckInBlock(blockState, new Vec3(0.8999999761581421, 1.5, 0.8999999761581421));
             if (level.isClientSide) {
                 RandomSource randomSource = level.getRandom();
@@ -89,8 +88,8 @@ public class SinkInBlock extends Block {
         return Shapes.empty();
     }
 
-
-    public boolean isPathfindable(BlockState blockState, BlockGetter blockGetter, BlockPos blockPos, PathComputationType pathComputationType) {
+    @Override
+    public boolean isPathfindable(BlockState state, PathComputationType type) {
         return true;
     }
 }

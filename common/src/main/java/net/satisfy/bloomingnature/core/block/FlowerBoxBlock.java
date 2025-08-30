@@ -7,6 +7,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
+import net.minecraft.world.ItemInteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.BlockGetter;
@@ -46,33 +47,43 @@ public class FlowerBoxBlock extends StorageBlock {
         super(settings);
     }
 
-    @SuppressWarnings("deprecation")
+    @Override
     public @NotNull VoxelShape getShape(BlockState state, BlockGetter world, BlockPos pos, CollisionContext context) {
         return SHAPE.get(state.getValue(FACING));
     }
 
-    public @NotNull InteractionResult use(BlockState state, Level world, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
-        return player.isShiftKeyDown() ? InteractionResult.PASS : super.use(state, world, pos, player, hand, hit);
+    @Override
+    protected @NotNull ItemInteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
+        return player.isShiftKeyDown() ? ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION : super.useItemOn(stack, state, level, pos, player, hand, hit);
     }
 
+    @Override
+    protected @NotNull InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hit) {
+        return player.isShiftKeyDown() ? InteractionResult.PASS : super.useWithoutItem(state, level, pos, player, hit);
+    }
+
+    @Override
     public int size() {
         return 2;
     }
 
+    @Override
     public ResourceLocation type() {
         return StorageTypeRegistry.FLOWER_BOX;
     }
 
+    @Override
     public Direction[] unAllowedDirections() {
         return new Direction[]{Direction.DOWN};
     }
 
+    @Override
     public boolean canInsertStack(ItemStack stack) {
         return stack.is(ItemTags.SMALL_FLOWERS);
     }
 
+    @Override
     public int getSection(Float x, Float y) {
-        return (double)x < 0.5 ? 0 : 1;
+        return x < 0.5 ? 0 : 1;
     }
 }
-

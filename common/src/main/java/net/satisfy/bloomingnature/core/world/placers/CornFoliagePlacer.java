@@ -1,7 +1,7 @@
 package net.satisfy.bloomingnature.core.world.placers;
 
 import com.mojang.datafixers.Products;
-import com.mojang.serialization.Codec;
+import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.util.RandomSource;
 import net.minecraft.util.valueproviders.IntProvider;
@@ -13,11 +13,16 @@ import net.satisfy.bloomingnature.core.registry.PlacerTypesRegistry;
 import org.jetbrains.annotations.NotNull;
 
 public class CornFoliagePlacer extends FoliagePlacer {
-    public static final Codec<CornFoliagePlacer> CODEC = RecordCodecBuilder.create((instance) -> createCodec(instance).apply(instance, CornFoliagePlacer::new));
+    public static final MapCodec<CornFoliagePlacer> CODEC = RecordCodecBuilder.mapCodec(instance ->
+            createCodec(instance).apply(instance, CornFoliagePlacer::new)
+    );
+
     protected final int height;
 
     protected static <P extends CornFoliagePlacer> Products.P3<RecordCodecBuilder.Mu<P>, IntProvider, IntProvider, Integer> createCodec(RecordCodecBuilder.Instance<P> builder) {
-        return foliagePlacerParts(builder).and(Codec.intRange(0, 16).fieldOf("height").forGetter((placer) -> placer.height));
+        return foliagePlacerParts(builder).and(
+                com.mojang.serialization.Codec.intRange(0, 16).fieldOf("height").forGetter(placer -> placer.height)
+        );
     }
 
     public CornFoliagePlacer(IntProvider radius, IntProvider offset, int height) {

@@ -1,5 +1,6 @@
 package net.satisfy.bloomingnature.core.block;
 
+import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
@@ -11,6 +12,7 @@ import net.minecraft.world.level.block.BushBlock;
 import net.minecraft.world.level.block.DoublePlantBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.function.Supplier;
 
@@ -23,7 +25,7 @@ public class BonemealableTallGrassBlock extends BushBlock implements Bonemealabl
     }
 
     @Override
-    public boolean isValidBonemealTarget(LevelReader levelReader, BlockPos blockPos, BlockState blockState, boolean bl) {
+    public boolean isValidBonemealTarget(LevelReader levelReader, BlockPos blockPos, BlockState blockState) {
         return true;
     }
 
@@ -36,9 +38,19 @@ public class BonemealableTallGrassBlock extends BushBlock implements Bonemealabl
     public void performBonemeal(ServerLevel serverLevel, RandomSource randomSource, BlockPos blockPos, BlockState blockState) {
         Block tallGrass = tallVariant.get();
         if (tallGrass instanceof DoublePlantBlock doublePlantBlock) {
-            if (doublePlantBlock.defaultBlockState().canSurvive(serverLevel, blockPos) && serverLevel.isEmptyBlock(blockPos.above())) {
+            if (doublePlantBlock.defaultBlockState().canSurvive(serverLevel, blockPos)
+                    && serverLevel.isEmptyBlock(blockPos.above())) {
                 DoublePlantBlock.placeAt(serverLevel, doublePlantBlock.defaultBlockState(), blockPos, 2);
             }
         }
     }
+
+    @Override
+    protected @NotNull MapCodec<? extends BushBlock> codec() {
+        return CODEC;
+    }
+
+    public static final MapCodec<BonemealableTallGrassBlock> CODEC = simpleCodec(
+            props -> new BonemealableTallGrassBlock(props, () -> null)
+    );
 }

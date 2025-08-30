@@ -1,6 +1,6 @@
 package net.satisfy.bloomingnature.core.world.placers;
 
-import com.mojang.serialization.Codec;
+import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.core.BlockPos;
 import net.minecraft.util.RandomSource;
@@ -13,9 +13,12 @@ import net.satisfy.bloomingnature.core.registry.PlacerTypesRegistry;
 import org.jetbrains.annotations.NotNull;
 
 public class AspenFoliagePlacer extends FoliagePlacer {
-    public static final Codec<AspenFoliagePlacer> CODEC = RecordCodecBuilder.create((instance) -> foliagePlacerParts(instance)
-            .and(IntProvider.codec(0, 24).fieldOf("trunk_height").forGetter((placer) -> placer.trunkHeight))
-            .apply(instance, AspenFoliagePlacer::new));
+    public static final MapCodec<AspenFoliagePlacer> CODEC = RecordCodecBuilder.mapCodec(instance ->
+            foliagePlacerParts(instance)
+                    .and(IntProvider.codec(0, 24).fieldOf("trunk_height").forGetter(placer -> placer.trunkHeight))
+                    .apply(instance, AspenFoliagePlacer::new)
+    );
+
     private final IntProvider trunkHeight;
 
     public AspenFoliagePlacer(IntProvider radius, IntProvider offset, IntProvider height) {

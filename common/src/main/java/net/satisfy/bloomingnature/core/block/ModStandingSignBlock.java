@@ -9,12 +9,12 @@ import net.satisfy.bloomingnature.core.block.entity.ModSignBlockEntity;
 import org.jetbrains.annotations.NotNull;
 
 public class ModStandingSignBlock extends StandingSignBlock {
-    public ModStandingSignBlock(Properties pProperties, WoodType pType) {
-        super(pProperties, pType);
+    public ModStandingSignBlock(WoodType type, Properties properties) {
+        super(type, properties);
     }
 
     @Override
-    public @NotNull BlockEntity newBlockEntity(BlockPos pPos, BlockState pState) {
-        return new ModSignBlockEntity(pPos, pState);
+    public @NotNull BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
+        return new ModSignBlockEntity(pos, state);
     }
 }

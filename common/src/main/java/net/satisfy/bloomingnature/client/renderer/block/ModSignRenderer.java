@@ -44,6 +44,7 @@ import java.util.Map;
 import java.util.Objects;
 
 @Environment(EnvType.CLIENT)
+@SuppressWarnings("all")
 public class ModSignRenderer <T extends ModSignBlockEntity> implements BlockEntityRenderer<T> {
     private static final String STICK = "stick";
     private static final int BLACK_TEXT_OUTLINE_COLOR = -988212;
@@ -54,11 +55,7 @@ public class ModSignRenderer <T extends ModSignBlockEntity> implements BlockEnti
     private final Font font;
 
     public ModSignRenderer(BlockEntityRendererProvider.Context context) {
-        this.signModels = WoodType.values().collect(ImmutableMap.toImmutableMap((woodType) -> {
-            return woodType;
-        }, (woodType) -> {
-            return new SignModel(context.bakeLayer(ModelLayers.createSignModelName(woodType)));
-        }));
+        this.signModels = WoodType.values().collect(ImmutableMap.toImmutableMap((woodType) -> woodType, (woodType) -> new SignModel(context.bakeLayer(ModelLayers.createSignModelName(woodType)))));
         this.font = context.getFont();
     }
 
@@ -217,8 +214,9 @@ public class ModSignRenderer <T extends ModSignBlockEntity> implements BlockEnti
             this.stick = modelPart.getChild("stick");
         }
 
-        public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int i, int j, float f, float g, float h, float k) {
-            this.root.render(poseStack, vertexConsumer, i, j, f, g, h, k);
+        @Override
+        public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int light, int overlay, int color) {
+            this.root.render(poseStack, vertexConsumer, light, overlay, color);
         }
     }
 }

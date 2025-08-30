@@ -8,8 +8,8 @@ import java.util.Set;
 
 
 public class StorageTypeRegistry {
-    public static final ResourceLocation FLOWER_POT_BIG = new BloomingNatureIdentifier("flower_pot_big");
-    public static final ResourceLocation FLOWER_BOX = new BloomingNatureIdentifier("flower_box");
+    public static final ResourceLocation FLOWER_POT_BIG = BloomingNatureIdentifier.of("flower_pot_big");
+    public static final ResourceLocation FLOWER_BOX = BloomingNatureIdentifier.of("flower_box");
 
     public static Set<Block> registerBlocks(Set<Block> blocks) {
         blocks.add(ObjectRegistry.FLOWER_POT_BIG.get());

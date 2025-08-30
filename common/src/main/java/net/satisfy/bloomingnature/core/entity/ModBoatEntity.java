@@ -99,9 +99,9 @@ public class ModBoatEntity extends Boat {
 
         public ResourceLocation getTexture(boolean hasChest) {
             if (hasChest) {
-                return BloomingNatureIdentifier.identifier("textures/entity/chest_boat/" + name + ".png");
+                return BloomingNatureIdentifier.of("textures/entity/chest_boat/" + name + ".png");
             }
-            return BloomingNatureIdentifier.identifier("textures/entity/boat/" + name + ".png");
+            return BloomingNatureIdentifier.of("textures/entity/boat/" + name + ".png");
         }
 
         public String getModelLocation() {

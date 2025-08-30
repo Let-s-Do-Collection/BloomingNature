@@ -18,7 +18,7 @@ public class ForestMossBlock extends MudBlock implements BonemealableBlock {
         super(properties);
     }
 
-    public boolean isValidBonemealTarget(LevelReader levelReader, BlockPos blockPos, BlockState blockState, boolean bl) {
+    public boolean isValidBonemealTarget(LevelReader levelReader, BlockPos blockPos, BlockState blockState) {
         return levelReader.getBlockState(blockPos.above()).isAir();
     }
 
@@ -50,7 +50,6 @@ public class ForestMossBlock extends MudBlock implements BonemealableBlock {
     }
 
     @Override
-    @SuppressWarnings("deprecation")
     public void entityInside(BlockState state, Level level, BlockPos pos, Entity entity) {
         if (!level.isClientSide && level.getGameTime() % 240 == 0) {
             if (entity instanceof LivingEntity livingEntity) {

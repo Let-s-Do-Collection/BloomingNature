@@ -48,7 +48,6 @@ public class FlowerPotBigBlock extends StorageBlock {
         return 0;
     }
 
-    @SuppressWarnings("deprecation")
     public @NotNull VoxelShape getShape(BlockState state, BlockGetter world, BlockPos pos, CollisionContext context) {
         return SHAPE;
     }
