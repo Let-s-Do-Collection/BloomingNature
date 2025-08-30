@@ -11,6 +11,7 @@ import net.minecraft.world.level.levelgen.feature.configurations.TreeConfigurati
 import net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacer;
 import net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacerType;
 import net.satisfy.bloomingnature.core.registry.PlacerTypesRegistry;
+import org.jetbrains.annotations.NotNull;
 
 public class FanPalmFoliagePlacer extends FoliagePlacer {
     public static final Codec<FanPalmFoliagePlacer> CODEC = RecordCodecBuilder.create(instance ->
@@ -26,7 +27,7 @@ public class FanPalmFoliagePlacer extends FoliagePlacer {
     }
 
     @Override
-    protected FoliagePlacerType<?> type() {
+    protected @NotNull FoliagePlacerType<?> type() {
         return PlacerTypesRegistry.FAN_PALM_FOLIAGE_PLACER.get();
     }
 

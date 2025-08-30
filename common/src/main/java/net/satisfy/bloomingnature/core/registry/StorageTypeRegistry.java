@@ -4,7 +4,6 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
 import net.satisfy.bloomingnature.core.util.BloomingNatureIdentifier;
 
-import java.util.List;
 import java.util.Set;
 
 

@@ -1,8 +1,10 @@
-[1.0.12] - 2025.02.08
+[1.1.0]
 
-**Added**
+**Welcome to 1.21.1**
 
-**Changed**
+***
+
+[1.0.12]
 
 **Fixed**
 * FirLeaves not decaying properly.

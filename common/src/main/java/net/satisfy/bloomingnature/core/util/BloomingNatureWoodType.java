@@ -1,6 +1,5 @@
 package net.satisfy.bloomingnature.core.util;
 
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.state.properties.BlockSetType;
 import net.minecraft.world.level.block.state.properties.WoodType;
 import net.satisfy.bloomingnature.BloomingNature;
@@ -18,6 +17,6 @@ public class BloomingNatureWoodType {
     public static final WoodType CACTUS = register("cactus");
 
     private static WoodType register(String name) {
-        return WoodType.register(new WoodType(new ResourceLocation(BloomingNature.MOD_ID, name).toString(), BlockSetType.OAK));
+        return WoodType.register(new WoodType(BloomingNature.MOD_ID + ":" + name, BlockSetType.OAK));
     }
 }

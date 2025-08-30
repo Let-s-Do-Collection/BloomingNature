@@ -1,0 +1,11 @@
+{
+  "type": "neoforge:add_features",
+  "biomes": "minecraft:river",
+  "features": [
+    "bloomingnature:river_trees",
+    "bloomingnature:river_grass_patch",
+    "bloomingnature:river_stone_mound"
+  ],
+  "step": "vegetal_decoration"
+}
+

@@ -1,0 +1,18 @@
+{
+  "type": "neoforge:add_features",
+  "biomes": "minecraft:desert",
+  "features": [
+    "bloomingnature:desert_cactus_vegetation",
+    "bloomingnature:desert_dead_bushes",
+    "bloomingnature:desert_small_cactus",
+    "bloomingnature:desert_slate_boulder",
+    "bloomingnature:desert_slate_slabs",
+    "bloomingnature:desert_ore_slate",
+    "bloomingnature:desert_sand_layer",
+    "bloomingnature:desert_sand_layer2",
+    "bloomingnature:desert_sand_layer3",
+    "bloomingnature:beach_fan_palm"
+  ],
+  "step": "vegetal_decoration"
+}
+

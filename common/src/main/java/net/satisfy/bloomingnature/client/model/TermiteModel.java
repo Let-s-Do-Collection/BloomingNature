@@ -8,6 +8,7 @@ import net.minecraft.client.model.geom.builders.*;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.Entity;
 import net.satisfy.bloomingnature.core.util.BloomingNatureIdentifier;
+import org.jetbrains.annotations.NotNull;
 
 public class TermiteModel<T extends Entity> extends HierarchicalModel<T> {
     public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(new BloomingNatureIdentifier("termite"), "main");
@@ -33,7 +34,7 @@ public class TermiteModel<T extends Entity> extends HierarchicalModel<T> {
     }
 
     @Override
-    public ModelPart root() {
+    public @NotNull ModelPart root() {
         return body;
     }
 

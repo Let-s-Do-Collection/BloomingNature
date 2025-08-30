@@ -210,10 +210,10 @@ public class PlacedFeatures {
     public static final ResourceKey<PlacedFeature> BEACH_SAND_LAYER3    = registerKey("beach_sand_layer3");
 
     public static ResourceKey<PlacedFeature> registerKey(String name) {
-        return ResourceKey.create(Registries.PLACED_FEATURE, new BloomingNatureIdentifier(name));
+        return ResourceKey.create(Registries.PLACED_FEATURE, BloomingNatureIdentifier.of(name));
     }
 
     public static ResourceKey<PlacedFeature> registerMCKey(String name) {
-        return ResourceKey.create(Registries.PLACED_FEATURE, new ResourceLocation("minecraft", name));
+        return ResourceKey.create(Registries.PLACED_FEATURE,ResourceLocation.withDefaultNamespace(name));
     }
 }

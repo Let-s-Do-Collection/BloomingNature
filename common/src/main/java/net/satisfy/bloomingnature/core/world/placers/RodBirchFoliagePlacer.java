@@ -12,6 +12,7 @@ import net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacer;
 import net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacerType;
 import net.minecraft.world.level.levelgen.structure.BoundingBox;
 import net.satisfy.bloomingnature.core.registry.PlacerTypesRegistry;
+import org.jetbrains.annotations.NotNull;
 
 public class RodBirchFoliagePlacer extends FoliagePlacer {
     public static final Codec<RodBirchFoliagePlacer> CODEC = RecordCodecBuilder.create(
@@ -31,7 +32,7 @@ public class RodBirchFoliagePlacer extends FoliagePlacer {
     }
 
     @Override
-    protected FoliagePlacerType<?> type() {
+    protected @NotNull FoliagePlacerType<?> type() {
         return PlacerTypesRegistry.ROD_BIRCH_FOLIAGE_PLACER.get();
     }
 

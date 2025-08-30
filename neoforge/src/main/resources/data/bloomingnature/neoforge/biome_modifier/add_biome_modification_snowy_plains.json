@@ -1,0 +1,9 @@
+{
+  "type": "neoforge:add_features",
+  "biomes": "minecraft:snowy_plains",
+  "features": [
+    "bloomingnature:snowy_plains_trees"
+  ],
+  "step": "vegetal_decoration"
+}
+

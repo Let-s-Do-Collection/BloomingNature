@@ -15,11 +15,12 @@ public class PlacerTypesRegistry {
 
     public static final RegistrySupplier<FoliagePlacerType<AspenFoliagePlacer>> ASPEN_FOLIAGE_PLACER = FOLIAGE_PLACER_TYPES.register("aspen_foliage_placer", () -> new FoliagePlacerType<>(AspenFoliagePlacer.CODEC));
     public static final RegistrySupplier<FoliagePlacerType<CornFoliagePlacer>> CORN_FOLIAGE_PLACER = FOLIAGE_PLACER_TYPES.register("corn_foliage_placer", () -> new FoliagePlacerType<>(CornFoliagePlacer.CODEC));
-    public static final RegistrySupplier<FoliagePlacerType<LarchFoliagePlacer>> LARCH_FOLIAGE_PLACER = FOLIAGE_PLACER_TYPES.register("larch_foliage_placer", () -> new FoliagePlacerType<>(LarchFoliagePlacer.CODEC));
-    public static final RegistrySupplier<FoliagePlacerType<RodBirchFoliagePlacer>> ROD_BIRCH_FOLIAGE_PLACER = FOLIAGE_PLACER_TYPES.register("birch_foliage_placer", () -> new FoliagePlacerType<>(RodBirchFoliagePlacer.CODEC));
-    public static final RegistrySupplier<FoliagePlacerType<TaigaFoliagePlacer>> TAIGA_FOLIAGE_PLACER = FOLIAGE_PLACER_TYPES.register("taiga_foliage_placer", () -> new FoliagePlacerType<>(TaigaFoliagePlacer.CODEC));
-    public static final RegistrySupplier<FoliagePlacerType<FanPalmFoliagePlacer>> FAN_PALM_FOLIAGE_PLACER = FOLIAGE_PLACER_TYPES.register("fan_palm_foliage_placer", () -> new FoliagePlacerType<>(FanPalmFoliagePlacer.CODEC));
-    public static final RegistrySupplier<TrunkPlacerType<CrookedTrunkPlacer>> CROOKED_TRUNK_PLACER = TRUNK_PLACER_TYPES.register("crooked_trunk_placer", () -> new TrunkPlacerType<>(CrookedTrunkPlacer.CODEC));
+
+    public static final RegistrySupplier<FoliagePlacerType<LarchFoliagePlacer>> LARCH_FOLIAGE_PLACER = FOLIAGE_PLACER_TYPES.register("larch_foliage_placer" ,() -> new FoliagePlacerType<>(LarchFoliagePlacer.CODEC));
+    public static final RegistrySupplier<FoliagePlacerType<RodBirchFoliagePlacer>> ROD_BIRCH_FOLIAGE_PLACER = FOLIAGE_PLACER_TYPES.register("birch_foliage_placer" ,() -> new FoliagePlacerType<>(RodBirchFoliagePlacer.CODEC));
+    public static final RegistrySupplier<FoliagePlacerType<TaigaFoliagePlacer>> TAIGA_FOLIAGE_PLACER = FOLIAGE_PLACER_TYPES.register("taiga_foliage_placer" ,() -> new FoliagePlacerType<>(TaigaFoliagePlacer.CODEC));
+    public static final RegistrySupplier<FoliagePlacerType<FanPalmFoliagePlacer>> FAN_PALM_FOLIAGE_PLACER = FOLIAGE_PLACER_TYPES.register("fan_palm_foliage_placer" ,() -> new FoliagePlacerType<>(FanPalmFoliagePlacer.CODEC));
+    public static final RegistrySupplier<TrunkPlacerType<CrookedTrunkPlacer>> CROOKED_TRUNK_PLACER = TRUNK_PLACER_TYPES.register("crooked_trunk_placer" ,() -> new TrunkPlacerType<>(CrookedTrunkPlacer.CODEC));
 
     public static void init() {
         FOLIAGE_PLACER_TYPES.register();

@@ -3,7 +3,6 @@ package net.satisfy.bloomingnature.core.registry;
 import net.minecraft.world.level.block.ComposterBlock;
 
 public class CompostableRegistry {
-
     public static void init() {
         ComposterBlock.COMPOSTABLES.put(ObjectRegistry.CATTAIL.get().asItem(), 0.4F);
         ComposterBlock.COMPOSTABLES.put(ObjectRegistry.REED.get().asItem(), 0.3F);
