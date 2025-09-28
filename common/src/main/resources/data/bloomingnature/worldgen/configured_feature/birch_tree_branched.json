@@ -43,7 +43,6 @@
         }
       ]
     },
-
     "trunk_placer": {
       "type": "minecraft:forking_trunk_placer",
       "base_height": 10,

@@ -42,7 +42,6 @@ public class ObjectRegistry {
     public static final Registrar<Block> BLOCK_REGISTRAR = BLOCKS.getRegistrar();
 
     public static final RegistrySupplier<Item> WANDERING_GARDENER_SPAWN_EGG = registerItem("wandering_gardener_spawn_egg", () -> new ArchitecturySpawnEggItem(EntityTypeRegistry.WANDERING_GARDENER, -1, -1, getSettings()));
-    public static final RegistrySupplier<Item> TERMITE_SPAWN_EGG = registerItem("termite_spawn_egg", () -> new ArchitecturySpawnEggItem(EntityTypeRegistry.TERMITE, -1, -1, getSettings()));
     public static final RegistrySupplier<Block> LARCH_LOG = registerWithItem("larch_log", () -> new RotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_LOG).sound(SoundType.WOOD).strength(2.0f)));
     public static final RegistrySupplier<Block> LARCH_WOOD = registerWithItem("larch_wood", () -> new RotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_WOOD).sound(SoundType.WOOD).strength(2.0f)));
     public static final RegistrySupplier<Block> STRIPPED_LARCH_WOOD = registerWithItem("stripped_larch_wood", () -> new RotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STRIPPED_OAK_WOOD).sound(SoundType.WOOD).strength(2.0f)));
@@ -295,7 +294,6 @@ public class ObjectRegistry {
     public static final RegistrySupplier<Block> FOREST_MOSS = registerWithItem("forest_moss", () -> new ForestMossBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.GRASS_BLOCK).speedFactor(0.75F)));
     public static final RegistrySupplier<Block> FOREST_MOSS_CARPET = registerWithItem("forest_moss_carpet", () -> new CarpetBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.MOSS_CARPET).speedFactor(0.75F)));
     public static final RegistrySupplier<Block> MARSH_BLOCK = registerWithItem("marsh_block", () -> new SinkInBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.MUD)));
-    public static final RegistrySupplier<Block> TERMITE_MOUND = registerWithItem("termite_mound", () -> new TermiteBlock(Blocks.ROOTED_DIRT, BlockBehaviour.Properties.of().mapColor(MapColor.CLAY)));
     public static final RegistrySupplier<Block> QUICKSAND = registerWithItem("quicksand", () -> new SinkInSandBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.SAND)));
     public static final RegistrySupplier<Block> JOE_PYE = registerWithItem("joe_pye", () -> new FlowerBlock(MobEffects.HEAL, 1, BlockBehaviour.Properties.ofFullCopy(Blocks.RED_TULIP)));
     public static final RegistrySupplier<Block> POTTED_JOE_PYE = registerWithoutItem("potted_joe_pye", () -> new FlowerPotBlock(JOE_PYE.get(), BlockBehaviour.Properties.ofFullCopy(Blocks.FLOWER_POT)));

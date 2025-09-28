@@ -3,11 +3,17 @@
   "placement": [
     {
       "type": "minecraft:count",
-      "count": 65
+      "count": {
+        "type": "minecraft:constant",
+        "value": 65
+      }
     },
     {
       "type": "minecraft:count",
-      "count": 12
+      "count": {
+        "type": "minecraft:constant",
+        "value": 12
+      }
     },
     {
       "type": "minecraft:in_square"

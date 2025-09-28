@@ -30,10 +30,8 @@
     "vertical_range": 9,
     "xz_radius": {
       "type": "minecraft:biased_to_bottom",
-      "value": {
-        "min_inclusive": 0,
-        "max_inclusive": 2
-      }
+      "min_inclusive": 0,
+      "max_inclusive": 2
     }
   }
 }

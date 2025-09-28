@@ -3,7 +3,10 @@
   "placement": [
     {
       "type": "minecraft:count",
-      "count": 27
+      "count": {
+        "type": "minecraft:constant",
+        "value": 27
+      }
     },
     {
       "type": "minecraft:rarity_filter",

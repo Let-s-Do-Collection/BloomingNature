@@ -2,12 +2,10 @@
   "feature": {
     "type": "minecraft:random_selector",
     "config": {
-      "features": [
-      ],
+      "features": [],
       "default": {
         "feature": "bloomingnature:stony_shore_stone_pillars",
-        "placement": [
-        ]
+        "placement": []
       }
     }
   },
@@ -21,20 +19,16 @@
             "weight": 1,
             "data": {
               "type": "minecraft:biased_to_bottom",
-              "value": {
-                "min_inclusive": 0,
-                "max_inclusive": 3
-              }
+              "min_inclusive": 0,
+              "max_inclusive": 3
             }
           },
           {
             "weight": 1,
             "data": {
               "type": "minecraft:biased_to_bottom",
-              "value": {
-                "min_inclusive": 0,
-                "max_inclusive": 1
-              }
+              "min_inclusive": 0,
+              "max_inclusive": 1
             }
           }
         ]

@@ -47,27 +47,9 @@
     },
     "foliage_placer": {
       "type": "minecraft:spruce_foliage_placer",
-      "radius": {
-        "type": "minecraft:uniform",
-        "value": {
-          "min_inclusive": 2,
-          "max_inclusive": 3
-        }
-      },
-      "offset": {
-        "type": "minecraft:uniform",
-        "value": {
-          "min_inclusive": 1,
-          "max_inclusive": 3
-        }
-      },
-      "trunk_height": {
-        "type": "minecraft:uniform",
-        "value": {
-          "min_inclusive": 4,
-          "max_inclusive": 5
-        }
-      }
+      "radius": 2,
+      "offset": 1,
+      "trunk_height": 4
     },
     "decorators": [
       {

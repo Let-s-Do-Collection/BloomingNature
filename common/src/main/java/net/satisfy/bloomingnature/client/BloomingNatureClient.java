@@ -11,11 +11,9 @@ import net.minecraft.client.renderer.BiomeColors;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.FoliageColor;
-import net.satisfy.bloomingnature.client.model.TermiteModel;
 import net.satisfy.bloomingnature.client.model.WanderingGardenerModel;
 import net.satisfy.bloomingnature.client.renderer.block.*;
 import net.satisfy.bloomingnature.client.renderer.entity.ModBoatRenderer;
-import net.satisfy.bloomingnature.client.renderer.entity.TermiteRenderer;
 import net.satisfy.bloomingnature.client.renderer.entity.WanderingGardenerRenderer;
 import net.satisfy.bloomingnature.core.registry.EntityTypeRegistry;
 import net.satisfy.bloomingnature.core.registry.StorageTypeRegistry;
@@ -87,14 +85,12 @@ public class BloomingNatureClient {
 
     public static void registerEntityRenderers() {
         EntityRendererRegistry.register(EntityTypeRegistry.WANDERING_GARDENER, WanderingGardenerRenderer::new);
-        EntityRendererRegistry.register(EntityTypeRegistry.TERMITE, TermiteRenderer::new);
         EntityRendererRegistry.register(EntityTypeRegistry.MOD_BOAT, context -> new ModBoatRenderer<>(context, false));
         EntityRendererRegistry.register(EntityTypeRegistry.MOD_CHEST_BOAT, context -> new ModBoatRenderer<>(context, true));
     }
 
     public static void registerEntityModelLayer() {
         EntityModelLayerRegistry.register(WanderingGardenerModel.LAYER_LOCATION, WanderingGardenerModel::getTexturedModelData);
-        EntityModelLayerRegistry.register(TermiteModel.LAYER_LOCATION, TermiteModel::getTexturedModelData);
         EntityModelLayerRegistry.register(CompletionistBannerRenderer.LAYER_LOCATION, CompletionistBannerRenderer::createBodyLayer);
     }
 

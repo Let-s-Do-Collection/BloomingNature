@@ -76,13 +76,13 @@
               }
             },
             {
-              "weight": 1.0,
+              "weight": 1,
               "data": {
                 "Name": "minecraft:coarse_dirt"
               }
             },
             {
-              "weight": 1.0,
+              "weight": 1,
               "data": {
                 "Name": "minecraft:rooted_dirt"
               }

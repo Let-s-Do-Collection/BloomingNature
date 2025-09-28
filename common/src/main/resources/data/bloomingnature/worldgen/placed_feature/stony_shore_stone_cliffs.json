@@ -403,7 +403,10 @@
   "placement": [
     {
       "type": "minecraft:count",
-      "count": 128
+      "count": {
+        "type": "minecraft:constant",
+        "value": 128
+      }
     },
     {
       "type": "minecraft:in_square"

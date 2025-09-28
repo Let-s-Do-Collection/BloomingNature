@@ -12,7 +12,6 @@ import net.satisfy.bloomingnature.BloomingNature;
 import net.satisfy.bloomingnature.core.block.entity.*;
 import net.satisfy.bloomingnature.core.entity.ModBoatEntity;
 import net.satisfy.bloomingnature.core.entity.ModChestBoatEntity;
-import net.satisfy.bloomingnature.core.entity.TermiteEntity;
 import net.satisfy.bloomingnature.core.entity.WanderingGardenerEntity;
 import net.satisfy.bloomingnature.core.util.BloomingNatureIdentifier;
 import net.satisfy.bloomingnature.platform.PlatformHelper;
@@ -25,7 +24,6 @@ public class EntityTypeRegistry {
     private static final DeferredRegister<EntityType<?>> ENTITY_TYPES = DeferredRegister.create(BloomingNature.MOD_ID, Registries.ENTITY_TYPE);
 
     public static final RegistrySupplier<EntityType<WanderingGardenerEntity>> WANDERING_GARDENER = registerEntityType("wandering_gardener", () -> EntityType.Builder.of(WanderingGardenerEntity::new, MobCategory.CREATURE).sized(0.6f, 1.95f).clientTrackingRange(10).build(BloomingNatureIdentifier.of("wandering_gardener").toString()));
-    public static final RegistrySupplier<EntityType<TermiteEntity>> TERMITE = registerEntityType("termite", () -> EntityType.Builder.of(TermiteEntity::new, MobCategory.MONSTER).build(BloomingNatureIdentifier.of("termite").toString()));
     public static final Supplier<EntityType<ModBoatEntity>> MOD_BOAT = PlatformHelper.registerBoatType("mod_boat", ModBoatEntity::new, MobCategory.MISC, 1.375F, 0.5625F, 10);
     public static final Supplier<EntityType<ModChestBoatEntity>> MOD_CHEST_BOAT = PlatformHelper.registerBoatType("mod_chest_boat", ModChestBoatEntity::new, MobCategory.MISC, 1.375F, 0.5625F, 10);
 
@@ -71,7 +69,6 @@ public class EntityTypeRegistry {
 
     static void registerAttributes() {
         EntityAttributeRegistry.register(WANDERING_GARDENER, WanderingGardenerEntity::createMobAttributes);
-        EntityAttributeRegistry.register(TERMITE, TermiteEntity::createMobAttributes);
     }
 
     public static void init() {

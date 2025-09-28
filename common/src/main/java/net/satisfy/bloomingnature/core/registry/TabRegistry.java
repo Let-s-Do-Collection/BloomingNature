@@ -191,7 +191,6 @@ public class TabRegistry {
                 out.accept(ObjectRegistry.CACTUS_SIGN_ITEM.get());
                 out.accept(ObjectRegistry.CACTUS_HANGING_SIGN_ITEM.get());
                 out.accept(ObjectRegistry.MARSH_BLOCK.get());
-                out.accept(ObjectRegistry.TERMITE_MOUND.get());
                 out.accept(ObjectRegistry.QUICKSAND.get());
                 out.accept(ObjectRegistry.SAND.get());
                 out.accept(ObjectRegistry.FOREST_MOSS.get());
@@ -358,7 +357,6 @@ public class TabRegistry {
                 out.accept(ObjectRegistry.CACTUS_BOAT.get());
                 out.accept(ObjectRegistry.CACTUS_CHEST_BOAT.get());
                 out.accept(ObjectRegistry.WANDERING_GARDENER_SPAWN_EGG.get());
-                out.accept(ObjectRegistry.TERMITE_SPAWN_EGG.get());
             })
             .build());
 

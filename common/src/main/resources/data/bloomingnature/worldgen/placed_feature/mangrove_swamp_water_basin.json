@@ -219,10 +219,8 @@
       },
       "radius": {
         "type": "minecraft:uniform",
-        "value": {
-          "min_inclusive": 2,
-          "max_inclusive": 4
-        }
+        "min_inclusive": 2,
+        "max_inclusive": 4
       },
       "half_height": 1
     }
@@ -230,7 +228,10 @@
   "placement": [
     {
       "type": "minecraft:count",
-      "count": 30
+      "count": {
+        "type": "minecraft:constant",
+        "value": 30
+      }
     },
     {
       "type": "minecraft:in_square"

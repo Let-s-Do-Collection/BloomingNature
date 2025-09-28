@@ -69,41 +69,7 @@
       "height_rand_a": 4,
       "height_rand_b": 4
     },
-    "root_placer": {
-      "type": "minecraft:mangrove_root_placer",
-      "mangrove_root_placement": {
-        "can_grow_through": "#minecraft:mangrove_roots_can_grow_through",
-        "max_root_length": 5,
-        "max_root_width": 3,
-        "muddy_roots_in": "minecraft:mud",
-        "muddy_roots_provider": {
-          "type": "minecraft:simple_state_provider",
-          "state": {
-            "Name": "bloomingnature:ebony_wood",
-            "Properties": {
-              "axis": "y"
-            }
-          }
-        },
-        "random_skew_chance": 0.3
-      },
-      "root_provider": {
-        "type": "minecraft:simple_state_provider",
-        "state": {
-          "Name": "bloomingnature:ebony_wood",
-          "Properties": {
-            "waterlogged": "false"
-          }
-        }
-      },
-      "trunk_offset_y": {
-        "type": "minecraft:uniform",
-        "value": {
-          "max_inclusive": 3,
-          "min_inclusive": 2
-        }
-      }
-    },
+    "root_placer": null,
     "trunk_provider": {
       "type": "minecraft:simple_state_provider",
       "state": {

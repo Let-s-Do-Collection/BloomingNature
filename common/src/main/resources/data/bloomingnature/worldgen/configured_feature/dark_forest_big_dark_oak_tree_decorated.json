@@ -57,7 +57,7 @@
       "offset": 2,
       "height": 4,
       "type": "minecraft:fancy_foliage_placer"
-  },
+    },
     "force_dirt": false,
     "ignore_vines": true,
     "minimum_size": {
@@ -73,41 +73,7 @@
       "height_rand_a": 2,
       "height_rand_b": 1
     },
-    "root_placer": {
-      "type": "minecraft:mangrove_root_placer",
-      "mangrove_root_placement": {
-        "can_grow_through": "#minecraft:mangrove_roots_can_grow_through",
-        "max_root_length": 3,
-        "max_root_width": 2,
-        "muddy_roots_in": "minecraft:dirt",
-        "muddy_roots_provider": {
-          "type": "minecraft:simple_state_provider",
-          "state": {
-            "Name": "minecraft:dark_oak_log",
-            "Properties": {
-              "axis": "y"
-            }
-          }
-        },
-        "random_skew_chance": 0.1
-      },
-      "root_provider": {
-        "type": "minecraft:simple_state_provider",
-        "state": {
-          "Name": "minecraft:dark_oak_log",
-          "Properties": {
-            "axis": "y"
-          }
-        }
-      },
-      "trunk_offset_y": {
-        "type": "minecraft:uniform",
-        "value": {
-          "max_inclusive": 1,
-          "min_inclusive": 0
-        }
-      }
-    },
+    "root_placer": null,
     "trunk_provider": {
       "type": "minecraft:simple_state_provider",
       "state": {
