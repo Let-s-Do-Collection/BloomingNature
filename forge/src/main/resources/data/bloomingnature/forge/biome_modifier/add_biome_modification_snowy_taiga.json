@@ -1,9 +1,0 @@
-{
-  "type": "forge:add_features",
-  "biomes": "minecraft:snowy_taiga",
-  "features": [
-    "bloomingnature:snowy_taiga_trees"
-  ],
-  "step": "vegetal_decoration"
-}
-

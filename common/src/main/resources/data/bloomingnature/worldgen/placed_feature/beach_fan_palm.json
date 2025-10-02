@@ -7,7 +7,10 @@
     },
     {
       "type": "minecraft:count",
-      "count": 2
+      "count": {
+        "type": "minecraft:constant",
+        "value": 2
+      }
     },
     {
       "type": "minecraft:in_square"

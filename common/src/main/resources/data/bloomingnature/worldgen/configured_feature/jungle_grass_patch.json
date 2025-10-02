@@ -12,9 +12,9 @@
             "type": "minecraft:weighted_state_provider",
             "entries": [
               {
-                "weight": 50,
+                "weight": 35,
                 "data": {
-                  "Name": "bloomingnature:silkgrass"
+                  "Name": "bloomingnature:sungrass"
                 }
               },
               {
@@ -24,33 +24,18 @@
                 }
               },
               {
-                "weight": 10,
+                "weight": 12,
                 "data": {
-                  "Name": "minecraft:grass"
-                }
-              },
-              {
-                "weight": 15,
-                "data": {
-                  "Name": "bloomingnature:tall_silkgrass",
+                  "Name": "bloomingnature:tall_sungrass",
                   "Properties": {
                     "half": "lower"
                   }
                 }
               },
               {
-                "weight": 5,
+                "weight": 8,
                 "data": {
-                  "Name": "minecraft:tall_grass",
-                  "Properties": {
-                    "half": "lower"
-                  }
-                }
-              },
-              {
-                "weight": 10,
-                "data": {
-                  "Name": "bloomingnature:tall_fern",
+                  "Name": "minecraft:large_fern",
                   "Properties": {
                     "half": "lower"
                   }

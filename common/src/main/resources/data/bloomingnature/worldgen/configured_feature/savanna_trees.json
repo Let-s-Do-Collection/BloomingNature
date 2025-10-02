@@ -2,10 +2,6 @@
   "config": {
     "features": [
       {
-        "feature": "bloomingnature:savanna_termite_mound",
-        "chance": 0.093848433
-      },
-      {
         "feature": "bloomingnature:savanna_bush_checked",
         "chance": 0.3
       },

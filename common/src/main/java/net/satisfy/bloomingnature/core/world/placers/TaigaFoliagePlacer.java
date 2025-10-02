@@ -1,6 +1,6 @@
 package net.satisfy.bloomingnature.core.world.placers;
 
-import com.mojang.serialization.Codec;
+import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -14,14 +14,16 @@ import net.satisfy.bloomingnature.core.registry.PlacerTypesRegistry;
 import org.jetbrains.annotations.NotNull;
 
 public class TaigaFoliagePlacer extends FoliagePlacer {
-    public static final Codec<TaigaFoliagePlacer> CODEC = RecordCodecBuilder.create(instance ->
+    public static final MapCodec<TaigaFoliagePlacer> CODEC = RecordCodecBuilder.mapCodec(instance ->
             foliagePlacerParts(instance)
                     .and(IntProvider.codec(0, 24).fieldOf("trunk_height").forGetter(placer -> placer.trunkHeight))
-                    .apply(instance, TaigaFoliagePlacer::new));
+                    .apply(instance, TaigaFoliagePlacer::new)
+    );
+
     private final IntProvider trunkHeight;
 
-    public TaigaFoliagePlacer(IntProvider intProvider, IntProvider intProvider2, IntProvider trunkHeight) {
-        super(intProvider, intProvider2);
+    public TaigaFoliagePlacer(IntProvider radius, IntProvider offset, IntProvider trunkHeight) {
+        super(radius, offset);
         this.trunkHeight = trunkHeight;
     }
 
@@ -30,6 +32,7 @@ public class TaigaFoliagePlacer extends FoliagePlacer {
         return PlacerTypesRegistry.TAIGA_FOLIAGE_PLACER.get();
     }
 
+    @Override
     public int foliageHeight(RandomSource random, int trunkHeight, TreeConfiguration config) {
         return Math.max(12, trunkHeight - this.trunkHeight.sample(random));
     }

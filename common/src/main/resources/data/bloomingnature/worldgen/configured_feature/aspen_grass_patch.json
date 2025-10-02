@@ -47,13 +47,23 @@
       },
       "placement": [
         {
+          "type": "minecraft:in_square"
+        },
+        {
           "type": "minecraft:block_predicate_filter",
           "predicate": {
-            "type": "minecraft:matching_blocks",
-            "blocks": [
-              "minecraft:air"
-            ]
+            "type": "minecraft:would_survive",
+            "state": {
+              "Name": "bloomingnature:tall_sungrass",
+              "Properties": {
+                "half": "lower"
+              }
+            }
           }
+        },
+        {
+          "type": "minecraft:heightmap",
+          "heightmap": "MOTION_BLOCKING_NO_LEAVES"
         }
       ]
     }

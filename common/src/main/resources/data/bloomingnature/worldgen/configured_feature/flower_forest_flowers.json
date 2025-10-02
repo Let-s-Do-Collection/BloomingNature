@@ -17,64 +17,22 @@
             "seed": 4885,
             "states": [
               {
-                "Name": "bloomingnature:goatsbeard"
-              },
-              {
-                "Name": "bloomingnature:white_orchid"
-              },
-              {
-                "Name": "bloomingnature:hyssop"
-              },
-              {
-                "Name": "bloomingnature:bluebell"
-              },
-              {
-                "Name": "minecraft:azure_bluet"
-              },
-              {
                 "Name": "bloomingnature:golden_rod"
               },
               {
                 "Name": "bloomingnature:freesia_yellow"
               },
               {
-                "Name": "bloomingnature:daphne"
+                "Name": "bloomingnature:forsythia"
               },
               {
-                "Name": "bloomingnature:mountain_laurel"
+                "Name": "bloomingnature:genisteae"
               },
               {
-                "Name": "bloomingnature:freesia_pink"
+                "Name": "minecraft:brown_mushroom"
               },
               {
-                "Name": "minecraft:lily_of_the_valley"
-              },
-              {
-                "Name": "bloomingnature:amaryllis"
-              },
-              {
-                "Name": "minecraft:dandelion"
-              },
-              {
-                "Name": "bloomingnature:tall_mountain_laurel",
-                "Properties": {
-                  "half": "lower"
-                }
-              },
-              {
-                "Name": "minecraft:rose_bush",
-                "Properties": {
-                  "half": "lower"
-                }
-              },
-              {
-                "Name": "minecraft:lilac",
-                "Properties": {
-                  "half": "lower"
-                }
-              },
-              {
-                "Name": "minecraft:peony",
+                "Name": "bloomingnature:wild_sunflower",
                 "Properties": {
                   "half": "lower"
                 }
@@ -85,15 +43,62 @@
       },
       "placement": [
         {
+          "type": "minecraft:in_square"
+        },
+        {
           "type": "minecraft:block_predicate_filter",
           "predicate": {
-            "type": "minecraft:matching_blocks",
-            "blocks": "minecraft:air"
+            "type": "minecraft:any_of",
+            "predicates": [
+              {
+                "type": "minecraft:would_survive",
+                "state": {
+                  "Name": "bloomingnature:golden_rod"
+                }
+              },
+              {
+                "type": "minecraft:would_survive",
+                "state": {
+                  "Name": "bloomingnature:freesia_yellow"
+                }
+              },
+              {
+                "type": "minecraft:would_survive",
+                "state": {
+                  "Name": "bloomingnature:forsythia"
+                }
+              },
+              {
+                "type": "minecraft:would_survive",
+                "state": {
+                  "Name": "bloomingnature:genisteae"
+                }
+              },
+              {
+                "type": "minecraft:would_survive",
+                "state": {
+                  "Name": "minecraft:brown_mushroom"
+                }
+              },
+              {
+                "type": "minecraft:would_survive",
+                "state": {
+                  "Name": "bloomingnature:wild_sunflower",
+                  "Properties": {
+                    "half": "lower"
+                  }
+                }
+              }
+            ]
           }
+        },
+        {
+          "type": "minecraft:heightmap",
+          "heightmap": "MOTION_BLOCKING_NO_LEAVES"
         }
       ]
     },
-    "tries": 72,
+    "tries": 66,
     "xz_spread": 8,
     "y_spread": 2
   }

@@ -47,7 +47,7 @@ public class LateritGrassBlock extends SnowyDirtBlock implements BonemealableBlo
         return canBeGrass(blockState, levelReader, blockPos) && !levelReader.getFluidState(blockPos2).is(FluidTags.WATER);
     }
 
-    public boolean isValidBonemealTarget(LevelReader levelReader, BlockPos blockPos, BlockState blockState, boolean bl) {
+    public boolean isValidBonemealTarget(LevelReader levelReader, BlockPos blockPos, BlockState blockState) {
         return levelReader.getBlockState(blockPos.above()).isAir();
     }
 
@@ -57,7 +57,7 @@ public class LateritGrassBlock extends SnowyDirtBlock implements BonemealableBlo
 
     public void performBonemeal(ServerLevel serverLevel, RandomSource randomSource, BlockPos blockPos, BlockState blockState) {
         BlockPos blockPos2 = blockPos.above();
-        BlockState blockState2 = Blocks.GRASS.defaultBlockState();
+        BlockState blockState2 = Blocks.GRASS_BLOCK.defaultBlockState();
         Optional<Holder.Reference<PlacedFeature>> optional = serverLevel.registryAccess().registryOrThrow(Registries.PLACED_FEATURE).getHolder(VegetationPlacements.GRASS_BONEMEAL);
 
         label49:
@@ -98,7 +98,6 @@ public class LateritGrassBlock extends SnowyDirtBlock implements BonemealableBlo
         }
     }
 
-    @SuppressWarnings("deprecation")
     public void randomTick(BlockState blockState, ServerLevel serverLevel, BlockPos blockPos, RandomSource randomSource) {
         if (!canBeGrass(blockState, serverLevel, blockPos)) {
             serverLevel.setBlockAndUpdate(blockPos, ObjectRegistry.LATERIT.get().defaultBlockState());

@@ -1,0 +1,15 @@
+{
+  "replace": false,
+  "values": [
+    "bloomingnature:larch_leaves",
+    "bloomingnature:aspen_leaves",
+    "bloomingnature:swamp_oak_leaves",
+    "bloomingnature:swamp_cypress_leaves",
+    "bloomingnature:fir_leaves",
+    "bloomingnature:baobab_leaves",
+    "bloomingnature:chestnut_leaves",
+    "bloomingnature:ebony_leaves",
+    "bloomingnature:fan_palm_leaves",
+    "bloomingnature:orange_leaves"
+  ]
+}

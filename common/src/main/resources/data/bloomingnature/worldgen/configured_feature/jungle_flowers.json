@@ -37,11 +37,55 @@
       },
       "placement": [
         {
+          "type": "minecraft:in_square"
+        },
+        {
           "type": "minecraft:block_predicate_filter",
           "predicate": {
-            "type": "minecraft:matching_blocks",
-            "blocks": "minecraft:air"
+            "type": "minecraft:any_of",
+            "predicates": [
+              {
+                "type": "minecraft:would_survive",
+                "state": {
+                  "Name": "bloomingnature:bottlebrushes"
+                }
+              },
+              {
+                "type": "minecraft:would_survive",
+                "state": {
+                  "Name": "bloomingnature:begonie"
+                }
+              },
+              {
+                "type": "minecraft:would_survive",
+                "state": {
+                  "Name": "bloomingnature:gladiolus"
+                }
+              },
+              {
+                "type": "minecraft:would_survive",
+                "state": {
+                  "Name": "bloomingnature:hyssop"
+                }
+              },
+              {
+                "type": "minecraft:would_survive",
+                "state": {
+                  "Name": "bloomingnature:white_orchid"
+                }
+              },
+              {
+                "type": "minecraft:would_survive",
+                "state": {
+                  "Name": "bloomingnature:bird_of_paradise"
+                }
+              }
+            ]
           }
+        },
+        {
+          "type": "minecraft:heightmap",
+          "heightmap": "MOTION_BLOCKING_NO_LEAVES"
         }
       ]
     },

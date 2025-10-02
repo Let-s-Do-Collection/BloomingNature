@@ -23,7 +23,6 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-@SuppressWarnings("deprecation")
 public class SandLayerBlock extends Block {
     public static final IntegerProperty LAYERS;
     protected static final VoxelShape[] SHAPE_BY_LAYER;
@@ -33,9 +32,10 @@ public class SandLayerBlock extends Block {
         this.registerDefaultState(this.stateDefinition.any().setValue(LAYERS, 1));
     }
 
-    public boolean isPathfindable(BlockState blockState, BlockGetter blockGetter, BlockPos blockPos, PathComputationType pathComputationType) {
-        return switch (pathComputationType) {
-            case LAND -> blockState.getValue(LAYERS) < 5;
+    @Override
+    public boolean isPathfindable(BlockState state, PathComputationType type) {
+        return switch (type) {
+            case LAND -> state.getValue(LAYERS) < 5;
             case WATER, AIR -> false;
         };
     }

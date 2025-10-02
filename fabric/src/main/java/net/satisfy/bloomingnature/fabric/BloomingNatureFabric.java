@@ -14,16 +14,15 @@ import net.minecraft.tags.TagKey;
 import net.minecraft.world.level.levelgen.GenerationStep;
 import net.satisfy.bloomingnature.BloomingNature;
 import net.satisfy.bloomingnature.core.registry.CompostableRegistry;
-import net.satisfy.bloomingnature.core.util.BloomingNatureIdentifier;
 import net.satisfy.bloomingnature.core.world.PlacedFeatures;
-import net.satisfy.bloomingnature.fabric.config.ConfigFabric;
+import net.satisfy.bloomingnature.fabric.core.config.ConfigFabric;
 
 import java.util.Optional;
 import java.util.function.Predicate;
 
 public class BloomingNatureFabric implements ModInitializer {
     private static Predicate<BiomeSelectionContext> getBloomingNatureSelector(String path) {
-        return BiomeSelectors.tag(TagKey.create(Registries.BIOME, new BloomingNatureIdentifier(path)));
+        return BiomeSelectors.tag(TagKey.create(Registries.BIOME, BloomingNature.identifier(path)));
     }
 
     @Override
@@ -36,7 +35,7 @@ public class BloomingNatureFabric implements ModInitializer {
 
         Optional<ModContainer> modContainer = FabricLoader.getInstance().getModContainer(BloomingNature.MOD_ID);
         modContainer.ifPresent(container -> ResourceManagerHelper.registerBuiltinResourcePack(
-                new ResourceLocation(BloomingNature.MOD_ID, "bushy_leaves"),
+                ResourceLocation.fromNamespaceAndPath(BloomingNature.MOD_ID, "bushy_leaves"),
                 container,
                 ResourcePackActivationType.NORMAL
         ));
@@ -44,7 +43,7 @@ public class BloomingNatureFabric implements ModInitializer {
 
     void addBiomeModification() {
         ConfigFabric config = AutoConfig.getConfigHolder(ConfigFabric.class).getConfig();
-        BiomeModification world = BiomeModifications.create(new BloomingNatureIdentifier("world_features"));
+        BiomeModification world = BiomeModifications.create(BloomingNature.identifier("world_features"));
         Predicate<BiomeSelectionContext> overworld = getBloomingNatureSelector("overworld");
         Predicate<BiomeSelectionContext> plains = getBloomingNatureSelector("plains");
         Predicate<BiomeSelectionContext> river = getBloomingNatureSelector("river");

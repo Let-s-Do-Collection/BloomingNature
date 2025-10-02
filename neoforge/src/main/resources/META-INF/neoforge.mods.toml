@@ -1,0 +1,38 @@
+modLoader = "javafml"
+loaderVersion = "[4,)"
+license = "Custom"
+issueTrackerURL = "https://github.com/satisfyu/Let-s-Do-Hub"
+
+[[mixins]]
+config = "bloomingnature.mixins.json"
+
+[[mods]]
+modId = "bloomingnature"
+version = "${version}"
+displayName = "[Let's Do] BloomingNature"
+authors = "satisfy"
+description = '''
+Hello wanderer! The overworld has changed: New flowers bloom, fresh woods grow, and reshaped biomes await your footsteps.
+'''
+logoFile = "pack.png"
+
+[[dependencies.bloomingnature]]
+modId = "neoforge"
+type = "required"
+versionRange = "[21.0,)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.bloomingnature]]
+modId = "minecraft"
+type = "required"
+versionRange = "[1.21,)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.bloomingnature]]
+modId = "architectury"
+type = "required"
+versionRange = "[9.0.8,)"
+ordering = "AFTER"
+side = "BOTH"

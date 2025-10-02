@@ -2,62 +2,26 @@
   "feature": "bloomingnature:plains_stone_boulder",
   "placement": [
     {
-      "type": "minecraft:count",
-      "count": 128
+      "type": "minecraft:noise_threshold_count",
+      "noise_level": 0.0,
+      "below_noise": 0,
+      "above_noise": 2
     },
     {
       "type": "minecraft:in_square"
     },
     {
       "type": "minecraft:heightmap",
-      "heightmap": "WORLD_SURFACE_WG"
-    },
-    {
-      "type": "minecraft:biome"
-    },
-    {
-      "type": "minecraft:count",
-      "count": 50
+      "heightmap": "MOTION_BLOCKING_NO_LEAVES"
     },
     {
       "type": "minecraft:random_offset",
       "xz_spread": {
         "type": "minecraft:uniform",
-        "value": {
-          "min_inclusive": -2,
-          "max_inclusive": 2
-        }
+        "min_inclusive": -2,
+        "max_inclusive": 2
       },
-      "y_spread": {
-        "type": "minecraft:uniform",
-        "value": {
-          "min_inclusive": 0,
-          "max_inclusive": 0
-        }
-      }
-    },
-    {
-      "type": "minecraft:environment_scan",
-      "direction_of_search": "down",
-      "max_steps": 16,
-      "target_condition": {
-        "type": "minecraft:all_of",
-        "predicates": [
-          {
-            "type": "minecraft:matching_blocks",
-            "blocks": [
-              "minecraft:grass_block",
-              "minecraft:dirt",
-              "coarse_dirt"
-            ],
-            "offset": [
-              0,
-              0,
-              0
-            ]
-          }
-        ]
-      }
+      "y_spread": 0
     },
     {
       "type": "minecraft:block_predicate_filter",
@@ -67,126 +31,31 @@
           {
             "type": "minecraft:matching_blocks",
             "blocks": [
-              "minecraft:grass_block",
-              "minecraft:dirt"
-            ],
-            "offset": [
-              0,
-              0,
-              0
+              "minecraft:air"
             ]
           },
           {
             "type": "minecraft:any_of",
             "predicates": [
               {
-                "type": "minecraft:matching_blocks",
-                "blocks": [
-                  "minecraft:grass_block",
-                  "minecraft:stone",
-                  "minecraft:dirt"
-                ],
-                "offset": [
-                  1,
-                  2,
-                  0
-                ]
+                "type": "minecraft:matching_block_tag",
+                "offset": [0, -1, 0],
+                "tag": "minecraft:dirt"
               },
               {
                 "type": "minecraft:matching_blocks",
+                "offset": [0, -1, 0],
                 "blocks": [
-                  "minecraft:grass_block",
-                  "minecraft:stone",
-                  "minecraft:dirt"
-                ],
-                "offset": [
-                  0,
-                  2,
-                  1
-                ]
-              },
-              {
-                "type": "minecraft:matching_blocks",
-                "blocks": [
-                  "minecraft:grass_block",
-                  "minecraft:stone",
-                  "minecraft:dirt"
-                ],
-                "offset": [
-                  -1,
-                  2,
-                  0
-                ]
-              },
-              {
-                "type": "minecraft:matching_blocks",
-                "blocks": [
-                  "minecraft:grass_block",
-                  "minecraft:stone",
-                  "minecraft:dirt"
-                ],
-                "offset": [
-                  0,
-                  2,
-                  -1
-                ]
-              },
-              {
-                "type": "minecraft:matching_blocks",
-                "blocks": [
-                  "minecraft:grass_block",
-                  "minecraft:stone",
-                  "minecraft:dirt"
-                ],
-                "offset": [
-                  1,
-                  2,
-                  1
-                ]
-              },
-              {
-                "type": "minecraft:matching_blocks",
-                "blocks": [
-                  "minecraft:grass_block",
-                  "minecraft:stone",
-                  "minecraft:dirt"
-                ],
-                "offset": [
-                  -1,
-                  2,
-                  1
-                ]
-              },
-              {
-                "type": "minecraft:matching_blocks",
-                "blocks": [
-                  "minecraft:grass_block",
-                  "minecraft:stone",
-                  "minecraft:dirt"
-                ],
-                "offset": [
-                  1,
-                  2,
-                  -1
-                ]
-              },
-              {
-                "type": "minecraft:matching_blocks",
-                "blocks": [
-                  "minecraft:grass_block",
-                  "minecraft:stone",
-                  "minecraft:dirt"
-                ],
-                "offset": [
-                  -1,
-                  2,
-                  -1
+                  "minecraft:grass_block"
                 ]
               }
             ]
           }
         ]
       }
+    },
+    {
+      "type": "minecraft:biome"
     }
   ]
 }

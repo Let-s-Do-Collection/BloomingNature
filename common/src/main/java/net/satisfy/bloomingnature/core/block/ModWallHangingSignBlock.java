@@ -9,8 +9,8 @@ import net.satisfy.bloomingnature.core.block.entity.ModHangingSignBlockEntity;
 import org.jetbrains.annotations.NotNull;
 
 public class ModWallHangingSignBlock extends WallHangingSignBlock {
-    public ModWallHangingSignBlock(Properties pProperties, WoodType pType) {
-        super(pProperties, pType);
+    public ModWallHangingSignBlock(WoodType type, Properties properties) {
+        super(type, properties);
     }
 
     @Override

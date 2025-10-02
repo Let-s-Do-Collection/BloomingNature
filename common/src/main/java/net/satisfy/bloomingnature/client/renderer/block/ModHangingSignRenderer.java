@@ -30,6 +30,7 @@ import net.satisfy.bloomingnature.core.block.entity.ModSignBlockEntity;
 import java.util.Map;
 
 @Environment(EnvType.CLIENT)
+@SuppressWarnings("all")
 public class ModHangingSignRenderer extends ModSignRenderer {
     private static final String PLANK = "plank";
     private static final String V_CHAINS = "vChains";
@@ -124,15 +125,15 @@ public class ModHangingSignRenderer extends ModSignRenderer {
             this.vChains.visible = false;
             this.normalChains.visible = true;
             if (!bl) {
-                boolean bl2 = (Boolean)blockState.getValue(BlockStateProperties.ATTACHED);
+                boolean bl2 = blockState.getValue(BlockStateProperties.ATTACHED);
                 this.normalChains.visible = !bl2;
                 this.vChains.visible = bl2;
             }
-
         }
 
-        public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int i, int j, float f, float g, float h, float k) {
-            this.root.render(poseStack, vertexConsumer, i, j, f, g, h, k);
+        @Override
+        public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int light, int overlay, int color) {
+            this.root.render(poseStack, vertexConsumer, light, overlay, color);
         }
     }
 }

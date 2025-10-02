@@ -15,7 +15,6 @@ import net.minecraft.world.level.material.Fluids;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-@SuppressWarnings("deprecation")
 public class WindowBlock extends IronBarsBlock {
     public static final IntegerProperty PART = IntegerProperty.create("part", 0, 3);
 

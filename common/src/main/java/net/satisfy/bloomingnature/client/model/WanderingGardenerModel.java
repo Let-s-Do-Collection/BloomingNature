@@ -11,14 +11,14 @@ import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.client.model.geom.builders.*;
 import net.minecraft.util.Mth;
-import net.minecraft.world.entity.npc.AbstractVillager;
 import net.minecraft.world.entity.npc.WanderingTrader;
-import net.satisfy.bloomingnature.core.util.BloomingNatureIdentifier;
+import net.satisfy.bloomingnature.BloomingNature;
+import org.jetbrains.annotations.NotNull;
 
 @Environment(EnvType.CLIENT)
 public class WanderingGardenerModel<T extends WanderingTrader> extends HierarchicalModel<T> {
 
-    public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(new BloomingNatureIdentifier("wandering_gardener"), "main");
+    public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(BloomingNature.identifier("wandering_gardener"), "main");
     private final ModelPart body;
     private final ModelPart head;
     private final ModelPart RightLeg;
@@ -31,6 +31,7 @@ public class WanderingGardenerModel<T extends WanderingTrader> extends Hierarchi
         this.LeftLeg = body.getChild("LeftLeg");
     }
 
+    @SuppressWarnings("unused")
     public static LayerDefinition getTexturedModelData() {
         MeshDefinition meshdefinition = new MeshDefinition();
         PartDefinition partdefinition = meshdefinition.getRoot();
@@ -66,8 +67,8 @@ public class WanderingGardenerModel<T extends WanderingTrader> extends Hierarchi
 
     public void setupAnim(T entity, float f, float g, float h, float i, float j) {
         boolean bl = false;
-        if (entity instanceof AbstractVillager) {
-            bl = ((AbstractVillager) entity).getUnhappyCounter() > 0;
+        if (entity != null) {
+            bl = entity.getUnhappyCounter() > 0;
         }
 
         this.head.yRot = i * 0.017453292F;
@@ -90,12 +91,12 @@ public class WanderingGardenerModel<T extends WanderingTrader> extends Hierarchi
     }
 
     @Override
-    public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
-        body.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+    public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, int color) {
+        this.root().render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
     }
 
     @Override
-    public ModelPart root() {
+    public @NotNull ModelPart root() {
         return body;
     }
 }

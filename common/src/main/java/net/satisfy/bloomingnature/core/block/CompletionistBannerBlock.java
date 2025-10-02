@@ -1,12 +1,15 @@
 package net.satisfy.bloomingnature.core.block;
 
+import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.TextColor;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
@@ -22,10 +25,10 @@ import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import net.satisfy.bloomingnature.BloomingNature;
 import net.satisfy.bloomingnature.core.registry.ObjectRegistry;
 import net.satisfy.bloomingnature.core.block.entity.CompletionistBannerEntity;
 import net.satisfy.bloomingnature.core.registry.EntityTypeRegistry;
-import net.satisfy.bloomingnature.core.util.BloomingNatureIdentifier;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -39,6 +42,13 @@ public class CompletionistBannerBlock extends BaseEntityBlock {
     public CompletionistBannerBlock(Properties properties) {
         super(properties);
         makeDefaultState();
+    }
+
+    public static final MapCodec<CompletionistBannerBlock> CODEC = simpleCodec(CompletionistBannerBlock::new);
+
+    @Override
+    protected @NotNull MapCodec<? extends BaseEntityBlock> codec() {
+        return CODEC;
     }
 
     @Nullable
@@ -115,11 +125,11 @@ public class CompletionistBannerBlock extends BaseEntityBlock {
     }
 
     public ResourceLocation getRenderTexture() {
-        return new BloomingNatureIdentifier("textures/banner/bloomingnature_banner.png");
+        return BloomingNature.identifier("textures/banner/bloomingnature_banner.png");
     }
 
     @Override
-    public void appendHoverText(ItemStack stack, @Nullable BlockGetter level, List<Component> tooltip, net.minecraft.world.item.TooltipFlag flag) {
+    public void appendHoverText(ItemStack itemStack, Item.TooltipContext tooltipContext, List<Component> tooltip, TooltipFlag tooltipFlag) {
         tooltip.add(Component.translatable("tooltip.bloomingnature.banner.thankyou_1").withStyle(style -> style.withColor(TextColor.fromRgb(0xa5b485))));
         tooltip.add(Component.empty());
         tooltip.add(Component.translatable("tooltip.bloomingnature.banner.thankyou_2").withStyle(style -> style.withColor(TextColor.fromRgb(0xa5b485))));
@@ -127,5 +137,4 @@ public class CompletionistBannerBlock extends BaseEntityBlock {
         tooltip.add(Component.empty());
         tooltip.add(Component.translatable("tooltip.bloomingnature.banner.thankyou_3").withStyle(style -> style.withColor(TextColor.fromRgb(0xa5b485))));
     }
-
 }

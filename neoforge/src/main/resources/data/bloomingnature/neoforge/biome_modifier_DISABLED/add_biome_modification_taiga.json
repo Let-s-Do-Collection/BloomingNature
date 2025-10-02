@@ -1,0 +1,13 @@
+{
+  "type": "neoforge:add_features",
+  "biomes": "minecraft:taiga",
+  "features": [
+    "bloomingnature:taiga_forest_moss",
+    "bloomingnature:taiga_spruce_trees",
+    "bloomingnature:taiga_spruce_fallen",
+    "bloomingnature:taiga_grass_patch",
+    "bloomingnature:taiga_flowers"
+  ],
+  "step": "vegetal_decoration"
+}
+

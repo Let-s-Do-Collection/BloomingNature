@@ -1,0 +1,12 @@
+{
+  "type": "neoforge:add_features",
+  "biomes": "minecraft:flower_forest",
+  "features": [
+    "bloomingnature:flower_forest_trees",
+    "bloomingnature:flower_forest_log_fallen",
+    "bloomingnature:flower_forest_flowers",
+    "bloomingnature:flower_forest_grass_patch"
+  ],
+  "step": "vegetal_decoration"
+}
+

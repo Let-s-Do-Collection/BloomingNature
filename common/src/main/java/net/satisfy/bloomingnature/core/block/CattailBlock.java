@@ -1,8 +1,10 @@
 package net.satisfy.bloomingnature.core.block;
 
+import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.tags.BlockTags;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.LevelAccessor;
@@ -19,58 +21,70 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 public class CattailBlock extends TallFlowerBlock implements LiquidBlockContainer {
+    public static final MapCodec<TallFlowerBlock> CODEC = simpleCodec(CattailBlock::new);
+
     public CattailBlock(Properties properties) {
         super(properties);
-
-        registerDefaultState(getStateDefinition().any().setValue(HALF, DoubleBlockHalf.LOWER));
+        this.registerDefaultState(this.getStateDefinition().any().setValue(HALF, DoubleBlockHalf.LOWER));
     }
 
     @Override
-    public boolean canSurvive(BlockState blockState, LevelReader levelReader, BlockPos blockPos) {
-        if (blockState.getValue(HALF) == DoubleBlockHalf.LOWER)
-            return super.canSurvive(blockState, levelReader, blockPos) && levelReader.getFluidState(blockPos).getType() == Fluids.WATER;
+    public @NotNull MapCodec<TallFlowerBlock> codec() {
+        return CODEC;
+    }
 
-        return super.canSurvive(blockState, levelReader, blockPos);
+    @Override
+    public boolean canSurvive(BlockState state, LevelReader level, BlockPos pos) {
+        if (state.getValue(HALF) == DoubleBlockHalf.LOWER) {
+            return super.canSurvive(state, level, pos) && level.getFluidState(pos).getType() == Fluids.WATER;
+        }
+        return super.canSurvive(state, level, pos);
     }
 
     @Nullable
     @Override
     public BlockState getStateForPlacement(BlockPlaceContext ctx) {
         BlockPos pos = ctx.getClickedPos();
-
-        return pos.getY() < ctx.getLevel().getMaxBuildHeight() - 1 && (ctx.getLevel().getBlockState(pos.above()).canBeReplaced(ctx) && ctx.getLevel().getFluidState(pos.above()).isEmpty()) ? super.getStateForPlacement(ctx) : null;
+        return pos.getY() < ctx.getLevel().getMaxBuildHeight() - 1
+                && ctx.getLevel().getBlockState(pos.above()).canBeReplaced(ctx)
+                && ctx.getLevel().getFluidState(pos.above()).isEmpty()
+                ? super.getStateForPlacement(ctx) : null;
     }
 
     @Override
-    public boolean canPlaceLiquid(BlockGetter blockGetter, BlockPos blockPos, BlockState blockState, Fluid fluid) {
+    public boolean canPlaceLiquid(@Nullable Player player, BlockGetter blockGetter, BlockPos blockPos, BlockState blockState, Fluid fluid) {
         return false;
     }
 
     @Override
-    public boolean placeLiquid(LevelAccessor levelAccessor, BlockPos blockPos, BlockState blockState, FluidState fluidState) {
+    public boolean placeLiquid(LevelAccessor level, BlockPos pos, BlockState state, FluidState fluidState) {
         return false;
     }
 
     @Override
-    public @NotNull BlockState updateShape(BlockState state, Direction direction, BlockState newState, LevelAccessor level, BlockPos pos, BlockPos posFrom) {
-        BlockState blockState = super.updateShape(state, direction, newState, level, pos, posFrom);
+    public @NotNull BlockState updateShape(BlockState state, Direction dir, BlockState newState, LevelAccessor level, BlockPos pos, BlockPos fromPos) {
+        BlockState blockState = super.updateShape(state, dir, newState, level, pos, fromPos);
         if (!blockState.isAir()) {
             level.scheduleTick(pos, Fluids.WATER, Fluids.WATER.getTickDelay(level));
         }
-
         return blockState;
     }
 
     @Override
     protected boolean mayPlaceOn(BlockState floor, BlockGetter world, BlockPos pos) {
-        return super.mayPlaceOn(floor, world, pos) || floor.is(BlockTags.SAND) || floor.is(Blocks.CLAY) || floor.is(Blocks.COARSE_DIRT) || floor.is(Blocks.DIRT) || floor.is(Blocks.MUD);
+        return super.mayPlaceOn(floor, world, pos)
+                || floor.is(BlockTags.SAND)
+                || floor.is(Blocks.CLAY)
+                || floor.is(Blocks.COARSE_DIRT)
+                || floor.is(Blocks.DIRT)
+                || floor.is(Blocks.MUD);
     }
 
     @Override
-    @SuppressWarnings("deprecation")
-    public @NotNull FluidState getFluidState(BlockState blockState) {
-        if (blockState.getValue(HALF) == DoubleBlockHalf.LOWER) return Fluids.WATER.getSource(false);
-
-        return super.getFluidState(blockState);
+    public @NotNull FluidState getFluidState(BlockState state) {
+        if (state.getValue(HALF) == DoubleBlockHalf.LOWER) {
+            return Fluids.WATER.getSource(false);
+        }
+        return super.getFluidState(state);
     }
 }

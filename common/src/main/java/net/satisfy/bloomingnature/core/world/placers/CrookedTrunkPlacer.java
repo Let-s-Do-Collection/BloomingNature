@@ -1,7 +1,7 @@
 package net.satisfy.bloomingnature.core.world.placers;
 
 import com.google.common.collect.ImmutableList;
-import com.mojang.serialization.Codec;
+import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -20,10 +20,12 @@ import java.util.List;
 import java.util.function.BiConsumer;
 
 public class CrookedTrunkPlacer extends TrunkPlacer {
-    public static final Codec<CrookedTrunkPlacer> CODEC = RecordCodecBuilder.create((placer) -> trunkPlacerParts(placer).apply(placer, CrookedTrunkPlacer::new));
+    public static final MapCodec<CrookedTrunkPlacer> CODEC = RecordCodecBuilder.mapCodec(
+            builder -> trunkPlacerParts(builder).apply(builder, CrookedTrunkPlacer::new)
+    );
 
-    public CrookedTrunkPlacer(int pBaseHeight, int pHeightRandA, int pHeightRandB) {
-        super(pBaseHeight, pHeightRandA, pHeightRandB);
+    public CrookedTrunkPlacer(int baseHeight, int heightRandA, int heightRandB) {
+        super(baseHeight, heightRandA, heightRandB);
     }
 
     @Override
@@ -32,19 +34,21 @@ public class CrookedTrunkPlacer extends TrunkPlacer {
     }
 
     @Override
-    public @NotNull List<FoliagePlacer.FoliageAttachment> placeTrunk(LevelSimulatedReader pLevel, BiConsumer<BlockPos, BlockState> pBlockSetter, RandomSource pRandom, int pFreeTreeHeight, BlockPos pPos, TreeConfiguration pConfig) {
-        Direction direction = Direction.Plane.HORIZONTAL.getRandomDirection(pRandom);
-        BlockPos.MutableBlockPos mutableBlockPos = pPos.mutable();
-        placeLog(pLevel, pBlockSetter, pRandom, mutableBlockPos.relative(direction.getOpposite()), pConfig, (state) -> state.setValue(RotatedPillarBlock.AXIS, direction.getAxis()));
-        placeLog(pLevel, pBlockSetter, pRandom, mutableBlockPos.relative(pRandom.nextInt(2) == 0 ? direction.getClockWise() : direction.getCounterClockWise()), pConfig);
-        for (int i = 0; i < pFreeTreeHeight; i++) {
-            if (pRandom.nextFloat() < 0.4F && i > 2) {
-                mutableBlockPos.move(direction);
+    public @NotNull List<FoliagePlacer.FoliageAttachment> placeTrunk(LevelSimulatedReader level, BiConsumer<BlockPos, BlockState> blockSetter, RandomSource random, int freeTreeHeight, BlockPos pos, TreeConfiguration config) {
+        Direction direction = Direction.Plane.HORIZONTAL.getRandomDirection(random);
+        BlockPos.MutableBlockPos mutable = pos.mutable();
+
+        placeLog(level, blockSetter, random, mutable.relative(direction.getOpposite()), config, state -> state.setValue(RotatedPillarBlock.AXIS, direction.getAxis()));
+        placeLog(level, blockSetter, random, mutable.relative(random.nextInt(2) == 0 ? direction.getClockWise() : direction.getCounterClockWise()), config);
+
+        for (int i = 0; i < freeTreeHeight; i++) {
+            if (random.nextFloat() < 0.4F && i > 2) {
+                mutable.move(direction);
             }
-            placeLog(pLevel, pBlockSetter, pRandom, mutableBlockPos, pConfig);
-            mutableBlockPos.move(Direction.UP);
+            placeLog(level, blockSetter, random, mutable, config);
+            mutable.move(Direction.UP);
         }
 
-        return ImmutableList.of(new FoliagePlacer.FoliageAttachment(mutableBlockPos, 0, false));
+        return ImmutableList.of(new FoliagePlacer.FoliageAttachment(mutable, 0, false));
     }
 }
