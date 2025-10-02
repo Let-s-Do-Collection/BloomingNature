@@ -1,4 +1,4 @@
-package net.satisfy.bloomingnature.neoforge.registry;
+package net.satisfy.bloomingnature.neoforge.core.registry;
 
 import com.mojang.serialization.MapCodec;
 import net.neoforged.neoforge.common.world.BiomeModifier;

@@ -12,19 +12,19 @@
             "type": "minecraft:weighted_state_provider",
             "entries": [
               {
-                "weight": 35,
+                "weight": 24,
                 "data": {
-                  "Name": "minecraft:grass_block"
+                  "Name": "minecraft:short_grass"
                 }
               },
               {
-                "weight": 6,
+                "weight": 10,
                 "data": {
                   "Name": "minecraft:fern"
                 }
               },
               {
-                "weight": 4,
+                "weight": 5,
                 "data": {
                   "Name": "minecraft:tall_grass",
                   "Properties": {
@@ -49,11 +49,29 @@
         {
           "type": "minecraft:block_predicate_filter",
           "predicate": {
-            "type": "minecraft:matching_blocks",
-            "blocks": [
-              "minecraft:air"
+            "type": "minecraft:all_of",
+            "predicates": [
+              {
+                "type": "minecraft:matching_blocks",
+                "blocks": [
+                  "minecraft:air"
+                ]
+              },
+              {
+                "type": "minecraft:would_survive",
+                "state": {
+                  "Name": "minecraft:tall_grass",
+                  "Properties": {
+                    "half": "lower"
+                  }
+                }
+              }
             ]
           }
+        },
+        {
+          "type": "minecraft:heightmap",
+          "heightmap": "MOTION_BLOCKING_NO_LEAVES"
         }
       ]
     }

@@ -1,11 +1,58 @@
 {
-  "type": "minecraft:simple_block",
+  "type": "minecraft:block_column",
   "config": {
-    "to_place": {
-      "type": "minecraft:simple_state_provider",
-      "state": {
-        "Name": "minecraft:stone"
+    "direction": "down",
+    "allowed_placement": {
+      "type": "minecraft:all_of",
+      "predicates": [
+        {
+          "type": "minecraft:matching_blocks",
+          "blocks": [
+            "minecraft:air"
+          ]
+        },
+        {
+          "type": "minecraft:any_of",
+          "predicates": [
+            {
+              "type": "minecraft:matching_block_tag",
+              "offset": [
+                0,
+                -1,
+                0
+              ],
+              "tag": "minecraft:dirt"
+            },
+            {
+              "type": "minecraft:matching_blocks",
+              "offset": [
+                0,
+                -1,
+                0
+              ],
+              "blocks": [
+                "minecraft:grass_block"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "prioritize_tip": false,
+    "layers": [
+      {
+        "height": {
+          "type": "minecraft:uniform",
+          "min_inclusive": 1,
+          "max_inclusive": 3
+        },
+        "provider": {
+          "type": "minecraft:simple_state_provider",
+          "state": {
+            "Name": "minecraft:stone"
+          }
+        }
       }
-    }
+    ]
   }
 }

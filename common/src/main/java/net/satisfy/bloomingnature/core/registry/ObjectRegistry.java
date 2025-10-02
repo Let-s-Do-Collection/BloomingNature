@@ -27,7 +27,6 @@ import net.satisfy.bloomingnature.core.block.*;
 import net.satisfy.bloomingnature.core.entity.ModBoatEntity;
 import net.satisfy.bloomingnature.core.item.ModBoatItem;
 import net.satisfy.bloomingnature.core.util.BloomingNatureGeneralUtil;
-import net.satisfy.bloomingnature.core.util.BloomingNatureIdentifier;
 import net.satisfy.bloomingnature.core.util.BloomingNatureWoodType;
 
 import java.util.Optional;
@@ -352,16 +351,14 @@ public class ObjectRegistry {
     public static final RegistrySupplier<Block> CARDINAL = registerWithItem("cardinal", () -> new TallFlowerBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.ROSE_BUSH)));
     public static final RegistrySupplier<Block> TALL_MOUNTAIN_LAUREL = registerWithItem("tall_mountain_laurel", () -> new TallFlowerBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.ROSE_BUSH)));
     public static final RegistrySupplier<Block> WILD_SUNFLOWER = registerWithItem("wild_sunflower", () -> new TallFlowerBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.ROSE_BUSH)));
-    public static final RegistrySupplier<Block> FLOWER_POT_BIG = registerWithItem("flower_pot_big", () -> new FlowerPotBigBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.FLOWER_POT)));
-    public static final RegistrySupplier<Block> FLOWER_BOX = registerWithItem("flower_box", () -> new FlowerBoxBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.FLOWER_POT)));
-    public static final RegistrySupplier<Block> FLOATING_LEAVES = registerWithItem("floating_leaves", () -> new FloatingLeavesBlock(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).instabreak().sound(SoundType.LILY_PAD).noOcclusion().pushReaction(PushReaction.DESTROY)));
-    public static final RegistrySupplier<Block> SUNGRASS = registerWithItem("sungrass", () -> new BonemealableTallGrassBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.GRASS_BLOCK), ObjectRegistry.TALL_SUNGRASS));
-    public static final RegistrySupplier<Block> RED_OAT_GRASS = registerWithItem("red_oat_grass", () -> new BonemealableTallGrassBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.GRASS_BLOCK), ObjectRegistry.TALL_RED_OAT_GRASS));
+    public static final RegistrySupplier<Block> FLOATING_LEAVES = registerWithItem("floating_leaves", () -> new WaterlilyBlock(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).instabreak().sound(SoundType.LILY_PAD).noOcclusion().pushReaction(PushReaction.DESTROY)));
+    public static final RegistrySupplier<Block> SUNGRASS = registerWithItem("sungrass", () -> new TallGrassBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CORNFLOWER)));
+    public static final RegistrySupplier<Block> RED_OAT_GRASS = registerWithItem("red_oat_grass", () -> new TallGrassBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CORNFLOWER)));
     public static final RegistrySupplier<Block> TALL_SUNGRASS = registerWithItem("tall_sungrass", () -> new DoublePlantBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.TALL_GRASS)));
     public static final RegistrySupplier<Block> TALL_RED_OAT_GRASS = registerWithItem("tall_red_oat_grass", () -> new DoublePlantBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.TALL_GRASS)));
-    public static final RegistrySupplier<Block> SILKGRASS = registerWithItem("silkgrass", () -> new BonemealableTallGrassBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.GRASS_BLOCK), ObjectRegistry.TALL_SILKGRASS));
+    public static final RegistrySupplier<Block> SILKGRASS = registerWithItem("silkgrass", () -> new TallGrassBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CORNFLOWER)));
     public static final RegistrySupplier<Block> TALL_SILKGRASS = registerWithItem("tall_silkgrass", () -> new DoublePlantBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.TALL_GRASS)));
-    public static final RegistrySupplier<Block> MOSSGRASS = registerWithItem("mossgrass", () -> new BonemealableTallGrassBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.GRASS_BLOCK), ObjectRegistry.MOSSGRASS));
+    public static final RegistrySupplier<Block> MOSSGRASS = registerWithItem("mossgrass", () -> new TallGrassBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CORNFLOWER)));
     public static final RegistrySupplier<Block> SMALL_CACTUS = registerWithItem("small_cactus", () -> new SmallCactusBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CACTUS)));
     public static final RegistrySupplier<Block> BARREL_CACTUS = registerWithItem("barrel_cactus", () -> new DeadBushBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.DEAD_BUSH)));
     public static final RegistrySupplier<Block> PRICKLY_PEAR_CACTUS = registerWithItem("prickly_pear_cactus", () -> new DeadBushBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.DEAD_BUSH)));
@@ -490,7 +487,7 @@ public class ObjectRegistry {
     }
 
     public static ResourceKey<ConfiguredFeature<?, ?>> configuredFeatureKey(String name) {
-        return ResourceKey.create(Registries.CONFIGURED_FEATURE, BloomingNatureIdentifier.of( name));
+        return ResourceKey.create(Registries.CONFIGURED_FEATURE, BloomingNature.identifier( name));
     }
 
     public static void commonInit() {
@@ -525,14 +522,14 @@ public class ObjectRegistry {
     }
 
     public static <T extends Block> RegistrySupplier<T> registerWithItem(String name, Supplier<T> block) {
-        return BloomingNatureGeneralUtil.registerWithItem(BLOCKS, BLOCK_REGISTRAR, ITEMS, ITEM_REGISTRAR, BloomingNatureIdentifier.of(name), block);
+        return BloomingNatureGeneralUtil.registerWithItem(BLOCKS, BLOCK_REGISTRAR, ITEMS, ITEM_REGISTRAR, BloomingNature.identifier(name), block);
     }
 
     public static <T extends Block> RegistrySupplier<T> registerWithoutItem(String path, Supplier<T> block) {
-        return BloomingNatureGeneralUtil.registerWithoutItem(BLOCKS, BLOCK_REGISTRAR, BloomingNatureIdentifier.of(path), block);
+        return BloomingNatureGeneralUtil.registerWithoutItem(BLOCKS, BLOCK_REGISTRAR, BloomingNature.identifier(path), block);
     }
 
     public static <T extends Item> RegistrySupplier<T> registerItem(String path, Supplier<T> itemSupplier) {
-        return BloomingNatureGeneralUtil.registerItem(ITEMS, ITEM_REGISTRAR, BloomingNatureIdentifier.of(path), itemSupplier);
+        return BloomingNatureGeneralUtil.registerItem(ITEMS, ITEM_REGISTRAR, BloomingNature.identifier(path), itemSupplier);
     }
 }

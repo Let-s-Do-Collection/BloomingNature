@@ -13,9 +13,9 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.vehicle.Boat;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.Level;
+import net.satisfy.bloomingnature.BloomingNature;
 import net.satisfy.bloomingnature.core.registry.EntityTypeRegistry;
 import net.satisfy.bloomingnature.core.registry.ObjectRegistry;
-import net.satisfy.bloomingnature.core.util.BloomingNatureIdentifier;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.function.Supplier;
@@ -99,9 +99,9 @@ public class ModBoatEntity extends Boat {
 
         public ResourceLocation getTexture(boolean hasChest) {
             if (hasChest) {
-                return BloomingNatureIdentifier.of("textures/entity/chest_boat/" + name + ".png");
+                return BloomingNature.identifier("textures/entity/chest_boat/" + name + ".png");
             }
-            return BloomingNatureIdentifier.of("textures/entity/boat/" + name + ".png");
+            return BloomingNature.identifier("textures/entity/boat/" + name + ".png");
         }
 
         public String getModelLocation() {

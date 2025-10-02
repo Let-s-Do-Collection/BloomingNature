@@ -25,10 +25,10 @@ import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import net.satisfy.bloomingnature.BloomingNature;
 import net.satisfy.bloomingnature.core.registry.ObjectRegistry;
 import net.satisfy.bloomingnature.core.block.entity.CompletionistBannerEntity;
 import net.satisfy.bloomingnature.core.registry.EntityTypeRegistry;
-import net.satisfy.bloomingnature.core.util.BloomingNatureIdentifier;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -125,7 +125,7 @@ public class CompletionistBannerBlock extends BaseEntityBlock {
     }
 
     public ResourceLocation getRenderTexture() {
-        return BloomingNatureIdentifier.of("textures/banner/bloomingnature_banner.png");
+        return BloomingNature.identifier("textures/banner/bloomingnature_banner.png");
     }
 
     @Override

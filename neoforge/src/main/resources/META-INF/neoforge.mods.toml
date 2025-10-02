@@ -3,13 +3,16 @@ loaderVersion = "[4,)"
 license = "Custom"
 issueTrackerURL = "https://github.com/satisfyu/Let-s-Do-Hub"
 
+[[mixins]]
+config = "bloomingnature.mixins.json"
+
 [[mods]]
 modId = "bloomingnature"
 version = "${version}"
 displayName = "[Let's Do] BloomingNature"
 authors = "satisfy"
 description = '''
-Explore a redesigned overworld: new animals, reshaped biomes, livelier landscapes
+Hello wanderer! The overworld has changed: New flowers bloom, fresh woods grow, and reshaped biomes await your footsteps.
 '''
 logoFile = "pack.png"
 

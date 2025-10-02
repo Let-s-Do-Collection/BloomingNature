@@ -6,7 +6,7 @@ import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.satisfy.bloomingnature.BloomingNature;
 import net.satisfy.bloomingnature.core.registry.CompostableRegistry;
-import net.satisfy.bloomingnature.neoforge.registry.BloomingNatureBiomeModifiers;
+import net.satisfy.bloomingnature.neoforge.core.registry.BloomingNatureBiomeModifiers;
 import net.satisfy.bloomingnature.platform.neoforge.PlatformHelperImpl;
 
 

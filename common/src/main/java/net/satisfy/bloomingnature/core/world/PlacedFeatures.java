@@ -4,7 +4,7 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
-import net.satisfy.bloomingnature.core.util.BloomingNatureIdentifier;
+import net.satisfy.bloomingnature.BloomingNature;
 
 public class PlacedFeatures {
     public static final ResourceKey<PlacedFeature> FLOWER_DEFAULT = registerMCKey("flower_default");
@@ -210,7 +210,7 @@ public class PlacedFeatures {
     public static final ResourceKey<PlacedFeature> BEACH_SAND_LAYER3    = registerKey("beach_sand_layer3");
 
     public static ResourceKey<PlacedFeature> registerKey(String name) {
-        return ResourceKey.create(Registries.PLACED_FEATURE, BloomingNatureIdentifier.of(name));
+        return ResourceKey.create(Registries.PLACED_FEATURE, BloomingNature.identifier(name));
     }
 
     public static ResourceKey<PlacedFeature> registerMCKey(String name) {

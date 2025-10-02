@@ -43,11 +43,58 @@
       },
       "placement": [
         {
+          "type": "minecraft:in_square"
+        },
+        {
           "type": "minecraft:block_predicate_filter",
           "predicate": {
-            "type": "minecraft:matching_blocks",
-            "blocks": "minecraft:air"
+            "type": "minecraft:any_of",
+            "predicates": [
+              {
+                "type": "minecraft:would_survive",
+                "state": {
+                  "Name": "bloomingnature:golden_rod"
+                }
+              },
+              {
+                "type": "minecraft:would_survive",
+                "state": {
+                  "Name": "bloomingnature:freesia_yellow"
+                }
+              },
+              {
+                "type": "minecraft:would_survive",
+                "state": {
+                  "Name": "bloomingnature:forsythia"
+                }
+              },
+              {
+                "type": "minecraft:would_survive",
+                "state": {
+                  "Name": "bloomingnature:genisteae"
+                }
+              },
+              {
+                "type": "minecraft:would_survive",
+                "state": {
+                  "Name": "minecraft:brown_mushroom"
+                }
+              },
+              {
+                "type": "minecraft:would_survive",
+                "state": {
+                  "Name": "bloomingnature:wild_sunflower",
+                  "Properties": {
+                    "half": "lower"
+                  }
+                }
+              }
+            ]
           }
+        },
+        {
+          "type": "minecraft:heightmap",
+          "heightmap": "MOTION_BLOCKING_NO_LEAVES"
         }
       ]
     },

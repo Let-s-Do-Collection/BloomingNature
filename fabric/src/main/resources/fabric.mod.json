@@ -3,7 +3,7 @@
   "id": "bloomingnature",
   "version": "${version}",
   "name": "[Let's Do] BloomingNature",
-  "description": "Explore a redesigned overworld: new flowers and wood, reshaped biomes, livelier landscapes.",
+  "description": "Hello wanderer! The overworld has changed: New flowers bloom, fresh woods grow, and reshaped biomes await your footsteps.",
   "authors": [
     "satisfy"
   ],
@@ -22,9 +22,12 @@
       "net.satisfy.bloomingnature.fabric.client.BloomingNatureClientFabric"
     ],
     "modmenu": [
-      "net.satisfy.bloomingnature.fabric.config.ModMenu"
+      "net.satisfy.bloomingnature.fabric.core.config.ModMenu"
     ]
   },
+  "mixins": [
+    "bloomingnature.mixins.json"
+  ],
   "depends": {
     "fabric": "*",
     "minecraft": ">=1.20",

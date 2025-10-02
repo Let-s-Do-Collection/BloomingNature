@@ -1,4 +1,4 @@
-package net.satisfy.bloomingnature.core.mixin;
+package net.satisfy.bloomingnature.neoforge.core.mixin;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;

@@ -1,5 +1,7 @@
 plugins {
     id "com.github.johnrengelman.shadow" version "8.0.0"
+    id "com.modrinth.minotaur" version "2.+"
+    id "com.matthewprenger.cursegradle" version "1.4.0"
 }
 
 architectury {
@@ -14,6 +16,7 @@ loom {
 }
 
 def jarFileName = 'letsdo-bloomingnature-neoforge'
+def changelogText = rootProject.file("CHANGELOG.md").text
 archivesBaseName = jarFileName
 
 repositories {
@@ -85,3 +88,41 @@ publishing {
         }
     }
 }
+
+modrinth {
+    token = System.getenv("MODRINTH_TOKEN")
+    projectId = "lets-do-bloomingnature"
+    versionNumber = rootProject.mod_version
+    versionName = "${rootProject.archives_base_name}-${rootProject.mod_version} [${rootProject.minecraft_version}-neoforge]"
+    versionType = "release"
+    changelog = rootProject.file("CHANGELOG.md").exists() ? rootProject.file("CHANGELOG.md").text : " "
+    gameVersions = [rootProject.minecraft_version]
+    loaders = ["neoforge"]
+    uploadFile = remapJar
+    additionalFiles = [tasks.sourcesJar.archiveFile]
+
+    dependencies {
+        required.project "architectury-api"
+    }
+}
+
+curseforge {
+    apiKey = System.getenv("CURSEFORGE_API_KEY")
+    project {
+        id = "962885"
+        releaseType = "release"
+        addGameVersion rootProject.minecraft_version
+        addGameVersion "NeoForge"
+        mainArtifact(remapJar) {
+            displayName = "bloomingnature - ${rootProject.mod_version} - NEOFORGE - ${rootProject.minecraft_version}"
+            changelog = changelogText
+            changelogType = "markdown"
+        }
+
+        relations {
+            requiredDependency "architectury-api"
+        }
+    }
+}
+
+
