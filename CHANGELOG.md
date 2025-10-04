@@ -1,3 +1,10 @@
+[1.1.2]
+
+**Fixed**
+* Removed log spam from incorrectly structured FlowerForestFlowers Feature
+
+***
+
 [1.1.1]
 
 **Fixed**
