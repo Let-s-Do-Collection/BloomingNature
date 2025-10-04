@@ -1,0 +1,38 @@
+{
+  "variants": {
+    "snowy=false": [
+      {
+        "model": "bloomingnature:block/fir_leaves"
+      },
+      {
+        "model": "bloomingnature:block/fir_leaves",
+        "y": 90
+      },
+      {
+        "model": "bloomingnature:block/fir_leaves",
+        "y": 180
+      },
+      {
+        "model": "bloomingnature:block/fir_leaves",
+        "y": 270
+      }
+    ],
+    "snowy=true": [
+      {
+        "model": "bloomingnature:block/fir_leaves_snow"
+      },
+      {
+        "model": "bloomingnature:block/fir_leaves_snow",
+        "y": 90
+      },
+      {
+        "model": "bloomingnature:block/fir_leaves_snow",
+        "y": 180
+      },
+      {
+        "model": "bloomingnature:block/fir_leaves_snow",
+        "y": 270
+      }
+    ]
+  }
+}

@@ -1,6 +1,0 @@
-{
-  "type": "forge:remove_features",
-  "biomes": "minecraft:snowy_taiga",
-  "features": "minecraft:trees_taiga",
-  "step": "vegetal_decoration"
-}

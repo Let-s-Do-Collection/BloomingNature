@@ -201,9 +201,6 @@
           }
         ]
       }
-    },
-    {
-      "type": "minecraft:biome"
     }
   ]
 }

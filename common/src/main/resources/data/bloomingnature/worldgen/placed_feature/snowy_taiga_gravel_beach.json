@@ -21,9 +21,6 @@
         "type": "minecraft:matching_fluids",
         "fluids": "minecraft:water"
       }
-    },
-    {
-      "type": "minecraft:biome"
     }
   ]
 }

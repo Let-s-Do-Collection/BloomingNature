@@ -30,9 +30,6 @@
           "minecraft:coarse_dirt"
         ]
       }
-    },
-    {
-      "type": "minecraft:biome"
     }
   ]
 }

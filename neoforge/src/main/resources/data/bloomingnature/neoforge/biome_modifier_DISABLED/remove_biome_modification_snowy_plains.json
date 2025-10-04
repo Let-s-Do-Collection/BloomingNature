@@ -1,9 +1,0 @@
-{
-  "type": "forge:remove_features",
-  "biomes": "minecraft:snowy_plains",
-  "features": [
-    "minecraft:trees_snowy",
-    "minecraft:flower_default"
-  ],
-  "step": "vegetal_decoration"
-}

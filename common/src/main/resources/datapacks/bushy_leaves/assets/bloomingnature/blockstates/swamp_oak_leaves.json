@@ -1,0 +1,36 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "bloomingnature:block/swamp_oak_leaves0"
+      },
+      {
+        "model": "bloomingnature:block/swamp_oak_leaves1"
+      },
+      {
+        "model": "bloomingnature:block/swamp_oak_leaves0",
+        "y": 90
+      },
+      {
+        "model": "bloomingnature:block/swamp_oak_leaves1",
+        "y": 90
+      },
+      {
+        "model": "bloomingnature:block/swamp_oak_leaves0",
+        "y": 180
+      },
+      {
+        "model": "bloomingnature:block/swamp_oak_leaves1",
+        "y": 180
+      },
+      {
+        "model": "bloomingnature:block/swamp_oak_leaves0",
+        "y": 270
+      },
+      {
+        "model": "bloomingnature:block/swamp_oak_leaves1",
+        "y": 270
+      }
+    ]
+  }
+}

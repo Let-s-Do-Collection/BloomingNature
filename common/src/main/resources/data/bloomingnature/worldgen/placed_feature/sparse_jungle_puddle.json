@@ -23,9 +23,6 @@
       "heightmap": "WORLD_SURFACE_WG"
     },
     {
-      "type": "minecraft:biome"
-    },
-    {
       "type": "minecraft:count",
       "count": {
         "type": "minecraft:uniform",
