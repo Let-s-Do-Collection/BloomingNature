@@ -1,8 +1,10 @@
 {
   "type": "minecraft:stonecutting",
-  "count": 1,
   "ingredient": {
     "item": "bloomingnature:red_bricks"
   },
-  "result": "bloomingnature:chiseled_red_bricks"
+  "result": {
+    "id": "bloomingnature:chiseled_red_bricks",
+    "count": 1
+  }
 }

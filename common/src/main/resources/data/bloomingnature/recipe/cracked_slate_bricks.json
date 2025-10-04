@@ -6,5 +6,8 @@
   "ingredient": {
     "item": "bloomingnature:slate_bricks"
   },
-  "result": "bloomingnature:cracked_slate_bricks"
+  "result": {
+    "id": "bloomingnature:cracked_slate_bricks",
+    "count": 1
+  }
 }

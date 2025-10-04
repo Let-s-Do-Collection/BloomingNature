@@ -1,8 +1,10 @@
 {
   "type": "minecraft:stonecutting",
-  "count": 1,
   "ingredient": {
     "item": "bloomingnature:travertin"
   },
-  "result": "bloomingnature:travertin_wall"
+  "result": {
+    "id": "bloomingnature:travertin_wall",
+    "count": 1
+  }
 }

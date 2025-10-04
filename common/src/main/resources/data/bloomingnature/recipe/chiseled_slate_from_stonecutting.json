@@ -1,8 +1,10 @@
 {
   "type": "minecraft:stonecutting",
-  "count": 1,
   "ingredient": {
     "item": "bloomingnature:slate"
   },
-  "result": "bloomingnature:chiseled_slate"
+  "result": {
+    "id": "bloomingnature:chiseled_slate",
+    "count": 1
+  }
 }

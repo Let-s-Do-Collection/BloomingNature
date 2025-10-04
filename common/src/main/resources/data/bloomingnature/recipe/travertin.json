@@ -6,5 +6,8 @@
   "ingredient": {
     "item": "bloomingnature:cobbled_travertin"
   },
-  "result": "bloomingnature:travertin"
+  "result": {
+    "id": "bloomingnature:travertin",
+    "count": 1
+  }
 }

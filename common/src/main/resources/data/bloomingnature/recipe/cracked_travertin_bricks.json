@@ -6,5 +6,8 @@
   "ingredient": {
     "item": "bloomingnature:travertin_bricks"
   },
-  "result": "bloomingnature:cracked_travertin_bricks"
+  "result": {
+    "id": "bloomingnature:cracked_travertin_bricks",
+    "count": 1
+  }
 }

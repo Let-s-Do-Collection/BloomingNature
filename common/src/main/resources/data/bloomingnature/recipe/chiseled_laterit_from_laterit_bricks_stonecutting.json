@@ -1,8 +1,10 @@
 {
   "type": "minecraft:stonecutting",
-  "count": 1,
   "ingredient": {
     "item": "bloomingnature:laterit_bricks"
   },
-  "result": "bloomingnature:chiseled_laterit"
+  "result": {
+    "id": "bloomingnature:chiseled_laterit",
+    "count": 1
+  }
 }

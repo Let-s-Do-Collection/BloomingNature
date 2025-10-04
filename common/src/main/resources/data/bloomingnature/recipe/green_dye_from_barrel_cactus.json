@@ -6,5 +6,8 @@
   "ingredient": {
     "item": "bloomingnature:barrel_cactus"
   },
-  "result": "minecraft:green_dye"
+  "result": {
+    "id": "minecraft:green_dye",
+    "count": 1
+  }
 }

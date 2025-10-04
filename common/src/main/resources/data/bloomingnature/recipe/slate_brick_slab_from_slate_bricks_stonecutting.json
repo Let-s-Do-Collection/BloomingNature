@@ -1,8 +1,10 @@
 {
   "type": "minecraft:stonecutting",
-  "count": 2,
   "ingredient": {
     "item": "bloomingnature:slate_bricks"
   },
-  "result": "bloomingnature:slate_brick_slab"
+  "result": {
+    "id": "bloomingnature:slate_brick_slab",
+    "count": 2
+  }
 }

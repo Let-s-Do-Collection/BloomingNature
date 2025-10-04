@@ -6,5 +6,8 @@
   "ingredient": {
     "item": "bloomingnature:cobbled_slate"
   },
-  "result": "bloomingnature:slate"
+  "result": {
+    "id": "bloomingnature:slate",
+    "count": 1
+  }
 }

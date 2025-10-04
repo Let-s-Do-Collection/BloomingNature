@@ -6,5 +6,8 @@
   "ingredient": {
     "item": "bloomingnature:cobbled_laterit"
   },
-  "result": "bloomingnature:laterit"
+  "result": {
+    "id": "bloomingnature:laterit",
+    "count": 1
+  }
 }
