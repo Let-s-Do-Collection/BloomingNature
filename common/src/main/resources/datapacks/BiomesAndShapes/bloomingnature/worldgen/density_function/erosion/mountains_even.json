@@ -1,0 +1,17 @@
+{
+	"type": "minecraft:abs",
+	"argument": {
+		"type": "minecraft:add",
+		"argument1": {
+			"type": "minecraft:mul",
+			"argument1": 0.25,
+			"argument2": "bloomingnature:ridge/u"
+		},
+		"argument2": {
+			"type": "minecraft:noise",
+			"noise": "bloomingnature:erosion/mountains_odd",
+			"xz_scale": 0.25,
+			"y_scale": 0.0
+		}
+	}
+}
