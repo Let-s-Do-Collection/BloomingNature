@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:mul",
+  "argument1": "bloomingnature:alps/plateau_mask",
+  "argument2": {
+    "type": "minecraft:spline",
+    "spline": {
+      "coordinate": "bloomingnature:alps/chain_feather",
+      "points": [
+        {
+          "location": 0.1,
+          "derivative": 0.0,
+          "value": 0.05
+        },
+        {
+          "location": 0.4,
+          "derivative": 0.0,
+          "value": 0.25
+        },
+        {
+          "location": 0.7,
+          "derivative": 0.0,
+          "value": 0.4
+        }
+      ]
+    }
+  }
+}

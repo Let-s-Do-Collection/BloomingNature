@@ -1,0 +1,41 @@
+{
+  "type": "minecraft:clamp",
+  "min": 0.0,
+  "max": 1.0,
+  "input": {
+    "type": "minecraft:spline",
+    "spline": {
+      "coordinate": {
+        "type": "minecraft:biome",
+        "parameter": "erosion"
+      },
+      "points": [
+        {
+          "location": -0.4,
+          "derivative": 0.0,
+          "value": 0.2
+        },
+        {
+          "location": -0.1,
+          "derivative": 0.0,
+          "value": 0.6
+        },
+        {
+          "location": 0.2,
+          "derivative": 0.0,
+          "value": 1.0
+        },
+        {
+          "location": 0.55,
+          "derivative": 0.0,
+          "value": 0.6
+        },
+        {
+          "location": 0.85,
+          "derivative": 0.0,
+          "value": 0.1
+        }
+      ]
+    }
+  }
+}

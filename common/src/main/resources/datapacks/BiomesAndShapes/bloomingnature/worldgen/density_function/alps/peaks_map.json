@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:spline",
+  "spline": {
+    "coordinate": "bloomingnature:alps/chain_mask",
+    "points": [
+      {
+        "location": 0.3,
+        "derivative": 0.0,
+        "value": 0.0
+      },
+      {
+        "location": 0.55,
+        "derivative": 0.0,
+        "value": 0.6
+      },
+      {
+        "location": 0.8,
+        "derivative": 0.0,
+        "value": 1.0
+      }
+    ]
+  }
+}

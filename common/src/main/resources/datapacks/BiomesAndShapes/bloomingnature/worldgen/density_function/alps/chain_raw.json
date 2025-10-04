@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:clamp",
+  "min": 0.0,
+  "max": 1.0,
+  "input": {
+    "type": "minecraft:mul",
+    "argument1": 0.8,
+    "argument2": {
+      "type": "minecraft:add",
+      "argument1": {
+        "type": "minecraft:abs",
+        "argument": "bloomingnature:ridge/u"
+      },
+      "argument2": {
+        "type": "minecraft:abs",
+        "argument": "bloomingnature:ridge/v"
+      }
+    }
+  }
+}

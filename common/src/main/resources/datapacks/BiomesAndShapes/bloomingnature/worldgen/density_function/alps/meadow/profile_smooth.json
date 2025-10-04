@@ -1,0 +1,32 @@
+{
+  "type": "minecraft:spline",
+  "spline": {
+    "coordinate": {
+      "type": "minecraft:mul",
+      "argument1": 0.5,
+      "argument2": "bloomingnature:alps/meadow/profile_base"
+    },
+    "points": [
+      {
+        "location": -1.0,
+        "derivative": 0.0,
+        "value": -0.1
+      },
+      {
+        "location": 0.0,
+        "derivative": 0.0,
+        "value": 0.0
+      },
+      {
+        "location": 0.6,
+        "derivative": 0.0,
+        "value": 0.35
+      },
+      {
+        "location": 1.0,
+        "derivative": 0.0,
+        "value": 0.45
+      }
+    ]
+  }
+}

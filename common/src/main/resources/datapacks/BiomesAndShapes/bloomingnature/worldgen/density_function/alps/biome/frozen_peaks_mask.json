@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:mul",
+  "argument1": "bloomingnature:alps/biome/temp_freezing",
+  "argument2": {
+    "type": "minecraft:mul",
+    "argument1": "bloomingnature:alps/biome/weird_high",
+    "argument2": "bloomingnature:alps/biome/cont_inland"
+  }
+}

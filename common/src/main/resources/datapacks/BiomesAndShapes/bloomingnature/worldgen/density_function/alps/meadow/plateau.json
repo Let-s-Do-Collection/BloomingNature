@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:mul",
+  "argument1": {
+    "type": "minecraft:mul",
+    "argument1": "bloomingnature:alps/meadow/profile_smooth",
+    "argument2": "bloomingnature:alps/meadow/chain_band"
+  },
+  "argument2": "bloomingnature:alps/meadow/mask"
+}

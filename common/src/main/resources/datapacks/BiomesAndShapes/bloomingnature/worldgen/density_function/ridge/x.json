@@ -1,12 +1,12 @@
 {
-	"type": "minecraft:flat_cache",
-	"argument": {
-		"type": "minecraft:cache_2d",
-		"argument": {
-			"type": "minecraft:noise",
-			"noise": "bloomingnature:ridge/x",
-			"xz_scale": 0.25,
-			"y_scale": 0.0
-		}
-	}
+  "type": "minecraft:flat_cache",
+  "argument": {
+    "type": "minecraft:cache_2d",
+    "argument": {
+      "type": "minecraft:noise",
+      "noise": "bloomingnature:ridge/x",
+      "xz_scale": 0.7,
+      "y_scale": 0.0
+    }
+  }
 }

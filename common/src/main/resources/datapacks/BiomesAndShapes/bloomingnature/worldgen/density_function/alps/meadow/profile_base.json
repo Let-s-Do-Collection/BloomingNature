@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:add",
+  "argument1": 0.25,
+  "argument2": {
+    "type": "minecraft:mul",
+    "argument1": 0.5,
+    "argument2": {
+      "type": "minecraft:abs",
+      "argument": "bloomingnature:ridge/u"
+    }
+  }
+}

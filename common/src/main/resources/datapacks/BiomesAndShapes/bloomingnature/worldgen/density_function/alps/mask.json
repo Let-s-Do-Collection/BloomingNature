@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:mul",
+  "argument1": {
+    "type": "minecraft:mul",
+    "argument1": "bloomingnature:alps/temp_mask",
+    "argument2": "bloomingnature:alps/erosion_mask"
+  },
+  "argument2": {
+    "type": "minecraft:min",
+    "argument1": 1.0,
+    "argument2": {
+      "type": "minecraft:add",
+      "argument1": "bloomingnature:alps/chain_feather",
+      "argument2": "bloomingnature:alps/occurrence_bias"
+    }
+  }
+}

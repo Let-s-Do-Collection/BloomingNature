@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:clamp",
+  "min": 0.0,
+  "max": 1.0,
+  "input": {
+    "type": "minecraft:add",
+    "argument1": 0.2,
+    "argument2": {
+      "type": "minecraft:mul",
+      "argument1": 0.8,
+      "argument2": "bloomingnature:alps/chain_feather"
+    }
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "type": "minecraft:add",
+  "argument1": {
+    "type": "minecraft:add",
+    "argument1": {
+      "type": "minecraft:spline",
+      "spline": {
+        "coordinate": {
+          "type": "minecraft:add",
+          "argument1": "bloomingnature:alps/ridge_core",
+          "argument2": {
+            "type": "minecraft:add",
+            "argument1": "bloomingnature:alps/foothills",
+            "argument2": "bloomingnature:alps/plateaus"
+          }
+        },
+        "points": [
+          {
+            "location": -1.00,
+            "derivative": 0.0,
+            "value": -0.60
+          },
+          {
+            "location": -0.50,
+            "derivative": 0.0,
+            "value": -0.40
+          },
+          {
+            "location": 0.00,
+            "derivative": 0.0,
+            "value": 0.00
+          },
+          {
+            "location": 0.50,
+            "derivative": 0.0,
+            "value": 0.40
+          },
+          {
+            "location": 1.00,
+            "derivative": 0.0,
+            "value": 0.60
+          }
+        ]
+      }
+    },
+    "argument2": {
+      "type": "minecraft:add",
+      "argument1": {
+        "type": "minecraft:mul",
+        "argument1": {
+          "type": "minecraft:add",
+          "argument1": 2.2,
+          "argument2": "bloomingnature:alps/biome/jagged_peaks_peakmap"
+        },
+        "argument2": {
+          "type": "minecraft:mul",
+          "argument1": "bloomingnature:alps/mask_forced",
+          "argument2": "bloomingnature:alps/chain_mask"
+        }
+      },
+      "argument2": {
+        "type": "minecraft:mul",
+        "argument1": 0.6,
+        "argument2": {
+          "type": "minecraft:mul",
+          "argument1": "bloomingnature:alps/ridge_core",
+          "argument2": "bloomingnature:alps/biome/jagged_peaks_mask"
+        }
+      }
+    }
+  },
+  "argument2": {
+    "type": "minecraft:add",
+    "argument1": "bloomingnature:alps/valleys",
+    "argument2": "bloomingnature:alps/snowline"
+  }
+}
