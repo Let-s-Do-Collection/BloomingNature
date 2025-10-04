@@ -1,96 +1,36 @@
 {
-  "type": "minecraft:flower",
+  "type": "minecraft:simple_block",
   "config": {
-    "feature": {
-      "feature": {
-        "type": "minecraft:simple_block",
-        "config": {
-          "to_place": {
-            "type": "minecraft:noise_provider",
-            "noise": {
-              "amplitudes": [
-                1.0
-              ],
-              "firstOctave": 0
-            },
-            "scale": 0.030833334,
-            "seed": 4885,
-            "states": [
-              {
-                "Name": "bloomingnature:bottlebrushes"
-              },
-              {
-                "Name": "bloomingnature:begonie"
-              },
-              {
-                "Name": "bloomingnature:gladiolus"
-              },
-              {
-                "Name": "bloomingnature:hyssop"
-              },
-              {
-                "Name": "bloomingnature:white_orchid"
-              }
-            ]
-          }
-        }
+    "to_place": {
+      "type": "minecraft:noise_provider",
+      "noise": {
+        "amplitudes": [
+          1.0
+        ],
+        "firstOctave": 0
       },
-      "placement": [
+      "scale": 0.030833334,
+      "seed": 4885,
+      "states": [
         {
-          "type": "minecraft:in_square"
+          "Name": "bloomingnature:bottlebrushes"
         },
         {
-          "type": "minecraft:block_predicate_filter",
-          "predicate": {
-            "type": "minecraft:any_of",
-            "predicates": [
-              {
-                "type": "minecraft:would_survive",
-                "state": {
-                  "Name": "bloomingnature:bottlebrushes"
-                }
-              },
-              {
-                "type": "minecraft:would_survive",
-                "state": {
-                  "Name": "bloomingnature:begonie"
-                }
-              },
-              {
-                "type": "minecraft:would_survive",
-                "state": {
-                  "Name": "bloomingnature:gladiolus"
-                }
-              },
-              {
-                "type": "minecraft:would_survive",
-                "state": {
-                  "Name": "bloomingnature:hyssop"
-                }
-              },
-              {
-                "type": "minecraft:would_survive",
-                "state": {
-                  "Name": "bloomingnature:white_orchid"
-                }
-              },
-              {
-                "type": "minecraft:would_survive",
-                "state": {
-                  "Name": "bloomingnature:bird_of_paradise"
-                }
-              }
-            ]
-          }
+          "Name": "bloomingnature:begonie"
         },
         {
-          "type": "minecraft:heightmap",
-          "heightmap": "MOTION_BLOCKING_NO_LEAVES"
+          "Name": "bloomingnature:gladiolus"
+        },
+        {
+          "Name": "bloomingnature:hyssop"
+        },
+        {
+          "Name": "bloomingnature:white_orchid"
+        },
+        {
+          "Name": "bloomingnature:bird_of_paradise"
         }
       ]
-    },
-    "tries": 9,
-    "xz_spread": 8,
-    "y_spread": 2
+    }
   }
 }

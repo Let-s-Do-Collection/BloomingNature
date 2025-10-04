@@ -7,7 +7,7 @@
     "ground_state": {
       "type": "minecraft:simple_state_provider",
       "state": {
-        "Name": "minecraft:stone"
+        "Name": "minecraft:air"
       }
     },
     "replaceable": "#minecraft:stone",
@@ -20,7 +20,7 @@
           "to_place": {
             "type": "minecraft:simple_state_provider",
             "state": {
-              "Name": "minecraft:stone"
+              "Name": "minecraft:air"
             }
           }
         }

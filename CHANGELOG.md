@@ -1,8 +1,11 @@
 [1.1.1]
 
 **Fixed**
-* Renamed loot_tables to loot_table - this ensures that all loot tables work properly again!
-* Same for recipes to recipes 
+* Fixed crash caused by Savanna grass feature
+* Removed log spam from incorrectly structured features
+* Pillar blocks no longer spawn on trees
+* Loot tables now function correctly
+* Recipes are fixed and properly recognized
 
 ***
 

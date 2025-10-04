@@ -1,182 +1,63 @@
 {
-  "type": "minecraft:flower",
+  "type": "minecraft:simple_block",
   "config": {
-    "feature": {
-      "feature": {
-        "type": "minecraft:simple_block",
-        "config": {
-          "to_place": {
-            "type": "minecraft:noise_provider",
-            "noise": {
-              "amplitudes": [
-                1.0
-              ],
-              "firstOctave": 0
-            },
-            "scale": 0.030833334,
-            "seed": 4885,
-            "states": [
-              {
-                "Name": "bloomingnature:goatsbeard"
-              },
-              {
-                "Name": "bloomingnature:white_orchid"
-              },
-              {
-                "Name": "bloomingnature:hyssop"
-              },
-              {
-                "Name": "bloomingnature:freesia_pink"
-              },
-              {
-                "Name": "bloomingnature:bluebell"
-              },
-              {
-                "Name": "minecraft:lily_of_the_valley"
-              },
-              {
-                "Name": "bloomingnature:amaryllis"
-              },
-              {
-                "Name": "minecraft:azure_bluet"
-              },
-              {
-                "Name": "minecraft:dandelion"
-              },
-              {
-                "Name": "minecraft:rose_bush",
-                "Properties": {
-                  "half": "lower"
-                }
-              },
-              {
-                "Name": "minecraft:lilac",
-                "Properties": {
-                  "half": "lower"
-                }
-              },
-              {
-                "Name": "minecraft:peony",
-                "Properties": {
-                  "half": "lower"
-                }
-              }
-            ]
-          }
-        }
+    "to_place": {
+      "type": "minecraft:noise_provider",
+      "noise": {
+        "amplitudes": [
+          1.0
+        ],
+        "firstOctave": 0
       },
-      "placement": [
+      "scale": 0.030833334,
+      "seed": 4885,
+      "states": [
         {
-          "type": "minecraft:in_square"
+          "Name": "bloomingnature:goatsbeard"
         },
         {
-          "type": "minecraft:block_predicate_filter",
-          "predicate": {
-            "type": "minecraft:all_of",
-            "predicates": [
-              {
-                "type": "minecraft:matching_blocks",
-                "blocks": [
-                  "minecraft:air"
-                ]
-              },
-              {
-                "type": "minecraft:any_of",
-                "predicates": [
-                  {
-                    "type": "minecraft:would_survive",
-                    "state": {
-                      "Name": "bloomingnature:goatsbeard"
-                    }
-                  },
-                  {
-                    "type": "minecraft:would_survive",
-                    "state": {
-                      "Name": "bloomingnature:white_orchid"
-                    }
-                  },
-                  {
-                    "type": "minecraft:would_survive",
-                    "state": {
-                      "Name": "bloomingnature:hyssop"
-                    }
-                  },
-                  {
-                    "type": "minecraft:would_survive",
-                    "state": {
-                      "Name": "bloomingnature:freesia_pink"
-                    }
-                  },
-                  {
-                    "type": "minecraft:would_survive",
-                    "state": {
-                      "Name": "bloomingnature:bluebell"
-                    }
-                  },
-                  {
-                    "type": "minecraft:would_survive",
-                    "state": {
-                      "Name": "minecraft:lily_of_the_valley"
-                    }
-                  },
-                  {
-                    "type": "minecraft:would_survive",
-                    "state": {
-                      "Name": "bloomingnature:amaryllis"
-                    }
-                  },
-                  {
-                    "type": "minecraft:would_survive",
-                    "state": {
-                      "Name": "minecraft:azure_bluet"
-                    }
-                  },
-                  {
-                    "type": "minecraft:would_survive",
-                    "state": {
-                      "Name": "minecraft:dandelion"
-                    }
-                  },
-                  {
-                    "type": "minecraft:would_survive",
-                    "state": {
-                      "Name": "minecraft:rose_bush",
-                      "Properties": {
-                        "half": "lower"
-                      }
-                    }
-                  },
-                  {
-                    "type": "minecraft:would_survive",
-                    "state": {
-                      "Name": "minecraft:lilac",
-                      "Properties": {
-                        "half": "lower"
-                      }
-                    }
-                  },
-                  {
-                    "type": "minecraft:would_survive",
-                    "state": {
-                      "Name": "minecraft:peony",
-                      "Properties": {
-                        "half": "lower"
-                      }
-                    }
-                  }
-                ]
-              }
-            ]
+          "Name": "bloomingnature:white_orchid"
+        },
+        {
+          "Name": "bloomingnature:hyssop"
+        },
+        {
+          "Name": "bloomingnature:freesia_pink"
+        },
+        {
+          "Name": "bloomingnature:bluebell"
+        },
+        {
+          "Name": "minecraft:lily_of_the_valley"
+        },
+        {
+          "Name": "bloomingnature:amaryllis"
+        },
+        {
+          "Name": "minecraft:azure_bluet"
+        },
+        {
+          "Name": "minecraft:dandelion"
+        },
+        {
+          "Name": "minecraft:rose_bush",
+          "Properties": {
+            "half": "lower"
           }
         },
         {
-          "type": "minecraft:heightmap",
-          "heightmap": "MOTION_BLOCKING_NO_LEAVES"
+          "Name": "minecraft:lilac",
+          "Properties": {
+            "half": "lower"
+          }
+        },
+        {
+          "Name": "minecraft:peony",
+          "Properties": {
+            "half": "lower"
+          }
         }
       ]
-    },
-    "tries": 72,
-    "xz_spread": 8,
-    "y_spread": 2
+    }
   }
 }

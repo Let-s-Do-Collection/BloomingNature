@@ -1,69 +1,38 @@
 {
-  "type": "minecraft:random_patch",
+  "type": "minecraft:simple_block",
   "config": {
-    "tries": 22,
-    "xz_spread": 7,
-    "y_spread": 3,
-    "feature": {
-      "feature": {
-        "type": "minecraft:simple_block",
-        "config": {
-          "to_place": {
-            "type": "minecraft:weighted_state_provider",
-            "entries": [
-              {
-                "weight": 35,
-                "data": {
-                  "Name": "bloomingnature:sungrass"
-                }
-              },
-              {
-                "weight": 6,
-                "data": {
-                  "Name": "minecraft:fern"
-                }
-              },
-              {
-                "weight": 12,
-                "data": {
-                  "Name": "bloomingnature:tall_sungrass",
-                  "Properties": {
-                    "half": "lower"
-                  }
-                }
-              },
-              {
-                "weight": 4,
-                "data": {
-                  "Name": "minecraft:large_fern",
-                  "Properties": {
-                    "half": "lower"
-                  }
-                }
-              }
-            ]
-          }
-        }
-      },
-      "placement": [
+    "to_place": {
+      "type": "minecraft:weighted_state_provider",
+      "entries": [
         {
-          "type": "minecraft:in_square"
+          "weight": 35,
+          "data": {
+            "Name": "bloomingnature:sungrass"
+          }
         },
         {
-          "type": "minecraft:block_predicate_filter",
-          "predicate": {
-            "type": "minecraft:would_survive",
-            "state": {
-              "Name": "bloomingnature:tall_sungrass",
-              "Properties": {
-                "half": "lower"
-              }
+          "weight": 6,
+          "data": {
+            "Name": "minecraft:fern"
+          }
+        },
+        {
+          "weight": 12,
+          "data": {
+            "Name": "bloomingnature:tall_sungrass",
+            "Properties": {
+              "half": "lower"
             }
           }
         },
         {
-          "type": "minecraft:heightmap",
-          "heightmap": "MOTION_BLOCKING_NO_LEAVES"
+          "weight": 4,
+          "data": {
+            "Name": "minecraft:large_fern",
+            "Properties": {
+              "half": "lower"
+            }
+          }
         }
       ]
     }
