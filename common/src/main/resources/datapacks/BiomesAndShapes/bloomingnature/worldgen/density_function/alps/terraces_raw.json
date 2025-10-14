@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:mul",
-  "argument1": 0.6,
-  "argument2": {
-    "type": "minecraft:abs",
-    "argument": "bloomingnature:ridge/v"
-  }
-}

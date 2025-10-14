@@ -12,10 +12,7 @@
     "dirt_provider": {
       "type": "minecraft:simple_state_provider",
       "state": {
-        "Name": "minecraft:dirt",
-        "Properties": {
-          "axis": "y"
-        }
+        "Name": "minecraft:dirt"
       }
     },
     "trunk_provider": {
@@ -32,8 +29,6 @@
       "state": {
         "Name": "bloomingnature:aspen_leaves",
         "Properties": {
-          "distance": "7",
-          "double_drops": "true",
           "persistent": "false",
           "waterlogged": "false"
         }
@@ -49,7 +44,7 @@
       "type": "bloomingnature:aspen_foliage_placer",
       "offset": 0,
       "radius": 0,
-      "trunk_height": 7
+      "trunk_height": 6
     },
     "decorators": [
       {

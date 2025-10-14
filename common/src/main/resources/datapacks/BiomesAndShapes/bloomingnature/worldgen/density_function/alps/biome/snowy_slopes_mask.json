@@ -1,9 +1,0 @@
-{
-  "type": "minecraft:mul",
-  "argument1": "bloomingnature:alps/biome/temp_cold",
-  "argument2": {
-    "type": "minecraft:mul",
-    "argument1": "bloomingnature:alps/biome/erosion_low",
-    "argument2": "bloomingnature:alps/biome/weird_high"
-  }
-}
