@@ -1,9 +1,10 @@
-[1.1.2]
+[1.1.3]
 
 **Fixed**
 * Aspen, Oak and Jungle Trees rarely spawning with missing leaves 
 * SwampOakTreeSapling generating an Oak Tree
 * Boulders spawning on top of Trees
+* Several loot table predicates fixed
 
 ***
 
