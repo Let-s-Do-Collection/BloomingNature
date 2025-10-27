@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "bloomingnature:block/cypress_slab"
+    },
+    "type=double": {
+      "model": "bloomingnature:block/cypress_slab_double"
+    },
+    "type=top": {
+      "model": "bloomingnature:block/cypress_slab_top"
+    }
+  }
+}

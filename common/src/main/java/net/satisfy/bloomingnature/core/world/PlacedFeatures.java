@@ -203,17 +203,17 @@ public class PlacedFeatures {
     public static final ResourceKey<PlacedFeature> DESERT_SLATE_SLABS = registerKey("desert_slate_slabs");
     public static final ResourceKey<PlacedFeature> DESERT_ORE_SLATE = registerKey("desert_ore_slate");
     public static final ResourceKey<PlacedFeature> DESERT_SAND_LAYER = registerKey("desert_sand_layer");
-    public static final ResourceKey<PlacedFeature> DESERT_SAND_LAYER2    = registerKey("desert_sand_layer2");
-    public static final ResourceKey<PlacedFeature> DESERT_SAND_LAYER3    = registerKey("desert_sand_layer3");
+    public static final ResourceKey<PlacedFeature> DESERT_SAND_LAYER2 = registerKey("desert_sand_layer2");
+    public static final ResourceKey<PlacedFeature> DESERT_SAND_LAYER3 = registerKey("desert_sand_layer3");
     public static final ResourceKey<PlacedFeature> BEACH_SAND_LAYER = registerKey("beach_sand_layer");
-    public static final ResourceKey<PlacedFeature> BEACH_SAND_LAYER2    = registerKey("beach_sand_layer2");
-    public static final ResourceKey<PlacedFeature> BEACH_SAND_LAYER3    = registerKey("beach_sand_layer3");
+    public static final ResourceKey<PlacedFeature> BEACH_SAND_LAYER2 = registerKey("beach_sand_layer2");
+    public static final ResourceKey<PlacedFeature> BEACH_SAND_LAYER3 = registerKey("beach_sand_layer3");
 
     public static ResourceKey<PlacedFeature> registerKey(String name) {
         return ResourceKey.create(Registries.PLACED_FEATURE, BloomingNature.identifier(name));
     }
 
     public static ResourceKey<PlacedFeature> registerMCKey(String name) {
-        return ResourceKey.create(Registries.PLACED_FEATURE,ResourceLocation.withDefaultNamespace(name));
+        return ResourceKey.create(Registries.PLACED_FEATURE, ResourceLocation.withDefaultNamespace(name));
     }
 }

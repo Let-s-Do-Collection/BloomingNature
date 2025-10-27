@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "redstone",
+  "group": "wooden_button",
+  "ingredients": [
+    {
+      "item": "bloomingnature:cypress_planks"
+    }
+  ],
+  "result": {
+    "id": "bloomingnature:cypress_button"
+  }
+}

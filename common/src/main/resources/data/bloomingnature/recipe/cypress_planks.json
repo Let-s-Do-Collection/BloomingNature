@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "planks",
+  "ingredients": [
+    {
+      "tag": "bloomingnature:cypress_logs"
+    }
+  ],
+  "result": {
+    "count": 4,
+    "id": "bloomingnature:cypress_planks"
+  }
+}

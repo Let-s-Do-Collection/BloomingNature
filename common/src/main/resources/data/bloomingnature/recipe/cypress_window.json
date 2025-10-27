@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "GGG",
+    "G#G",
+    "GGG"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:glass_pane"
+    },
+    "G": {
+      "item": "bloomingnature:cypress_planks"
+    }
+  },
+  "result": {
+    "id": "bloomingnature:cypress_window",
+    "count": 16
+  }
+}

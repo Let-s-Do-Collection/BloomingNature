@@ -1,3 +1,10 @@
+[1.1.4]
+
+**Fixed**
+* Swamp Oak, Fan Palm and Orange Leaves loottable 
+
+***
+
 [1.1.3]
 
 **Fixed**

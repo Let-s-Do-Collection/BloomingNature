@@ -13,16 +13,7 @@
       "seed": 4885,
       "states": [
         {
-          "Name": "bloomingnature:goatsbeard"
-        },
-        {
-          "Name": "bloomingnature:white_orchid"
-        },
-        {
-          "Name": "bloomingnature:hyssop"
-        },
-        {
-          "Name": "bloomingnature:freesia_pink"
+          "Name": "minecraft:brown_mushroom"
         },
         {
           "Name": "bloomingnature:bluebell"
@@ -31,31 +22,7 @@
           "Name": "minecraft:lily_of_the_valley"
         },
         {
-          "Name": "bloomingnature:amaryllis"
-        },
-        {
-          "Name": "minecraft:azure_bluet"
-        },
-        {
-          "Name": "minecraft:dandelion"
-        },
-        {
-          "Name": "minecraft:rose_bush",
-          "Properties": {
-            "half": "lower"
-          }
-        },
-        {
-          "Name": "minecraft:lilac",
-          "Properties": {
-            "half": "lower"
-          }
-        },
-        {
-          "Name": "minecraft:peony",
-          "Properties": {
-            "half": "lower"
-          }
+          "Name": "minecraft:red_mushroom"
         }
       ]
     }

@@ -38,6 +38,7 @@ dependencies {
     modApi include("me.shedaniel.cloth:cloth-config-fabric:${rootProject.cloth_fabric_version}")
     modApi "dev.architectury:architectury-fabric:${rootProject.architectury_version}"
     modApi "net.fabricmc.fabric-api:fabric-api:${rootProject.fabric_api_version}"
+    modApi "com.terraformersmc:biolith-fabric:${rootProject.biolith_version}"
     common(project(path: ":common", configuration: "namedElements")) { transitive false }
     shadowCommon(project(path: ":common", configuration: "transformProductionFabric")) { transitive false }
 }

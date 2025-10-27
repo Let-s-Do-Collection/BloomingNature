@@ -85,7 +85,8 @@ public class ModBoatEntity extends Boat {
         SWAMP_CYPRESS("swamp_cypress", ObjectRegistry.SWAMP_CYPRESS_BOAT, ObjectRegistry.SWAMP_CYPRESS_CHEST_BOAT),
         FAN_PALM("fan_palm", ObjectRegistry.FAN_PALM_BOAT, ObjectRegistry.FAN_PALM_CHEST_BOAT),
         FIR("fir", ObjectRegistry.FIR_BOAT, ObjectRegistry.FIR_CHEST_BOAT),
-        CACTUS("cactus", ObjectRegistry.CACTUS_BOAT, ObjectRegistry.CACTUS_CHEST_BOAT);
+        CACTUS("cactus", ObjectRegistry.CACTUS_BOAT, ObjectRegistry.CACTUS_CHEST_BOAT),
+        CYPRESS("cypress", ObjectRegistry.CYPRESS_BOAT, ObjectRegistry.CYPRESS_CHEST_BOAT);
 
         private final String name;
         private final Supplier<Item> item;

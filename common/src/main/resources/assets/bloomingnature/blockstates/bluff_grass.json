@@ -1,0 +1,18 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "bloomingnature:block/bluff_grass_0",
+        "weight": 1
+      },
+      {
+        "model": "bloomingnature:block/bluff_grass_1",
+        "weight": 1
+      },
+      {
+        "model": "bloomingnature:block/bluff_grass_2",
+        "weight": 1
+      }
+    ]
+  }
+}

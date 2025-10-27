@@ -1,0 +1,7 @@
+{
+  "ambientocclusion": false,
+  "parent": "minecraft:block/tinted_cross",
+  "textures": {
+    "cross": "bloomingnature:block/bluff_grass_1"
+  }
+}

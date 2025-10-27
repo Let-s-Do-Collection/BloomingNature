@@ -3,30 +3,22 @@
   "config": {
     "features": [
       {
-        "chance": 0.2,
-        "feature": "bloomingnature:forest_oak_branched_checked"
-      },
-      {
-        "chance": 0.14,
-        "feature": "bloomingnature:forest_birch_branched_checked"
-      },
-      {
-        "chance": 0.4,
-        "feature": "bloomingnature:forest_oak_straight_checked"
-      },
-      {
-        "chance": 0.1,
-        "feature": "bloomingnature:forest_birch_small_checked"
-      },
-      {
-        "chance": 0.25,
-        "feature": "bloomingnature:forest_oak_small_checked"
-      },
-      {
-        "chance": 0.2,
+        "chance": 0.55,
         "feature": "bloomingnature:forest_oak_bush_checked"
+      },
+      {
+        "chance": 0.35,
+        "feature": "bloomingnature:flower_forest_oak_beehive_straight_checked"
+      },
+      {
+        "chance": 0.30,
+        "feature": "bloomingnature:flower_forest_oak_beehive_branched_checked"
+      },
+      {
+        "chance": 0.20,
+        "feature": "bloomingnature:forest_oak_small_checked"
       }
     ],
-    "default": "bloomingnature:forest_oak_branched_checked"
+    "default": "bloomingnature:forest_oak_bush_checked"
   }
 }

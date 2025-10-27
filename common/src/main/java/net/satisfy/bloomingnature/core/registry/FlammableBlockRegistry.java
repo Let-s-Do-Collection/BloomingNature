@@ -27,7 +27,9 @@ public class FlammableBlockRegistry {
                 ObjectRegistry.EBONY_PLANKS.get(), ObjectRegistry.EBONY_SLAB.get(), ObjectRegistry.EBONY_STAIRS.get(),
                 ObjectRegistry.EBONY_FENCE.get(), ObjectRegistry.EBONY_FENCE_GATE.get(),
                 ObjectRegistry.CACTUS_PLANKS.get(), ObjectRegistry.CACTUS_SLAB.get(), ObjectRegistry.CACTUS_STAIRS.get(),
-                ObjectRegistry.CACTUS_FENCE.get(), ObjectRegistry.CACTUS_FENCE_GATE.get()
+                ObjectRegistry.CACTUS_FENCE.get(), ObjectRegistry.CACTUS_FENCE_GATE.get(),
+                ObjectRegistry.CYPRESS_PLANKS.get(), ObjectRegistry.CYPRESS_SLAB.get(), ObjectRegistry.CYPRESS_STAIRS.get(),
+                ObjectRegistry.CYPRESS_FENCE.get(), ObjectRegistry.CYPRESS_FENCE_GATE.get()
         );
 
         addFlammable(5, 5,
@@ -39,7 +41,8 @@ public class FlammableBlockRegistry {
                 ObjectRegistry.FAN_PALM_LOG.get(), ObjectRegistry.FAN_PALM_WOOD.get(), ObjectRegistry.STRIPPED_FAN_PALM_LOG.get(), ObjectRegistry.STRIPPED_FAN_PALM_WOOD.get(),
                 ObjectRegistry.ASPEN_LOG.get(), ObjectRegistry.ASPEN_WOOD.get(), ObjectRegistry.STRIPPED_ASPEN_LOG.get(), ObjectRegistry.STRIPPED_ASPEN_WOOD.get(),
                 ObjectRegistry.EBONY_LOG.get(), ObjectRegistry.EBONY_WOOD.get(), ObjectRegistry.STRIPPED_EBONY_LOG.get(), ObjectRegistry.STRIPPED_EBONY_WOOD.get(),
-                ObjectRegistry.BAOBAB_LOG.get(), ObjectRegistry.BAOBAB_WOOD.get(), ObjectRegistry.STRIPPED_BAOBAB_LOG.get(), ObjectRegistry.STRIPPED_BAOBAB_WOOD.get()
+                ObjectRegistry.BAOBAB_LOG.get(), ObjectRegistry.BAOBAB_WOOD.get(), ObjectRegistry.STRIPPED_BAOBAB_LOG.get(), ObjectRegistry.STRIPPED_BAOBAB_WOOD.get(),
+                ObjectRegistry.CYPRESS_LOG.get(), ObjectRegistry.CYPRESS_WOOD.get(), ObjectRegistry.STRIPPED_CYPRESS_LOG.get(), ObjectRegistry.STRIPPED_CYPRESS_WOOD.get()
         );
 
         addFlammable(30, 60,
@@ -52,7 +55,8 @@ public class FlammableBlockRegistry {
                 ObjectRegistry.FAN_PALM_LEAVES.get(),
                 ObjectRegistry.ASPEN_LEAVES.get(),
                 ObjectRegistry.EBONY_LEAVES.get(),
-                ObjectRegistry.ORANGE_LEAVES.get()
+                ObjectRegistry.ORANGE_LEAVES.get(),
+                ObjectRegistry.CYPRESS_LEAVES.get()
         );
     }
 

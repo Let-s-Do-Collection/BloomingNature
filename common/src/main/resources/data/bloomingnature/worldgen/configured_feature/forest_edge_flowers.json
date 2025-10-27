@@ -1,0 +1,87 @@
+{
+  "type": "minecraft:flower",
+  "config": {
+    "feature": {
+      "feature": {
+        "type": "minecraft:simple_block",
+        "config": {
+          "to_place": {
+            "type": "minecraft:noise_provider",
+            "noise": {
+              "amplitudes": [
+                1.0
+              ],
+              "firstOctave": 0
+            },
+            "scale": 0.030833334,
+            "seed": 4885,
+            "states": [
+              {
+                "Name": "bloomingnature:goatsbeard"
+              },
+              {
+                "Name": "bloomingnature:foxglove_white"
+              },
+              {
+                "Name": "bloomingnature:genisteae"
+              },
+              {
+                "Name": "bloomingnature:bluebell"
+              },
+              {
+                "Name": "minecraft:lily_of_the_valley"
+              },
+              {
+                "Name": "minecraft:cornflower"
+              },
+              {
+                "Name": "minecraft:oxeye_daisy"
+              },
+              {
+                "Name": "minecraft:poppy"
+              },
+              {
+                "Name": "minecraft:azure_bluet"
+              },
+              {
+                "Name": "minecraft:dandelion"
+              }
+            ]
+          }
+        }
+      },
+      "placement": [
+        {
+          "type": "minecraft:block_predicate_filter",
+          "predicate": {
+            "type": "minecraft:all_of",
+            "predicates": [
+              {
+                "type": "minecraft:matching_blocks",
+                "blocks": [
+                  "minecraft:air"
+                ]
+              },
+              {
+                "type": "minecraft:would_survive",
+                "state": {
+                  "Name": "minecraft:poppy"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "minecraft:heightmap",
+          "heightmap": "MOTION_BLOCKING_NO_LEAVES"
+        },
+        {
+          "type": "minecraft:biome"
+        }
+      ]
+    },
+    "tries": 32,
+    "xz_spread": 8,
+    "y_spread": 2
+  }
+}

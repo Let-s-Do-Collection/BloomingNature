@@ -456,6 +456,34 @@ public class ObjectRegistry {
     public static final RegistrySupplier<Item> FIR_CHEST_BOAT = ITEMS.register("fir_chest_boat", () -> new ModBoatItem(true, ModBoatEntity.Type.FIR, new Item.Properties()));
     public static final RegistrySupplier<Item> CACTUS_BOAT = ITEMS.register("cactus_boat", () -> new ModBoatItem(false, ModBoatEntity.Type.CACTUS, new Item.Properties()));
     public static final RegistrySupplier<Item> CACTUS_CHEST_BOAT = ITEMS.register("cactus_chest_boat", () -> new ModBoatItem(true, ModBoatEntity.Type.CACTUS, new Item.Properties()));
+    public static final RegistrySupplier<Block> BLUFF_GRASS = registerWithItem( "bluff_grass", () -> new TallGrassBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.AZURE_BLUET)));
+    public static final RegistrySupplier<Block> TALL_BLUFF_GRASS = registerWithItem("tall_bluff_grass", () -> new DoublePlantBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.TALL_GRASS)));
+    public static final RegistrySupplier<Block> MUNSTEAD = registerWithItem("munstead", () -> new FlowerBlock(MobEffects.HEAL, 1, BlockBehaviour.Properties.ofFullCopy(Blocks.RED_TULIP)));
+    public static final RegistrySupplier<Block> POTTED_MUNSTEAD = registerWithoutItem("potted_munstead", () -> new FlowerPotBlock(MUNSTEAD.get(), BlockBehaviour.Properties.ofFullCopy(Blocks.FLOWER_POT)));
+    public static final RegistrySupplier<Item> CYPRESS_BOAT = ITEMS.register("cypress_boat", () -> new ModBoatItem(false, ModBoatEntity.Type.CYPRESS, new Item.Properties()));
+    public static final RegistrySupplier<Item> CYPRESS_CHEST_BOAT = ITEMS.register("cypress_chest_boat", () -> new ModBoatItem(true, ModBoatEntity.Type.CYPRESS, new Item.Properties()));
+    public static final RegistrySupplier<Block> CYPRESS_SIGN = registerWithoutItem("cypress_sign", () -> new ModStandingSignBlock(BloomingNatureWoodType.CYPRESS, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_SIGN)));
+    public static final RegistrySupplier<Block> CYPRESS_WALL_SIGN = registerWithoutItem("cypress_wall_sign", () -> new ModWallSignBlock(BloomingNatureWoodType.CYPRESS, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_WALL_SIGN)));
+    public static final RegistrySupplier<Block> CYPRESS_HANGING_SIGN = registerWithoutItem("cypress_hanging_sign", () -> new ModHangingSignBlock(BloomingNatureWoodType.CYPRESS, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_HANGING_SIGN)));
+    public static final RegistrySupplier<Block> CYPRESS_WALL_HANGING_SIGN = registerWithoutItem("cypress_wall_hanging_sign", () -> new ModWallHangingSignBlock(BloomingNatureWoodType.CYPRESS, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_WALL_HANGING_SIGN)));
+    public static final RegistrySupplier<Item> CYPRESS_SIGN_ITEM = ITEMS.register("cypress_sign", () -> new SignItem(new Item.Properties().stacksTo(16), ObjectRegistry.CYPRESS_SIGN.get(), ObjectRegistry.CYPRESS_WALL_SIGN.get()));
+    public static final RegistrySupplier<Item> CYPRESS_HANGING_SIGN_ITEM = ITEMS.register("cypress_hanging_sign", () -> new HangingSignItem(ObjectRegistry.CYPRESS_HANGING_SIGN.get(), ObjectRegistry.CYPRESS_WALL_HANGING_SIGN.get(), new Item.Properties().stacksTo(16)));
+    public static final RegistrySupplier<Block> CYPRESS_LOG = registerWithItem("cypress_log", () -> new RotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_LOG).sound(SoundType.WOOD).strength(2.0f)));
+    public static final RegistrySupplier<Block> CYPRESS_WOOD = registerWithItem("cypress_wood", () -> new RotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_WOOD).sound(SoundType.WOOD).strength(2.0f)));
+    public static final RegistrySupplier<Block> STRIPPED_CYPRESS_WOOD = registerWithItem("stripped_cypress_wood", () -> new RotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STRIPPED_OAK_WOOD).sound(SoundType.WOOD).strength(2.0f)));
+    public static final RegistrySupplier<Block> STRIPPED_CYPRESS_LOG = registerWithItem("stripped_cypress_log", () -> new RotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STRIPPED_OAK_LOG).sound(SoundType.WOOD).strength(2.0f)));
+    public static final RegistrySupplier<Block> CYPRESS_PLANKS = registerWithItem("cypress_planks", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS).sound(SoundType.WOOD).strength(2.0f, 3.0f).mapColor(MapColor.TERRACOTTA_ORANGE)));
+    public static final RegistrySupplier<Block> CYPRESS_STAIRS = registerWithItem("cypress_stairs", () -> new StairBlock(CYPRESS_PLANKS.get().defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_STAIRS)));
+    public static final RegistrySupplier<Block> CYPRESS_PRESSURE_PLATE = registerWithItem("cypress_pressure_plate", () -> new PressurePlateBlock(BlockSetType.OAK, BlockBehaviour.Properties.of().noCollission().strength(0.5f).sound(SoundType.WOOD).mapColor(CYPRESS_PLANKS.get().defaultMapColor())));
+    public static final RegistrySupplier<Block> CYPRESS_DOOR = registerWithItem("cypress_door", () -> new DoorBlock(BlockSetType.OAK, BlockBehaviour.Properties.of().strength(3.0f).sound(SoundType.WOOD).noOcclusion().mapColor(CYPRESS_PLANKS.get().defaultMapColor())));
+    public static final RegistrySupplier<Block> CYPRESS_FENCE_GATE = registerWithItem("cypress_fence_gate", () -> new FenceGateBlock(WoodType.OAK, BlockBehaviour.Properties.of().strength(2.0f, 3.0f).sound(SoundType.WOOD).mapColor(CYPRESS_PLANKS.get().defaultMapColor())));
+    public static final RegistrySupplier<Block> CYPRESS_SLAB = registerWithItem("cypress_slab", () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_SLAB)));
+    public static final RegistrySupplier<Block> CYPRESS_BUTTON = registerWithItem("cypress_button", () -> woodenButton(FeatureFlags.VANILLA));
+    public static final RegistrySupplier<Block> CYPRESS_TRAPDOOR = registerWithItem("cypress_trapdoor", () -> new TrapDoorBlock(BlockSetType.OAK, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_TRAPDOOR)));
+    public static final RegistrySupplier<Block> CYPRESS_FENCE = registerWithItem("cypress_fence", () -> new FenceBlock(BlockBehaviour.Properties.of().strength(2.0f, 3.0f).sound(SoundType.WOOD)));
+    public static final RegistrySupplier<Block> CYPRESS_LEAVES = registerWithItem("cypress_leaves", () -> new LeavesBlock(BlockBehaviour.Properties.of().strength(0.2f).randomTicks().sound(SoundType.GRASS).noOcclusion().isViewBlocking((state, world, pos) -> false).isSuffocating((state, world, pos) -> false).mapColor(MapColor.GRASS)));
+    public static final RegistrySupplier<Block> CYPRESS_WINDOW = registerWithItem("cypress_window", () -> new WindowBlock(BlockBehaviour.Properties.of().strength(0.2f).randomTicks().sound(SoundType.GLASS).noOcclusion().isViewBlocking((state, world, pos) -> false).isSuffocating((state, world, pos) -> false).mapColor(MapColor.GRASS).pushReaction(PushReaction.IGNORE)));
+    public static final RegistrySupplier<Block> CYPRESS_SAPLING = registerWithItem("cypress_sapling", () -> new SaplingBlock(new TreeGrower("cypress", Optional.empty(), Optional.of(configuredFeatureKey("cypress")), Optional.empty()), BlockBehaviour.Properties.ofFullCopy(Blocks.SPRUCE_SAPLING)));
 
     public static void init() {
         ITEMS.register();
@@ -508,7 +536,10 @@ public class ObjectRegistry {
                 FAN_PALM_LOG.get(), FAN_PALM_WOOD.get(), STRIPPED_FAN_PALM_LOG.get(), STRIPPED_FAN_PALM_WOOD.get(),
                 ASPEN_LOG.get(), ASPEN_WOOD.get(), STRIPPED_ASPEN_LOG.get(), STRIPPED_ASPEN_WOOD.get(),
                 EBONY_LOG.get(), EBONY_WOOD.get(), STRIPPED_EBONY_LOG.get(), STRIPPED_EBONY_WOOD.get(),
-                BAOBAB_LOG.get(), BAOBAB_WOOD.get(), STRIPPED_BAOBAB_LOG.get(), STRIPPED_BAOBAB_WOOD.get());
+                BAOBAB_LOG.get(), BAOBAB_WOOD.get(), STRIPPED_BAOBAB_LOG.get(), STRIPPED_BAOBAB_WOOD.get(),
+                CYPRESS_PLANKS.get(), CYPRESS_SLAB.get(), CYPRESS_STAIRS.get(), CYPRESS_FENCE.get(), CYPRESS_FENCE_GATE.get(),
+                CYPRESS_LOG.get(), CYPRESS_WOOD.get(), STRIPPED_CYPRESS_LOG.get(), STRIPPED_CYPRESS_WOOD.get()
+        );
     }
 
     private static ButtonBlock woodenButton(FeatureFlag... featureFlags) {

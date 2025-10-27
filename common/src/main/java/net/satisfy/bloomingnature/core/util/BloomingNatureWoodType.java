@@ -15,6 +15,7 @@ public class BloomingNatureWoodType {
     public static final WoodType FAN_PALM = register("fan_palm");
     public static final WoodType FIR = register("fir");
     public static final WoodType CACTUS = register("cactus");
+    public static final WoodType CYPRESS = register("cypress");
 
     private static WoodType register(String name) {
         return WoodType.register(new WoodType(BloomingNature.MOD_ID + ":" + name, BlockSetType.OAK));

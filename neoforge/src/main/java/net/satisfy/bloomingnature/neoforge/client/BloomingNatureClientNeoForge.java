@@ -13,6 +13,7 @@ import net.satisfy.bloomingnature.BloomingNature;
 import net.satisfy.bloomingnature.client.BloomingNatureClient;
 import net.satisfy.bloomingnature.core.entity.ModBoatEntity;
 
+@SuppressWarnings("removal")
 @EventBusSubscriber(modid = BloomingNature.MOD_ID, value = Dist.CLIENT, bus = EventBusSubscriber.Bus.MOD)
 public class BloomingNatureClientNeoForge {
 

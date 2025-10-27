@@ -39,6 +39,7 @@ public class EntityTypeRegistry {
             ObjectRegistry.SWAMP_CYPRESS_SIGN.get(), ObjectRegistry.SWAMP_CYPRESS_WALL_SIGN.get(),
             ObjectRegistry.FAN_PALM_SIGN.get(), ObjectRegistry.FAN_PALM_WALL_SIGN.get(),
             ObjectRegistry.FIR_SIGN.get(), ObjectRegistry.FIR_WALL_SIGN.get(),
+            ObjectRegistry.CYPRESS_SIGN.get(), ObjectRegistry.CYPRESS_WALL_SIGN.get(),
             ObjectRegistry.CACTUS_SIGN.get(), ObjectRegistry.CACTUS_WALL_SIGN.get()
     ).build(null));
 
@@ -53,6 +54,7 @@ public class EntityTypeRegistry {
             ObjectRegistry.SWAMP_CYPRESS_HANGING_SIGN.get(), ObjectRegistry.SWAMP_CYPRESS_WALL_HANGING_SIGN.get(),
             ObjectRegistry.FAN_PALM_HANGING_SIGN.get(), ObjectRegistry.FAN_PALM_WALL_HANGING_SIGN.get(),
             ObjectRegistry.FIR_HANGING_SIGN.get(), ObjectRegistry.FIR_WALL_HANGING_SIGN.get(),
+            ObjectRegistry.CYPRESS_HANGING_SIGN.get(), ObjectRegistry.CYPRESS_WALL_HANGING_SIGN.get(),
             ObjectRegistry.CACTUS_HANGING_SIGN.get(), ObjectRegistry.CACTUS_WALL_HANGING_SIGN.get()
     ).build(null));
 

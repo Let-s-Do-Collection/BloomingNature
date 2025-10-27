@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "bloomingnature:block/cypress_planks",
+        "weight": 1
+      }
+    ]
+  }
+}

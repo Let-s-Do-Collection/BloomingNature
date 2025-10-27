@@ -1,0 +1,32 @@
+{
+  "variants": {
+    "half=lower": [
+      {
+        "model": "bloomingnature:block/tall_bluff_grass_bottom_0",
+        "weight": 1
+      },
+      {
+        "model": "bloomingnature:block/tall_bluff_grass_bottom_1",
+        "weight": 1
+      },
+      {
+        "model": "bloomingnature:block/tall_bluff_grass_bottom_2",
+        "weight": 1
+      }
+    ],
+    "half=upper": [
+      {
+        "model": "bloomingnature:block/tall_bluff_grass_top_0",
+        "weight": 1
+      },
+      {
+        "model": "bloomingnature:block/tall_bluff_grass_top_1",
+        "weight": 1
+      },
+      {
+        "model": "bloomingnature:block/tall_bluff_grass_top_2",
+        "weight": 1
+      }
+    ]
+  }
+}

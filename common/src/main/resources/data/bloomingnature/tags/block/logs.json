@@ -36,6 +36,10 @@
     "bloomingnature:ebony_log",
     "bloomingnature:ebony_wood",
     "bloomingnature:stripped_ebony_log",
-    "bloomingnature:stripped_ebony_wood"
+    "bloomingnature:stripped_ebony_wood",
+    "bloomingnature:cypress_log",
+    "bloomingnature:cypress_wood",
+    "bloomingnature:stripped_cypress_log",
+    "bloomingnature:stripped_cypress_wood"
   ]
 }
