@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "bloomingnature:block/marlstone_bricks",
+        "weight": 1
+      }
+    ]
+  }
+}

@@ -484,6 +484,34 @@ public class ObjectRegistry {
     public static final RegistrySupplier<Block> CYPRESS_LEAVES = registerWithItem("cypress_leaves", () -> new LeavesBlock(BlockBehaviour.Properties.of().strength(0.2f).randomTicks().sound(SoundType.GRASS).noOcclusion().isViewBlocking((state, world, pos) -> false).isSuffocating((state, world, pos) -> false).mapColor(MapColor.GRASS)));
     public static final RegistrySupplier<Block> CYPRESS_WINDOW = registerWithItem("cypress_window", () -> new WindowBlock(BlockBehaviour.Properties.of().strength(0.2f).randomTicks().sound(SoundType.GLASS).noOcclusion().isViewBlocking((state, world, pos) -> false).isSuffocating((state, world, pos) -> false).mapColor(MapColor.GRASS).pushReaction(PushReaction.IGNORE)));
     public static final RegistrySupplier<Block> CYPRESS_SAPLING = registerWithItem("cypress_sapling", () -> new SaplingBlock(new TreeGrower("cypress", Optional.empty(), Optional.of(configuredFeatureKey("cypress")), Optional.empty()), BlockBehaviour.Properties.ofFullCopy(Blocks.SPRUCE_SAPLING)));
+    public static final RegistrySupplier<Block> MARLSTONE = registerWithItem("marlstone", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)));
+    public static final RegistrySupplier<Block> MARLSTONE_STAIRS = registerWithItem("marlstone_stairs", () -> new StairBlock(MARLSTONE.get().defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(RED_BRICKS.get())));
+    public static final RegistrySupplier<Block> MARLSTONE_SLAB = registerWithItem("marlstone_slab", () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(MARLSTONE.get())));
+    public static final RegistrySupplier<Block> MARLSTONE_WALL = registerWithItem("marlstone_wall", () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(MARLSTONE.get())));
+    public static final RegistrySupplier<Block> COBBLED_MARLSTONE = registerWithItem("cobbled_marlstone", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)));
+    public static final RegistrySupplier<Block> COBBLED_MARLSTONE_STAIRS = registerWithItem("cobbled_marlstone_stairs", () -> new StairBlock(COBBLED_MARLSTONE.get().defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(RED_BRICKS.get())));
+    public static final RegistrySupplier<Block> COBBLED_MARLSTONE_SLAB = registerWithItem("cobbled_marlstone_slab", () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(COBBLED_MARLSTONE.get())));
+    public static final RegistrySupplier<Block> COBBLED_MARLSTONE_WALL = registerWithItem("cobbled_marlstone_wall", () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(COBBLED_MARLSTONE.get())));
+    public static final RegistrySupplier<Block> CHISELED_MARLSTONE = registerWithItem("chiseled_marlstone", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)));
+    public static final RegistrySupplier<Block> MARLSTONE_BRICKS = registerWithItem("marlstone_bricks", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)));
+    public static final RegistrySupplier<Block> MARLSTONE_BRICK_STAIRS = registerWithItem("marlstone_brick_stairs", () -> new StairBlock(MARLSTONE_BRICKS.get().defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(RED_BRICKS.get())));
+    public static final RegistrySupplier<Block> MARLSTONE_BRICK_SLAB = registerWithItem("marlstone_brick_slab", () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(MARLSTONE_BRICKS.get())));
+    public static final RegistrySupplier<Block> MARLSTONE_BRICK_WALL = registerWithItem("marlstone_brick_wall", () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(MARLSTONE_BRICKS.get())));
+    public static final RegistrySupplier<Block> CRACKED_MARLSTONE_BRICKS = registerWithItem("cracked_marlstone_bricks", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)));
+    public static final RegistrySupplier<Block> MOSSY_MARLSTONE_BRICKS = registerWithItem("mossy_marlstone_bricks", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)));
+    public static final RegistrySupplier<Block> MOSSY_MARLSTONE_BRICK_STAIRS = registerWithItem("mossy_marlstone_brick_stairs", () -> new StairBlock(MOSSY_MARLSTONE_BRICKS.get().defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(RED_BRICKS.get())));
+    public static final RegistrySupplier<Block> MOSSY_MARLSTONE_BRICK_SLAB = registerWithItem("mossy_marlstone_brick_slab", () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(MOSSY_MARLSTONE_BRICKS.get())));
+    public static final RegistrySupplier<Block> MOSSY_MARLSTONE_BRICK_WALL = registerWithItem("mossy_marlstone_brick_wall", () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(MOSSY_MARLSTONE_BRICKS.get())));
+    public static final RegistrySupplier<Block> MOSSY_COBBLED_MARLSTONE = registerWithItem("mossy_cobbled_marlstone", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)));
+    public static final RegistrySupplier<Block> MOSSY_COBBLED_MARLSTONE_STAIRS = registerWithItem("mossy_cobbled_marlstone_stairs", () -> new StairBlock(MOSSY_MARLSTONE_BRICKS.get().defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(RED_BRICKS.get())));
+    public static final RegistrySupplier<Block> MOSSY_COBBLED_MARLSTONE_SLAB = registerWithItem("mossy_cobbled_marlstone_slab", () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(MOSSY_MARLSTONE_BRICKS.get())));
+    public static final RegistrySupplier<Block> MOSSY_COBBLED_MARLSTONE_WALL = registerWithItem("mossy_cobbled_marlstone_wall", () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(MOSSY_MARLSTONE_BRICKS.get())));
+    public static final RegistrySupplier<Block> MOSSY_CHISELED_MARLSTONE = registerWithItem("mossy_chiseled_marlstone", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)));
+    public static final RegistrySupplier<Block> MOSSY_MARLSTONE = registerWithItem("mossy_marlstone", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)));
+    public static final RegistrySupplier<Block> MOSSY_MARLSTONE_STAIRS = registerWithItem("mossy_marlstone_stairs", () -> new StairBlock(MOSSY_MARLSTONE.get().defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(MOSSY_MARLSTONE.get())));
+    public static final RegistrySupplier<Block> MOSSY_MARLSTONE_SLAB = registerWithItem("mossy_marlstone_slab", () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(MOSSY_MARLSTONE.get())));
+    public static final RegistrySupplier<Block> MOSSY_MARLSTONE_WALL = registerWithItem("mossy_marlstone_wall", () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(MOSSY_MARLSTONE.get())));
+
 
     public static void init() {
         ITEMS.register();

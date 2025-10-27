@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/wall_inventory",
   "textures": {
-    "wall": "bloomingnature:block/red_bricks_3"
+    "wall": "bloomingnature:block/red_bricks"
   }
 }

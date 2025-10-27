@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "bloomingnature:block/marlstone",
+        "weight": 1
+      }
+    ]
+  }
+}

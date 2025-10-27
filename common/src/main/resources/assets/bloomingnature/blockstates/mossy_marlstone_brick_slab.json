@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "bloomingnature:block/mossy_marlstone_brick_slab"
+    },
+    "type=double": {
+      "model": "bloomingnature:block/mossy_marlstone_bricks"
+    },
+    "type=top": {
+      "model": "bloomingnature:block/mossy_marlstone_brick_slab_top"
+    }
+  }
+}

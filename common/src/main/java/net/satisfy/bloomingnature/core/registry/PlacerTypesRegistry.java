@@ -6,7 +6,7 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacerType;
 import net.minecraft.world.level.levelgen.feature.trunkplacers.TrunkPlacerType;
 import net.satisfy.bloomingnature.BloomingNature;
-import net.satisfy.bloomingnature.core.world.placers.*;
+import net.satisfy.bloomingnature.core.world.tree.foliage.*;
 
 
 public class PlacerTypesRegistry {

@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "bloomingnature:mossy_cobbled_marlstone"
+  },
+  "result": {
+    "id": "bloomingnature:mossy_cobbled_marlstone_slab",
+    "count": 2
+  }
+}

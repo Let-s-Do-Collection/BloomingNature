@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "bloomingnature:cobbled_marlstone"
+  },
+  "result": {
+    "id": "bloomingnature:cobbled_marlstone_wall",
+    "count": 1
+  }
+}

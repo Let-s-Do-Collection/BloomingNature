@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab_top",
+  "textures": {
+    "bottom": "bloomingnature:block/cobbled_marlstone",
+    "side": "bloomingnature:block/cobbled_marlstone",
+    "top": "bloomingnature:block/cobbled_marlstone"
+  }
+}

@@ -3,7 +3,6 @@ package net.satisfy.bloomingnature;
 import dev.architectury.hooks.item.tool.AxeItemHooks;
 import net.minecraft.resources.ResourceLocation;
 import net.satisfy.bloomingnature.core.registry.*;
-import net.satisfy.bloomingnature.core.world.TemperateBiomeRegistry;
 
 public class BloomingNature {
     public static final String MOD_ID = "bloomingnature";
@@ -17,7 +16,7 @@ public class BloomingNature {
         ObjectRegistry.init();
         TabRegistry.init();
         PlacerTypesRegistry.init();
-        TemperateBiomeRegistry.init();
+        WorldgenRegistry.init();
     }
 
     public static void commonInit() {
@@ -40,6 +39,8 @@ public class BloomingNature {
         AxeItemHooks.addStrippable(ObjectRegistry.EBONY_WOOD.get(), ObjectRegistry.STRIPPED_EBONY_WOOD.get());
         AxeItemHooks.addStrippable(ObjectRegistry.CHESTNUT_LOG.get(), ObjectRegistry.STRIPPED_CHESTNUT_LOG.get());
         AxeItemHooks.addStrippable(ObjectRegistry.CHESTNUT_WOOD.get(), ObjectRegistry.STRIPPED_CHESTNUT_WOOD.get());
+        AxeItemHooks.addStrippable(ObjectRegistry.CYPRESS_LOG.get(), ObjectRegistry.STRIPPED_CYPRESS_LOG.get());
+        AxeItemHooks.addStrippable(ObjectRegistry.CYPRESS_WOOD.get(), ObjectRegistry.STRIPPED_CYPRESS_WOOD.get());
     }
 }
 

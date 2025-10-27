@@ -3,8 +3,7 @@
   "biomes": "minecraft:river",
   "features": [
     "bloomingnature:river_trees",
-    "bloomingnature:river_grass_patch",
-    "bloomingnature:river_stone_mound"
+    "bloomingnature:river_grass_patch"
   ],
   "step": "vegetal_decoration"
 }

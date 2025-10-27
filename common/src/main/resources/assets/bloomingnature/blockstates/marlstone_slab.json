@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "bloomingnature:block/marlstone_slab"
+    },
+    "type=double": {
+      "model": "bloomingnature:block/marlstone"
+    },
+    "type=top": {
+      "model": "bloomingnature:block/marlstone_slab_top"
+    }
+  }
+}

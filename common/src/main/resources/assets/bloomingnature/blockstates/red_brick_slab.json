@@ -4,7 +4,7 @@
       "model": "bloomingnature:block/red_brick_slab"
     },
     "type=double": {
-      "model": "bloomingnature:block/red_bricks_1"
+      "model": "bloomingnature:block/red_bricks"
     },
     "type=top": {
       "model": "bloomingnature:block/red_brick_slab_top"

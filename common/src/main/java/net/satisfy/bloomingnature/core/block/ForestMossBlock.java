@@ -8,12 +8,10 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelReader;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.BonemealableBlock;
 import net.minecraft.world.level.block.MudBlock;
 import net.minecraft.world.level.block.state.BlockState;
-import net.satisfy.bloomingnature.core.registry.ObjectRegistry;
-import net.satisfy.bloomingnature.core.world.ConfiguredFeatures;
+import net.satisfy.bloomingnature.core.world.feature.configured.ConfiguredFeatures;
 
 public class ForestMossBlock extends MudBlock implements BonemealableBlock {
     public ForestMossBlock(Properties properties) {

@@ -63,40 +63,6 @@
       "foliage_height": 2,
       "leaf_placement_attempts": 27
     },
-    "decorators": [
-      {
-        "type": "minecraft:alter_ground",
-        "provider": {
-          "type": "minecraft:weighted_state_provider",
-          "entries": [
-            {
-              "weight": 2,
-              "data": {
-                "Name": "minecraft:grass_block",
-                "Properties": {
-                  "snowy": "false"
-                }
-              }
-            },
-            {
-              "weight": 1,
-              "data": {
-                "Name": "minecraft:coarse_dirt"
-              }
-            },
-            {
-              "weight": 1,
-              "data": {
-                "Name": "minecraft:rooted_dirt"
-              }
-            }
-          ]
-        }
-      },
-      {
-        "type": "minecraft:beehive",
-        "probability": 0.03
-      }
-    ]
+    "decorators": []
   }
 }

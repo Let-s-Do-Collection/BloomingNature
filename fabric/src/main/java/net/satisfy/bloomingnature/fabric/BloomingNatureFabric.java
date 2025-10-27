@@ -14,7 +14,7 @@ import net.minecraft.tags.TagKey;
 import net.minecraft.world.level.levelgen.GenerationStep;
 import net.satisfy.bloomingnature.BloomingNature;
 import net.satisfy.bloomingnature.core.registry.CompostableRegistry;
-import net.satisfy.bloomingnature.core.world.PlacedFeatures;
+import net.satisfy.bloomingnature.core.world.feature.placed.PlacedFeatures;
 import net.satisfy.bloomingnature.fabric.core.config.ConfigFabric;
 
 import java.util.Optional;

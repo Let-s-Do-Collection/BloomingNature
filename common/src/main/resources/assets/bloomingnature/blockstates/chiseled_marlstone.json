@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "bloomingnature:block/chiseled_marlstone",
+        "weight": 1
+      }
+    ]
+  }
+}

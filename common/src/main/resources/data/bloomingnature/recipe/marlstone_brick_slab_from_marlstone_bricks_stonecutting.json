@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "bloomingnature:marlstone_bricks"
+  },
+  "result": {
+    "id": "bloomingnature:marlstone_brick_slab",
+    "count": 2
+  }
+}

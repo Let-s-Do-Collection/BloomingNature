@@ -7,7 +7,8 @@ import net.minecraft.world.level.block.SaplingBlock;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.grower.TreeGrower;
 import net.minecraft.world.level.block.state.BlockState;
-import net.satisfy.bloomingnature.core.world.ConfiguredFeatures;
+import net.satisfy.bloomingnature.core.world.feature.configured.ConfiguredFeatures;
+import net.satisfy.bloomingnature.core.world.feature.placed.PlacedFeatures;
 
 import java.util.Optional;
 

@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "#": {
+      "item": "bloomingnature:marlstone_slab"
+    }
+  },
+  "pattern": [
+    "## ",
+    "## "
+  ],
+  "result": {
+    "count": 4,
+    "id": "bloomingnature:chiseled_marlstone"
+  },
+  "show_notification": true
+}

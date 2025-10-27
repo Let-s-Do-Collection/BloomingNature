@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "bloomingnature:mossy_marlstone_bricks"
+  },
+  "result": {
+    "id": "bloomingnature:mossy_marlstone_brick_stairs",
+    "count": 1
+  }
+}
