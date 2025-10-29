@@ -511,6 +511,8 @@ public class ObjectRegistry {
     public static final RegistrySupplier<Block> MOSSY_MARLSTONE_STAIRS = registerWithItem("mossy_marlstone_stairs", () -> new StairBlock(MOSSY_MARLSTONE.get().defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(MOSSY_MARLSTONE.get())));
     public static final RegistrySupplier<Block> MOSSY_MARLSTONE_SLAB = registerWithItem("mossy_marlstone_slab", () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(MOSSY_MARLSTONE.get())));
     public static final RegistrySupplier<Block> MOSSY_MARLSTONE_WALL = registerWithItem("mossy_marlstone_wall", () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(MOSSY_MARLSTONE.get())));
+    public static final RegistrySupplier<Block> MYOSOTIS = registerWithItem("myosotis", () -> new FlowerBlock(MobEffects.HEAL, 1, BlockBehaviour.Properties.ofFullCopy(Blocks.RED_TULIP)));
+    public static final RegistrySupplier<Block> POTTED_MYOSOTIS = registerWithoutItem("potted_myosotis", () -> new FlowerPotBlock(MYOSOTIS.get(), BlockBehaviour.Properties.ofFullCopy(Blocks.FLOWER_POT)));
 
 
     public static void init() {

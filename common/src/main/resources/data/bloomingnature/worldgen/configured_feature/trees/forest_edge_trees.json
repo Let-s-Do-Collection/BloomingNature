@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:random_selector",
+  "config": {
+    "features": [
+      {
+        "chance": 0.3,
+        "feature": "bloomingnature:trees/swamp_oak/swamp_oak_tree_mid_checked"
+      },
+      {
+        "chance": 0.1,
+        "feature": "bloomingnature:trees/birch/birch_tree_small_checked"
+      },
+      {
+        "chance": 0.25,
+        "feature": "bloomingnature:trees/oak/oak_tree_small_checked"
+      },
+      {
+        "chance": 0.25,
+        "feature": "bloomingnature:trees/oak/oak_tree_mid_checked"
+      },
+      {
+        "chance": 0.2,
+        "feature": "bloomingnature:trees/oak/oak_bush_checked"
+      }
+    ],
+    "default": "bloomingnature:trees/oak/oak_tree_small_checked"
+  }
+}

@@ -2,11 +2,12 @@
   "type": "neoforge:add_features",
   "biomes": "minecraft:plains",
   "features": [
-    "bloomingnature:plains_trees",
-    "bloomingnature:plains_flowers",
-    "bloomingnature:plains_grass_patch",
-    "bloomingnature:plains_stone_mound"
+    "bloomingnature:grass/regular_grass_patch_placed",
+    "bloomingnature:flowers/plains_flower_patch_placed",
+    "bloomingnature:trees/plains_trees_checked",
+    "bloomingnature:trees/plains_trees_group_checked",
+    "bloomingnature:temperate/stone_boulder_placed",
+    "bloomingnature:temperate/stone_slabs_placed"
   ],
   "step": "vegetal_decoration"
 }
-

@@ -1,0 +1,98 @@
+{
+  "type": "minecraft:random_patch",
+  "config": {
+    "tries": 88,
+    "xz_spread": 10,
+    "y_spread": 3,
+    "feature": {
+      "feature": {
+        "type": "minecraft:simple_block",
+        "config": {
+          "to_place": {
+            "type": "minecraft:noise_provider",
+            "noise": {
+              "amplitudes": [
+                1.0
+              ],
+              "firstOctave": 0
+            },
+            "scale": 0.028,
+            "seed": 48851,
+            "states": [
+              {
+                "Name": "bloomingnature:cattail",
+                "Properties": {
+                  "half": "lower"
+                }
+              },
+              {
+                "Name": "bloomingnature:reed",
+                "Properties": {
+                  "half": "lower"
+                }
+              }
+            ]
+          }
+        }
+      },
+      "placement": [
+        {
+          "type": "minecraft:block_predicate_filter",
+          "predicate": {
+            "type": "minecraft:all_of",
+            "predicates": [
+              {
+                "type": "minecraft:matching_fluids",
+                "fluids": "minecraft:water"
+              },
+              {
+                "type": "minecraft:any_of",
+                "predicates": [
+                  {
+                    "type": "minecraft:would_survive",
+                    "state": {
+                      "Name": "bloomingnature:cattail",
+                      "Properties": {
+                        "half": "lower"
+                      }
+                    }
+                  },
+                  {
+                    "type": "minecraft:would_survive",
+                    "state": {
+                      "Name": "bloomingnature:reed",
+                      "Properties": {
+                        "half": "lower"
+                      }
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "minecraft:matching_blocks",
+                "offset": [
+                  0,
+                  1,
+                  0
+                ],
+                "blocks": "minecraft:air"
+              },
+              {
+                "type": "minecraft:not",
+                "predicate": {
+                  "type": "minecraft:matching_fluids",
+                  "offset": [
+                    0,
+                    1,
+                    0
+                  ],
+                  "fluids": "minecraft:water"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

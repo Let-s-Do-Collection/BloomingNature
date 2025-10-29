@@ -34,7 +34,9 @@
       "minecraft:monster_room",
       "minecraft:monster_room_deep"
     ],
-    [],
+    [
+      "bloomingnature:grass/sparse_grass_patch_placed"
+    ],
     [],
     [
       "minecraft:ore_dirt",
@@ -68,10 +70,9 @@
       "minecraft:disk_gravel"
     ],
     [
-      "bloomingnature:dry_plains_grass_patch",
-      "bloomingnature:dry_plains_packed_mud",
-      "bloomingnature:savanna_plateau_granite_boulders",
-      "bloomingnature:savanna_plateau_granite_slabs"
+      "bloomingnature:arid/granite_boulders_placed",
+      "bloomingnature:arid/granite_slabs_placed",
+      "bloomingnature:arid/packed_mud_disk_placed"
     ],
     [
       "minecraft:spring_water",

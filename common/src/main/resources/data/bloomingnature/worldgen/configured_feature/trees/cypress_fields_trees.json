@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:random_selector",
+  "config": {
+    "features": [
+      {
+        "chance": 0.35,
+        "feature": "bloomingnature:trees/oak/oak_bush_checked"
+      },
+      {
+        "chance": 0.385,
+        "feature": "bloomingnature:trees/cypress/cypress_tree_decorated_checked"
+      }
+    ],
+    "default": "bloomingnature:trees/cypress/cypress_tree_checked"
+  }
+}

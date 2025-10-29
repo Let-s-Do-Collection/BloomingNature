@@ -78,11 +78,11 @@
   },
   "features": [
     [
+      "bloomingnature:grass/bluff_grass_patch_placed"
     ],
     [
-      "bloomingnature:cypress_fields_trees",
-      "bloomingnature:cypress_fields_grass_patch",
-      "bloomingnature:cypress_fields_flowers"
+      "bloomingnature:trees/cypress_fields_trees_checked",
+      "bloomingnature:flowers/cypress_fields_flower_patch_placed"
     ],
     [
       "minecraft:lake_lava_underground"
@@ -95,6 +95,7 @@
       "minecraft:monster_room_deep"
     ],
     [
+      "bloomingnature:arid/marlstone_rock_placed"
     ],
     [
       "minecraft:ore_dirt",

@@ -1,0 +1,40 @@
+{
+  "type": "minecraft:simple_block",
+  "config": {
+    "to_place": {
+      "type": "minecraft:weighted_state_provider",
+      "entries": [
+        {
+          "weight": 6,
+          "data": {
+            "Name": "bloomingnature:golden_rod"
+          }
+        },
+        {
+          "weight": 5,
+          "data": {
+            "Name": "bloomingnature:freesia_yellow"
+          }
+        },
+        {
+          "weight": 3,
+          "data": {
+            "Name": "bloomingnature:forsythia"
+          }
+        },
+        {
+          "weight": 3,
+          "data": {
+            "Name": "bloomingnature:genisteae"
+          }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "minecraft:brown_mushroom"
+          }
+        }
+      ]
+    }
+  }
+}

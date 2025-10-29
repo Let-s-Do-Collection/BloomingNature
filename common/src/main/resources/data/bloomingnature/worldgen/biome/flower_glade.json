@@ -41,14 +41,14 @@
       "minecraft:monster_room_deep"
     ],
     [
-      "bloomingnature:forest_oak_bush_checked",
-      "bloomingnature:flower_glade_flowers",
-      "bloomingnature:flower_glade_grass_patch"
+      "bloomingnature:trees/oak/oak_bush_checked",
+      "bloomingnature:flowers/flower_glade_flower_patch_placed",
+      "bloomingnature:grass/dense_wild_grass_patch_placed"
     ],
     [
-      "bloomingnature:forest_stone_boulder",
-      "bloomingnature:forest_stone_slabs",
-      "bloomingnature:forest_log_fallen"
+      "bloomingnature:temperate/stone_boulder_placed",
+      "bloomingnature:temperate/stone_slabs_placed",
+      "bloomingnature:fallen_trees/stripped_oak_tree_fallen_placed"
     ],
     [
       "minecraft:ore_dirt",

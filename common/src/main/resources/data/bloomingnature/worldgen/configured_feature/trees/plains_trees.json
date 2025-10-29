@@ -1,0 +1,36 @@
+{
+  "type": "minecraft:random_selector",
+  "config": {
+    "features": [
+      {
+        "chance": 0.15,
+        "feature": "bloomingnature:trees/chestnut/chestnut_tree_checked"
+      },
+      {
+        "chance": 0.25,
+        "feature": "bloomingnature:trees/swamp_oak/swamp_oak_tree_tall_checked"
+      },
+      {
+        "chance": 0.18,
+        "feature": "bloomingnature:trees/oak/oak_tree_mid_beehive_checked"
+      },
+      {
+        "chance": 0.18,
+        "feature": "bloomingnature:trees/swamp_oak/swamp_oak_tree_mid_checked"
+      },
+      {
+        "chance": 0.20,
+        "feature": "bloomingnature:trees/oak/oak_tree_tall_checked"
+      },
+      {
+        "chance": 0.10,
+        "feature": "bloomingnature:trees/birch/birch_tree_small_checked"
+      },
+      {
+        "chance": 0.25,
+        "feature": "bloomingnature:trees/oak/oak_bush_checked"
+      }
+    ],
+    "default": "bloomingnature:trees/oak/oak_bush_checked"
+  }
+}

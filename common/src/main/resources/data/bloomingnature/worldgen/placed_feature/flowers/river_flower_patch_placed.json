@@ -1,0 +1,121 @@
+{
+  "feature": "bloomingnature:flowers/river_flower_patch",
+  "placement": [
+    {
+      "type": "minecraft:rarity_filter",
+      "chance": 8
+    },
+    {
+      "type": "minecraft:noise_threshold_count",
+      "noise_level": -0.05,
+      "below_noise": 1,
+      "above_noise": 2
+    },
+    {
+      "type": "minecraft:in_square"
+    },
+    {
+      "type": "minecraft:block_predicate_filter",
+      "predicate": {
+        "type": "minecraft:all_of",
+        "predicates": [
+          {
+            "type": "minecraft:not",
+            "predicate": {
+              "type": "minecraft:matching_fluids",
+              "fluids": "minecraft:water"
+            }
+          },
+          {
+            "type": "minecraft:any_of",
+            "predicates": [
+              {
+                "type": "minecraft:matching_fluids",
+                "offset": [
+                  1,
+                  0,
+                  0
+                ],
+                "fluids": "minecraft:water"
+              },
+              {
+                "type": "minecraft:matching_fluids",
+                "offset": [
+                  -1,
+                  0,
+                  0
+                ],
+                "fluids": "minecraft:water"
+              },
+              {
+                "type": "minecraft:matching_fluids",
+                "offset": [
+                  0,
+                  0,
+                  1
+                ],
+                "fluids": "minecraft:water"
+              },
+              {
+                "type": "minecraft:matching_fluids",
+                "offset": [
+                  0,
+                  0,
+                  -1
+                ],
+                "fluids": "minecraft:water"
+              },
+              {
+                "type": "minecraft:matching_fluids",
+                "offset": [
+                  2,
+                  0,
+                  0
+                ],
+                "fluids": "minecraft:water"
+              },
+              {
+                "type": "minecraft:matching_fluids",
+                "offset": [
+                  -2,
+                  0,
+                  0
+                ],
+                "fluids": "minecraft:water"
+              },
+              {
+                "type": "minecraft:matching_fluids",
+                "offset": [
+                  0,
+                  0,
+                  2
+                ],
+                "fluids": "minecraft:water"
+              },
+              {
+                "type": "minecraft:matching_fluids",
+                "offset": [
+                  0,
+                  0,
+                  -2
+                ],
+                "fluids": "minecraft:water"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "type": "minecraft:surface_water_depth_filter",
+      "max_water_depth": 0
+    },
+    {
+      "type": "minecraft:heightmap",
+      "heightmap": "MOTION_BLOCKING_NO_LEAVES"
+    },
+    {
+      "type": "minecraft:biome"
+    }
+  ]
+}

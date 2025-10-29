@@ -382,6 +382,7 @@ public class TabRegistry {
                 out.accept(ObjectRegistry.MOUNTAIN_LAUREL.get());
                 out.accept(ObjectRegistry.TALL_MOUNTAIN_LAUREL.get());
                 out.accept(ObjectRegistry.MOUNTAIN_SNOWBELL.get());
+                out.accept(ObjectRegistry.MYOSOTIS.get());
                 out.accept(ObjectRegistry.WILD_SUNFLOWER.get());
                 out.accept(ObjectRegistry.FOXGLOVE_WHITE.get());
                 out.accept(ObjectRegistry.FOXGLOVE_PINK.get());

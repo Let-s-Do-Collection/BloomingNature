@@ -1,10 +1,16 @@
 {
   "variants": {
-    "half=lower": {
+    "half=lower,waterlogged=false": {
       "model": "bloomingnature:block/reed_bottom"
     },
-    "half=upper": {
+    "half=lower,waterlogged=true": {
+      "model": "bloomingnature:block/reed_bottom_waterlogged"
+    },
+    "half=upper,waterlogged=false": {
       "model": "bloomingnature:block/reed_top"
+    },
+    "half=upper,waterlogged=true": {
+      "model": "bloomingnature:block/reed_top_waterlogged"
     }
   }
 }
