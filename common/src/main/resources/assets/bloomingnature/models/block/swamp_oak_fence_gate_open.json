@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/template_fence_gate_open",
   "textures": {
-    "texture": "bloomingnature:block/swamp_oak_planks_0"
+    "texture": "bloomingnature:block/swamp_oak_planks"
   }
 }

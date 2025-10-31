@@ -16,13 +16,11 @@ public final class TemperateBiomeRegistry extends BiolithSurfaceBuilder {
 
     //TODO:
     // * Birch Forest
-    // * Flower Forest
     // * Old Growth Birch  Forest -> Remove
     // * Taiga: Keine Beaches, nur gravel beach!
     // *
 
     public static void registerBiomePlacement() {
-        registerFlowerForestPlacement();
         registerForestEdgePlacement();
         registerFlowerGladePlacement();
     }
@@ -71,15 +69,6 @@ public final class TemperateBiomeRegistry extends BiolithSurfaceBuilder {
         BiomePlacement.addSubOverworld(Biomes.BIRCH_FOREST, BloomingNatureBiomeKeys.FOREST_EDGE, edgeOnNeighborSide);
         BiomePlacement.addSubOverworld(Biomes.OLD_GROWTH_BIRCH_FOREST, BloomingNatureBiomeKeys.FOREST_EDGE, edgeOnNeighborSide);
         BiomePlacement.addSubOverworld(Biomes.DARK_FOREST, BloomingNatureBiomeKeys.FOREST_EDGE, edgeOnNeighborSide);
-    }
-
-    private static void registerFlowerForestPlacement() {
-        var cond = CriterionBuilder.allOf(
-                CriterionBuilder.original(Biomes.FOREST),
-                CriterionBuilder.deviationMax(BiomeParameterTargets.PEAKS_VALLEYS, 0.04f),
-                CriterionBuilder.ratioMin(RatioTargets.CENTER, 0.78f)
-        );
-        BiomePlacement.addSubOverworld(Biomes.FOREST, Biomes.FLOWER_FOREST, cond);
     }
 
     private static void registerFlowerGladePlacement() {

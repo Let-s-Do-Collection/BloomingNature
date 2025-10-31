@@ -1,12 +1,12 @@
 {
-  "feature": "bloomingnature:aspen_tree_straight",
+  "feature": "bloomingnature:trees/oak/blooming_oak_tree_tall_roots",
   "placement": [
     {
       "type": "minecraft:block_predicate_filter",
       "predicate": {
         "type": "minecraft:would_survive",
         "state": {
-          "Name": "bloomingnature:aspen_sapling",
+          "Name": "minecraft:oak_sapling",
           "Properties": {
             "stage": "0"
           }

@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/cube_all",
   "textures": {
-    "all": "bloomingnature:block/swamp_oak_planks_0"
+    "all": "bloomingnature:block/swamp_oak_planks"
   }
 } 

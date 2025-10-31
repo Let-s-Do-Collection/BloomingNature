@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab",
+  "textures": {
+    "bottom": "bloomingnature:block/sandstone_bricks",
+    "top": "bloomingnature:block/sandstone_bricks",
+    "side": "bloomingnature:block/sandstone_bricks"
+  }
+}

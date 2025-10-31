@@ -95,7 +95,7 @@ public final class TemperateSurfaceBuilder extends BiolithSurfaceBuilder {
             float pocketNoise = smoothNoise(RandomSource.create(17171L), x + 41, z - 33, 0.12f);
 
             int waterFloorY = hasWater ? bedrockY : topSurfaceY;
-            int underwaterTop = hasWater ? Math.min(waterTopY, bedrockY + maxDepth) : bedrockY - 1;
+            int underwaterTop = hasWater ? Math.min(waterTopY - 1, bedrockY + maxDepth) : bedrockY - 1;
 
             for (int y = waterFloorY; y <= underwaterTop; y++) {
                 var state = column.getBlock(y);
@@ -125,7 +125,7 @@ public final class TemperateSurfaceBuilder extends BiolithSurfaceBuilder {
 
             for (int y = bankStartY; y <= bankEndY; y++) {
                 var state = column.getBlock(y);
-                boolean nearWater = column.getBlock(Math.min(y + 1, topSurfaceY)).getFluidState().is(FluidTags.WATER) || column.getBlock(y).getFluidState().is(FluidTags.WATER);
+                boolean nearWater = (y + 1 <= topSurfaceY && column.getBlock(y + 1).getFluidState().is(FluidTags.WATER)) || column.getBlock(y).getFluidState().is(FluidTags.WATER);
                 boolean replaceable = state.is(Blocks.GRASS_BLOCK) || state.is(Blocks.DIRT) || state.is(Blocks.COARSE_DIRT) || state.is(Blocks.GRAVEL) || state.is(Blocks.SAND);
                 if (!nearWater || !replaceable) continue;
 
@@ -156,10 +156,11 @@ public final class TemperateSurfaceBuilder extends BiolithSurfaceBuilder {
 
             float mask = smoothNoise(RandomSource.create(912345L), x - 113, z + 271, 0.02f);
             float n1 = smoothNoise(RandomSource.create(34187L), x, z, 0.08f);
-            float warpA = smoothNoise(RandomSource.create(87777L), x - 113, z + 271, 0.025f) * 8.0f;
-            float warpB = smoothNoise(RandomSource.create(12341L), x + 47, z - 31, 0.06f) * 3.0f;
-            float patchNoise = smoothNoise(RandomSource.create(44417L), x + (int) warpA, z + (int) warpB, 0.014f);
-            boolean inPatch = patchNoise > 0.63f;
+            float warpA = smoothNoise(RandomSource.create(87777L), x - 113, z + 271, 0.03f) * 6.0f;
+            float warpB = smoothNoise(RandomSource.create(12341L), x + 47, z - 31, 0.07f) * 2.5f;
+            float patchNoise = smoothNoise(RandomSource.create(44417L), x + (int) warpA, z + (int) warpB, 0.028f);
+            float detailNoise = smoothNoise(RandomSource.create(90123L), x, z, 0.085f);
+            boolean inPatch = patchNoise > 0.74f && detailNoise > 0.45f;
 
             for (int y = 0; y <= topY; y++) {
                 if (y != topY) continue;

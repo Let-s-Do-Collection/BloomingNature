@@ -1,12 +1,12 @@
 {
-  "feature": "bloomingnature:aspen_tree_pine",
+  "feature": "bloomingnature:trees/birch/birch_tree_mid",
   "placement": [
     {
       "type": "minecraft:block_predicate_filter",
       "predicate": {
         "type": "minecraft:would_survive",
         "state": {
-          "Name": "bloomingnature:aspen_sapling",
+          "Name": "minecraft:birch_sapling",
           "Properties": {
             "stage": "0"
           }

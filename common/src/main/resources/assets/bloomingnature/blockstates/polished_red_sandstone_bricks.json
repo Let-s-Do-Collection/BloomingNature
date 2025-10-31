@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "bloomingnature:block/polished_red_sandstone_bricks",
+        "weight": 1
+      }
+    ]
+  }
+}

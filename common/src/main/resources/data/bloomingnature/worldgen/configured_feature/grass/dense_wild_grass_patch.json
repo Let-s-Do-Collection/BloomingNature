@@ -1,7 +1,7 @@
 {
   "type": "minecraft:random_patch",
   "config": {
-    "tries": 33,
+    "tries": 28,
     "xz_spread": 7,
     "y_spread": 3,
     "feature": {
@@ -18,30 +18,6 @@
                 }
               },
               {
-                "weight": 15,
-                "data": {
-                  "Name": "minecraft:fern"
-                }
-              },
-              {
-                "weight": 3,
-                "data": {
-                  "Name": "minecraft:brown_mushroom"
-                }
-              },
-              {
-                "weight": 2,
-                "data": {
-                  "Name": "minecraft:red_mushroom"
-                }
-              },
-              {
-                "weight": 15,
-                "data": {
-                  "Name": "minecraft:brown_mushroom"
-                }
-              },
-              {
                 "weight": 20,
                 "data": {
                   "Name": "minecraft:tall_grass",
@@ -51,12 +27,30 @@
                 }
               },
               {
+                "weight": 15,
+                "data": {
+                  "Name": "minecraft:fern"
+                }
+              },
+              {
                 "weight": 10,
                 "data": {
                   "Name": "minecraft:large_fern",
                   "Properties": {
                     "half": "lower"
                   }
+                }
+              },
+              {
+                "weight": 3,
+                "data": {
+                  "Name": "minecraft:brown_mushroom"
+                }
+              },
+              {
+                "weight": 1,
+                "data": {
+                  "Name": "minecraft:red_mushroom"
                 }
               }
             ]

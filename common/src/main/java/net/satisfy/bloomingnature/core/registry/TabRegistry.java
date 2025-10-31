@@ -341,6 +341,16 @@ public class TabRegistry {
                 out.accept(ObjectRegistry.RED_BRICK_STAIRS.get());
                 out.accept(ObjectRegistry.RED_BRICK_WALL.get());
                 out.accept(ObjectRegistry.CHISELED_RED_BRICKS.get());
+                out.accept(ObjectRegistry.SANDSTONE_BRICKS.get());
+                out.accept(ObjectRegistry.SANDSTONE_BRICK_SLAB.get());
+                out.accept(ObjectRegistry.SANDSTONE_BRICK_STAIRS.get());
+                out.accept(ObjectRegistry.SANDSTONE_BRICK_WALL.get());
+                out.accept(ObjectRegistry.POLISHED_SANDSTONE_BRICKS.get());
+                out.accept(ObjectRegistry.RED_SANDSTONE_BRICKS.get());
+                out.accept(ObjectRegistry.RED_SANDSTONE_BRICK_SLAB.get());
+                out.accept(ObjectRegistry.RED_SANDSTONE_BRICK_STAIRS.get());
+                out.accept(ObjectRegistry.RED_SANDSTONE_BRICK_WALL.get());
+                out.accept(ObjectRegistry.POLISHED_RED_SANDSTONE_BRICKS.get());
                 out.accept(ObjectRegistry.MUSHROOM_BRICKS.get());
                 out.accept(ObjectRegistry.MUSHROOM_BRICK_SLAB.get());
                 out.accept(ObjectRegistry.MUSHROOM_BRICK_STAIRS.get());

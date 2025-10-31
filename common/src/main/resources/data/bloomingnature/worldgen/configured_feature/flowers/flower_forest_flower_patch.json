@@ -1,0 +1,84 @@
+{
+  "type": "minecraft:random_patch",
+  "config": {
+    "feature": {
+      "feature": {
+        "type": "minecraft:simple_block",
+        "config": {
+          "to_place": {
+            "type": "minecraft:noise_provider",
+            "noise": {
+              "amplitudes": [
+                1.0
+              ],
+              "firstOctave": 0
+            },
+            "scale": 0.03,
+            "seed": 4885,
+            "states": [
+              {
+                "Name": "bloomingnature:foxglove_white"
+              },
+              {
+                "Name": "bloomingnature:foxglove_pink"
+              },
+              {
+                "Name": "bloomingnature:bluebell"
+              },
+              {
+                "Name": "bloomingnature:hyssop"
+              },
+              {
+                "Name": "bloomingnature:joe_pye"
+              },
+              {
+                "Name": "minecraft:cornflower"
+              },
+              {
+                "Name": "minecraft:oxeye_daisy"
+              },
+              {
+                "Name": "minecraft:poppy"
+              },
+              {
+                "Name": "minecraft:azure_bluet"
+              },
+              {
+                "Name": "minecraft:dandelion"
+              }
+            ]
+          }
+        }
+      },
+      "placement": [
+        {
+          "type": "minecraft:block_predicate_filter",
+          "predicate": {
+            "type": "minecraft:all_of",
+            "predicates": [
+              {
+                "type": "minecraft:matching_blocks",
+                "blocks": [
+                  "minecraft:air"
+                ]
+              },
+              {
+                "type": "minecraft:would_survive",
+                "state": {
+                  "Name": "bloomingnature:foxglove_white"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "minecraft:heightmap",
+          "heightmap": "MOTION_BLOCKING_NO_LEAVES"
+        }
+      ]
+    },
+    "tries": 30,
+    "xz_spread": 10,
+    "y_spread": 2
+  }
+}

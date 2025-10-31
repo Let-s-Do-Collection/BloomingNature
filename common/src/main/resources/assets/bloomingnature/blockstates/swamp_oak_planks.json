@@ -2,7 +2,7 @@
   "variants": {
     "": [
       {
-        "model": "bloomingnature:block/swamp_oak_planks_1",
+        "model": "bloomingnature:block/swamp_oak_planks",
         "weight": 1
       }
     ]

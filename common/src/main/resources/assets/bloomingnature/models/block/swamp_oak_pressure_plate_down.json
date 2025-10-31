@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/pressure_plate_down",
   "textures": {
-    "texture": "bloomingnature:block/swamp_oak_pressure_plate"
+    "texture": "bloomingnature:block/swamp_oak_planks"
   }
 }

@@ -1,0 +1,90 @@
+{
+  "type": "minecraft:random_patch",
+  "config": {
+    "tries": 48,
+    "xz_spread": 8,
+    "y_spread": 1,
+    "feature": {
+      "feature": {
+        "type": "minecraft:simple_block",
+        "config": {
+          "to_place": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "weight": 10,
+                "data": {
+                  "Name": "bloomingnature:bluebell"
+                }
+              },
+              {
+                "weight": 9,
+                "data": {
+                  "Name": "minecraft:lily_of_the_valley"
+                }
+              },
+              {
+                "weight": 8,
+                "data": {
+                  "Name": "bloomingnature:hyssop"
+                }
+              },
+              {
+                "weight": 7,
+                "data": {
+                  "Name": "bloomingnature:goatsbeard"
+                }
+              },
+              {
+                "weight": 6,
+                "data": {
+                  "Name": "bloomingnature:joe_pye"
+                }
+              },
+              {
+                "weight": 5,
+                "data": {
+                  "Name": "bloomingnature:genisteae"
+                }
+              },
+              {
+                "weight": 3,
+                "data": {
+                  "Name": "minecraft:oxeye_daisy"
+                }
+              },
+              {
+                "weight": 2,
+                "data": {
+                  "Name": "minecraft:cornflower"
+                }
+              }
+            ]
+          }
+        }
+      },
+      "placement": [
+        {
+          "type": "minecraft:block_predicate_filter",
+          "predicate": {
+            "type": "minecraft:all_of",
+            "predicates": [
+              {
+                "type": "minecraft:matching_blocks",
+                "blocks": [
+                  "minecraft:air"
+                ]
+              },
+              {
+                "type": "minecraft:would_survive",
+                "state": {
+                  "Name": "minecraft:short_grass"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

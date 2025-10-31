@@ -1,0 +1,32 @@
+{
+  "feature": "bloomingnature:trees/flower_forest_trees",
+  "placement": [
+    {
+      "type": "minecraft:count",
+      "count": {
+        "type": "minecraft:constant",
+        "value": 4
+      }
+    },
+    {
+      "type": "minecraft:noise_threshold_count",
+      "noise_level": -0.05,
+      "below_noise": 4,
+      "above_noise": 14
+    },
+    {
+      "type": "minecraft:in_square"
+    },
+    {
+      "type": "minecraft:surface_water_depth_filter",
+      "max_water_depth": 0
+    },
+    {
+      "type": "minecraft:heightmap",
+      "heightmap": "OCEAN_FLOOR"
+    },
+    {
+      "type": "minecraft:biome"
+    }
+  ]
+}
