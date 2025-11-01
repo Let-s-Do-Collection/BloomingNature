@@ -5,7 +5,7 @@
       "type": "minecraft:count",
       "count": {
         "type": "minecraft:constant",
-        "value": 9
+        "value": 12
       }
     },
     {

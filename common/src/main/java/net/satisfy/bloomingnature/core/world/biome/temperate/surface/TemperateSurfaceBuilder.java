@@ -15,7 +15,7 @@ import net.satisfy.bloomingnature.BloomingNature;
 import net.satisfy.bloomingnature.core.registry.ObjectRegistry;
 
 public final class TemperateSurfaceBuilder extends BiolithSurfaceBuilder {
-    public enum Profile {RIVER, FOREST, PLAINS}
+    public enum Profile {RIVER, FOREST, PLAINS, BIRCH_FOREST, OLD_GROWTH_BIRCH_FOREST}
 
     private final Profile profile;
 
@@ -74,6 +74,53 @@ public final class TemperateSurfaceBuilder extends BiolithSurfaceBuilder {
                 }
                 if (mossNoise < 0.25f && slope >= 3) {
                     column.setBlock(y, Blocks.COARSE_DIRT.defaultBlockState());
+                    continue;
+                }
+
+                column.setBlock(y, Blocks.GRASS_BLOCK.defaultBlockState());
+            }
+            return;
+        }
+
+        if (profile == Profile.OLD_GROWTH_BIRCH_FOREST) {
+            for (int d = 0; d <= 4 && topY - d >= 0; d++) {
+                if (column.getBlock(topY - d).getFluidState().is(FluidTags.WATER)) return;
+            }
+
+            int period = 10;
+            int bandA = Math.floorMod((x >> 1) + (z >> 1) * 2, period);
+            int bandB = Math.floorMod(((x + z) >> 1), period);
+            int bandC = Math.floorMod(((x - z) >> 1), period);
+            boolean longBand = bandA <= 2 || bandB <= 1 || bandC <= 1;
+
+            float gate = smoothNoise(RandomSource.create(64231L), x - 37, z + 19, 0.030f);
+            float breakUp = smoothNoise(RandomSource.create(91217L), x + 11, z - 23, 0.085f);
+            float packedMudNoise = smoothNoise(RandomSource.create(33121L), x - 7, z + 5, 0.050f);
+            float patchAmplify = smoothNoise(RandomSource.create(77177L), x + 83, z - 41, 0.028f);
+            boolean enabled = gate > 0.76f && breakUp > 0.34f;
+
+            for (int y = 0; y <= topY; y++) {
+                if (y != topY) continue;
+
+                if (slope >= 3) {
+                    column.setBlock(y, Blocks.GRASS_BLOCK.defaultBlockState());
+                    continue;
+                }
+
+                boolean inPatch = (longBand && enabled && packedMudNoise + patchAmplify * 0.5f > 0.64f) || packedMudNoise > 0.88f;
+
+                if (inPatch) {
+                    int mix = mixIndex(x, y, z);
+                    if (packedMudNoise > 0.76f && mix >= 65) {
+                        column.setBlock(y, Blocks.PACKED_MUD.defaultBlockState());
+                        if (y - 1 >= 0) column.setBlock(y - 1, Blocks.DIRT.defaultBlockState());
+                    } else if (mix < 72) {
+                        column.setBlock(y, Blocks.COARSE_DIRT.defaultBlockState());
+                        if (y - 1 >= 0) column.setBlock(y - 1, Blocks.DIRT.defaultBlockState());
+                    } else {
+                        column.setBlock(y, Blocks.ROOTED_DIRT.defaultBlockState());
+                        if (y - 1 >= 0) column.setBlock(y - 1, Blocks.DIRT.defaultBlockState());
+                    }
                     continue;
                 }
 
@@ -149,6 +196,7 @@ public final class TemperateSurfaceBuilder extends BiolithSurfaceBuilder {
             }
             return;
         }
+
         if (profile == Profile.PLAINS) {
             for (int d = 0; d <= 4 && topY - d >= 0; d++) {
                 if (column.getBlock(topY - d).getFluidState().is(FluidTags.WATER)) return;
@@ -203,6 +251,7 @@ public final class TemperateSurfaceBuilder extends BiolithSurfaceBuilder {
             }
             return;
         }
+
         for (int y = 0; y <= topY; y++) {
             if (y != topY) continue;
             column.setBlock(y, Blocks.GRASS_BLOCK.defaultBlockState());
@@ -254,6 +303,14 @@ public final class TemperateSurfaceBuilder extends BiolithSurfaceBuilder {
         SurfaceGeneration.addSurfaceBuilder(
                 BloomingNature.identifier("sunflower_plains"),
                 new TemperateSurfaceBuilder(Profile.PLAINS).setBiomeKey(Biomes.SUNFLOWER_PLAINS)
+        );
+        SurfaceGeneration.addSurfaceBuilder(
+                BloomingNature.identifier("birch_forest"),
+                new TemperateSurfaceBuilder(Profile.BIRCH_FOREST).setBiomeKey(Biomes.BIRCH_FOREST)
+        );
+        SurfaceGeneration.addSurfaceBuilder(
+                BloomingNature.identifier("old_growth_birch_forest"),
+                new TemperateSurfaceBuilder(Profile.OLD_GROWTH_BIRCH_FOREST).setBiomeKey(Biomes.OLD_GROWTH_BIRCH_FOREST)
         );
     }
 }

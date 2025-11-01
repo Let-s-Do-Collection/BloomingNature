@@ -40,21 +40,6 @@ public class BloomingNatureClient {
             return BiomeColors.getAverageGrassColor(world, pos);
         }, MOSSY_LATERIT.get(), SUNGRASS.get(), TALL_SUNGRASS.get());
 
-        RenderTypeRegistry.register(RenderType.cutoutMipped(),
-                BLOOMING_OAK_LEAVES.get(),
-                LARCH_LEAVES.get(),
-                BAOBAB_LEAVES.get(),
-                SWAMP_OAK_LEAVES.get(),
-                ASPEN_LEAVES.get(),
-                FAN_PALM_LEAVES.get(),
-                FIR_LEAVES.get(),
-                SWAMP_CYPRESS_LEAVES.get(),
-                EBONY_LEAVES.get(),
-                CHESTNUT_LEAVES.get(),
-                CYPRESS_LEAVES.get(),
-                ORANGE_LEAVES.get()
-        );
-
         registerBlockEntityRenderer();
     }
 

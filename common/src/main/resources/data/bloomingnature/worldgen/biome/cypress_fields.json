@@ -78,7 +78,8 @@
   },
   "features": [
     [
-      "bloomingnature:grass/bluff_grass_patch_placed"
+      "bloomingnature:grass/bluff_grass_patch_placed",
+      "bloomingnature:grass/dense_grass_patch_placed"
     ],
     [
       "bloomingnature:trees/cypress_fields_trees_checked",
@@ -95,7 +96,10 @@
       "minecraft:monster_room_deep"
     ],
     [
-      "bloomingnature:arid/marlstone_rock_placed"
+      "bloomingnature:arid/marlstone_rock_placed",
+      "bloomingnature:arid/marlstone_boulders_placed",
+      "bloomingnature:arid/marlstone_slabs_placed",
+      "bloomingnature:arid/andesite_pile_placed"
     ],
     [
       "minecraft:ore_dirt",

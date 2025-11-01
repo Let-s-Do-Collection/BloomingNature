@@ -4,7 +4,7 @@
     "features": [
       {
         "chance": 0.25,
-        "feature": "bloomingnature:trees/oak/blooming_oak_tree_tall_roots_checked"
+        "feature": "bloomingnature:trees/oak/blooming_oak_tree_tall_checked"
       },
       {
         "chance": 0.225,

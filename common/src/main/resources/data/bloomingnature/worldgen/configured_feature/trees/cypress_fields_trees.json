@@ -9,6 +9,10 @@
       {
         "chance": 0.385,
         "feature": "bloomingnature:trees/cypress/cypress_tree_decorated_checked"
+      },
+      {
+        "chance": 0.1225,
+        "feature": "bloomingnature:trees/oak/oak_tree_mid_checked"
       }
     ],
     "default": "bloomingnature:trees/cypress/cypress_tree_checked"

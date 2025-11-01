@@ -28,18 +28,18 @@
     },
     "trunk_placer": {
       "type": "minecraft:fancy_trunk_placer",
-      "base_height": 8,
-      "height_rand_a": 1,
-      "height_rand_b": 1
+      "base_height": 11,
+      "height_rand_a": 2,
+      "height_rand_b": 2
     },
     "foliage_placer": {
       "type": "minecraft:cherry_foliage_placer",
       "corner_hole_chance": 0.9,
       "hanging_leaves_chance": 0.25,
       "hanging_leaves_extension_chance": 0.1,
-      "height": 4,
-      "offset": 1,
-      "radius": 3,
+      "height": 5,
+      "offset": 2,
+      "radius": 4,
       "wide_bottom_layer_hole_chance": 0.15
     },
     "ignore_vines": true,

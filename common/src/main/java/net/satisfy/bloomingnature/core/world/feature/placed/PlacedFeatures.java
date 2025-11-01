@@ -15,20 +15,39 @@ public class PlacedFeatures {
     public static final ResourceKey<PlacedFeature> RIVER_REED_PATCH_PLACED = registerPlacedFeature("vegetation/river_reed_patch_placed");
     public static final ResourceKey<PlacedFeature> FOREST_TREES_CHECKED = registerPlacedFeature("trees/forest_trees_checked");
     public static final ResourceKey<PlacedFeature> FOREST_FLOWER_PATCH_PLACED = registerPlacedFeature("flowers/forest_flower_patch_placed");
+    public static final ResourceKey<PlacedFeature> BIRCH_FOREST_TREES_CHECKED = registerPlacedFeature("trees/birch_forest_trees_checked");
+    public static final ResourceKey<PlacedFeature> BIRCH_FOREST_FLOWER_PATCH_PLACED = registerPlacedFeature("flowers/birch_forest_flower_patch_placed");
+
+    public static final ResourceKey<PlacedFeature> OLD_GROWTH_BIRCH_FOREST_TREES_CHECKED = registerPlacedFeature("trees/old_growth_birch_forest_trees_checked");
+    public static final ResourceKey<PlacedFeature> OLD_GROWTH_BIRCH_FOREST_FLOWER_PATCH_PLACED = registerPlacedFeature("flowers/old_growth_birch_forest_flower_patch_placed");
+
+    public static final ResourceKey<PlacedFeature> CHERRY_GROVE_TREES_CHECKED = registerPlacedFeature("trees/cherry_grove_trees_checked");
+    public static final ResourceKey<PlacedFeature> CHERRY_GROVE_FLOWER_PATCH_PLACED = registerPlacedFeature("flowers/cherry_grove_flower_patch_placed");
+
 
     public static final ResourceKey<PlacedFeature> FLOWER_FOREST_FLOWER_PATCH_PLACED = registerPlacedFeature("flowers/flower_forest_flower_patch_placed");
     public static final ResourceKey<PlacedFeature> FLOWER_FOREST_TREES_CHECKED = registerPlacedFeature("trees/flower_forest_trees_checked");
+    public static final ResourceKey<PlacedFeature> SAVANNA_TREES_CHECKED = registerPlacedFeature("trees/savanna_trees_checked");
 
     public static final ResourceKey<PlacedFeature> DENSE_GRASS_PATCH_PLACED = registerPlacedFeature("grass/dense_grass_patch_placed");
     public static final ResourceKey<PlacedFeature> REGULAR_GRASS_PATCH_PLACED = registerPlacedFeature("grass/regular_grass_patch_placed");
     public static final ResourceKey<PlacedFeature> SPARSE_GRASS_PATCH_PLACED = registerPlacedFeature("grass/sparse_grass_patch_placed");
     public static final ResourceKey<PlacedFeature> BLUFF_GRASS_PATCH_PLACED = registerPlacedFeature("grass/bluff_grass_patch_placed");
     public static final ResourceKey<PlacedFeature> DENSE_WILD_GRASS_PATCH_PLACED = registerPlacedFeature("grass/dense_wild_grass_patch_placed");
+    public static final ResourceKey<PlacedFeature> SUNGRASS_PATCH_PLACED = registerPlacedFeature("grass/sungrass_patch_placed");
+    public static final ResourceKey<PlacedFeature> RED_OAT_GRASS_PATCH_PLACED = registerPlacedFeature("grass/red_oat_grass_patch_placed");
 
     public static final ResourceKey<PlacedFeature> OAK_TREE_FALLEN_PLACED = registerPlacedFeature("fallen_trees/oak_tree_fallen_placed");
+    public static final ResourceKey<PlacedFeature> BIRCH_TREE_FALLEN_PLACED = registerPlacedFeature("fallen_trees/birch_tree_fallen_placed");
 
     public static final ResourceKey<PlacedFeature> STONE_BOULDER_PLACED = registerPlacedFeature("temperate/stone_boulder_placed");
     public static final ResourceKey<PlacedFeature> STONE_SLABS_PLACED = registerPlacedFeature("temperate/stone_slabs_placed");
+
+    public static final ResourceKey<PlacedFeature> GRANITE_BOULDERS_PLACED = registerPlacedFeature("arid/granite_boulders_placed");
+    public static final ResourceKey<PlacedFeature> GRANITE_SLABS_PLACED = registerPlacedFeature("arid/granite_slabs_placed");
+    public static final ResourceKey<PlacedFeature> PACKED_MUD_DISK_PLACED = registerPlacedFeature("arid/packed_mud_disk_placed");
+
+
 
     public static ResourceKey<PlacedFeature> registerPlacedFeature(String name) {
         return ResourceKey.create(Registries.PLACED_FEATURE, BloomingNature.identifier(name));

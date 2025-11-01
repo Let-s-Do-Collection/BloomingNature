@@ -10,6 +10,7 @@ public final class BloomingNatureBiomeKeys {
     public static final ResourceKey<Biome> FLOWER_GLADE = ResourceKey.create(Registries.BIOME, BloomingNature.identifier("flower_glade"));
     public static final ResourceKey<Biome> DRY_PLAINS = ResourceKey.create(Registries.BIOME, BloomingNature.identifier("dry_plains"));
     public static final ResourceKey<Biome> CYPRESS_FIELDS = ResourceKey.create(Registries.BIOME, BloomingNature.identifier("cypress_fields"));
+    public static final ResourceKey<Biome> GOLDEN_GLADE = ResourceKey.create(Registries.BIOME, BloomingNature.identifier("golden_glade"));
 
     private BloomingNatureBiomeKeys() {
     }

@@ -1,0 +1,33 @@
+{
+  "type": "minecraft:simple_block",
+  "config": {
+    "to_place": {
+      "type": "minecraft:noise_provider",
+      "noise": {
+        "amplitudes": [
+          1.0
+        ],
+        "firstOctave": 0
+      },
+      "scale": 0.030833334,
+      "seed": 2324,
+      "states": [
+        {
+          "Name": "bloomingnature:golden_rod"
+        },
+        {
+          "Name": "bloomingnature:freesia_yellow"
+        },
+        {
+          "Name": "bloomingnature:forsythia"
+        },
+        {
+          "Name": "bloomingnature:genisteae"
+        },
+        {
+          "Name": "bloomingnature:hyssop"
+        }
+      ]
+    }
+  }
+}

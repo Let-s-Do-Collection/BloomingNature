@@ -15,30 +15,27 @@ public final class TemperateBiomeRegistry extends BiolithSurfaceBuilder {
 
 
     //TODO:
-    // * Birch Forest
-    // * Old Growth Birch  Forest -> Remove
     // * Taiga: Keine Beaches, nur gravel beach!
     // *
 
     public static void registerBiomePlacement() {
         registerForestEdgePlacement();
         registerFlowerGladePlacement();
+        registerOldGrowthBirchPlacement();
+        registerGoldenGladePlacement();
     }
 
     private static void registerForestEdgePlacement() {
         var neighborForest = CriterionBuilder.neighbor(Biomes.FOREST);
-
         var excludeNeighbors = CriterionBuilder.allOf(
                 CriterionBuilder.not(CriterionBuilder.neighbor(BiomeTags.IS_RIVER)),
                 CriterionBuilder.not(CriterionBuilder.neighbor(BiomeTags.IS_OCEAN)),
                 CriterionBuilder.not(CriterionBuilder.neighbor(Biomes.FLOWER_FOREST))
         );
-
         var wideEdgeBand = CriterionBuilder.allOf(
                 CriterionBuilder.ratioMax(RatioTargets.CENTER, 0.5f),
                 excludeNeighbors
         );
-
         var edgeOnNeighborSide = CriterionBuilder.allOf(neighborForest, wideEdgeBand);
 
         BiomePlacement.addSubOverworld(Biomes.PLAINS, BloomingNatureBiomeKeys.FOREST_EDGE, edgeOnNeighborSide);
@@ -66,18 +63,35 @@ public final class TemperateBiomeRegistry extends BiolithSurfaceBuilder {
         BiomePlacement.addSubOverworld(Biomes.BAMBOO_JUNGLE, BloomingNatureBiomeKeys.FOREST_EDGE, edgeOnNeighborSide);
         BiomePlacement.addSubOverworld(Biomes.SWAMP, BloomingNatureBiomeKeys.FOREST_EDGE, edgeOnNeighborSide);
         BiomePlacement.addSubOverworld(Biomes.MANGROVE_SWAMP, BloomingNatureBiomeKeys.FOREST_EDGE, edgeOnNeighborSide);
-        BiomePlacement.addSubOverworld(Biomes.BIRCH_FOREST, BloomingNatureBiomeKeys.FOREST_EDGE, edgeOnNeighborSide);
-        BiomePlacement.addSubOverworld(Biomes.OLD_GROWTH_BIRCH_FOREST, BloomingNatureBiomeKeys.FOREST_EDGE, edgeOnNeighborSide);
         BiomePlacement.addSubOverworld(Biomes.DARK_FOREST, BloomingNatureBiomeKeys.FOREST_EDGE, edgeOnNeighborSide);
     }
 
     private static void registerFlowerGladePlacement() {
         var cond = CriterionBuilder.allOf(
-                CriterionBuilder.original(Biomes.FOREST),
-                CriterionBuilder.deviationMin(BiomeParameterTargets.PEAKS_VALLEYS, 0.05f),
-                CriterionBuilder.ratio(RatioTargets.CENTER, 0.2f, 0.32f)
+                CriterionBuilder.deviationMin(BiomeParameterTargets.PEAKS_VALLEYS, 0.06f),
+                CriterionBuilder.ratio(RatioTargets.CENTER, 0.24f, 0.30f),
+                CriterionBuilder.not(CriterionBuilder.neighbor(Biomes.FLOWER_FOREST))
         );
         BiomePlacement.addSubOverworld(Biomes.FOREST, BloomingNatureBiomeKeys.FLOWER_GLADE, cond);
+    }
+
+    private static void registerGoldenGladePlacement() {
+        var cond = CriterionBuilder.allOf(
+                CriterionBuilder.deviationMin(BiomeParameterTargets.PEAKS_VALLEYS, 0.06f),
+                CriterionBuilder.ratio(RatioTargets.CENTER, 0.24f, 0.30f),
+                CriterionBuilder.not(CriterionBuilder.neighbor(Biomes.FLOWER_FOREST))
+        );
+        BiomePlacement.addSubOverworld(Biomes.OLD_GROWTH_BIRCH_FOREST, BloomingNatureBiomeKeys.GOLDEN_GLADE, cond);
+    }
+
+    private static void registerOldGrowthBirchPlacement() {
+        var cond = CriterionBuilder.allOf(
+                CriterionBuilder.ratio(RatioTargets.CENTER, 0.20f, 0.26f),
+                CriterionBuilder.deviationMin(BiomeParameterTargets.PEAKS_VALLEYS, 0.04f),
+                CriterionBuilder.not(CriterionBuilder.neighbor(Biomes.FOREST)),
+                CriterionBuilder.not(CriterionBuilder.neighbor(Biomes.PLAINS))
+        );
+        BiomePlacement.addSubOverworld(Biomes.BIRCH_FOREST, Biomes.OLD_GROWTH_BIRCH_FOREST, cond);
     }
 
 }
