@@ -33,6 +33,15 @@
           "data": {
             "Name": "minecraft:brown_mushroom"
           }
+        },
+        {
+          "weight": 1,
+          "data": {
+            "Name": "minecraft:rose_bush",
+            "Properties": {
+              "half": "lower"
+            }
+          }
         }
       ]
     }

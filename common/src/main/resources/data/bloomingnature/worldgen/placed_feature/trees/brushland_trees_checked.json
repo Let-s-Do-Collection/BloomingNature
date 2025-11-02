@@ -1,9 +1,15 @@
 {
-  "feature": "bloomingnature:arid/andesite_pile",
+  "feature": "bloomingnature:trees/brushland_trees",
   "placement": [
     {
+      "type": "minecraft:noise_threshold_count",
+      "noise_level": -0.15,
+      "below_noise": 2,
+      "above_noise": 10
+    },
+    {
       "type": "minecraft:rarity_filter",
-      "chance": 14
+      "chance": 2
     },
     {
       "type": "minecraft:in_square"
@@ -14,7 +20,7 @@
     },
     {
       "type": "minecraft:heightmap",
-      "heightmap": "MOTION_BLOCKING_NO_LEAVES"
+      "heightmap": "OCEAN_FLOOR"
     },
     {
       "type": "minecraft:biome"

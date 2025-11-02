@@ -26,6 +26,30 @@
         },
         {
           "Name": "bloomingnature:hyssop"
+        },
+        {
+          "Name": "bloomingnature:foxglove_white"
+        },
+        {
+          "Name": "bloomingnature:joe_pye"
+        },
+        {
+          "Name": "minecraft:lilac",
+          "Properties": {
+            "half": "lower"
+          }
+        },
+        {
+          "Name": "minecraft:peony",
+          "Properties": {
+            "half": "lower"
+          }
+        },
+        {
+          "Name": "minecraft:rose_bush",
+          "Properties": {
+            "half": "lower"
+          }
         }
       ]
     }

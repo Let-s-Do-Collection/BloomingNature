@@ -1,50 +1,90 @@
 {
   "type": "minecraft:random_patch",
   "config": {
+    "tries": 48,
+    "xz_spread": 8,
+    "y_spread": 1,
     "feature": {
       "feature": {
         "type": "minecraft:simple_block",
         "config": {
           "to_place": {
-            "type": "minecraft:noise_provider",
-            "noise": {
-              "amplitudes": [
-                1.0
-              ],
-              "firstOctave": 0
-            },
-            "scale": 0.03,
-            "seed": 4885,
-            "states": [
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
               {
-                "Name": "bloomingnature:foxglove_white"
+                "weight": 10,
+                "data": {
+                  "Name": "bloomingnature:bluebell"
+                }
               },
               {
-                "Name": "bloomingnature:foxglove_pink"
+                "weight": 9,
+                "data": {
+                  "Name": "minecraft:lily_of_the_valley"
+                }
               },
               {
-                "Name": "bloomingnature:bluebell"
+                "weight": 8,
+                "data": {
+                  "Name": "bloomingnature:hyssop"
+                }
               },
               {
-                "Name": "bloomingnature:hyssop"
+                "weight": 7,
+                "data": {
+                  "Name": "bloomingnature:goatsbeard"
+                }
               },
               {
-                "Name": "bloomingnature:joe_pye"
+                "weight": 6,
+                "data": {
+                  "Name": "bloomingnature:joe_pye"
+                }
               },
               {
-                "Name": "minecraft:cornflower"
+                "weight": 5,
+                "data": {
+                  "Name": "bloomingnature:genisteae"
+                }
               },
               {
-                "Name": "minecraft:oxeye_daisy"
+                "weight": 3,
+                "data": {
+                  "Name": "minecraft:oxeye_daisy"
+                }
               },
               {
-                "Name": "minecraft:poppy"
+                "weight": 2,
+                "data": {
+                  "Name": "minecraft:cornflower"
+                }
               },
               {
-                "Name": "minecraft:azure_bluet"
+                "weight": 2,
+                "data": {
+                  "Name": "minecraft:lilac",
+                  "Properties": {
+                    "half": "lower"
+                  }
+                }
               },
               {
-                "Name": "minecraft:dandelion"
+                "weight": 2,
+                "data": {
+                  "Name": "minecraft:rose_bush",
+                  "Properties": {
+                    "half": "lower"
+                  }
+                }
+              },
+              {
+                "weight": 2,
+                "data": {
+                  "Name": "minecraft:peony",
+                  "Properties": {
+                    "half": "lower"
+                  }
+                }
               }
             ]
           }
@@ -63,22 +103,26 @@
                 ]
               },
               {
+                "type": "minecraft:matching_blocks",
+                "blocks": [
+                  "minecraft:air"
+                ],
+                "offset": [
+                  0,
+                  1,
+                  0
+                ]
+              },
+              {
                 "type": "minecraft:would_survive",
                 "state": {
-                  "Name": "bloomingnature:foxglove_white"
+                  "Name": "minecraft:short_grass"
                 }
               }
             ]
           }
-        },
-        {
-          "type": "minecraft:heightmap",
-          "heightmap": "MOTION_BLOCKING_NO_LEAVES"
         }
       ]
-    },
-    "tries": 30,
-    "xz_spread": 10,
-    "y_spread": 2
+    }
   }
 }

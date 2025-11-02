@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:random_selector",
+  "config": {
+    "features": [
+      {
+        "chance": 0.70,
+        "feature": "bloomingnature:trees/acacia/acacia_bush_checked"
+      },
+      {
+        "chance": 0.11,
+        "feature": "bloomingnature:trees/acacia/acacia_tree_mid_checked"
+      },
+      {
+        "chance": 0.13,
+        "feature": "bloomingnature:trees/baobab/baobab_tree_checked"
+      }
+    ],
+    "default": "bloomingnature:trees/acacia/acacia_bush_checked"
+  }
+}

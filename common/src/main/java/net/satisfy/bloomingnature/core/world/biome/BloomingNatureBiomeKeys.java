@@ -8,9 +8,10 @@ import net.satisfy.bloomingnature.BloomingNature;
 public final class BloomingNatureBiomeKeys {
     public static final ResourceKey<Biome> FOREST_EDGE = ResourceKey.create(Registries.BIOME, BloomingNature.identifier("forest_edge"));
     public static final ResourceKey<Biome> FLOWER_GLADE = ResourceKey.create(Registries.BIOME, BloomingNature.identifier("flower_glade"));
-    public static final ResourceKey<Biome> DRY_PLAINS = ResourceKey.create(Registries.BIOME, BloomingNature.identifier("dry_plains"));
+    public static final ResourceKey<Biome> BRUSHLANDS = ResourceKey.create(Registries.BIOME, BloomingNature.identifier("brushland"));
     public static final ResourceKey<Biome> CYPRESS_FIELDS = ResourceKey.create(Registries.BIOME, BloomingNature.identifier("cypress_fields"));
     public static final ResourceKey<Biome> GOLDEN_GLADE = ResourceKey.create(Registries.BIOME, BloomingNature.identifier("golden_glade"));
+    public static final ResourceKey<Biome> BAOBAB_SAVANNA = ResourceKey.create(Registries.BIOME, BloomingNature.identifier("baobab_savanna"));
 
     private BloomingNatureBiomeKeys() {
     }

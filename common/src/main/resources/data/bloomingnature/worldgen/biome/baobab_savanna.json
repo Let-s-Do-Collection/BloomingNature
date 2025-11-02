@@ -1,13 +1,12 @@
 {
-  "temperature": 1.2,
-  "downfall": 1.0,
+  "temperature": 1.8,
+  "downfall": 0.1,
   "effects": {
     "sky_color": 15196108,
     "fog_color": 15789546,
     "water_color": 12040179,
     "water_fog_color": 9333605,
-    "grass_color": 15067781,
-    "foliage_color": 9940541,
+    "grass_color": 14074721,
     "mood_sound": {
       "sound": "minecraft:ambient.cave",
       "tick_delay": 6000,
@@ -26,22 +25,10 @@
     ],
     "creature": [
       {
-        "type": "minecraft:sheep",
-        "weight": 12,
-        "minCount": 2,
-        "maxCount": 4
-      },
-      {
         "type": "minecraft:rabbit",
         "weight": 10,
         "minCount": 2,
         "maxCount": 3
-      },
-      {
-        "type": "minecraft:chicken",
-        "weight": 6,
-        "minCount": 2,
-        "maxCount": 4
       },
       {
         "type": "minecraft:horse",
@@ -78,12 +65,10 @@
   },
   "features": [
     [
-      "bloomingnature:grass/bluff_grass_patch_placed",
-      "bloomingnature:grass/dense_grass_patch_placed"
+      "bloomingnature:grass/regular_grass_patch_placed",
+      "bloomingnature:trees/baobab_savanna_trees_checked"
     ],
     [
-      "bloomingnature:trees/cypress_fields_trees_checked",
-      "bloomingnature:flowers/cypress_fields_flower_patch_placed"
     ],
     [
       "minecraft:lake_lava_underground"
@@ -96,10 +81,10 @@
       "minecraft:monster_room_deep"
     ],
     [
-      "bloomingnature:arid/marlstone_rock_placed",
-      "bloomingnature:arid/marlstone_boulders_placed",
-      "bloomingnature:arid/marlstone_slabs_placed",
-      "bloomingnature:arid/andesite_pile_placed"
+      "bloomingnature:arid/granite_rock_placed",
+      "bloomingnature:arid/granite_boulders_placed",
+      "bloomingnature:arid/granite_slabs_placed",
+      "bloomingnature:arid/packed_mud_disk_placed"
     ],
     [
       "minecraft:ore_dirt",

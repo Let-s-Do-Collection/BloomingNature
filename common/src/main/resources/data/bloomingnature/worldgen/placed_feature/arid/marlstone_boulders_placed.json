@@ -2,23 +2,19 @@
   "feature": "bloomingnature:arid/marlstone_boulder",
   "placement": [
     {
-      "type": "minecraft:count",
-      "count": {
-        "type": "minecraft:constant",
-        "value": 128
-      }
+      "type": "minecraft:rarity_filter",
+      "chance": 12
     },
     {
       "type": "minecraft:in_square"
     },
     {
-      "type": "minecraft:heightmap",
-      "heightmap": "OCEAN_FLOOR_WG"
+      "type": "minecraft:surface_water_depth_filter",
+      "max_water_depth": 0
     },
     {
-      "type": "minecraft:random_offset",
-      "xz_spread": 0,
-      "y_spread": 0
+      "type": "minecraft:heightmap",
+      "heightmap": "MOTION_BLOCKING_NO_LEAVES"
     },
     {
       "type": "minecraft:biome"

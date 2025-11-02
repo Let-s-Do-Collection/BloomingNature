@@ -1,0 +1,29 @@
+{
+  "type": "bloomingnature:rock_pile",
+  "config": {
+    "min_count": 1,
+    "max_count": 3,
+    "spread_x": 6,
+    "spread_z": 6,
+    "rocks": [
+      {
+        "state_provider": {
+          "type": "minecraft:simple_state_provider",
+          "state": {
+            "Name": "minecraft:granite"
+          }
+        },
+        "min_size_x": 3,
+        "max_size_x": 4,
+        "min_size_y": 3,
+        "max_size_y": 4,
+        "min_size_z": 2,
+        "max_size_z": 3,
+        "min_bury": 1,
+        "max_bury": 3,
+        "min_roughness": 0.25,
+        "max_roughness": 0.4
+      }
+    ]
+  }
+}

@@ -1,9 +1,15 @@
 {
-  "feature": "bloomingnature:arid/andesite_pile",
+  "feature": "bloomingnature:trees/baobab_savanna_trees",
   "placement": [
     {
       "type": "minecraft:rarity_filter",
-      "chance": 14
+      "chance": 3
+    },
+    {
+      "type": "minecraft:noise_threshold_count",
+      "noise_level": 0.0,
+      "below_noise": 1,
+      "above_noise": 2
     },
     {
       "type": "minecraft:in_square"

@@ -6,9 +6,7 @@ import net.minecraft.tags.FluidTags;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.biome.BiomeManager;
-import net.minecraft.world.level.biome.Biomes;
 import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.chunk.BlockColumn;
 import net.minecraft.world.level.chunk.ChunkAccess;
 import net.minecraft.world.level.levelgen.Heightmap;
@@ -17,7 +15,7 @@ import net.satisfy.bloomingnature.core.registry.ObjectRegistry;
 import net.satisfy.bloomingnature.core.world.biome.BloomingNatureBiomeKeys;
 
 public final class AridSurfaceBuilder extends BiolithSurfaceBuilder {
-    public enum Profile {CYPRESS_FIELDS, DRY_PLAINS}
+    public enum Profile {CYPRESS_FIELDS, BRUSHLAND, BAOBAB_SAVANNA}
 
     private final Profile profile;
 
@@ -44,7 +42,7 @@ public final class AridSurfaceBuilder extends BiolithSurfaceBuilder {
             if (column.getBlock(topY - d).getFluidState().is(FluidTags.WATER)) return;
         }
 
-        if (profile == Profile.DRY_PLAINS) {
+        if (profile == Profile.BRUSHLAND) {
             float mask = smoothNoise(RandomSource.create(912345L), x - 113, z + 271, 0.02f);
             float n1 = smoothNoise(RandomSource.create(34187L), x, z, 0.08f);
             float warpA = smoothNoise(RandomSource.create(87777L), x - 113, z + 271, 0.03f) * 6.0f;
@@ -85,6 +83,43 @@ public final class AridSurfaceBuilder extends BiolithSurfaceBuilder {
                     continue;
                 }
                 column.setBlock(y, Blocks.GRASS_BLOCK.defaultBlockState());
+            }
+            return;
+        }
+
+        if (profile == Profile.BAOBAB_SAVANNA) {
+            float dryness = smoothNoise(RandomSource.create(912349L), x - 77, z + 193, 0.018f);
+            float streakA = smoothNoise(RandomSource.create(55123L), x + 53, z - 41, 0.032f);
+            float streakB = smoothNoise(RandomSource.create(77411L), x - 19, z + 87, 0.018f);
+            float streak = (streakA * 0.6f) + (streakB * 0.4f);
+
+            for (int y = 0; y <= topY; y++) {
+                if (y != topY) continue;
+
+                if (slope >= 3) {
+                    if (dryness > 0.58f) {
+                        column.setBlock(y, Blocks.COARSE_DIRT.defaultBlockState());
+                    } else {
+                        column.setBlock(y, Blocks.GRASS_BLOCK.defaultBlockState());
+                    }
+                    continue;
+                }
+
+                int r = mixIndex(x, y, z);
+                boolean redBand = dryness > 0.60f && streak > 0.80f && r < 28;
+
+                if (redBand) {
+                    column.setBlock(y, Blocks.RED_SAND.defaultBlockState());
+                    if (y - 1 >= 0) column.setBlock(y - 1, Blocks.RED_SAND.defaultBlockState());
+                    continue;
+                }
+
+                if (dryness > 0.56f && r < 55) {
+                    column.setBlock(y, Blocks.COARSE_DIRT.defaultBlockState());
+                    if (y - 1 >= 0) column.setBlock(y - 1, Blocks.DIRT.defaultBlockState());
+                } else {
+                    column.setBlock(y, Blocks.GRASS_BLOCK.defaultBlockState());
+                }
             }
             return;
         }
@@ -171,8 +206,12 @@ public final class AridSurfaceBuilder extends BiolithSurfaceBuilder {
                 new AridSurfaceBuilder(Profile.CYPRESS_FIELDS).setBiomeKey(BloomingNatureBiomeKeys.CYPRESS_FIELDS)
         );
         SurfaceGeneration.addSurfaceBuilder(
-                BloomingNature.identifier("dry_plains"),
-                new AridSurfaceBuilder(Profile.DRY_PLAINS).setBiomeKey(BloomingNatureBiomeKeys.DRY_PLAINS)
+                BloomingNature.identifier("brushland"),
+                new AridSurfaceBuilder(Profile.BRUSHLAND).setBiomeKey(BloomingNatureBiomeKeys.BRUSHLANDS)
+        );
+        SurfaceGeneration.addSurfaceBuilder(
+                BloomingNature.identifier("baobab_savanna"),
+                new AridSurfaceBuilder(Profile.BAOBAB_SAVANNA).setBiomeKey(BloomingNatureBiomeKeys.BAOBAB_SAVANNA)
         );
     }
 }
