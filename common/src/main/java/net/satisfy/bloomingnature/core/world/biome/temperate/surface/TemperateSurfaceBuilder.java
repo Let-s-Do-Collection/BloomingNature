@@ -15,7 +15,7 @@ import net.satisfy.bloomingnature.BloomingNature;
 import net.satisfy.bloomingnature.core.registry.ObjectRegistry;
 
 public final class TemperateSurfaceBuilder extends BiolithSurfaceBuilder {
-    public enum Profile {RIVER, FOREST, PLAINS, BIRCH_FOREST, OLD_GROWTH_BIRCH_FOREST}
+    public enum Profile {RIVER, FOREST, PLAINS, BIRCH_FOREST, OLD_GROWTH_BIRCH_FOREST, STONY_SHORE}
 
     private final Profile profile;
 
@@ -125,6 +125,66 @@ public final class TemperateSurfaceBuilder extends BiolithSurfaceBuilder {
                 }
 
                 column.setBlock(y, Blocks.GRASS_BLOCK.defaultBlockState());
+            }
+            return;
+        }
+
+        if (profile == Profile.STONY_SHORE) {
+            int bedrockY = chunk.getHeight(Heightmap.Types.OCEAN_FLOOR_WG, localX, localZ);
+            int topSurfaceY = chunk.getHeight(Heightmap.Types.WORLD_SURFACE_WG, localX, localZ);
+            int waterTopY = topSurfaceY;
+            while (waterTopY > bedrockY && column.getBlock(waterTopY).getFluidState().is(FluidTags.WATER)) waterTopY--;
+            boolean hasWater = waterTopY < topSurfaceY && column.getBlock(waterTopY + 1).getFluidState().is(FluidTags.WATER);
+
+            int underwaterTop = hasWater ? Math.min(waterTopY, bedrockY + 3) : bedrockY - 1;
+            int landTopY = hasWater ? waterTopY : topSurfaceY;
+
+            float soilMask = smoothNoise(RandomSource.create(66111L), x - 21, z + 7, 0.035f);
+            float soilDetail = smoothNoise(RandomSource.create(77441L), x + 9, z - 13, 0.11f);
+            boolean sparseSoil = soilMask > 0.83f && soilDetail > 0.56f;
+
+            for (int y = bedrockY; y <= underwaterTop; y++) {
+                var state = column.getBlock(y);
+                boolean belowWater = column.getBlock(y + 1).getFluidState().is(FluidTags.WATER) || column.getBlock(y).getFluidState().is(FluidTags.WATER);
+                boolean replaceable = state.is(Blocks.STONE) || state.is(Blocks.DIRT) || state.is(Blocks.GRAVEL) || state.is(Blocks.SAND) || state.is(Blocks.CLAY);
+                if (!belowWater || !replaceable) continue;
+                int mix = mixIndex(x, y, z);
+                if (mix < 40) {
+                    column.setBlock(y, Blocks.MOSSY_COBBLESTONE.defaultBlockState());
+                } else if (mix < 52) {
+                    column.setBlock(y, Blocks.GRAVEL.defaultBlockState());
+                } else {
+                    column.setBlock(y, Blocks.STONE.defaultBlockState());
+                }
+            }
+
+            for (int y = 0; y <= landTopY; y++) {
+                if (y != landTopY) continue;
+
+                if (slope >= 3) {
+                    int mix = mixIndex(x, y, z);
+                    if (mix < 8) column.setBlock(y, Blocks.MOSSY_COBBLESTONE.defaultBlockState());
+                    else if (mix < 30) column.setBlock(y, Blocks.COBBLESTONE.defaultBlockState());
+                    else column.setBlock(y, Blocks.STONE.defaultBlockState());
+                    continue;
+                }
+
+                if (sparseSoil) {
+                    int soilMix = mixIndex(x, y, z);
+                    if (soilMix < 65) {
+                        column.setBlock(y, Blocks.COARSE_DIRT.defaultBlockState());
+                        if (y - 1 >= 0) column.setBlock(y - 1, Blocks.DIRT.defaultBlockState());
+                    } else {
+                        column.setBlock(y, Blocks.GRASS_BLOCK.defaultBlockState());
+                    }
+                    continue;
+                }
+
+                int surfaceMix = mixIndex(x, y, z);
+                if (surfaceMix < 6) column.setBlock(y, Blocks.MOSSY_COBBLESTONE.defaultBlockState());
+                else if (surfaceMix < 26) column.setBlock(y, Blocks.COBBLESTONE.defaultBlockState());
+                else if (surfaceMix < 34) column.setBlock(y, Blocks.GRAVEL.defaultBlockState());
+                else column.setBlock(y, Blocks.STONE.defaultBlockState());
             }
             return;
         }
@@ -311,6 +371,10 @@ public final class TemperateSurfaceBuilder extends BiolithSurfaceBuilder {
         SurfaceGeneration.addSurfaceBuilder(
                 BloomingNature.identifier("old_growth_birch_forest"),
                 new TemperateSurfaceBuilder(Profile.OLD_GROWTH_BIRCH_FOREST).setBiomeKey(Biomes.OLD_GROWTH_BIRCH_FOREST)
+        );
+        SurfaceGeneration.addSurfaceBuilder(
+                BloomingNature.identifier("stony_shore"),
+                new TemperateSurfaceBuilder(Profile.STONY_SHORE).setBiomeKey(Biomes.STONY_SHORE)
         );
     }
 }

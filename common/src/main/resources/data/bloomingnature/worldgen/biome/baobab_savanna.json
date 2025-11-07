@@ -1,6 +1,6 @@
 {
-  "temperature": 1.8,
-  "downfall": 0.1,
+  "temperature": 1.3,
+  "downfall": 0.2,
   "effects": {
     "sky_color": 15196108,
     "fog_color": 15789546,
@@ -35,12 +35,6 @@
         "weight": 3,
         "minCount": 2,
         "maxCount": 6
-      },
-      {
-        "type": "minecraft:donkey",
-        "weight": 1,
-        "minCount": 1,
-        "maxCount": 2
       }
     ],
     "monster": [
@@ -82,8 +76,8 @@
     ],
     [
       "bloomingnature:arid/granite_rock_placed",
-      "bloomingnature:arid/granite_boulders_placed",
-      "bloomingnature:arid/granite_slabs_placed",
+      "bloomingnature:arid/slate_boulder_placed",
+      "bloomingnature:arid/slate_slabs_placed",
       "bloomingnature:arid/packed_mud_disk_placed"
     ],
     [

@@ -11,13 +11,6 @@ import net.satisfy.bloomingnature.core.world.biome.BloomingNatureBiomeKeys;
 
 
 public final class TemperateBiomeRegistry extends BiolithSurfaceBuilder {
-
-
-
-    //TODO:
-    // * Taiga: Keine Beaches, nur gravel beach!
-    // *
-
     public static void registerBiomePlacement() {
         registerForestEdgePlacement();
         registerFlowerGladePlacement();
@@ -30,13 +23,18 @@ public final class TemperateBiomeRegistry extends BiolithSurfaceBuilder {
         var excludeNeighbors = CriterionBuilder.allOf(
                 CriterionBuilder.not(CriterionBuilder.neighbor(BiomeTags.IS_RIVER)),
                 CriterionBuilder.not(CriterionBuilder.neighbor(BiomeTags.IS_OCEAN)),
-                CriterionBuilder.not(CriterionBuilder.neighbor(Biomes.FLOWER_FOREST))
+                CriterionBuilder.not(CriterionBuilder.neighbor(Biomes.BEACH)),
+                CriterionBuilder.not(CriterionBuilder.neighbor(Biomes.STONY_SHORE)),
+                CriterionBuilder.not(CriterionBuilder.neighbor(Biomes.DESERT)),
+                CriterionBuilder.not(CriterionBuilder.neighbor(Biomes.BADLANDS)),
+                CriterionBuilder.not(CriterionBuilder.neighbor(Biomes.ERODED_BADLANDS)),
+                CriterionBuilder.not(CriterionBuilder.neighbor(Biomes.WOODED_BADLANDS))
         );
-        var wideEdgeBand = CriterionBuilder.allOf(
-                CriterionBuilder.ratioMax(RatioTargets.CENTER, 0.5f),
+        var tightEdgeBand = CriterionBuilder.allOf(
+                CriterionBuilder.ratio(RatioTargets.CENTER, 0.18f, 0.24f),
                 excludeNeighbors
         );
-        var edgeOnNeighborSide = CriterionBuilder.allOf(neighborForest, wideEdgeBand);
+        var edgeOnNeighborSide = CriterionBuilder.allOf(neighborForest, tightEdgeBand);
 
         BiomePlacement.addSubOverworld(Biomes.PLAINS, BloomingNatureBiomeKeys.FOREST_EDGE, edgeOnNeighborSide);
         BiomePlacement.addSubOverworld(Biomes.SUNFLOWER_PLAINS, BloomingNatureBiomeKeys.FOREST_EDGE, edgeOnNeighborSide);
@@ -48,8 +46,6 @@ public final class TemperateBiomeRegistry extends BiolithSurfaceBuilder {
         BiomePlacement.addSubOverworld(Biomes.BADLANDS, BloomingNatureBiomeKeys.FOREST_EDGE, edgeOnNeighborSide);
         BiomePlacement.addSubOverworld(Biomes.ERODED_BADLANDS, BloomingNatureBiomeKeys.FOREST_EDGE, edgeOnNeighborSide);
         BiomePlacement.addSubOverworld(Biomes.WOODED_BADLANDS, BloomingNatureBiomeKeys.FOREST_EDGE, edgeOnNeighborSide);
-        BiomePlacement.addSubOverworld(Biomes.STONY_SHORE, BloomingNatureBiomeKeys.FOREST_EDGE, edgeOnNeighborSide);
-        BiomePlacement.addSubOverworld(Biomes.BEACH, BloomingNatureBiomeKeys.FOREST_EDGE, edgeOnNeighborSide);
         BiomePlacement.addSubOverworld(Biomes.TAIGA, BloomingNatureBiomeKeys.FOREST_EDGE, edgeOnNeighborSide);
         BiomePlacement.addSubOverworld(Biomes.OLD_GROWTH_SPRUCE_TAIGA, BloomingNatureBiomeKeys.FOREST_EDGE, edgeOnNeighborSide);
         BiomePlacement.addSubOverworld(Biomes.OLD_GROWTH_PINE_TAIGA, BloomingNatureBiomeKeys.FOREST_EDGE, edgeOnNeighborSide);

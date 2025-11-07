@@ -341,10 +341,10 @@ public class ObjectRegistry {
     public static final RegistrySupplier<Block> POTTED_LUPINE_BLUE = registerWithoutItem("potted_lupine_blue", () -> new FlowerPotBlock(LUPINE_BLUE.get(), BlockBehaviour.Properties.ofFullCopy(Blocks.FLOWER_POT)));
     public static final RegistrySupplier<Block> TALL_LUPINE_BLUE = registerWithItem("tall_lupine_blue", () -> new TallFlowerBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.ROSE_BUSH)));
     public static final RegistrySupplier<Block> TALL_LUPINE_PURPLE = registerWithItem("tall_lupine_purple", () -> new TallFlowerBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.ROSE_BUSH)));
-    public static final RegistrySupplier<Block> BEACH_GRASS = registerWithItem("beach_grass", () -> new DeadBushBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.ALLIUM)));
-    public static final RegistrySupplier<Block> BEACH_BUSH = registerWithItem("beach_bush", () -> new DeadBushBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.DANDELION)));
-    public static final RegistrySupplier<Block> POTTED_BEACH_BUSH = registerWithoutItem("potted_beach_bush", () -> new FlowerPotBlock(BEACH_BUSH.get(), BlockBehaviour.Properties.ofFullCopy(Blocks.FLOWER_POT)));
-    public static final RegistrySupplier<Block> BEACH_BUSH_TALL = registerWithItem("beach_bush_tall", () -> new DeadBushTallBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.ROSE_BUSH)));
+    public static final RegistrySupplier<Block> DRY_GRASS = registerWithItem("dry_grass", () -> new DeadBushBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.ALLIUM)));
+    public static final RegistrySupplier<Block> DRY_BUSH = registerWithItem("dry_bush", () -> new DeadBushBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.DANDELION)));
+    public static final RegistrySupplier<Block> POTTED_DRY_BUSH = registerWithoutItem("potted_dry_bush", () -> new FlowerPotBlock(DRY_BUSH.get(), BlockBehaviour.Properties.ofFullCopy(Blocks.FLOWER_POT)));
+    public static final RegistrySupplier<Block> DRY_BUSH_TALL = registerWithItem("dry_bush_tall", () -> new DeadBushTallBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.ROSE_BUSH)));
     public static final RegistrySupplier<Block> CATTAIL = registerWithItem("cattail", () -> new CattailBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.TALL_SEAGRASS)));
     public static final RegistrySupplier<Block> REED = registerWithItem("reed", () -> new CattailBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.TALL_SEAGRASS)));
     public static final RegistrySupplier<Block> CARDINAL = registerWithItem("cardinal", () -> new TallFlowerBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.ROSE_BUSH)));

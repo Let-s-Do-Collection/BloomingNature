@@ -24,9 +24,9 @@ public class CompostableRegistry {
         ComposterBlock.COMPOSTABLES.put(ObjectRegistry.FREESIA_PINK.get().asItem(), 0.3F);
         ComposterBlock.COMPOSTABLES.put(ObjectRegistry.LUPINE_BLUE.get().asItem(), 0.3F);
         ComposterBlock.COMPOSTABLES.put(ObjectRegistry.LUPINE_PURPLE.get().asItem(), 0.3F);
-        ComposterBlock.COMPOSTABLES.put(ObjectRegistry.BEACH_BUSH.get().asItem(), 0.3F);
-        ComposterBlock.COMPOSTABLES.put(ObjectRegistry.BEACH_GRASS.get().asItem(), 0.3F);
-        ComposterBlock.COMPOSTABLES.put(ObjectRegistry.BEACH_BUSH_TALL.get().asItem(), 0.3F);
+        ComposterBlock.COMPOSTABLES.put(ObjectRegistry.DRY_BUSH.get().asItem(), 0.3F);
+        ComposterBlock.COMPOSTABLES.put(ObjectRegistry.DRY_GRASS.get().asItem(), 0.3F);
+        ComposterBlock.COMPOSTABLES.put(ObjectRegistry.DRY_BUSH_TALL.get().asItem(), 0.3F);
         ComposterBlock.COMPOSTABLES.put(ObjectRegistry.ASPEN_SAPLING.get().asItem(), 0.3F);
         ComposterBlock.COMPOSTABLES.put(ObjectRegistry.FIR_SAPLING.get().asItem(), 0.3F);
         ComposterBlock.COMPOSTABLES.put(ObjectRegistry.BAOBAB_SAPLING.get().asItem(), 0.3F);

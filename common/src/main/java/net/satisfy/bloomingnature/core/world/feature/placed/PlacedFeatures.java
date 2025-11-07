@@ -42,10 +42,20 @@ public class PlacedFeatures {
 
     public static final ResourceKey<PlacedFeature> STONE_BOULDER_PLACED = registerPlacedFeature("temperate/stone_boulder_placed");
     public static final ResourceKey<PlacedFeature> STONE_SLABS_PLACED = registerPlacedFeature("temperate/stone_slabs_placed");
+    public static final ResourceKey<PlacedFeature> STONE_PILE_PLACED = registerPlacedFeature("temperate/stone_pile_placed");
 
     public static final ResourceKey<PlacedFeature> GRANITE_BOULDERS_PLACED = registerPlacedFeature("arid/granite_boulders_placed");
     public static final ResourceKey<PlacedFeature> GRANITE_SLABS_PLACED = registerPlacedFeature("arid/granite_slabs_placed");
     public static final ResourceKey<PlacedFeature> PACKED_MUD_DISK_PLACED = registerPlacedFeature("arid/packed_mud_disk_placed");
+
+    public static final ResourceKey<PlacedFeature> SAND_LAYER_0_PLACED = registerPlacedFeature("arid/sand_layer_0_placed");
+    public static final ResourceKey<PlacedFeature> SAND_LAYER_1_PLACED = registerPlacedFeature("arid/sand_layer_1_placed");
+    public static final ResourceKey<PlacedFeature> SAND_LAYER_2_PLACED = registerPlacedFeature("arid/sand_layer_2_placed");
+    public static final ResourceKey<PlacedFeature> SLATE_BOULDER_PLACED = registerPlacedFeature("arid/slate_boulder_placed");
+    public static final ResourceKey<PlacedFeature> SLATE_SLABS_PLACED = registerPlacedFeature("arid/slate_slabs_placed");
+    public static final ResourceKey<PlacedFeature> CACTUS_PATCH_PLACED = registerPlacedFeature("vegetation/cactus_patch_placed");
+    public static final ResourceKey<PlacedFeature> ARID_VEGETATION_PATCH_PLACED = registerPlacedFeature("vegetation/arid_scrub_patch_placed");
+    public static final ResourceKey<PlacedFeature> DRY_GRASS_PATCH_PLACED = registerPlacedFeature("grass/dry_grass_patch_placed");
 
 
 

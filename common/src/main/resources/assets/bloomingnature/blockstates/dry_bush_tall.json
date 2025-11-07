@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "half=lower": {
+      "model": "bloomingnature:block/dry_bush_tall_bottom"
+    },
+    "half=upper": {
+      "model": "bloomingnature:block/dry_bush_tall_top"
+    }
+  }
+}

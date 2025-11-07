@@ -8,7 +8,6 @@ import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.grower.TreeGrower;
 import net.minecraft.world.level.block.state.BlockState;
 import net.satisfy.bloomingnature.core.world.feature.configured.ConfiguredFeatures;
-import net.satisfy.bloomingnature.core.world.feature.placed.PlacedFeatures;
 
 import java.util.Optional;
 
@@ -18,7 +17,7 @@ public class FanPalmSproutBlock extends SaplingBlock {
     }
 
     @Override
-    protected boolean mayPlaceOn(BlockState pState, BlockGetter pLevel, BlockPos pPos) {
-        return pState.is(Blocks.SAND);
+    protected boolean mayPlaceOn(BlockState state, BlockGetter level, BlockPos pos) {
+        return state.is(Blocks.SAND) || state.is(Blocks.RED_SAND) || state.is(Blocks.GRASS_BLOCK) || state.is(Blocks.DIRT) || state.is(Blocks.COARSE_DIRT);
     }
 }

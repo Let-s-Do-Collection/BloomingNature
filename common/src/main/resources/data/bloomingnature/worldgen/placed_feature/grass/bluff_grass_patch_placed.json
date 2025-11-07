@@ -2,11 +2,14 @@
   "feature": "bloomingnature:grass/bluff_grass_patch",
   "placement": [
     {
-      "type": "minecraft:count",
-      "count": {
-        "type": "minecraft:constant",
-        "value": 1
-      }
+      "type": "minecraft:rarity_filter",
+      "chance": 9
+    },
+    {
+      "type": "minecraft:noise_threshold_count",
+      "noise_level": -0.15,
+      "below_noise": 0,
+      "above_noise": 1
     },
     {
       "type": "minecraft:in_square"

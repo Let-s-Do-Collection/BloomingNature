@@ -6,6 +6,7 @@ import net.minecraft.tags.FluidTags;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.biome.BiomeManager;
+import net.minecraft.world.level.biome.Biomes;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.chunk.BlockColumn;
 import net.minecraft.world.level.chunk.ChunkAccess;
@@ -15,7 +16,7 @@ import net.satisfy.bloomingnature.core.registry.ObjectRegistry;
 import net.satisfy.bloomingnature.core.world.biome.BloomingNatureBiomeKeys;
 
 public final class AridSurfaceBuilder extends BiolithSurfaceBuilder {
-    public enum Profile {CYPRESS_FIELDS, BRUSHLAND, BAOBAB_SAVANNA}
+    public enum Profile {CYPRESS_FIELDS, BRUSHLAND, BAOBAB_SAVANNA, DESERT_OASIS, DESERT, DESERT_RIVER}
 
     private final Profile profile;
 
@@ -83,6 +84,176 @@ public final class AridSurfaceBuilder extends BiolithSurfaceBuilder {
                     continue;
                 }
                 column.setBlock(y, Blocks.GRASS_BLOCK.defaultBlockState());
+            }
+            return;
+        }
+
+        if (profile == Profile.DESERT_OASIS) {
+            float sandNoiseA = smoothNoise(RandomSource.create(91111L), x - 73, z + 159, 0.025f);
+            float sandNoiseB = smoothNoise(RandomSource.create(91222L), x + 41, z - 93, 0.032f);
+            float sandMask = (sandNoiseA + sandNoiseB) * 0.5f;
+            boolean sandPatch = sandMask > 0.62f;
+
+            for (int y = 0; y <= topY; y++) {
+                if (y != topY) continue;
+
+                if (slope >= 3) {
+                    int r = mixIndex(x, y, z);
+                    if (r < 30) {
+                        column.setBlock(y, ObjectRegistry.COBBLED_SLATE.get().defaultBlockState());
+                    } else if (r < 60) {
+                        column.setBlock(y, ObjectRegistry.MOSSY_COBBLED_SLATE.get().defaultBlockState());
+                    } else {
+                        column.setBlock(y, Blocks.SANDSTONE.defaultBlockState());
+                    }
+                    continue;
+                }
+
+                column.setBlock(y, Blocks.GRASS_BLOCK.defaultBlockState());
+                if (y - 1 >= 0) {
+                    column.setBlock(y - 1, sandPatch ? Blocks.SAND.defaultBlockState() : Blocks.DIRT.defaultBlockState());
+                }
+            }
+            return;
+        }
+
+        for (int d = 0; d <= 4 && topY - d >= 0; d++) {
+            if (profile != Profile.DESERT_RIVER && column.getBlock(topY - d).getFluidState().is(FluidTags.WATER)) return;
+        }
+
+        if (profile == Profile.DESERT) {
+            int sandDepth = 4 + random.nextInt(3);
+            int sandstoneDepth = sandDepth + 2;
+            for (int y = 0; y <= topY; y++) {
+                if (y > topY - sandDepth) {
+                    column.setBlock(y, Blocks.SAND.defaultBlockState());
+                    continue;
+                }
+                if (y > topY - sandstoneDepth) {
+                    column.setBlock(y, Blocks.SANDSTONE.defaultBlockState());
+                    continue;
+                }
+                var state = column.getBlock(y);
+                if (state.is(Blocks.STONE) && y < topY - sandstoneDepth - 3) {
+                    column.setBlock(y, ObjectRegistry.SLATE.get().defaultBlockState());
+                }
+            }
+
+            int chunkX = x >> 4;
+            int chunkZ = z >> 4;
+            var patchRand = RandomSource.create(chunkX * 915131L + chunkZ * 121421L + 4973L);
+            float chunkMask = smoothNoise(RandomSource.create(1337L), chunkX, chunkZ, 0.18f);
+            boolean patchActive = patchRand.nextInt(23) == 0 && chunkMask > 0.75f;
+            if (patchActive) {
+                int cx = (chunkX << 4) + 2 + patchRand.nextInt(12);
+                int cz = (chunkZ << 4) + 2 + patchRand.nextInt(12);
+                int rx = 3 + patchRand.nextInt(3);
+                int rz = 3 + patchRand.nextInt(4);
+                float theta = (float) (patchRand.nextFloat() * Math.PI);
+                float ct = (float) Math.cos(theta);
+                float st = (float) Math.sin(theta);
+                float p = 0.7f + patchRand.nextFloat() * 0.9f;
+                int depth = 3 + patchRand.nextInt(4);
+
+                int cx2 = cx + patchRand.nextInt(5) - 2;
+                int cz2 = cz + patchRand.nextInt(5) - 2;
+                boolean dual = patchRand.nextInt(4) == 0;
+
+                int dx0 = x - cx;
+                int dz0 = z - cz;
+                float xr = ct * dx0 - st * dz0;
+                float zr = st * dx0 + ct * dz0;
+                float s1 = (float) (Math.pow(Math.abs(xr) / rx, p) + Math.pow(Math.abs(zr) / rz, p));
+
+                float s2 = 2f;
+                if (dual) {
+                    int dx1 = x - cx2;
+                    int dz1 = z - cz2;
+                    float xr2 = ct * dx1 - st * dz1;
+                    float zr2 = st * dx1 + ct * dz1;
+                    s2 = (float) (Math.pow(Math.abs(xr2) / rx, p) + Math.pow(Math.abs(zr2) / rz, p));
+                }
+
+                float jitter = smoothNoise(RandomSource.create(8849L), x + 37, z - 21, 0.12f) * 0.2f;
+                boolean inside = Math.min(s1, s2) + jitter <= 1.0f;
+
+                if (inside) {
+                    for (int i = 0; i < depth; i++) {
+                        int y = topY - i;
+                        if (y < 0) break;
+                        var s = column.getBlock(y);
+                        if (s.is(Blocks.SAND) || s.is(Blocks.SANDSTONE)) {
+                            column.setBlock(y, ObjectRegistry.QUICKSAND.get().defaultBlockState());
+                        }
+                    }
+                }
+            }
+            return;
+        }
+
+        if (profile == Profile.DESERT_RIVER) {
+            int bedrockY = chunk.getHeight(Heightmap.Types.OCEAN_FLOOR_WG, localX, localZ);
+            int topSurfaceY = chunk.getHeight(Heightmap.Types.WORLD_SURFACE_WG, localX, localZ);
+            int waterTopY = topSurfaceY;
+            while (waterTopY > bedrockY && column.getBlock(waterTopY).getFluidState().is(FluidTags.WATER)) waterTopY--;
+            boolean hasWater = waterTopY < topSurfaceY && column.getBlock(waterTopY + 1).getFluidState().is(FluidTags.WATER);
+            int maxDepth = hasWater ? 4 : 0;
+
+            int waterFloorY = hasWater ? bedrockY : topSurfaceY;
+            int underwaterTop = hasWater ? Math.min(waterTopY - 1, bedrockY + maxDepth) : bedrockY - 1;
+
+            for (int y = waterFloorY; y <= underwaterTop; y++) {
+                var state = column.getBlock(y);
+                boolean replaceable = state.is(Blocks.STONE) || state.is(Blocks.DIRT) || state.is(Blocks.GRAVEL) || state.is(Blocks.SAND) || state.is(Blocks.CLAY);
+                if (!replaceable) continue;
+                int r = mixIndex(x, y, z);
+                if (y <= bedrockY + 1) {
+                    if (r < 6) {
+                        column.setBlock(y, Blocks.CLAY.defaultBlockState());
+                    } else {
+                        column.setBlock(y, Blocks.SANDSTONE.defaultBlockState());
+                    }
+                } else {
+                    if (r < 3) {
+                        column.setBlock(y, Blocks.CLAY.defaultBlockState());
+                    } else {
+                        column.setBlock(y, Blocks.SAND.defaultBlockState());
+                    }
+                }
+            }
+
+            int bankTopY = hasWater ? waterTopY : topSurfaceY;
+            int bankStartY = Math.max(bedrockY, bankTopY - 3);
+            int bankEndY = Math.min(topSurfaceY, bankTopY + 2);
+
+            for (int y = bankStartY; y <= bankEndY; y++) {
+                var state = column.getBlock(y);
+                boolean nearWater = column.getBlock(y).getFluidState().is(FluidTags.WATER)
+                        || (y + 1 <= topSurfaceY && column.getBlock(y + 1).getFluidState().is(FluidTags.WATER))
+                        || (y + 2 <= topSurfaceY && column.getBlock(y + 2).getFluidState().is(FluidTags.WATER));
+                boolean replaceable = state.is(Blocks.GRASS_BLOCK) || state.is(Blocks.DIRT) || state.is(Blocks.COARSE_DIRT) || state.is(Blocks.GRAVEL) || state.is(Blocks.SAND) || state.is(Blocks.RED_SAND);
+                if (!nearWater || !replaceable) continue;
+                column.setBlock(y, Blocks.SAND.defaultBlockState());
+            }
+
+            var surf = column.getBlock(topSurfaceY);
+            if (surf.is(Blocks.GRASS_BLOCK) || surf.is(Blocks.DIRT) || surf.is(Blocks.COARSE_DIRT) || surf.is(Blocks.GRAVEL)) {
+                column.setBlock(topSurfaceY, Blocks.SAND.defaultBlockState());
+            }
+            if (topSurfaceY - 1 >= 0) {
+                var below = column.getBlock(topSurfaceY - 1);
+                if (below.is(Blocks.DIRT) || below.is(Blocks.GRASS_BLOCK) || below.is(Blocks.COARSE_DIRT)) {
+                    column.setBlock(topSurfaceY - 1, Blocks.SAND.defaultBlockState());
+                }
+            }
+
+            int vStart = Math.max(bedrockY, bankTopY - 2);
+            int vEnd = Math.min(topSurfaceY, bankTopY + 2);
+            for (int y = vStart; y <= vEnd; y++) {
+                var s = column.getBlock(y);
+                if (s.is(Blocks.GRASS_BLOCK) || s.is(Blocks.DIRT) || s.is(Blocks.COARSE_DIRT)) {
+                    column.setBlock(y, Blocks.SAND.defaultBlockState());
+                }
             }
             return;
         }
@@ -212,6 +383,18 @@ public final class AridSurfaceBuilder extends BiolithSurfaceBuilder {
         SurfaceGeneration.addSurfaceBuilder(
                 BloomingNature.identifier("baobab_savanna"),
                 new AridSurfaceBuilder(Profile.BAOBAB_SAVANNA).setBiomeKey(BloomingNatureBiomeKeys.BAOBAB_SAVANNA)
+        );
+        SurfaceGeneration.addSurfaceBuilder(
+                BloomingNature.identifier("desert_oasis"),
+                new AridSurfaceBuilder(Profile.DESERT_OASIS).setBiomeKey(BloomingNatureBiomeKeys.DESERT_OASIS)
+        );
+        SurfaceGeneration.addSurfaceBuilder(
+                BloomingNature.identifier("desert"),
+                new AridSurfaceBuilder(Profile.DESERT).setBiomeKey(Biomes.DESERT)
+        );
+        SurfaceGeneration.addSurfaceBuilder(
+                BloomingNature.identifier("desert_river"),
+                new AridSurfaceBuilder(Profile.DESERT_RIVER).setBiomeKey(BloomingNatureBiomeKeys.DESERT_RIVER)
         );
     }
 }

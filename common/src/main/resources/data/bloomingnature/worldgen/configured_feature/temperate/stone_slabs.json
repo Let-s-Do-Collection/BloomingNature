@@ -4,7 +4,11 @@
     "to_place": {
       "type": "minecraft:simple_state_provider",
       "state": {
-        "Name": "minecraft:stone_slab"
+        "Name": "minecraft:stone_slab",
+        "Properties": {
+          "type": "bottom",
+          "waterlogged": "false"
+        }
       }
     }
   }

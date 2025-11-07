@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "bloomingnature:dry_bush_tall"
+    }
+  ],
+  "result": {
+    "id": "minecraft:stick",
+    "count": 6
+  }
+}

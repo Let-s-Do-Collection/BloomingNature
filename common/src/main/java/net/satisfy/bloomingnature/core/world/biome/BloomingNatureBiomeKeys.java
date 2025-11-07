@@ -12,6 +12,8 @@ public final class BloomingNatureBiomeKeys {
     public static final ResourceKey<Biome> CYPRESS_FIELDS = ResourceKey.create(Registries.BIOME, BloomingNature.identifier("cypress_fields"));
     public static final ResourceKey<Biome> GOLDEN_GLADE = ResourceKey.create(Registries.BIOME, BloomingNature.identifier("golden_glade"));
     public static final ResourceKey<Biome> BAOBAB_SAVANNA = ResourceKey.create(Registries.BIOME, BloomingNature.identifier("baobab_savanna"));
+    public static final ResourceKey<Biome> DESERT_OASIS = ResourceKey.create(Registries.BIOME, BloomingNature.identifier("desert_oasis"));
+    public static final ResourceKey<Biome> DESERT_RIVER = ResourceKey.create(Registries.BIOME, BloomingNature.identifier("desert_river"));
 
     private BloomingNatureBiomeKeys() {
     }

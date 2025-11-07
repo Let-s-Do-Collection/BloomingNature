@@ -1,0 +1,87 @@
+{
+  "type": "minecraft:random_patch",
+  "config": {
+    "tries": 8,
+    "xz_spread": 10,
+    "y_spread": 2,
+    "feature": {
+      "feature": {
+        "type": "minecraft:simple_block",
+        "config": {
+          "to_place": {
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "weight": 19,
+                "data": {
+                  "Name": "bloomingnature:dry_grass"
+                }
+              },
+              {
+                "weight": 12,
+                "data": {
+                  "Name": "bloomingnature:dry_bush"
+                }
+              },
+              {
+                "weight": 8,
+                "data": {
+                  "Name": "bloomingnature:dry_bush_tall",
+                  "Properties": {
+                    "half": "lower"
+                  }
+                }
+              }
+            ]
+          }
+        }
+      },
+      "placement": [
+        {
+          "type": "minecraft:block_predicate_filter",
+          "predicate": {
+            "type": "minecraft:all_of",
+            "predicates": [
+              {
+                "type": "minecraft:matching_blocks",
+                "blocks": [
+                  "minecraft:air"
+                ]
+              },
+              {
+                "type": "minecraft:any_of",
+                "predicates": [
+                  {
+                    "type": "minecraft:would_survive",
+                    "state": {
+                      "Name": "bloomingnature:dry_grass"
+                    }
+                  },
+                  {
+                    "type": "minecraft:would_survive",
+                    "state": {
+                      "Name": "bloomingnature:dry_bush"
+                    }
+                  },
+                  {
+                    "type": "minecraft:would_survive",
+                    "state": {
+                      "Name": "bloomingnature:dry_bush_tall",
+                      "Properties": {
+                        "half": "lower"
+                      }
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "minecraft:heightmap",
+          "heightmap": "MOTION_BLOCKING_NO_LEAVES"
+        }
+      ]
+    }
+  }
+}

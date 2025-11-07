@@ -41,9 +41,9 @@ public class WanderingGardenerEntity extends WanderingTrader {
                 new BloomingNatureGeneralUtil.BloomingNatureVillagerUtil.SellItemFactory(ObjectRegistry.FREESIA_PINK.get(), 2, 4, 3, 15),
                 new BloomingNatureGeneralUtil.BloomingNatureVillagerUtil.SellItemFactory(ObjectRegistry.LUPINE_BLUE.get(), 2, 4, 3, 15),
                 new BloomingNatureGeneralUtil.BloomingNatureVillagerUtil.SellItemFactory(ObjectRegistry.LUPINE_PURPLE.get(), 2, 4, 3, 15),
-                new BloomingNatureGeneralUtil.BloomingNatureVillagerUtil.SellItemFactory(ObjectRegistry.BEACH_BUSH.get(), 2, 4, 3, 15),
-                new BloomingNatureGeneralUtil.BloomingNatureVillagerUtil.SellItemFactory(ObjectRegistry.BEACH_GRASS.get(), 2, 4, 3, 15),
-                new BloomingNatureGeneralUtil.BloomingNatureVillagerUtil.SellItemFactory(ObjectRegistry.BEACH_BUSH_TALL.get(), 2, 4, 3, 15)
+                new BloomingNatureGeneralUtil.BloomingNatureVillagerUtil.SellItemFactory(ObjectRegistry.DRY_BUSH.get(), 2, 4, 3, 15),
+                new BloomingNatureGeneralUtil.BloomingNatureVillagerUtil.SellItemFactory(ObjectRegistry.DRY_GRASS.get(), 2, 4, 3, 15),
+                new BloomingNatureGeneralUtil.BloomingNatureVillagerUtil.SellItemFactory(ObjectRegistry.DRY_BUSH_TALL.get(), 2, 4, 3, 15)
         });
         return trades;
     }

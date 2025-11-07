@@ -1,6 +1,6 @@
 {
-  "temperature": 1.2,
-  "downfall": 1.0,
+  "temperature": 1.1,
+  "downfall": 0.5,
   "effects": {
     "sky_color": 15196108,
     "fog_color": 15789546,

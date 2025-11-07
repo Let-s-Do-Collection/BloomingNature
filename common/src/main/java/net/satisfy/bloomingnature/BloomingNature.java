@@ -15,7 +15,7 @@ public class BloomingNature {
         EntityTypeRegistry.init();
         ObjectRegistry.init();
         TabRegistry.init();
-        PlacerTypesRegistry.init();
+        PlacerTypeRegistry.init();
         WorldgenRegistry.init();
     }
 
