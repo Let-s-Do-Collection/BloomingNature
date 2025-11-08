@@ -15,7 +15,7 @@ import net.satisfy.bloomingnature.BloomingNature;
 import net.satisfy.bloomingnature.core.registry.ObjectRegistry;
 
 public final class TemperateSurfaceBuilder extends BiolithSurfaceBuilder {
-    public enum Profile {RIVER, FOREST, PLAINS, BIRCH_FOREST, OLD_GROWTH_BIRCH_FOREST, STONY_SHORE}
+    public enum Profile {RIVER, FOREST, PLAINS, BIRCH_FOREST, OLD_GROWTH_BIRCH_FOREST, STONY_SHORE, DARK_FOREST}
 
     private final Profile profile;
 
@@ -257,6 +257,74 @@ public final class TemperateSurfaceBuilder extends BiolithSurfaceBuilder {
             return;
         }
 
+        if (profile == Profile.DARK_FOREST) {
+            for (int d = 0; d <= 4 && topY - d >= 0; d++) {
+                if (column.getBlock(topY - d).getFluidState().is(FluidTags.WATER)) return;
+            }
+
+            float mudGate = smoothNoise(RandomSource.create(88421L), x - 31, z + 77, 0.030f);
+            float mudShapeA = smoothNoise(RandomSource.create(22119L), x + 9, z - 13, 0.065f);
+            float mudShapeB = smoothNoise(RandomSource.create(99131L), x - 47, z + 21, 0.055f);
+            boolean mudEnabled = mudGate > 0.82f && (mudShapeA + mudShapeB) * 0.5f > 0.58f;
+
+            float podzolNoise = smoothNoise(RandomSource.create(56771L), x + 33, z - 11, 0.090f);
+            float darkSoilNoise = smoothNoise(RandomSource.create(33551L), x - 19, z + 27, 0.120f);
+            float mycelNoise = smoothNoise(RandomSource.create(71237L), x + 61, z + 5, 0.045f);
+
+            for (int y = 0; y <= topY; y++) {
+                if (y != topY) continue;
+                var state = column.getBlock(y);
+
+                if (slope >= 3 && state.is(Blocks.STONE)) {
+                    int r = mixIndex(x, y, z);
+                    if (r < 30) column.setBlock(y, Blocks.MOSSY_COBBLESTONE.defaultBlockState());
+                    else if (r < 70) column.setBlock(y, Blocks.COBBLESTONE.defaultBlockState());
+                    else column.setBlock(y, Blocks.STONE.defaultBlockState());
+                    continue;
+                }
+
+                if (mudEnabled) {
+                    column.setBlock(y, Blocks.MUD.defaultBlockState());
+                    int h = 1 + Math.floorMod(mixIndex(x, y, z), 3);
+                    for (int d = 1; d <= 3; d++) {
+                        if (y - d < 0) break;
+                        int gate = mixIndex(x, y - d, z);
+                        if (d <= h && gate > 18) {
+                            column.setBlock(y - d, ObjectRegistry.MARSH_BLOCK.get().defaultBlockState());
+                        } else {
+                            column.setBlock(y - d, Blocks.DIRT.defaultBlockState());
+                        }
+                    }
+                    continue;
+                }
+
+                if (podzolNoise > 0.78f) {
+                    column.setBlock(y, Blocks.PODZOL.defaultBlockState());
+                    if (y - 1 >= 0) column.setBlock(y - 1, Blocks.DIRT.defaultBlockState());
+                    continue;
+                }
+
+                if (darkSoilNoise > 0.72f) {
+                    int soilMix = mixIndex(x, y, z);
+                    if (soilMix < 60) {
+                        column.setBlock(y, Blocks.PODZOL.defaultBlockState());
+                    } else {
+                        column.setBlock(y, Blocks.ROOTED_DIRT.defaultBlockState());
+                    }
+                    if (y - 1 >= 0) column.setBlock(y - 1, Blocks.DIRT.defaultBlockState());
+                    continue;
+                }
+
+                if (mycelNoise > 0.88f) {
+                    column.setBlock(y, Blocks.MYCELIUM.defaultBlockState());
+                    continue;
+                }
+
+                column.setBlock(y, Blocks.GRASS_BLOCK.defaultBlockState());
+            }
+            return;
+        }
+
         if (profile == Profile.PLAINS) {
             for (int d = 0; d <= 4 && topY - d >= 0; d++) {
                 if (column.getBlock(topY - d).getFluidState().is(FluidTags.WATER)) return;
@@ -375,6 +443,10 @@ public final class TemperateSurfaceBuilder extends BiolithSurfaceBuilder {
         SurfaceGeneration.addSurfaceBuilder(
                 BloomingNature.identifier("stony_shore"),
                 new TemperateSurfaceBuilder(Profile.STONY_SHORE).setBiomeKey(Biomes.STONY_SHORE)
+        );
+        SurfaceGeneration.addSurfaceBuilder(
+                BloomingNature.identifier("dark_forest"),
+                new TemperateSurfaceBuilder(Profile.DARK_FOREST).setBiomeKey(Biomes.DARK_FOREST)
         );
     }
 }

@@ -24,6 +24,12 @@
                 }
               },
               {
+                "weight": 1,
+                "data": {
+                  "Name": "bloomingnature:desert_lily"
+                }
+              },
+              {
                 "weight": 3,
                 "data": {
                   "Name": "bloomingnature:dry_bush_tall",

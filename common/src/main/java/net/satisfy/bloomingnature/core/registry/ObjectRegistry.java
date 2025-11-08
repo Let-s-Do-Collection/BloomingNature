@@ -524,6 +524,9 @@ public class ObjectRegistry {
     public static final RegistrySupplier<Block> RED_SANDSTONE_BRICK_WALL = registerWithItem("red_sandstone_brick_wall", () -> new WallBlock(BlockBehaviour.Properties.ofFullCopy(RED_SANDSTONE_BRICKS.get())));
     public static final RegistrySupplier<Block> POLISHED_RED_SANDSTONE_BRICKS= registerWithItem("polished_red_sandstone_bricks", () -> new Block(BlockBehaviour.Properties.ofFullCopy(RED_SANDSTONE_BRICKS.get())));
     public static final RegistrySupplier<Block> BLOOMING_OAK_LEAVES = registerWithItem("blooming_oak_leaves", () -> new BloomingLeavesBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_LEAVES)));
+    public static final RegistrySupplier<Block> SUNFLOWER = registerWithItem("sunflower", () -> new SunflowerBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.ROSE_BUSH)));
+    public static final RegistrySupplier<Block> DESERT_LILY = registerWithItem("desert_lily", () -> new DeadBushBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.WHITE_TULIP)));
+    public static final RegistrySupplier<Block> POTTED_DESERT_LILY = registerWithoutItem("potted_desert_lily", () -> new FlowerPotBlock(MYOSOTIS.get(), BlockBehaviour.Properties.ofFullCopy(Blocks.FLOWER_POT)));
 
     public static void init() {
         ITEMS.register();

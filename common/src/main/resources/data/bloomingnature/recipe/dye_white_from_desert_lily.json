@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "white_dye",
+  "ingredients": [
+    {
+      "item": "bloomingnature:desert_lily"
+    }
+  ],
+  "result": {
+    "id": "minecraft:white_dye"
+  }
+}

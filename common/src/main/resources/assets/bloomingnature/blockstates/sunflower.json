@@ -1,0 +1,28 @@
+{
+  "variants": {
+    "half=lower,phase=morning": {
+      "model": "bloomingnature:block/sunflower_bottom"
+    },
+    "half=lower,phase=day": {
+      "model": "bloomingnature:block/sunflower_bottom"
+    },
+    "half=lower,phase=evening": {
+      "model": "bloomingnature:block/sunflower_bottom"
+    },
+    "half=lower,phase=night": {
+      "model": "bloomingnature:block/sunflower_bottom"
+    },
+    "half=upper,phase=morning": {
+      "model": "bloomingnature:block/sunflower_top_morning"
+    },
+    "half=upper,phase=day": {
+      "model": "bloomingnature:block/sunflower_top_day"
+    },
+    "half=upper,phase=evening": {
+      "model": "bloomingnature:block/sunflower_top_evening"
+    },
+    "half=upper,phase=night": {
+      "model": "bloomingnature:block/sunflower_top_night"
+    }
+  }
+}

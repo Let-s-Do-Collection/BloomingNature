@@ -399,12 +399,14 @@ public class TabRegistry {
                 out.accept(ObjectRegistry.AMARYLLIS.get());
                 out.accept(ObjectRegistry.GLADIOLUS.get());
                 out.accept(ObjectRegistry.MUNSTEAD.get());
+                out.accept(ObjectRegistry.DESERT_LILY.get());
                 out.accept(ObjectRegistry.FREESIA_YELLOW.get());
                 out.accept(ObjectRegistry.FREESIA_PINK.get());
                 out.accept(ObjectRegistry.LUPINE_BLUE.get());
                 out.accept(ObjectRegistry.TALL_LUPINE_BLUE.get());
                 out.accept(ObjectRegistry.LUPINE_PURPLE.get());
                 out.accept(ObjectRegistry.TALL_LUPINE_PURPLE.get());
+                out.accept(ObjectRegistry.SUNFLOWER.get());
                 out.accept(ObjectRegistry.SMALL_CACTUS.get());
                 out.accept(ObjectRegistry.BARREL_CACTUS.get());
                 out.accept(ObjectRegistry.PRICKLY_PEAR_CACTUS.get());

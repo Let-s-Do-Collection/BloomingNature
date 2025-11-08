@@ -1,15 +1,9 @@
 {
-  "feature": "bloomingnature:flowers/forest_flower_patch",
+  "feature": "bloomingnature:flowers/sunflower_plains_sunflower_patch",
   "placement": [
     {
       "type": "minecraft:rarity_filter",
-      "chance": 8
-    },
-    {
-      "type": "minecraft:noise_threshold_count",
-      "noise_level": -0.2,
-      "below_noise": 1,
-      "above_noise": 4
+      "chance": 3
     },
     {
       "type": "minecraft:in_square"

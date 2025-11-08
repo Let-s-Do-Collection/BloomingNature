@@ -5,6 +5,7 @@ import net.minecraft.world.entity.npc.VillagerTrades;
 import net.minecraft.world.entity.npc.WanderingTrader;
 import net.minecraft.world.item.trading.MerchantOffers;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Blocks;
 import net.satisfy.bloomingnature.core.registry.ObjectRegistry;
 import net.satisfy.bloomingnature.core.util.BloomingNatureGeneralUtil;
 
@@ -43,7 +44,8 @@ public class WanderingGardenerEntity extends WanderingTrader {
                 new BloomingNatureGeneralUtil.BloomingNatureVillagerUtil.SellItemFactory(ObjectRegistry.LUPINE_PURPLE.get(), 2, 4, 3, 15),
                 new BloomingNatureGeneralUtil.BloomingNatureVillagerUtil.SellItemFactory(ObjectRegistry.DRY_BUSH.get(), 2, 4, 3, 15),
                 new BloomingNatureGeneralUtil.BloomingNatureVillagerUtil.SellItemFactory(ObjectRegistry.DRY_GRASS.get(), 2, 4, 3, 15),
-                new BloomingNatureGeneralUtil.BloomingNatureVillagerUtil.SellItemFactory(ObjectRegistry.DRY_BUSH_TALL.get(), 2, 4, 3, 15)
+                new BloomingNatureGeneralUtil.BloomingNatureVillagerUtil.SellItemFactory(ObjectRegistry.DRY_BUSH_TALL.get(), 2, 4, 3, 15),
+                new BloomingNatureGeneralUtil.BloomingNatureVillagerUtil.SellItemFactory(Blocks.SUNFLOWER, 3, 2, 10, 15)
         });
         return trades;
     }

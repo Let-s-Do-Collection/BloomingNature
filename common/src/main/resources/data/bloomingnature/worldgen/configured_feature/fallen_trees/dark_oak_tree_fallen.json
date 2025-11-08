@@ -31,6 +31,68 @@
             "prioritize_tip": true,
             "layers": [
               {
+                "height": 3,
+                "provider": {
+                  "type": "minecraft:simple_state_provider",
+                  "state": {
+                    "Name": "minecraft:dark_oak_log",
+                    "Properties": {
+                      "axis": "z"
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        "placement": [
+          {
+            "type": "minecraft:block_predicate_filter",
+            "predicate": {
+              "type": "minecraft:matching_blocks",
+              "offset": [
+                0,
+                -1,
+                -2
+              ],
+              "blocks": [
+                "minecraft:grass_block",
+                "minecraft:dirt",
+                "minecraft:coarse_dirt"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "feature": {
+          "type": "minecraft:block_column",
+          "config": {
+            "direction": "north",
+            "allowed_placement": {
+              "type": "minecraft:all_of",
+              "predicates": [
+                {
+                  "type": "minecraft:replaceable"
+                },
+                {
+                  "type": "minecraft:matching_blocks",
+                  "offset": [
+                    0,
+                    -1,
+                    0
+                  ],
+                  "blocks": [
+                    "minecraft:grass_block",
+                    "minecraft:dirt",
+                    "minecraft:coarse_dirt"
+                  ]
+                }
+              ]
+            },
+            "prioritize_tip": true,
+            "layers": [
+              {
                 "height": 4,
                 "provider": {
                   "type": "minecraft:simple_state_provider",
@@ -53,7 +115,255 @@
               "offset": [
                 0,
                 -1,
+                -3
+              ],
+              "blocks": [
+                "minecraft:grass_block",
+                "minecraft:dirt",
+                "minecraft:coarse_dirt"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "feature": {
+          "type": "minecraft:block_column",
+          "config": {
+            "direction": "north",
+            "allowed_placement": {
+              "type": "minecraft:all_of",
+              "predicates": [
+                {
+                  "type": "minecraft:replaceable"
+                },
+                {
+                  "type": "minecraft:matching_blocks",
+                  "offset": [
+                    0,
+                    -1,
+                    0
+                  ],
+                  "blocks": [
+                    "minecraft:grass_block",
+                    "minecraft:dirt",
+                    "minecraft:coarse_dirt"
+                  ]
+                }
+              ]
+            },
+            "prioritize_tip": true,
+            "layers": [
+              {
+                "height": 5,
+                "provider": {
+                  "type": "minecraft:simple_state_provider",
+                  "state": {
+                    "Name": "minecraft:dark_oak_log",
+                    "Properties": {
+                      "axis": "z"
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        "placement": [
+          {
+            "type": "minecraft:block_predicate_filter",
+            "predicate": {
+              "type": "minecraft:matching_blocks",
+              "offset": [
+                0,
+                -1,
                 -4
+              ],
+              "blocks": [
+                "minecraft:grass_block",
+                "minecraft:dirt",
+                "minecraft:coarse_dirt"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "feature": {
+          "type": "minecraft:block_column",
+          "config": {
+            "direction": "north",
+            "allowed_placement": {
+              "type": "minecraft:all_of",
+              "predicates": [
+                {
+                  "type": "minecraft:replaceable"
+                },
+                {
+                  "type": "minecraft:matching_blocks",
+                  "offset": [
+                    0,
+                    -1,
+                    0
+                  ],
+                  "blocks": [
+                    "minecraft:grass_block",
+                    "minecraft:dirt",
+                    "minecraft:coarse_dirt"
+                  ]
+                }
+              ]
+            },
+            "prioritize_tip": true,
+            "layers": [
+              {
+                "height": 6,
+                "provider": {
+                  "type": "minecraft:simple_state_provider",
+                  "state": {
+                    "Name": "minecraft:dark_oak_log",
+                    "Properties": {
+                      "axis": "z"
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        "placement": [
+          {
+            "type": "minecraft:block_predicate_filter",
+            "predicate": {
+              "type": "minecraft:matching_blocks",
+              "offset": [
+                0,
+                -1,
+                -5
+              ],
+              "blocks": [
+                "minecraft:grass_block",
+                "minecraft:dirt",
+                "minecraft:coarse_dirt"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "feature": {
+          "type": "minecraft:block_column",
+          "config": {
+            "direction": "north",
+            "allowed_placement": {
+              "type": "minecraft:all_of",
+              "predicates": [
+                {
+                  "type": "minecraft:replaceable"
+                },
+                {
+                  "type": "minecraft:matching_blocks",
+                  "offset": [
+                    0,
+                    -1,
+                    0
+                  ],
+                  "blocks": [
+                    "minecraft:grass_block",
+                    "minecraft:dirt",
+                    "minecraft:coarse_dirt"
+                  ]
+                }
+              ]
+            },
+            "prioritize_tip": true,
+            "layers": [
+              {
+                "height": 7,
+                "provider": {
+                  "type": "minecraft:simple_state_provider",
+                  "state": {
+                    "Name": "minecraft:dark_oak_log",
+                    "Properties": {
+                      "axis": "z"
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        "placement": [
+          {
+            "type": "minecraft:block_predicate_filter",
+            "predicate": {
+              "type": "minecraft:matching_blocks",
+              "offset": [
+                0,
+                -1,
+                -6
+              ],
+              "blocks": [
+                "minecraft:grass_block",
+                "minecraft:dirt",
+                "minecraft:coarse_dirt"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "feature": {
+          "type": "minecraft:block_column",
+          "config": {
+            "direction": "south",
+            "allowed_placement": {
+              "type": "minecraft:all_of",
+              "predicates": [
+                {
+                  "type": "minecraft:replaceable"
+                },
+                {
+                  "type": "minecraft:matching_blocks",
+                  "offset": [
+                    0,
+                    -1,
+                    0
+                  ],
+                  "blocks": [
+                    "minecraft:grass_block",
+                    "minecraft:dirt",
+                    "minecraft:coarse_dirt"
+                  ]
+                }
+              ]
+            },
+            "prioritize_tip": true,
+            "layers": [
+              {
+                "height": 3,
+                "provider": {
+                  "type": "minecraft:simple_state_provider",
+                  "state": {
+                    "Name": "minecraft:dark_oak_log",
+                    "Properties": {
+                      "axis": "z"
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        "placement": [
+          {
+            "type": "minecraft:block_predicate_filter",
+            "predicate": {
+              "type": "minecraft:matching_blocks",
+              "offset": [
+                0,
+                -1,
+                2
               ],
               "blocks": [
                 "minecraft:grass_block",
@@ -115,7 +425,255 @@
               "offset": [
                 0,
                 -1,
+                3
+              ],
+              "blocks": [
+                "minecraft:grass_block",
+                "minecraft:dirt",
+                "minecraft:coarse_dirt"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "feature": {
+          "type": "minecraft:block_column",
+          "config": {
+            "direction": "south",
+            "allowed_placement": {
+              "type": "minecraft:all_of",
+              "predicates": [
+                {
+                  "type": "minecraft:replaceable"
+                },
+                {
+                  "type": "minecraft:matching_blocks",
+                  "offset": [
+                    0,
+                    -1,
+                    0
+                  ],
+                  "blocks": [
+                    "minecraft:grass_block",
+                    "minecraft:dirt",
+                    "minecraft:coarse_dirt"
+                  ]
+                }
+              ]
+            },
+            "prioritize_tip": true,
+            "layers": [
+              {
+                "height": 5,
+                "provider": {
+                  "type": "minecraft:simple_state_provider",
+                  "state": {
+                    "Name": "minecraft:dark_oak_log",
+                    "Properties": {
+                      "axis": "z"
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        "placement": [
+          {
+            "type": "minecraft:block_predicate_filter",
+            "predicate": {
+              "type": "minecraft:matching_blocks",
+              "offset": [
+                0,
+                -1,
                 4
+              ],
+              "blocks": [
+                "minecraft:grass_block",
+                "minecraft:dirt",
+                "minecraft:coarse_dirt"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "feature": {
+          "type": "minecraft:block_column",
+          "config": {
+            "direction": "south",
+            "allowed_placement": {
+              "type": "minecraft:all_of",
+              "predicates": [
+                {
+                  "type": "minecraft:replaceable"
+                },
+                {
+                  "type": "minecraft:matching_blocks",
+                  "offset": [
+                    0,
+                    -1,
+                    0
+                  ],
+                  "blocks": [
+                    "minecraft:grass_block",
+                    "minecraft:dirt",
+                    "minecraft:coarse_dirt"
+                  ]
+                }
+              ]
+            },
+            "prioritize_tip": true,
+            "layers": [
+              {
+                "height": 6,
+                "provider": {
+                  "type": "minecraft:simple_state_provider",
+                  "state": {
+                    "Name": "minecraft:dark_oak_log",
+                    "Properties": {
+                      "axis": "z"
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        "placement": [
+          {
+            "type": "minecraft:block_predicate_filter",
+            "predicate": {
+              "type": "minecraft:matching_blocks",
+              "offset": [
+                0,
+                -1,
+                5
+              ],
+              "blocks": [
+                "minecraft:grass_block",
+                "minecraft:dirt",
+                "minecraft:coarse_dirt"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "feature": {
+          "type": "minecraft:block_column",
+          "config": {
+            "direction": "south",
+            "allowed_placement": {
+              "type": "minecraft:all_of",
+              "predicates": [
+                {
+                  "type": "minecraft:replaceable"
+                },
+                {
+                  "type": "minecraft:matching_blocks",
+                  "offset": [
+                    0,
+                    -1,
+                    0
+                  ],
+                  "blocks": [
+                    "minecraft:grass_block",
+                    "minecraft:dirt",
+                    "minecraft:coarse_dirt"
+                  ]
+                }
+              ]
+            },
+            "prioritize_tip": true,
+            "layers": [
+              {
+                "height": 7,
+                "provider": {
+                  "type": "minecraft:simple_state_provider",
+                  "state": {
+                    "Name": "minecraft:dark_oak_log",
+                    "Properties": {
+                      "axis": "z"
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        "placement": [
+          {
+            "type": "minecraft:block_predicate_filter",
+            "predicate": {
+              "type": "minecraft:matching_blocks",
+              "offset": [
+                0,
+                -1,
+                6
+              ],
+              "blocks": [
+                "minecraft:grass_block",
+                "minecraft:dirt",
+                "minecraft:coarse_dirt"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "feature": {
+          "type": "minecraft:block_column",
+          "config": {
+            "direction": "east",
+            "allowed_placement": {
+              "type": "minecraft:all_of",
+              "predicates": [
+                {
+                  "type": "minecraft:replaceable"
+                },
+                {
+                  "type": "minecraft:matching_blocks",
+                  "offset": [
+                    0,
+                    -1,
+                    0
+                  ],
+                  "blocks": [
+                    "minecraft:grass_block",
+                    "minecraft:dirt",
+                    "minecraft:coarse_dirt"
+                  ]
+                }
+              ]
+            },
+            "prioritize_tip": true,
+            "layers": [
+              {
+                "height": 3,
+                "provider": {
+                  "type": "minecraft:simple_state_provider",
+                  "state": {
+                    "Name": "minecraft:dark_oak_log",
+                    "Properties": {
+                      "axis": "x"
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        "placement": [
+          {
+            "type": "minecraft:block_predicate_filter",
+            "predicate": {
+              "type": "minecraft:matching_blocks",
+              "offset": [
+                2,
+                -1,
+                0
               ],
               "blocks": [
                 "minecraft:grass_block",
@@ -175,7 +733,255 @@
             "predicate": {
               "type": "minecraft:matching_blocks",
               "offset": [
+                3,
+                -1,
+                0
+              ],
+              "blocks": [
+                "minecraft:grass_block",
+                "minecraft:dirt",
+                "minecraft:coarse_dirt"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "feature": {
+          "type": "minecraft:block_column",
+          "config": {
+            "direction": "east",
+            "allowed_placement": {
+              "type": "minecraft:all_of",
+              "predicates": [
+                {
+                  "type": "minecraft:replaceable"
+                },
+                {
+                  "type": "minecraft:matching_blocks",
+                  "offset": [
+                    0,
+                    -1,
+                    0
+                  ],
+                  "blocks": [
+                    "minecraft:grass_block",
+                    "minecraft:dirt",
+                    "minecraft:coarse_dirt"
+                  ]
+                }
+              ]
+            },
+            "prioritize_tip": true,
+            "layers": [
+              {
+                "height": 5,
+                "provider": {
+                  "type": "minecraft:simple_state_provider",
+                  "state": {
+                    "Name": "minecraft:dark_oak_log",
+                    "Properties": {
+                      "axis": "x"
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        "placement": [
+          {
+            "type": "minecraft:block_predicate_filter",
+            "predicate": {
+              "type": "minecraft:matching_blocks",
+              "offset": [
                 4,
+                -1,
+                0
+              ],
+              "blocks": [
+                "minecraft:grass_block",
+                "minecraft:dirt",
+                "minecraft:coarse_dirt"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "feature": {
+          "type": "minecraft:block_column",
+          "config": {
+            "direction": "east",
+            "allowed_placement": {
+              "type": "minecraft:all_of",
+              "predicates": [
+                {
+                  "type": "minecraft:replaceable"
+                },
+                {
+                  "type": "minecraft:matching_blocks",
+                  "offset": [
+                    0,
+                    -1,
+                    0
+                  ],
+                  "blocks": [
+                    "minecraft:grass_block",
+                    "minecraft:dirt",
+                    "minecraft:coarse_dirt"
+                  ]
+                }
+              ]
+            },
+            "prioritize_tip": true,
+            "layers": [
+              {
+                "height": 6,
+                "provider": {
+                  "type": "minecraft:simple_state_provider",
+                  "state": {
+                    "Name": "minecraft:dark_oak_log",
+                    "Properties": {
+                      "axis": "x"
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        "placement": [
+          {
+            "type": "minecraft:block_predicate_filter",
+            "predicate": {
+              "type": "minecraft:matching_blocks",
+              "offset": [
+                5,
+                -1,
+                0
+              ],
+              "blocks": [
+                "minecraft:grass_block",
+                "minecraft:dirt",
+                "minecraft:coarse_dirt"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "feature": {
+          "type": "minecraft:block_column",
+          "config": {
+            "direction": "east",
+            "allowed_placement": {
+              "type": "minecraft:all_of",
+              "predicates": [
+                {
+                  "type": "minecraft:replaceable"
+                },
+                {
+                  "type": "minecraft:matching_blocks",
+                  "offset": [
+                    0,
+                    -1,
+                    0
+                  ],
+                  "blocks": [
+                    "minecraft:grass_block",
+                    "minecraft:dirt",
+                    "minecraft:coarse_dirt"
+                  ]
+                }
+              ]
+            },
+            "prioritize_tip": true,
+            "layers": [
+              {
+                "height": 7,
+                "provider": {
+                  "type": "minecraft:simple_state_provider",
+                  "state": {
+                    "Name": "minecraft:dark_oak_log",
+                    "Properties": {
+                      "axis": "x"
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        "placement": [
+          {
+            "type": "minecraft:block_predicate_filter",
+            "predicate": {
+              "type": "minecraft:matching_blocks",
+              "offset": [
+                6,
+                -1,
+                0
+              ],
+              "blocks": [
+                "minecraft:grass_block",
+                "minecraft:dirt",
+                "minecraft:coarse_dirt"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "feature": {
+          "type": "minecraft:block_column",
+          "config": {
+            "direction": "west",
+            "allowed_placement": {
+              "type": "minecraft:all_of",
+              "predicates": [
+                {
+                  "type": "minecraft:replaceable"
+                },
+                {
+                  "type": "minecraft:matching_blocks",
+                  "offset": [
+                    0,
+                    -1,
+                    0
+                  ],
+                  "blocks": [
+                    "minecraft:grass_block",
+                    "minecraft:dirt",
+                    "minecraft:coarse_dirt"
+                  ]
+                }
+              ]
+            },
+            "prioritize_tip": true,
+            "layers": [
+              {
+                "height": 3,
+                "provider": {
+                  "type": "minecraft:simple_state_provider",
+                  "state": {
+                    "Name": "minecraft:dark_oak_log",
+                    "Properties": {
+                      "axis": "x"
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        "placement": [
+          {
+            "type": "minecraft:block_predicate_filter",
+            "predicate": {
+              "type": "minecraft:matching_blocks",
+              "offset": [
+                -2,
                 -1,
                 0
               ],
@@ -237,7 +1043,193 @@
             "predicate": {
               "type": "minecraft:matching_blocks",
               "offset": [
+                -3,
+                -1,
+                0
+              ],
+              "blocks": [
+                "minecraft:grass_block",
+                "minecraft:dirt",
+                "minecraft:coarse_dirt"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "feature": {
+          "type": "minecraft:block_column",
+          "config": {
+            "direction": "west",
+            "allowed_placement": {
+              "type": "minecraft:all_of",
+              "predicates": [
+                {
+                  "type": "minecraft:replaceable"
+                },
+                {
+                  "type": "minecraft:matching_blocks",
+                  "offset": [
+                    0,
+                    -1,
+                    0
+                  ],
+                  "blocks": [
+                    "minecraft:grass_block",
+                    "minecraft:dirt",
+                    "minecraft:coarse_dirt"
+                  ]
+                }
+              ]
+            },
+            "prioritize_tip": true,
+            "layers": [
+              {
+                "height": 5,
+                "provider": {
+                  "type": "minecraft:simple_state_provider",
+                  "state": {
+                    "Name": "minecraft:dark_oak_log",
+                    "Properties": {
+                      "axis": "x"
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        "placement": [
+          {
+            "type": "minecraft:block_predicate_filter",
+            "predicate": {
+              "type": "minecraft:matching_blocks",
+              "offset": [
                 -4,
+                -1,
+                0
+              ],
+              "blocks": [
+                "minecraft:grass_block",
+                "minecraft:dirt",
+                "minecraft:coarse_dirt"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "feature": {
+          "type": "minecraft:block_column",
+          "config": {
+            "direction": "west",
+            "allowed_placement": {
+              "type": "minecraft:all_of",
+              "predicates": [
+                {
+                  "type": "minecraft:replaceable"
+                },
+                {
+                  "type": "minecraft:matching_blocks",
+                  "offset": [
+                    0,
+                    -1,
+                    0
+                  ],
+                  "blocks": [
+                    "minecraft:grass_block",
+                    "minecraft:dirt",
+                    "minecraft:coarse_dirt"
+                  ]
+                }
+              ]
+            },
+            "prioritize_tip": true,
+            "layers": [
+              {
+                "height": 6,
+                "provider": {
+                  "type": "minecraft:simple_state_provider",
+                  "state": {
+                    "Name": "minecraft:dark_oak_log",
+                    "Properties": {
+                      "axis": "x"
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        "placement": [
+          {
+            "type": "minecraft:block_predicate_filter",
+            "predicate": {
+              "type": "minecraft:matching_blocks",
+              "offset": [
+                -5,
+                -1,
+                0
+              ],
+              "blocks": [
+                "minecraft:grass_block",
+                "minecraft:dirt",
+                "minecraft:coarse_dirt"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "feature": {
+          "type": "minecraft:block_column",
+          "config": {
+            "direction": "west",
+            "allowed_placement": {
+              "type": "minecraft:all_of",
+              "predicates": [
+                {
+                  "type": "minecraft:replaceable"
+                },
+                {
+                  "type": "minecraft:matching_blocks",
+                  "offset": [
+                    0,
+                    -1,
+                    0
+                  ],
+                  "blocks": [
+                    "minecraft:grass_block",
+                    "minecraft:dirt",
+                    "minecraft:coarse_dirt"
+                  ]
+                }
+              ]
+            },
+            "prioritize_tip": true,
+            "layers": [
+              {
+                "height": 7,
+                "provider": {
+                  "type": "minecraft:simple_state_provider",
+                  "state": {
+                    "Name": "minecraft:dark_oak_log",
+                    "Properties": {
+                      "axis": "x"
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        "placement": [
+          {
+            "type": "minecraft:block_predicate_filter",
+            "predicate": {
+              "type": "minecraft:matching_blocks",
+              "offset": [
+                -6,
                 -1,
                 0
               ],

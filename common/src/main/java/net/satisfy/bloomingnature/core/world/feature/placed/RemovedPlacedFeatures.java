@@ -1,15 +1,9 @@
 package net.satisfy.bloomingnature.core.world.feature.placed;
 
-import net.fabricmc.fabric.api.biome.v1.*;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.tags.TagKey;
-import net.minecraft.world.level.levelgen.GenerationStep;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
-import net.satisfy.bloomingnature.BloomingNature;
-
-import java.util.function.Predicate;
 
 public class RemovedPlacedFeatures {
     public static final ResourceKey<PlacedFeature> FLOWER_DEFAULT = registerMCKey("flower_default");
@@ -18,7 +12,8 @@ public class RemovedPlacedFeatures {
     public static final ResourceKey<PlacedFeature> TREES_PLAINS = registerMCKey("trees_plains");
     public static final ResourceKey<PlacedFeature> FLOWER_PLAINS = registerMCKey("flower_plains");
     public static final ResourceKey<PlacedFeature> PATCH_TALL_GRASS_2 = registerMCKey("patch_tall_grass_2");
-    public static final ResourceKey<PlacedFeature> SUNFLOWER_PLAINS_GRASS = registerMCKey("patch_grass_plain");
+    public static final ResourceKey<PlacedFeature> PATCH_GRASS_PLAINS = registerMCKey("patch_grass_plain");
+    public static final ResourceKey<PlacedFeature> PATCH_SUNFLOWER = registerMCKey("patch_sunflower");
     public static final ResourceKey<PlacedFeature> TREES_WATER = registerMCKey("trees_water");
     public static final ResourceKey<PlacedFeature> BIRCH_TALL = registerMCKey("birch_tall");
     public static final ResourceKey<PlacedFeature> PATCH_GRASS_FOREST = registerMCKey("patch_grass_forest");

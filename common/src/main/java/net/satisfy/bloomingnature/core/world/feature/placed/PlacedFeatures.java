@@ -2,7 +2,6 @@ package net.satisfy.bloomingnature.core.world.feature.placed;
 
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.satisfy.bloomingnature.BloomingNature;
 
@@ -17,6 +16,8 @@ public class PlacedFeatures {
     public static final ResourceKey<PlacedFeature> FOREST_FLOWER_PATCH_PLACED = registerPlacedFeature("flowers/forest_flower_patch_placed");
     public static final ResourceKey<PlacedFeature> BIRCH_FOREST_TREES_CHECKED = registerPlacedFeature("trees/birch_forest_trees_checked");
     public static final ResourceKey<PlacedFeature> BIRCH_FOREST_FLOWER_PATCH_PLACED = registerPlacedFeature("flowers/birch_forest_flower_patch_placed");
+    public static final ResourceKey<PlacedFeature> SUNFLOWER_PLAINS_SUNFLOWER_PATCH_PLACED = registerPlacedFeature("flowers/sunflower_plains_sunflower_patch_placed");
+    public static final ResourceKey<PlacedFeature> SUNFLOWER_PLAINS_FLOWER_PATCH_PLACED = registerPlacedFeature("flowers/sunflower_plains_flower_patch_placed");
 
     public static final ResourceKey<PlacedFeature> OLD_GROWTH_BIRCH_FOREST_TREES_CHECKED = registerPlacedFeature("trees/old_growth_birch_forest_trees_checked");
     public static final ResourceKey<PlacedFeature> OLD_GROWTH_BIRCH_FOREST_FLOWER_PATCH_PLACED = registerPlacedFeature("flowers/old_growth_birch_forest_flower_patch_placed");
@@ -37,6 +38,9 @@ public class PlacedFeatures {
     public static final ResourceKey<PlacedFeature> SUNGRASS_PATCH_PLACED = registerPlacedFeature("grass/sungrass_patch_placed");
     public static final ResourceKey<PlacedFeature> RED_OAT_GRASS_PATCH_PLACED = registerPlacedFeature("grass/red_oat_grass_patch_placed");
 
+    public static final ResourceKey<PlacedFeature> DARK_FOREST_TREES_CHECKED = registerPlacedFeature("trees/dark_forest_trees_checked");
+    public static final ResourceKey<PlacedFeature> DARK_FOREST_FLOWER_PATCH_PLACED = registerPlacedFeature("flowers/dark_forest_flower_patch_placed");
+    public static final ResourceKey<PlacedFeature> DARK_OAK_TREE_FALLEN_PLACED = registerPlacedFeature("fallen_trees/dark_oak_tree_fallen_placed");
     public static final ResourceKey<PlacedFeature> OAK_TREE_FALLEN_PLACED = registerPlacedFeature("fallen_trees/oak_tree_fallen_placed");
     public static final ResourceKey<PlacedFeature> BIRCH_TREE_FALLEN_PLACED = registerPlacedFeature("fallen_trees/birch_tree_fallen_placed");
 
