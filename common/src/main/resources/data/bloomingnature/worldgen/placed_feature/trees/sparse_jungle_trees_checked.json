@@ -1,9 +1,12 @@
 {
-  "feature": "bloomingnature:wet/laterit_boulder",
+  "feature": "bloomingnature:trees/sparse_jungle_trees",
   "placement": [
     {
-      "type": "minecraft:rarity_filter",
-      "chance": 12
+      "type": "minecraft:count",
+      "count": {
+        "type": "minecraft:constant",
+        "value": 1
+      }
     },
     {
       "type": "minecraft:in_square"
@@ -14,7 +17,7 @@
     },
     {
       "type": "minecraft:heightmap",
-      "heightmap": "MOTION_BLOCKING_NO_LEAVES"
+      "heightmap": "OCEAN_FLOOR"
     },
     {
       "type": "minecraft:biome"

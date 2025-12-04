@@ -1,9 +1,9 @@
 {
-  "feature": "bloomingnature:flowers/jungle_flower_patch",
+  "feature": "bloomingnature:flowers/sparse_jungle_flower_patch",
   "placement": [
     {
       "type": "minecraft:rarity_filter",
-      "chance": 7
+      "chance": 12
     },
     {
       "type": "minecraft:noise_threshold_count",

@@ -62,12 +62,12 @@ public class PlacedFeatures {
     public static final ResourceKey<PlacedFeature> ARID_VEGETATION_PATCH_PLACED = registerPlacedFeature("vegetation/arid_scrub_patch_placed");
     public static final ResourceKey<PlacedFeature> DRY_GRASS_PATCH_PLACED = registerPlacedFeature("grass/dry_grass_patch_placed");
 
+    public static final ResourceKey<PlacedFeature> SPARSE_JUNGLE_TREES_CHECKED = registerPlacedFeature("trees/sparse_jungle_trees_checked");
     public static final ResourceKey<PlacedFeature> JUNGLE_TREES_CHECKED = registerPlacedFeature("trees/jungle_trees_checked");
-    public static final ResourceKey<PlacedFeature> LATERIT_BOULDER_PLACED = registerPlacedFeature("wet/laterit_boulder_placed");
     public static final ResourceKey<PlacedFeature> LATERIT_SLABS_PLACED = registerPlacedFeature("wet/laterit_slabs_placed");
-    public static final ResourceKey<PlacedFeature> ORE_LATERIT_PLACED = registerPlacedFeature("wet/ore_laterit_placed");
     public static final ResourceKey<PlacedFeature> WATER_PUDDLE_PLACED = registerPlacedFeature("wet/water_puddle_placed");
     public static final ResourceKey<PlacedFeature> JUNGLE_FLOWER_PATCH_PLACED = registerPlacedFeature("flowers/jungle_flower_patch_placed");
+    public static final ResourceKey<PlacedFeature> SPARSE_JUNGLE_FLOWER_PATCH_PLACED = registerPlacedFeature("flowers/sparse_jungle_flower_patch_placed");
     public static final ResourceKey<PlacedFeature> SILKGRASS_PATCH_PLACED = registerPlacedFeature("grass/silkgrass_patch_placed");
 
 

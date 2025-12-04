@@ -45,7 +45,8 @@ public final class BloomingNatureFabricWorldgen {
     static Predicate<BiomeSelectionContext> swamp = BiomeSelectors.includeByKey(Biomes.SWAMP);
     static Predicate<BiomeSelectionContext> desert = BiomeSelectors.includeByKey(Biomes.DESERT);
     static Predicate<BiomeSelectionContext> beach = BiomeSelectors.includeByKey(Biomes.BEACH);
-    static Predicate<BiomeSelectionContext> stonyShore = BiomeSelectors.includeByKey(Biomes.BEACH);
+    static Predicate<BiomeSelectionContext> stonyShore = BiomeSelectors.includeByKey(Biomes.STONY_SHORE);
+    static Predicate<BiomeSelectionContext> bambooJungle = BiomeSelectors.includeByKey(Biomes.BAMBOO_JUNGLE);
 
 
     public static void registerFeatureAdditions() {
@@ -168,14 +169,25 @@ public final class BloomingNatureFabricWorldgen {
         world.add(ModificationPhase.ADDITIONS, darkForest, context -> context.getEffects().setFoliageColor(10399058));
 
         world.add(ModificationPhase.ADDITIONS, jungle, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.JUNGLE_TREES_CHECKED));
-        world.add(ModificationPhase.ADDITIONS, jungle, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.LATERIT_BOULDER_PLACED));
         world.add(ModificationPhase.ADDITIONS, jungle, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.LATERIT_SLABS_PLACED));
-        world.add(ModificationPhase.ADDITIONS, jungle, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.ORE_LATERIT_PLACED));
         world.add(ModificationPhase.ADDITIONS, jungle, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.WATER_PUDDLE_PLACED));
         world.add(ModificationPhase.ADDITIONS, jungle, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.JUNGLE_FLOWER_PATCH_PLACED));
         world.add(ModificationPhase.ADDITIONS, jungle, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.SILKGRASS_PATCH_PLACED));
-        world.add(ModificationPhase.ADDITIONS, jungle, context -> context.getEffects().setGrassColor(6196798));
-        world.add(ModificationPhase.ADDITIONS, jungle, context -> context.getEffects().setFoliageColor(7375690));
+        world.add(ModificationPhase.ADDITIONS, jungle, context -> context.getEffects().setGrassColor(8174674));
+        world.add(ModificationPhase.ADDITIONS, jungle, context -> context.getEffects().setFoliageColor(7516981));
+
+        world.add(ModificationPhase.ADDITIONS, sparseJungle, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.SPARSE_JUNGLE_TREES_CHECKED));
+        world.add(ModificationPhase.ADDITIONS, sparseJungle, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.WATER_PUDDLE_PLACED));
+        world.add(ModificationPhase.ADDITIONS, sparseJungle, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.SPARSE_JUNGLE_FLOWER_PATCH_PLACED));
+        world.add(ModificationPhase.ADDITIONS, sparseJungle, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.STONE_SLABS_PLACED));
+        world.add(ModificationPhase.ADDITIONS, sparseJungle, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.STONE_BOULDER_PLACED));
+        world.add(ModificationPhase.ADDITIONS, sparseJungle, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.RIVER_REED_PATCH_PLACED));
+        world.add(ModificationPhase.ADDITIONS, sparseJungle, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.SILKGRASS_PATCH_PLACED));
+        world.add(ModificationPhase.ADDITIONS, sparseJungle, context -> context.getEffects().setGrassColor(8174674));
+        world.add(ModificationPhase.ADDITIONS, sparseJungle, context -> context.getEffects().setFoliageColor(7516981));
+
+        world.add(ModificationPhase.ADDITIONS, bambooJungle, context -> context.getEffects().setGrassColor(8174674));
+        world.add(ModificationPhase.ADDITIONS, bambooJungle, context -> context.getEffects().setFoliageColor(7516981));
     }
 
     public static void registerFeatureRemovals() {

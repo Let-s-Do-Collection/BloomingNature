@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:simple_block",
+  "config": {
+    "to_place": {
+      "type": "minecraft:noise_provider",
+      "noise": {
+        "amplitudes": [
+          1.0
+        ],
+        "firstOctave": 0
+      },
+      "scale": 0.030833334,
+      "seed": 7324,
+      "states": [
+        {
+          "Name": "bloomingnature:bird_of_paradise"
+        },
+        {
+          "Name": "bloomingnature:genisteae"
+        },
+        {
+          "Name": "bloomingnature:cardinal",
+          "Properties": {
+            "half": "lower"
+          }
+        }
+      ]
+    }
+  }
+}
