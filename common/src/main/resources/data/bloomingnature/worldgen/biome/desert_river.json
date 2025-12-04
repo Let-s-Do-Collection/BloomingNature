@@ -27,7 +27,9 @@
   },
   "features": [
     [
-      "bloomingnature:arid/sand_pile_placed"
+      "bloomingnature:arid/sand_pile_placed",
+      "bloomingnature:vegetation/river_seagrass_placed",
+      "bloomingnature:grass/dry_grass_patch_placed"
     ],
     [
       "minecraft:lake_lava_underground",

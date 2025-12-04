@@ -1,0 +1,33 @@
+{
+  "feature": "bloomingnature:vegetation/floating_leaves_patch",
+  "placement": [
+    {
+      "type": "minecraft:in_square"
+    },
+    {
+      "type": "minecraft:noise_threshold_count",
+      "noise_level": -0.15,
+      "below_noise": 1,
+      "above_noise": 3
+    },
+    {
+      "type": "minecraft:surface_water_depth_filter",
+      "max_water_depth": 1
+    },
+    {
+      "type": "minecraft:count",
+      "count": {
+        "type": "minecraft:uniform",
+        "min_inclusive": 12,
+        "max_inclusive": 26
+      }
+    },
+    {
+      "type": "minecraft:heightmap",
+      "heightmap": "OCEAN_FLOOR_WG"
+    },
+    {
+      "type": "minecraft:biome"
+    }
+  ]
+}

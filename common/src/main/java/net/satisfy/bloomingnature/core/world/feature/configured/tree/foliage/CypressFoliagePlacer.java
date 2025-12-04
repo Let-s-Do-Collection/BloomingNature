@@ -31,7 +31,7 @@ public class CypressFoliagePlacer extends FoliagePlacer {
     protected void createFoliage(LevelSimulatedReader level, FoliageSetter setter, RandomSource random, TreeConfiguration config, int trunkHeight, FoliageAttachment attachment, int foliageHeight, int radius, int topOffset) {
         BlockPos anchor = attachment.pos();
         BlockPos.MutableBlockPos pos = anchor.mutable();
-        int[] radii = new int[]{0,0,0,0,1,1,1,1,1,2,2,2,2,1};
+        int[] radii = new int[]{0, 0, 0, 0, 1, 1, 1, 1, 1, 2, 2, 2, 2, 1};
         int layers = radii.length;
         int endY = topOffset - (layers - 1);
 
@@ -65,7 +65,7 @@ public class CypressFoliagePlacer extends FoliagePlacer {
                 if (dx == 0 && dz == 0) continue;
                 int ax = Math.abs(dx);
                 int az = Math.abs(dz);
-                if ((float)(ax * ax + az * az) > (ringRadius + 0.25F) * (ringRadius + 0.25F)) continue;
+                if ((float) (ax * ax + az * az) > (ringRadius + 0.25F) * (ringRadius + 0.25F)) continue;
 
                 boolean isCardinal = ax + az == 1;
 

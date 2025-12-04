@@ -10,6 +10,7 @@ import net.satisfy.bloomingnature.BloomingNature;
 import net.satisfy.bloomingnature.core.world.feature.configured.rock.RockPileFeature;
 import net.satisfy.bloomingnature.core.world.feature.configured.rock.RockPileFeatureConfig;
 
+
 public class ConfiguredFeatures {
     public static final DeferredRegister<Feature<?>> FEATURES = DeferredRegister.create(BloomingNature.MOD_ID, Registries.FEATURE);
 

@@ -5,14 +5,14 @@
       "type": "minecraft:count",
       "count": {
         "type": "minecraft:constant",
-        "value": 65
+        "value": 60
       }
     },
     {
       "type": "minecraft:count",
       "count": {
         "type": "minecraft:constant",
-        "value": 12
+        "value": 10
       }
     },
     {

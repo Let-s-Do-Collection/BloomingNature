@@ -1,0 +1,17 @@
+{
+  "feature": "bloomingnature:trees/ebony/ebony_tree_small",
+  "placement": [
+    {
+      "type": "minecraft:block_predicate_filter",
+      "predicate": {
+        "type": "minecraft:would_survive",
+        "state": {
+          "Name": "bloomingnature:ebony_sapling",
+          "Properties": {
+            "stage": "0"
+          }
+        }
+      }
+    }
+  ]
+}

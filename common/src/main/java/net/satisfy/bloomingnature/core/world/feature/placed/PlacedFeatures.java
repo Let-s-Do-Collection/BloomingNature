@@ -12,6 +12,7 @@ public class PlacedFeatures {
     public static final ResourceKey<PlacedFeature> RIVER_TREES_CHECKED = registerPlacedFeature("trees/river_trees_checked");
     public static final ResourceKey<PlacedFeature> RIVER_FLOWER_PATCH_PLACED = registerPlacedFeature("flowers/river_flower_patch_placed");
     public static final ResourceKey<PlacedFeature> RIVER_REED_PATCH_PLACED = registerPlacedFeature("vegetation/river_reed_patch_placed");
+    public static final ResourceKey<PlacedFeature> RIVER_SEAGRASS_PLACED = registerPlacedFeature("vegetation/river_seagrass_placed");
     public static final ResourceKey<PlacedFeature> FOREST_TREES_CHECKED = registerPlacedFeature("trees/forest_trees_checked");
     public static final ResourceKey<PlacedFeature> FOREST_FLOWER_PATCH_PLACED = registerPlacedFeature("flowers/forest_flower_patch_placed");
     public static final ResourceKey<PlacedFeature> BIRCH_FOREST_TREES_CHECKED = registerPlacedFeature("trees/birch_forest_trees_checked");
@@ -60,6 +61,14 @@ public class PlacedFeatures {
     public static final ResourceKey<PlacedFeature> CACTUS_PATCH_PLACED = registerPlacedFeature("vegetation/cactus_patch_placed");
     public static final ResourceKey<PlacedFeature> ARID_VEGETATION_PATCH_PLACED = registerPlacedFeature("vegetation/arid_scrub_patch_placed");
     public static final ResourceKey<PlacedFeature> DRY_GRASS_PATCH_PLACED = registerPlacedFeature("grass/dry_grass_patch_placed");
+
+    public static final ResourceKey<PlacedFeature> JUNGLE_TREES_CHECKED = registerPlacedFeature("trees/jungle_trees_checked");
+    public static final ResourceKey<PlacedFeature> LATERIT_BOULDER_PLACED = registerPlacedFeature("wet/laterit_boulder_placed");
+    public static final ResourceKey<PlacedFeature> LATERIT_SLABS_PLACED = registerPlacedFeature("wet/laterit_slabs_placed");
+    public static final ResourceKey<PlacedFeature> ORE_LATERIT_PLACED = registerPlacedFeature("wet/ore_laterit_placed");
+    public static final ResourceKey<PlacedFeature> WATER_PUDDLE_PLACED = registerPlacedFeature("wet/water_puddle_placed");
+    public static final ResourceKey<PlacedFeature> JUNGLE_FLOWER_PATCH_PLACED = registerPlacedFeature("flowers/jungle_flower_patch_placed");
+    public static final ResourceKey<PlacedFeature> SILKGRASS_PATCH_PLACED = registerPlacedFeature("grass/silkgrass_patch_placed");
 
 
 

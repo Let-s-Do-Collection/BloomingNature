@@ -1,24 +1,7 @@
 {
   "variants": {
-    "snowy=false": [
-      {
-        "model": "bloomingnature:block/mossy_laterit"
-      },
-      {
-        "model": "bloomingnature:block/mossy_laterit",
-        "y": 90
-      },
-      {
-        "model": "bloomingnature:block/mossy_laterit",
-        "y": 180
-      },
-      {
-        "model": "bloomingnature:block/mossy_laterit",
-        "y": 270
-      }
-    ],
-    "snowy=true": {
-      "model": "bloomingnature:block/mossy_laterit_snow"
+    "": {
+      "model": "bloomingnature:block/mossy_laterit"
     }
   }
 }

@@ -23,10 +23,6 @@
     "bloomingnature:laterit_brick_stairs",
     "bloomingnature:laterit_brick_wall",
     "bloomingnature:mossy_laterit",
-    "bloomingnature:red_bricks",
-    "bloomingnature:red_brick_slab",
-    "bloomingnature:red_brick_stairs",
-    "bloomingnature:red_brick_wall",
     "bloomingnature:travertin_stairs",
     "bloomingnature:travertin_slab",
     "bloomingnature:travertin_wall",
@@ -102,7 +98,6 @@
     "bloomingnature:mossy_laterit_stone",
     "bloomingnature:mossy_laterit_stairs",
     "bloomingnature:mossy_laterit_slab",
-    "bloomingnature:mossy_laterit_wall",
-    "bloomingnature:chiseled_red_bricks"
+    "bloomingnature:mossy_laterit_wall"
   ]
 }

@@ -1,0 +1,142 @@
+{
+  "type": "minecraft:tree",
+  "config": {
+    "name": "ebony_tree",
+    "decorators": [
+      {
+        "type": "minecraft:trunk_vine"
+      },
+      {
+        "type": "minecraft:leave_vine",
+        "probability": 0.25
+      },
+      {
+        "type": "minecraft:alter_ground",
+        "provider": {
+          "type": "minecraft:weighted_state_provider",
+          "entries": [
+            {
+              "weight": 2,
+              "data": {
+                "Name": "minecraft:grass_block",
+                "Properties": {
+                  "snowy": "false"
+                }
+              }
+            },
+            {
+              "weight": 1,
+              "data": {
+                "Name": "minecraft:muddy_mangrove_roots"
+              }
+            },
+            {
+              "weight": 2,
+              "data": {
+                "Name": "minecraft:mud"
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "dirt_provider": {
+      "type": "minecraft:simple_state_provider",
+      "state": {
+        "Name": "minecraft:dirt"
+      }
+    },
+    "foliage_placer": {
+      "type": "minecraft:jungle_foliage_placer",
+      "radius": 3,
+      "height": 2,
+      "offset": 2
+    },
+    "foliage_provider": {
+      "type": "minecraft:weighted_state_provider",
+      "entries": [
+        {
+          "weight": 4,
+          "data": {
+            "Name": "bloomingnature:ebony_leaves",
+            "Properties": {
+              "distance": "7",
+              "persistent": "false",
+              "waterlogged": "false"
+            }
+          }
+        },
+        {
+          "weight": 9,
+          "data": {
+            "Name": "bloomingnature:ebony_leaves",
+            "Properties": {
+              "distance_11": "1",
+              "persistent": "false",
+              "waterlogged": "false"
+            }
+          }
+        }
+      ]
+    },
+    "force_dirt": false,
+    "ignore_vines": true,
+    "minimum_size": {
+      "type": "minecraft:two_layers_feature_size",
+      "limit": 0,
+      "lower_size": 0,
+      "min_clipped_height": 4,
+      "upper_size": 0
+    },
+    "trunk_placer": {
+      "type": "minecraft:dark_oak_trunk_placer",
+      "base_height": 14,
+      "height_rand_a": 4,
+      "height_rand_b": 4
+    },
+    "root_placer": {
+      "type": "minecraft:mangrove_root_placer",
+      "root_provider": {
+        "type": "minecraft:simple_state_provider",
+        "state": {
+          "Name": "bloomingnature:ebony_wood"
+        }
+      },
+      "trunk_offset_y": 0,
+      "above_root_placement": {
+        "above_root_provider": {
+          "type": "minecraft:simple_state_provider",
+          "state": {
+            "Name": "bloomingnature:ebony_wood",
+            "Properties": {
+              "axis": "y"
+            }
+          }
+        },
+        "above_root_placement_chance": 0.5
+      },
+      "mangrove_root_placement": {
+        "max_root_width": 2,
+        "max_root_length": 3,
+        "random_skew_chance": 0.0,
+        "can_grow_through": "#minecraft:mangrove_roots_can_grow_through",
+        "muddy_roots_in": "minecraft:dirt",
+        "muddy_roots_provider": {
+          "type": "minecraft:simple_state_provider",
+          "state": {
+            "Name": "bloomingnature:ebony_wood"
+          }
+        }
+      }
+    },
+    "trunk_provider": {
+      "type": "minecraft:simple_state_provider",
+      "state": {
+        "Name": "bloomingnature:ebony_log",
+        "Properties": {
+          "axis": "y"
+        }
+      }
+    }
+  }
+}

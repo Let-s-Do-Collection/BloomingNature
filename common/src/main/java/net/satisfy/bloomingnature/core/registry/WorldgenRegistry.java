@@ -6,6 +6,8 @@ import net.satisfy.bloomingnature.core.world.biome.arid.surface.AridSurfaceBuild
 import net.satisfy.bloomingnature.core.world.biome.temperate.TemperateBiomeRegistry;
 import net.satisfy.bloomingnature.core.world.biome.temperate.surface.TemperateSurfaceBuilder;
 import com.terraformersmc.biolith.api.biome.BiomePlacement;
+import net.satisfy.bloomingnature.core.world.biome.wet.WetBiomesRegistry;
+import net.satisfy.bloomingnature.core.world.biome.wet.surface.WetSurfaceBuilder;
 
 public final class WorldgenRegistry {
     public static void init() {
@@ -14,6 +16,9 @@ public final class WorldgenRegistry {
 
         AridSurfaceBuilder.registerSurfaceRules();
         AridBiomeRegistry.registerBiomePlacement();
+
+        WetSurfaceBuilder.registerSurfaceRules();
+        WetBiomesRegistry.registerBiomePlacement();
 
         BiomePlacement.removeOverworld(Biomes.WINDSWEPT_HILLS);
         BiomePlacement.removeOverworld(Biomes.WINDSWEPT_FOREST);
