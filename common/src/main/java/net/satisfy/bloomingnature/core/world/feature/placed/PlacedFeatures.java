@@ -44,6 +44,8 @@ public class PlacedFeatures {
     public static final ResourceKey<PlacedFeature> DARK_OAK_TREE_FALLEN_PLACED = registerPlacedFeature("fallen_trees/dark_oak_tree_fallen_placed");
     public static final ResourceKey<PlacedFeature> OAK_TREE_FALLEN_PLACED = registerPlacedFeature("fallen_trees/oak_tree_fallen_placed");
     public static final ResourceKey<PlacedFeature> BIRCH_TREE_FALLEN_PLACED = registerPlacedFeature("fallen_trees/birch_tree_fallen_placed");
+    public static final ResourceKey<PlacedFeature> SPRUCE_TREE_FALLEN_PLACED = registerPlacedFeature("fallen_trees/spruce_tree_fallen_placed");
+    public static final ResourceKey<PlacedFeature> STRIPPED_SPRUCE_TREE_FALLEN_PLACED = registerPlacedFeature("fallen_trees/stripped_spruce_tree_fallen_placed");
 
     public static final ResourceKey<PlacedFeature> STONE_BOULDER_PLACED = registerPlacedFeature("temperate/stone_boulder_placed");
     public static final ResourceKey<PlacedFeature> STONE_SLABS_PLACED = registerPlacedFeature("temperate/stone_slabs_placed");
@@ -69,6 +71,16 @@ public class PlacedFeatures {
     public static final ResourceKey<PlacedFeature> JUNGLE_FLOWER_PATCH_PLACED = registerPlacedFeature("flowers/jungle_flower_patch_placed");
     public static final ResourceKey<PlacedFeature> SPARSE_JUNGLE_FLOWER_PATCH_PLACED = registerPlacedFeature("flowers/sparse_jungle_flower_patch_placed");
     public static final ResourceKey<PlacedFeature> SILKGRASS_PATCH_PLACED = registerPlacedFeature("grass/silkgrass_patch_placed");
+
+    public static final ResourceKey<PlacedFeature> SNOWY_TAIGA_TREES_CHECKED = registerPlacedFeature("trees/snowy_taiga_trees_checked");
+    public static final ResourceKey<PlacedFeature> SNOW_DRIFTS_PLACED = registerPlacedFeature("cold/snow_drifts_placed");
+    public static final ResourceKey<PlacedFeature> SNOW_UNDER_TREES_PLACED = registerPlacedFeature("cold/snow_under_trees_placed");
+    public static final ResourceKey<PlacedFeature> TAIGA_FLOWER_PATCH_PLACED = registerPlacedFeature("flowers/taiga_flower_patch_placed");
+    public static final ResourceKey<PlacedFeature> COBBLESTONE_PILE_PLACED = registerPlacedFeature("cold/cobblestone_pile_placed");
+
+    public static final ResourceKey<PlacedFeature> TAIGA_TREES_PLACED = registerPlacedFeature("trees/taiga_trees_checked");
+    public static final ResourceKey<PlacedFeature> MOSSGRASS_PATCH_PLACED = registerPlacedFeature("grass/mossgrass_patch_placed");
+    public static final ResourceKey<PlacedFeature> FOREST_MOSS_CARPET_PLACED = registerPlacedFeature("cold/forest_moss_carpet_placed");
 
 
 

@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/cube_all",
   "textures": {
-    "all": "bloomingnature:block/fir_leaves"
+    "all": "bloomingnature:block/snowy_fir_leaves"
   }
 }

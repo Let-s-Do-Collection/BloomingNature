@@ -1,12 +1,12 @@
 {
-  "feature": "bloomingnature:grass/mossgrass_patch",
+  "feature": "bloomingnature:cold/forest_moss_carpet",
   "placement": [
     {
-      "type": "minecraft:in_square"
+      "type": "minecraft:count",
+      "count": 3
     },
     {
-      "type": "minecraft:count",
-      "count": 7
+      "type": "minecraft:in_square"
     },
     {
       "type": "minecraft:heightmap",

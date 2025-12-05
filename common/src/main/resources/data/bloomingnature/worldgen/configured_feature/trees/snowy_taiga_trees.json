@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:random_selector",
+  "config": {
+    "features": [
+      {
+        "chance": 0.5,
+        "feature": "bloomingnature:trees/fir/fir_tree_mid_checked"
+      },
+      {
+        "chance": 0.4,
+        "feature": "bloomingnature:trees/fir/fir_tree_small_checked"
+      }
+    ],
+    "default": "bloomingnature:trees/fir/fir_tree_mid_checked"
+  }
+}

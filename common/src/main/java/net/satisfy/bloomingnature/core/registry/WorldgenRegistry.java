@@ -3,10 +3,12 @@ package net.satisfy.bloomingnature.core.registry;
 import net.minecraft.world.level.biome.Biomes;
 import net.satisfy.bloomingnature.core.world.biome.arid.AridBiomeRegistry;
 import net.satisfy.bloomingnature.core.world.biome.arid.surface.AridSurfaceBuilder;
+import net.satisfy.bloomingnature.core.world.biome.cold.ColdBiomeRegistry;
+import net.satisfy.bloomingnature.core.world.biome.cold.surface.ColdSurfaceBuilder;
 import net.satisfy.bloomingnature.core.world.biome.temperate.TemperateBiomeRegistry;
 import net.satisfy.bloomingnature.core.world.biome.temperate.surface.TemperateSurfaceBuilder;
 import com.terraformersmc.biolith.api.biome.BiomePlacement;
-import net.satisfy.bloomingnature.core.world.biome.wet.WetBiomesRegistry;
+import net.satisfy.bloomingnature.core.world.biome.wet.WetBiomeRegistry;
 import net.satisfy.bloomingnature.core.world.biome.wet.surface.WetSurfaceBuilder;
 
 public final class WorldgenRegistry {
@@ -18,7 +20,10 @@ public final class WorldgenRegistry {
         AridBiomeRegistry.registerBiomePlacement();
 
         WetSurfaceBuilder.registerSurfaceRules();
-        WetBiomesRegistry.registerBiomePlacement();
+        WetBiomeRegistry.registerBiomePlacement();
+
+        ColdSurfaceBuilder.registerSurfaceRules();
+        ColdBiomeRegistry.registerBiomePlacement();
 
         BiomePlacement.removeOverworld(Biomes.WINDSWEPT_HILLS);
         BiomePlacement.removeOverworld(Biomes.WINDSWEPT_FOREST);

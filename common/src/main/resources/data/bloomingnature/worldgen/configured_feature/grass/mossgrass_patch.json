@@ -1,7 +1,7 @@
 {
   "type": "minecraft:random_patch",
   "config": {
-    "tries": 22,
+    "tries": 38,
     "xz_spread": 7,
     "y_spread": 3,
     "feature": {
@@ -9,28 +9,18 @@
         "type": "minecraft:simple_block",
         "config": {
           "to_place": {
-            "type": "minecraft:weighted_state_provider",
-            "entries": [
+            "type": "minecraft:noise_provider",
+            "noise": {
+              "amplitudes": [
+                1.0
+              ],
+              "firstOctave": 0
+            },
+            "scale": 0.030833334,
+            "seed": 6123,
+            "states": [
               {
-                "weight": 40,
-                "data": {
-                  "Name": "bloomingnature:mossgrass"
-                }
-              },
-              {
-                "weight": 25,
-                "data": {
-                  "Name": "minecraft:fern"
-                }
-              },
-              {
-                "weight": 15,
-                "data": {
-                  "Name": "minecraft:large_fern",
-                  "Properties": {
-                    "half": "lower"
-                  }
-                }
+                "Name": "bloomingnature:mossgrass"
               }
             ]
           }

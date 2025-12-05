@@ -1,12 +1,12 @@
 {
-  "feature": "bloomingnature:grass/mossgrass_patch",
+  "feature": "bloomingnature:cold/snow_under_trees",
   "placement": [
     {
-      "type": "minecraft:in_square"
+      "type": "minecraft:count",
+      "count": 32
     },
     {
-      "type": "minecraft:count",
-      "count": 7
+      "type": "minecraft:in_square"
     },
     {
       "type": "minecraft:heightmap",

@@ -1,5 +1,5 @@
 {
-  "feature": "bloomingnature:trees/spruce/spruce_tree_mid",
+  "feature": "bloomingnature:trees/spruce/spruce_tree_small",
   "placement": [
     {
       "type": "minecraft:block_predicate_filter",

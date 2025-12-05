@@ -11,7 +11,7 @@ import static com.terraformersmc.biolith.api.biome.sub.CriterionBuilder.anyOf;
 import static com.terraformersmc.biolith.api.biome.sub.CriterionBuilder.neighbor;
 import static com.terraformersmc.biolith.api.biome.sub.CriterionBuilder.ratio;
 
-public final class WetBiomesRegistry extends BiolithSurfaceBuilder {
+public final class WetBiomeRegistry extends BiolithSurfaceBuilder {
 
     public static void registerBiomePlacement() {
         registerJungleRiverPlacement();

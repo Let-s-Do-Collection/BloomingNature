@@ -1,7 +1,12 @@
 {
   "variants": {
-    "": {
+    "snowy=false": {
       "model": "bloomingnature:block/fir_leaves"
-    }
+    },
+    "snowy=true": [
+      {
+        "model": "bloomingnature:block/snowy_fir_leaves"
+      }
+    ]
   }
 }

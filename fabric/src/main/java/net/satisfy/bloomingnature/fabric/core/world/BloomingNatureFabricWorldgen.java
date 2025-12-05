@@ -47,6 +47,7 @@ public final class BloomingNatureFabricWorldgen {
     static Predicate<BiomeSelectionContext> beach = BiomeSelectors.includeByKey(Biomes.BEACH);
     static Predicate<BiomeSelectionContext> stonyShore = BiomeSelectors.includeByKey(Biomes.STONY_SHORE);
     static Predicate<BiomeSelectionContext> bambooJungle = BiomeSelectors.includeByKey(Biomes.BAMBOO_JUNGLE);
+    static Predicate<BiomeSelectionContext> snowySlopes = BiomeSelectors.includeByKey(Biomes.SNOWY_SLOPES);
 
 
     public static void registerFeatureAdditions() {
@@ -188,6 +189,26 @@ public final class BloomingNatureFabricWorldgen {
 
         world.add(ModificationPhase.ADDITIONS, bambooJungle, context -> context.getEffects().setGrassColor(8174674));
         world.add(ModificationPhase.ADDITIONS, bambooJungle, context -> context.getEffects().setFoliageColor(7516981));
+
+        world.add(ModificationPhase.ADDITIONS, snowyTaiga, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.SNOWY_TAIGA_TREES_CHECKED));
+        world.add(ModificationPhase.ADDITIONS, snowyTaiga, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.SNOW_DRIFTS_PLACED));
+        world.add(ModificationPhase.ADDITIONS, snowyTaiga, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.SNOW_UNDER_TREES_PLACED));
+
+        world.add(ModificationPhase.ADDITIONS, snowySlopes, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.SNOW_DRIFTS_PLACED));
+
+        world.add(ModificationPhase.ADDITIONS, taiga, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.TAIGA_TREES_PLACED));
+        world.add(ModificationPhase.ADDITIONS, taiga, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.STONE_BOULDER_PLACED));
+        world.add(ModificationPhase.ADDITIONS, taiga, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.STONE_SLABS_PLACED));
+        world.add(ModificationPhase.ADDITIONS, taiga, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.MOSSGRASS_PATCH_PLACED));
+        world.add(ModificationPhase.ADDITIONS, taiga, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.SPRUCE_TREE_FALLEN_PLACED));
+        world.add(ModificationPhase.ADDITIONS, taiga, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.DENSE_WILD_GRASS_PATCH_PLACED));
+        world.add(ModificationPhase.ADDITIONS, taiga, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.TAIGA_FLOWER_PATCH_PLACED));
+        world.add(ModificationPhase.ADDITIONS, taiga, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.COBBLESTONE_PILE_PLACED));
+        world.add(ModificationPhase.ADDITIONS, taiga, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.FOREST_MOSS_CARPET_PLACED));
+
+
+
+
     }
 
     public static void registerFeatureRemovals() {

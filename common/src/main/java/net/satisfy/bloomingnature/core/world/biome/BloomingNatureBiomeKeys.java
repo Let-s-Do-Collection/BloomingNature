@@ -15,6 +15,7 @@ public final class BloomingNatureBiomeKeys {
     public static final ResourceKey<Biome> DESERT_OASIS = ResourceKey.create(Registries.BIOME, BloomingNature.identifier("desert_oasis"));
     public static final ResourceKey<Biome> DESERT_RIVER = ResourceKey.create(Registries.BIOME, BloomingNature.identifier("desert_river"));
     public static final ResourceKey<Biome> JUNGLE_RIVER = ResourceKey.create(Registries.BIOME, BloomingNature.identifier("jungle_river"));
+    public static final ResourceKey<Biome> COLD_RIVER = ResourceKey.create(Registries.BIOME, BloomingNature.identifier("cold_river"));
 
     private BloomingNatureBiomeKeys() {
     }
