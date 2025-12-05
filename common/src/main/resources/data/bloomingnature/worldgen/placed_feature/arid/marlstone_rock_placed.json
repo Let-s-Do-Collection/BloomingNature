@@ -36,7 +36,7 @@
     },
     {
       "type": "minecraft:heightmap",
-      "heightmap": "OCEAN_FLOOR"
+      "heightmap": "WORLD_SURFACE"
     },
     {
       "type": "minecraft:surface_water_depth_filter",

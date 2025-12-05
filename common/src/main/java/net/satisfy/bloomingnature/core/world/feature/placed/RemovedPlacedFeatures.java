@@ -34,6 +34,7 @@ public class RemovedPlacedFeatures {
     public static final ResourceKey<PlacedFeature> TREES_TAIGA = registerMCKey("trees_taiga");
     public static final ResourceKey<PlacedFeature> PATCH_GRASS_TAIGA_2 = registerMCKey("patch_grass_taiga_2");
     public static final ResourceKey<PlacedFeature> TREES_OLD_GROWTH_PINE_TAIGA = registerMCKey("trees_old_growth_pine_taiga");
+    public static final ResourceKey<PlacedFeature> TREES_OLD_GROWTH_SPRUCE_TAIGA = registerMCKey("trees_old_growth_spruce_taiga");
     public static final ResourceKey<PlacedFeature> PATCH_GRASS_TAIGA = registerMCKey("patch_grass_taiga");
     public static final ResourceKey<PlacedFeature> DARK_FOREST_VEGETATION = registerMCKey("dark_forest_vegetation");
     public static final ResourceKey<PlacedFeature> TREES_SAVANNA = registerMCKey("trees_savanna");

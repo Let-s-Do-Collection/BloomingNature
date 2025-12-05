@@ -196,7 +196,7 @@ public final class BloomingNatureFabricWorldgen {
 
         world.add(ModificationPhase.ADDITIONS, snowySlopes, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.SNOW_DRIFTS_PLACED));
 
-        world.add(ModificationPhase.ADDITIONS, taiga, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.TAIGA_TREES_PLACED));
+        world.add(ModificationPhase.ADDITIONS, taiga, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.TAIGA_TREES_CHECKED));
         world.add(ModificationPhase.ADDITIONS, taiga, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.STONE_BOULDER_PLACED));
         world.add(ModificationPhase.ADDITIONS, taiga, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.STONE_SLABS_PLACED));
         world.add(ModificationPhase.ADDITIONS, taiga, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.MOSSGRASS_PATCH_PLACED));
@@ -205,6 +205,27 @@ public final class BloomingNatureFabricWorldgen {
         world.add(ModificationPhase.ADDITIONS, taiga, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.TAIGA_FLOWER_PATCH_PLACED));
         world.add(ModificationPhase.ADDITIONS, taiga, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.COBBLESTONE_PILE_PLACED));
         world.add(ModificationPhase.ADDITIONS, taiga, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.FOREST_MOSS_CARPET_PLACED));
+        world.add(ModificationPhase.ADDITIONS, taiga, context -> context.getEffects().setWaterColor(3902136));
+
+        world.add(ModificationPhase.ADDITIONS, oldGrowthSpruceTaiga, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.OLD_GROWTH_SPRUCE_TAIGA_TREES_CHECKED));
+        world.add(ModificationPhase.ADDITIONS, oldGrowthSpruceTaiga, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.STONE_BOULDER_PLACED));
+        world.add(ModificationPhase.ADDITIONS, oldGrowthSpruceTaiga, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.STONE_SLABS_PLACED));
+        world.add(ModificationPhase.ADDITIONS, oldGrowthSpruceTaiga, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.MOSSGRASS_PATCH_PLACED));
+        world.add(ModificationPhase.ADDITIONS, oldGrowthSpruceTaiga, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.SPRUCE_TREE_FALLEN_PLACED));
+        world.add(ModificationPhase.ADDITIONS, oldGrowthSpruceTaiga, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.DENSE_WILD_GRASS_PATCH_PLACED));
+        world.add(ModificationPhase.ADDITIONS, oldGrowthSpruceTaiga, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.TAIGA_FLOWER_PATCH_PLACED));
+        world.add(ModificationPhase.ADDITIONS, oldGrowthSpruceTaiga, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.COBBLESTONE_PILE_PLACED));
+        world.add(ModificationPhase.ADDITIONS, oldGrowthSpruceTaiga, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.FOREST_MOSS_CARPET_PLACED));
+        world.add(ModificationPhase.ADDITIONS, oldGrowthSpruceTaiga, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.STRIPPED_SPRUCE_TREE_FALLEN_PLACED));
+        world.add(ModificationPhase.ADDITIONS, oldGrowthSpruceTaiga, context -> context.getEffects().setWaterColor(3902136));
+
+        world.add(ModificationPhase.ADDITIONS, oldGrowthPineTaiga, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.OLD_GROWTH_PINE_TREES_CHECKED));
+        world.add(ModificationPhase.ADDITIONS, oldGrowthPineTaiga, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.DENSE_WILD_GRASS_PATCH_PLACED));
+        world.add(ModificationPhase.ADDITIONS, oldGrowthPineTaiga, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.TAIGA_FLOWER_PATCH_PLACED));
+        world.add(ModificationPhase.ADDITIONS, oldGrowthPineTaiga, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.COBBLESTONE_PILE_PLACED));
+        world.add(ModificationPhase.ADDITIONS, oldGrowthPineTaiga, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.FOREST_MOSS_CARPET_PLACED));
+        world.add(ModificationPhase.ADDITIONS, oldGrowthPineTaiga, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.STRIPPED_SPRUCE_TREE_FALLEN_PLACED));
+        world.add(ModificationPhase.ADDITIONS, oldGrowthPineTaiga, context -> context.getEffects().setWaterColor(3902136));
 
 
 
@@ -245,7 +266,7 @@ public final class BloomingNatureFabricWorldgen {
         world.add(ModificationPhase.REMOVALS, taiga, context -> context.getGenerationSettings().removeFeature(GenerationStep.Decoration.VEGETAL_DECORATION, RemovedPlacedFeatures.PATCH_LARGE_FERN));
         world.add(ModificationPhase.REMOVALS, taiga, context -> context.getGenerationSettings().removeFeature(GenerationStep.Decoration.VEGETAL_DECORATION, RemovedPlacedFeatures.PATCH_GRASS_TAIGA_2));
         world.add(ModificationPhase.REMOVALS, taiga, context -> context.getGenerationSettings().removeFeature(GenerationStep.Decoration.VEGETAL_DECORATION, RemovedPlacedFeatures.FLOWER_DEFAULT));
-        world.add(ModificationPhase.REMOVALS, oldGrowthSpruceTaiga, context -> context.getGenerationSettings().removeFeature(GenerationStep.Decoration.VEGETAL_DECORATION, RemovedPlacedFeatures.TREES_OLD_GROWTH_PINE_TAIGA));
+        world.add(ModificationPhase.REMOVALS, oldGrowthSpruceTaiga, context -> context.getGenerationSettings().removeFeature(GenerationStep.Decoration.VEGETAL_DECORATION, RemovedPlacedFeatures.TREES_OLD_GROWTH_SPRUCE_TAIGA));
         world.add(ModificationPhase.REMOVALS, oldGrowthSpruceTaiga, context -> context.getGenerationSettings().removeFeature(GenerationStep.Decoration.VEGETAL_DECORATION, RemovedPlacedFeatures.PATCH_LARGE_FERN));
         world.add(ModificationPhase.REMOVALS, oldGrowthSpruceTaiga, context -> context.getGenerationSettings().removeFeature(GenerationStep.Decoration.VEGETAL_DECORATION, RemovedPlacedFeatures.PATCH_GRASS_TAIGA));
         world.add(ModificationPhase.REMOVALS, oldGrowthSpruceTaiga, context -> context.getGenerationSettings().removeFeature(GenerationStep.Decoration.VEGETAL_DECORATION, RemovedPlacedFeatures.FLOWER_DEFAULT));

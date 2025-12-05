@@ -11,10 +11,10 @@
         "feature": "bloomingnature:trees/spruce/spruce_tree_tall_checked"
       },
       {
-        "chance": 0.1,
+        "chance": 0.05,
         "feature": "bloomingnature:trees/spruce/spruce_tree_small_checked"
       }
     ],
-    "default": "bloomingnature:trees/spruce/spruce_tree_mid_checked"
+    "default": "bloomingnature:trees/spruce/spruce_bush_checked"
   }
 }

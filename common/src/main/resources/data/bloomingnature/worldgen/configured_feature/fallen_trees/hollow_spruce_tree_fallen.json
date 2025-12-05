@@ -1,0 +1,15 @@
+{
+  "type": "bloomingnature:fallen_hollow_trunk",
+  "config": {
+    "length": 8,
+    "log_block": {
+      "Name": "minecraft:spruce_log"
+    },
+    "moss_block": {
+      "Name": "bloomingnature:forest_moss"
+    },
+    "enable_brown_mushroom": true,
+    "enable_red_mushroom": true,
+    "enable_vegetation": true
+  }
+}

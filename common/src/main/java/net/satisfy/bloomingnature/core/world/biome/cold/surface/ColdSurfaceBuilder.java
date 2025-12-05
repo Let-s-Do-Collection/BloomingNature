@@ -14,9 +14,10 @@ import net.minecraft.world.level.levelgen.Heightmap;
 import net.satisfy.bloomingnature.BloomingNature;
 import net.satisfy.bloomingnature.core.registry.ObjectRegistry;
 import net.satisfy.bloomingnature.core.world.biome.BloomingNatureBiomeKeys;
+import net.satisfy.bloomingnature.core.world.biome.temperate.surface.TemperateSurfaceBuilder;
 
 public final class ColdSurfaceBuilder extends BiolithSurfaceBuilder {
-    public enum Profile {COLD_RIVER, TAIGA}
+    public enum Profile {COLD_RIVER, TAIGA, OLD_GROWTH_SPRUCE_TAIGA, OLD_GROWTH_PINE_TAIGA, COLD_GRASSLAND, LARCH_FOREST}
 
     private final Profile profile;
 
@@ -39,6 +40,124 @@ public final class ColdSurfaceBuilder extends BiolithSurfaceBuilder {
         int heightEast = chunk.getHeight(Heightmap.Types.WORLD_SURFACE_WG, eastX, localZ);
         int slope = Math.max(Math.max(Math.abs(topY - heightNorth), Math.abs(topY - heightSouth)), Math.max(Math.abs(topY - heightWest), Math.abs(topY - heightEast)));
 
+        if (profile == ColdSurfaceBuilder.Profile.COLD_GRASSLAND) {
+            for (int d = 0; d <= 4 && topY - d >= 0; d++) {
+                if (column.getBlock(topY - d).getFluidState().is(FluidTags.WATER)) return;
+            }
+
+            float mask = smoothNoise(RandomSource.create(912345L), x - 113, z + 271, 0.02f);
+            float n1 = smoothNoise(RandomSource.create(34187L), x, z, 0.08f);
+            float warpA = smoothNoise(RandomSource.create(87777L), x - 113, z + 271, 0.03f) * 6.0f;
+            float warpB = smoothNoise(RandomSource.create(12341L), x + 47, z - 31, 0.07f) * 2.5f;
+            float patchNoise = smoothNoise(RandomSource.create(44417L), x + (int) warpA, z + (int) warpB, 0.028f);
+            float detailNoise = smoothNoise(RandomSource.create(90123L), x, z, 0.085f);
+            boolean inPatch = patchNoise > 0.74f && detailNoise > 0.45f;
+
+            for (int y = 0; y <= topY; y++) {
+                if (y != topY) continue;
+
+                if (slope >= 3) {
+                    column.setBlock(y, Blocks.GRASS_BLOCK.defaultBlockState());
+                    continue;
+                }
+
+                if (inPatch) {
+                    int mix = mixIndex(x, y, z);
+                    if (mix < 90) {
+                        column.setBlock(y, Blocks.COARSE_DIRT.defaultBlockState());
+                        if (y - 1 >= 0) column.setBlock(y - 1, Blocks.DIRT.defaultBlockState());
+                    } else {
+                        column.setBlock(y, Blocks.ROOTED_DIRT.defaultBlockState());
+                        if (y - 1 >= 0) column.setBlock(y - 1, Blocks.DIRT.defaultBlockState());
+                    }
+                    continue;
+                }
+
+                if (mask <= 0.70f) {
+                    column.setBlock(y, Blocks.GRASS_BLOCK.defaultBlockState());
+                    continue;
+                }
+
+                if (n1 > 0.85f) {
+                    column.setBlock(y, Blocks.ROOTED_DIRT.defaultBlockState());
+                    if (y - 1 >= 0) column.setBlock(y - 1, Blocks.DIRT.defaultBlockState());
+                    continue;
+                }
+
+                if (n1 > 0.70f) {
+                    column.setBlock(y, Blocks.COARSE_DIRT.defaultBlockState());
+                    if (y - 1 >= 0) column.setBlock(y - 1, Blocks.DIRT.defaultBlockState());
+                    continue;
+                }
+
+                column.setBlock(y, Blocks.GRASS_BLOCK.defaultBlockState());
+            }
+            return;
+        }
+
+        if (profile == Profile.OLD_GROWTH_SPRUCE_TAIGA || profile == Profile.LARCH_FOREST) {
+            for (int y = 0; y <= topY; y++) {
+                if (column.getBlock(y).is(Blocks.SAND)) {
+                    column.setBlock(y, Blocks.DIRT.defaultBlockState());
+                }
+            }
+
+            for (int depth = 0; depth <= 4 && topY - depth >= 0; depth++) {
+                if (column.getBlock(topY - depth).getFluidState().is(FluidTags.WATER)) return;
+            }
+
+            float soilNoise = smoothNoise(RandomSource.create(23874L), x, z, 0.08f);
+            float mossNoise = smoothNoise(RandomSource.create(57813L), x + 31, z - 11, 0.12f);
+            float podzolNoise = smoothNoise(RandomSource.create(98723L), x - 12, z + 91, 0.06f);
+
+            for (int y = 0; y <= topY; y++) {
+                if (y != topY) continue;
+                var state = column.getBlock(y);
+
+                if (slope >= 3 && state.is(Blocks.STONE)) {
+                    int stoneIndex = mixIndex(x, y, z);
+                    if (stoneIndex < 35) {
+                        column.setBlock(y, Blocks.STONE.defaultBlockState());
+                    } else if (stoneIndex < 65) {
+                        column.setBlock(y, Blocks.COBBLESTONE.defaultBlockState());
+                    } else {
+                        column.setBlock(y, Blocks.MOSSY_COBBLESTONE.defaultBlockState());
+                    }
+                    continue;
+                }
+
+                if (podzolNoise > 0.45f) {
+                    column.setBlock(y, Blocks.PODZOL.defaultBlockState());
+                    continue;
+                }
+
+                if (slope >= 2 || soilNoise > 0.35f) {
+                    int coarseIndex = mixIndex(x, y, z);
+                    if (coarseIndex < 10) {
+                        column.setBlock(y, Blocks.ROOTED_DIRT.defaultBlockState());
+                    } else {
+                        column.setBlock(y, Blocks.COARSE_DIRT.defaultBlockState());
+                    }
+                    continue;
+                }
+
+                if (mossNoise > 0.75f && podzolNoise < 0.35f) {
+                    column.setBlock(y, ObjectRegistry.FOREST_MOSS.get().defaultBlockState());
+                    if (y - 1 >= 0) {
+                        column.setBlock(y - 1, Blocks.DIRT.defaultBlockState());
+                    }
+                    continue;
+                }
+
+                if (soilNoise > 0.25f) {
+                    column.setBlock(y, Blocks.DIRT.defaultBlockState());
+                    continue;
+                }
+
+                column.setBlock(y, Blocks.GRASS_BLOCK.defaultBlockState());
+            }
+            return;
+        }
         if (profile == Profile.TAIGA) {
             for (int y = 0; y <= topY; y++) {
                 if (column.getBlock(y).is(Blocks.SAND)) {
@@ -80,6 +199,68 @@ public final class ColdSurfaceBuilder extends BiolithSurfaceBuilder {
                     continue;
                 }
                 if (mossNoise < 0.25f && slope >= 3) {
+                    column.setBlock(y, Blocks.COARSE_DIRT.defaultBlockState());
+                    continue;
+                }
+
+                column.setBlock(y, Blocks.GRASS_BLOCK.defaultBlockState());
+            }
+            return;
+        }
+
+        if (profile == Profile.OLD_GROWTH_PINE_TAIGA) {
+            for (int y = 0; y <= topY; y++) {
+                if (column.getBlock(y).is(Blocks.SAND)) {
+                    column.setBlock(y, Blocks.DIRT.defaultBlockState());
+                }
+            }
+
+            for (int d = 0; d <= 4 && topY - d >= 0; d++) {
+                if (column.getBlock(topY - d).getFluidState().is(FluidTags.WATER)) return;
+            }
+
+            float soilNoise = smoothNoise(RandomSource.create(23874L), x, z, 0.09f);
+            float mossNoise = smoothNoise(RandomSource.create(57813L), x + 9, z - 21, 0.11f);
+            float dryNoise = smoothNoise(RandomSource.create(98723L), x - 17, z + 47, 0.08f);
+
+            for (int y = 0; y <= topY; y++) {
+                if (y != topY) continue;
+                var state = column.getBlock(y);
+
+                if (slope >= 4 && state.is(Blocks.STONE)) {
+                    column.setBlock(y, Blocks.COARSE_DIRT.defaultBlockState());
+                    continue;
+                }
+
+                if (slope == 3 && state.is(Blocks.STONE)) {
+                    int r = mixIndex(x, y, z);
+                    if (r < 55) {
+                        column.setBlock(y, Blocks.COARSE_DIRT.defaultBlockState());
+                    } else {
+                        column.setBlock(y, Blocks.GRAVEL.defaultBlockState());
+                    }
+                    continue;
+                }
+
+                if (mossNoise > 0.78f && slope <= 2) {
+                    column.setBlock(y, ObjectRegistry.FOREST_MOSS.get().defaultBlockState());
+                    if (y - 1 >= 0) {
+                        column.setBlock(y - 1, Blocks.DIRT.defaultBlockState());
+                    }
+                    continue;
+                }
+
+                if (soilNoise > 0.7f) {
+                    column.setBlock(y, Blocks.DIRT.defaultBlockState());
+                    continue;
+                }
+
+                if (soilNoise > 0.5f && dryNoise < 0.55f) {
+                    column.setBlock(y, Blocks.PODZOL.defaultBlockState());
+                    continue;
+                }
+
+                if (dryNoise > 0.6f) {
                     column.setBlock(y, Blocks.COARSE_DIRT.defaultBlockState());
                     continue;
                 }
@@ -206,8 +387,24 @@ public final class ColdSurfaceBuilder extends BiolithSurfaceBuilder {
                 new ColdSurfaceBuilder(Profile.COLD_RIVER).setBiomeKey(BloomingNatureBiomeKeys.COLD_RIVER)
         );
         SurfaceGeneration.addSurfaceBuilder(
-                BloomingNature.identifier("forest"),
+                BloomingNature.identifier("old_growth_spruce_taiga"),
+                new ColdSurfaceBuilder(Profile.OLD_GROWTH_SPRUCE_TAIGA).setBiomeKey(Biomes.OLD_GROWTH_SPRUCE_TAIGA)
+        );
+        SurfaceGeneration.addSurfaceBuilder(
+                BloomingNature.identifier("taiga"),
                 new ColdSurfaceBuilder(Profile.TAIGA).setBiomeKey(Biomes.TAIGA)
+        );
+        SurfaceGeneration.addSurfaceBuilder(
+                BloomingNature.identifier("old_growth_pine_taiga"),
+                new ColdSurfaceBuilder(Profile.OLD_GROWTH_PINE_TAIGA).setBiomeKey(Biomes.OLD_GROWTH_PINE_TAIGA)
+        );
+        SurfaceGeneration.addSurfaceBuilder(
+                BloomingNature.identifier("cold_grassland"),
+                new ColdSurfaceBuilder(Profile.COLD_GRASSLAND).setBiomeKey(BloomingNatureBiomeKeys.COLD_GRASSLAND)
+        );
+        SurfaceGeneration.addSurfaceBuilder(
+                BloomingNature.identifier("larch_forest"),
+                new ColdSurfaceBuilder(Profile.LARCH_FOREST).setBiomeKey(BloomingNatureBiomeKeys.LARCH_FOREST)
         );
     }
 }

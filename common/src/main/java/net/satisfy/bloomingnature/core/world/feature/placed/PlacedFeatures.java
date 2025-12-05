@@ -78,7 +78,9 @@ public class PlacedFeatures {
     public static final ResourceKey<PlacedFeature> TAIGA_FLOWER_PATCH_PLACED = registerPlacedFeature("flowers/taiga_flower_patch_placed");
     public static final ResourceKey<PlacedFeature> COBBLESTONE_PILE_PLACED = registerPlacedFeature("cold/cobblestone_pile_placed");
 
-    public static final ResourceKey<PlacedFeature> TAIGA_TREES_PLACED = registerPlacedFeature("trees/taiga_trees_checked");
+    public static final ResourceKey<PlacedFeature> OLD_GROWTH_SPRUCE_TAIGA_TREES_CHECKED = registerPlacedFeature("trees/old_growth_spruce_taiga_trees_checked");
+    public static final ResourceKey<PlacedFeature> OLD_GROWTH_PINE_TREES_CHECKED = registerPlacedFeature("trees/old_growth_pine_taiga_trees_checked");
+    public static final ResourceKey<PlacedFeature> TAIGA_TREES_CHECKED = registerPlacedFeature("trees/taiga_trees_checked");
     public static final ResourceKey<PlacedFeature> MOSSGRASS_PATCH_PLACED = registerPlacedFeature("grass/mossgrass_patch_placed");
     public static final ResourceKey<PlacedFeature> FOREST_MOSS_CARPET_PLACED = registerPlacedFeature("cold/forest_moss_carpet_placed");
 

@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:random_selector",
+  "config": {
+    "features": [
+      {
+        "chance": 0.4,
+        "feature": "bloomingnature:trees/spruce/mega_spruce_tree_tall_checked"
+      },
+      {
+        "chance": 0.3,
+        "feature": "bloomingnature:trees/spruce/mega_spruce_tree_mid_checked"
+      },
+      {
+        "chance": 0.15,
+        "feature": "bloomingnature:trees/spruce/spruce_tree_tall_checked"
+      },
+      {
+        "chance": 0.10,
+        "feature": "bloomingnature:trees/spruce/spruce_tree_mid_checked"
+      }
+    ],
+    "default": "bloomingnature:trees/spruce/spruce_bush_checked"
+  }
+}

@@ -2,12 +2,8 @@
   "feature": "bloomingnature:fallen_trees/stripped_spruce_tree_fallen",
   "placement": [
     {
-      "type": "count",
-      "count": 1
-    },
-    {
       "type": "rarity_filter",
-      "chance": 2
+      "chance": 32
     },
     {
       "type": "minecraft:in_square"

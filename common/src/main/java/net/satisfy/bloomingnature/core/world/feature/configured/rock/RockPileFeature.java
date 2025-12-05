@@ -16,7 +16,6 @@ public class RockPileFeature extends Feature<RockPileFeatureConfig> {
 
     @Override
     public boolean place(FeaturePlaceContext<RockPileFeatureConfig> context) {
-        var level = context.level();
         var origin = context.origin();
         var random = context.random();
         var cfg = context.config();
@@ -39,7 +38,7 @@ public class RockPileFeature extends Feature<RockPileFeatureConfig> {
             int offX = random.nextInt(cfg.spreadX() * 2 + 1) - cfg.spreadX();
             int offZ = random.nextInt(cfg.spreadZ() * 2 + 1) - cfg.spreadZ();
 
-            int surfaceY = context.level().getHeight(Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, origin.getX() + offX, origin.getZ() + offZ) - 1;
+            int surfaceY = context.level().getHeight(Heightmap.Types.WORLD_SURFACE_WG, origin.getX() + offX, origin.getZ() + offZ) - 1;
             var base = new BlockPos(origin.getX() + offX, surfaceY, origin.getZ() + offZ);
 
             if (placeOne(context, base, sizeX, sizeY, sizeZ, bury, roughness, spec)) placedAny = true;

@@ -7,9 +7,10 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.satisfy.bloomingnature.BloomingNature;
+import net.satisfy.bloomingnature.core.world.feature.configured.decoration.FallenHollowTrunkConfiguration;
+import net.satisfy.bloomingnature.core.world.feature.configured.decoration.FallenHollowTrunkFeature;
 import net.satisfy.bloomingnature.core.world.feature.configured.rock.RockPileFeature;
 import net.satisfy.bloomingnature.core.world.feature.configured.rock.RockPileFeatureConfig;
-
 
 public class ConfiguredFeatures {
     public static final DeferredRegister<Feature<?>> FEATURES = DeferredRegister.create(BloomingNature.MOD_ID, Registries.FEATURE);
@@ -18,6 +19,7 @@ public class ConfiguredFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> FOREST_MOSS_PATCH_BONEMEAL_KEY = registerConfiguredFeature("vegetation/forest_moss_patch_bonemeal");
 
     public static final RegistrySupplier<Feature<RockPileFeatureConfig>> ROCK_PILE_FEATURE = FEATURES.register("rock_pile", RockPileFeature::new);
+    public static final RegistrySupplier<Feature<FallenHollowTrunkConfiguration>> FALLEN_HOLLOW_TRUNK_FEATURE = FEATURES.register("fallen_hollow_trunk", () -> new FallenHollowTrunkFeature(FallenHollowTrunkConfiguration.CODEC));
 
     public static ResourceKey<ConfiguredFeature<?, ?>> registerConfiguredFeature(String name) {
         return ResourceKey.create(Registries.CONFIGURED_FEATURE, BloomingNature.identifier(name));

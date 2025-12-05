@@ -1,0 +1,17 @@
+{
+  "feature": "bloomingnature:trees/fir/fir_tree_small_green",
+  "placement": [
+    {
+      "type": "minecraft:block_predicate_filter",
+      "predicate": {
+        "type": "minecraft:would_survive",
+        "state": {
+          "Name": "bloomingnature:fir_sapling",
+          "Properties": {
+            "stage": "0"
+          }
+        }
+      }
+    }
+  ]
+}

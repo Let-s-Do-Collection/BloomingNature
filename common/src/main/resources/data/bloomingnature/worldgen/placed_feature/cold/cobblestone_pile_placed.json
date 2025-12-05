@@ -14,7 +14,7 @@
     },
     {
       "type": "minecraft:heightmap",
-      "heightmap": "MOTION_BLOCKING_NO_LEAVES"
+      "heightmap": "WORLD_SURFACE"
     },
     {
       "type": "minecraft:block_predicate_filter",

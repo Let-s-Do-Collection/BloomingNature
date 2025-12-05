@@ -21,11 +21,9 @@
       "replace_current_music": false,
       "sound": "minecraft:music.overworld.forest"
     },
-    "sky_color": 7972607,
-    "water_color": 4159204,
-    "water_fog_color": 329011,
-    "grass_color": 10799444,
-    "foliage_color": 7386187
+    "sky_color": 8421631,
+    "water_color": 3902136,
+    "water_fog_color": 329011
   },
   "features": [
     [],
@@ -48,6 +46,7 @@
     [
       "bloomingnature:temperate/stone_boulder_placed",
       "bloomingnature:temperate/stone_slabs_placed",
+      "bloomingnature:cold/cobblestone_pile_placed",
       "bloomingnature:fallen_trees/stripped_spruce_tree_fallen_placed"
     ],
     [
@@ -203,5 +202,5 @@
     "water_ambient": [],
     "water_creature": []
   },
-  "temperature": 0.7
+  "temperature": 0.175
 }
