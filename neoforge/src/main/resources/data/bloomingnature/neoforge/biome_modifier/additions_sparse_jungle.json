@@ -1,0 +1,15 @@
+{
+  "type": "neoforge:add_features",
+  "biomes": "minecraft:sparse_jungle",
+  "features": [
+    "bloomingnature:trees/sparse_jungle_trees_checked",
+    "bloomingnature:wet/water_puddle_placed",
+    "bloomingnature:flowers/sparse_jungle_flower_patch_placed",
+    "bloomingnature:temperate/stone_slabs_placed",
+    "bloomingnature:temperate/stone_boulder_placed",
+    "bloomingnature:vegetation/river_reed_patch_placed",
+    "bloomingnature:vegetation/floating_leaves_patch_placed",
+    "bloomingnature:grass/silkgrass_patch_placed"
+  ],
+  "step": "vegetal_decoration"
+}

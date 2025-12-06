@@ -1,0 +1,12 @@
+{
+  "type": "neoforge:add_features",
+  "biomes": "minecraft:beach",
+  "features": [
+    "bloomingnature:arid/sand_layer_0_placed",
+    "bloomingnature:arid/sand_layer_1_placed",
+    "bloomingnature:arid/sand_layer_2_placed",
+    "bloomingnature:grass/dry_grass_patch_placed",
+    "bloomingnature:temperate/stone_pile_placed"
+  ],
+  "step": "vegetal_decoration"
+}

@@ -1,0 +1,13 @@
+{
+  "type": "neoforge:add_features",
+  "biomes": "minecraft:old_growth_pine_taiga",
+  "features": [
+    "bloomingnature:trees/old_growth_pine_taiga_trees_checked",
+    "bloomingnature:grass/dense_wild_grass_patch_placed",
+    "bloomingnature:flowers/taiga_flower_patch_placed",
+    "bloomingnature:cold/cobblestone_pile_placed",
+    "bloomingnature:cold/forest_moss_carpet_placed",
+    "bloomingnature:fallen_trees/stripped_spruce_tree_fallen_placed"
+  ],
+  "step": "vegetal_decoration"
+}

@@ -1,0 +1,9 @@
+{
+  "type": "neoforge:remove_features",
+  "biomes": "minecraft:river",
+  "features": [
+    "minecraft:trees_water",
+    "minecraft:flower_default"
+  ],
+  "steps": "vegetal_decoration"
+}

@@ -1,8 +1,0 @@
-{
-  "type": "neoforge:modify_biome",
-  "biomes": "minecraft:plains",
-  "effects": {
-    "grass_color": 11063154,
-    "foliage_color": 7386187
-  }
-}

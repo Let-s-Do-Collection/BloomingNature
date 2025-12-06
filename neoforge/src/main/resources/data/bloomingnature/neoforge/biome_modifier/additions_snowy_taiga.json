@@ -1,0 +1,10 @@
+{
+  "type": "neoforge:add_features",
+  "biomes": "minecraft:snowy_taiga",
+  "features": [
+    "bloomingnature:trees/snowy_taiga_trees_checked",
+    "bloomingnature:cold/snow_drifts_placed",
+    "bloomingnature:cold/snow_under_trees_placed"
+  ],
+  "step": "vegetal_decoration"
+}

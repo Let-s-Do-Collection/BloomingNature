@@ -259,16 +259,16 @@ public final class AridSurfaceBuilder extends BiolithSurfaceBuilder {
         }
 
         if (profile == Profile.BAOBAB_SAVANNA) {
-            float dryness = smoothNoise(RandomSource.create(912349L), x - 77, z + 193, 0.018f);
-            float streakA = smoothNoise(RandomSource.create(55123L), x + 53, z - 41, 0.032f);
-            float streakB = smoothNoise(RandomSource.create(77411L), x - 19, z + 87, 0.018f);
-            float streak = (streakA * 0.6f) + (streakB * 0.4f);
+            float dryness = smoothNoise(RandomSource.create(912349L), x - 77, z + 193, 0.012f);
+            float bandNoise = smoothNoise(RandomSource.create(55123L), x + 53, z - 41, 0.018f);
+            float patchNoise = smoothNoise(RandomSource.create(77411L), x - 19, z + 87, 0.022f);
+            float combined = dryness * 0.65f + bandNoise * 0.35f;
 
             for (int y = 0; y <= topY; y++) {
                 if (y != topY) continue;
 
                 if (slope >= 3) {
-                    if (dryness > 0.58f) {
+                    if (combined > 0.58f) {
                         column.setBlock(y, Blocks.COARSE_DIRT.defaultBlockState());
                     } else {
                         column.setBlock(y, Blocks.GRASS_BLOCK.defaultBlockState());
@@ -277,20 +277,35 @@ public final class AridSurfaceBuilder extends BiolithSurfaceBuilder {
                 }
 
                 int r = mixIndex(x, y, z);
-                boolean redBand = dryness > 0.60f && streak > 0.80f && r < 28;
+                boolean redBand = combined > 0.63f && patchNoise > 0.70f && r < 32;
+                boolean coarseCore = combined > 0.57f && patchNoise > 0.58f;
+                boolean coarseFringe = !coarseCore && combined > 0.53f && patchNoise > 0.54f;
 
                 if (redBand) {
                     column.setBlock(y, Blocks.RED_SAND.defaultBlockState());
-                    if (y - 1 >= 0) column.setBlock(y - 1, Blocks.RED_SAND.defaultBlockState());
+                    if (y - 1 >= 0) {
+                        column.setBlock(y - 1, Blocks.RED_SAND.defaultBlockState());
+                    }
                     continue;
                 }
 
-                if (dryness > 0.56f && r < 55) {
+                if (coarseCore) {
                     column.setBlock(y, Blocks.COARSE_DIRT.defaultBlockState());
-                    if (y - 1 >= 0) column.setBlock(y - 1, Blocks.DIRT.defaultBlockState());
-                } else {
-                    column.setBlock(y, Blocks.GRASS_BLOCK.defaultBlockState());
+                    if (y - 1 >= 0) {
+                        column.setBlock(y - 1, Blocks.DIRT.defaultBlockState());
+                    }
+                    continue;
                 }
+
+                if (coarseFringe && r < 40) {
+                    column.setBlock(y, Blocks.COARSE_DIRT.defaultBlockState());
+                    if (y - 1 >= 0) {
+                        column.setBlock(y - 1, Blocks.DIRT.defaultBlockState());
+                    }
+                    continue;
+                }
+
+                column.setBlock(y, Blocks.GRASS_BLOCK.defaultBlockState());
             }
             return;
         }

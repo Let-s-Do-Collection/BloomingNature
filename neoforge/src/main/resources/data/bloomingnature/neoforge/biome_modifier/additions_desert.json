@@ -1,0 +1,14 @@
+{
+  "type": "neoforge:add_features",
+  "biomes": "minecraft:desert",
+  "features": [
+    "bloomingnature:arid/sand_layer_0_placed",
+    "bloomingnature:arid/sand_layer_1_placed",
+    "bloomingnature:arid/sand_layer_2_placed",
+    "bloomingnature:arid/slate_boulder_placed",
+    "bloomingnature:arid/slate_slabs_placed",
+    "bloomingnature:vegetation/cactus_patch_placed",
+    "bloomingnature:vegetation/arid_scrub_patch_placed"
+  ],
+  "step": "vegetal_decoration"
+}

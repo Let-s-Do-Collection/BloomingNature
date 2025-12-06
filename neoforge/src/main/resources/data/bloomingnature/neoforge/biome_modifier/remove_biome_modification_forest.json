@@ -1,9 +1,0 @@
-{
-  "type": "neoforge:remove_features",
-  "biomes": "minecraft:forest",
-  "features": [
-    "minecraft:trees_birch_and_oak",
-    "minecraft:forest_flowers"
-  ],
-  "step": "vegetal_decoration"
-}

@@ -1,0 +1,12 @@
+{
+  "type": "neoforge:add_features",
+  "biomes": "minecraft:savanna_plateau",
+  "features": [
+    "bloomingnature:grass/dense_grass_patch_placed",
+    "bloomingnature:trees/savanna_trees_checked",
+    "bloomingnature:arid/granite_boulders_placed",
+    "bloomingnature:arid/granite_slabs_placed",
+    "bloomingnature:arid/packed_mud_disk_placed"
+  ],
+  "step": "vegetal_decoration"
+}

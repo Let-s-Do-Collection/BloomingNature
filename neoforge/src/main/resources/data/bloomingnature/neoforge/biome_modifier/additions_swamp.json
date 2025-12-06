@@ -1,0 +1,14 @@
+{
+  "type": "neoforge:add_features",
+  "biomes": "minecraft:swamp",
+  "features": [
+    "bloomingnature:trees/swamp_trees_checked",
+    "bloomingnature:flowers/swamp_flower_patch_placed",
+    "bloomingnature:wet/moss_carpet_placed",
+    "bloomingnature:grass/wet_grass_patch_placed",
+    "bloomingnature:vegetation/floating_leaves_patch_placed",
+    "bloomingnature:fallen_trees/oak_tree_fallen_placed",
+    "bloomingnature:vegetation/reedbelt_placed"
+  ],
+  "step": "vegetal_decoration"
+}

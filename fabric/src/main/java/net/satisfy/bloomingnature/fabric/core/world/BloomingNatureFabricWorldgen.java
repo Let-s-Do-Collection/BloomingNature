@@ -177,6 +177,7 @@ public final class BloomingNatureFabricWorldgen {
         world.add(ModificationPhase.ADDITIONS, jungle, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.WATER_PUDDLE_PLACED));
         world.add(ModificationPhase.ADDITIONS, jungle, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.JUNGLE_FLOWER_PATCH_PLACED));
         world.add(ModificationPhase.ADDITIONS, jungle, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.SILKGRASS_PATCH_PLACED));
+        world.add(ModificationPhase.ADDITIONS, jungle, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.FLOATING_LEAVES_PATCH_PLACED));
         world.add(ModificationPhase.ADDITIONS, jungle, context -> context.getEffects().setGrassColor(8174674));
         world.add(ModificationPhase.ADDITIONS, jungle, context -> context.getEffects().setFoliageColor(7516981));
         world.add(ModificationPhase.ADDITIONS, jungle, context -> context.getEffects().setWaterColor(7109721));
@@ -188,6 +189,7 @@ public final class BloomingNatureFabricWorldgen {
         world.add(ModificationPhase.ADDITIONS, sparseJungle, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.STONE_BOULDER_PLACED));
         world.add(ModificationPhase.ADDITIONS, sparseJungle, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.RIVER_REED_PATCH_PLACED));
         world.add(ModificationPhase.ADDITIONS, sparseJungle, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.SILKGRASS_PATCH_PLACED));
+        world.add(ModificationPhase.ADDITIONS, sparseJungle, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.FLOATING_LEAVES_PATCH_PLACED));
         world.add(ModificationPhase.ADDITIONS, sparseJungle, context -> context.getEffects().setGrassColor(8174674));
         world.add(ModificationPhase.ADDITIONS, sparseJungle, context -> context.getEffects().setFoliageColor(7516981));
         world.add(ModificationPhase.ADDITIONS, sparseJungle, context -> context.getEffects().setWaterColor(7109721));

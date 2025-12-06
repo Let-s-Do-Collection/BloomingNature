@@ -1,0 +1,10 @@
+{
+  "type": "neoforge:remove_features",
+  "biomes": "minecraft:birch_forest",
+  "features": [
+    "minecraft:flower_default",
+    "minecraft:forest_flowers",
+    "minecraft:trees_birch"
+  ],
+  "steps": "vegetal_decoration"
+}

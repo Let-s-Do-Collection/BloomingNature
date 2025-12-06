@@ -1,0 +1,11 @@
+{
+  "type": "neoforge:remove_features",
+  "biomes": "minecraft:jungle",
+  "features": [
+    "minecraft:trees_jungle",
+    "minecraft:flower_warm",
+    "minecraft:patch_grass_jungle",
+    "minecraft:bamboo_light"
+  ],
+  "steps": "vegetal_decoration"
+}

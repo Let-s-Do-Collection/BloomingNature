@@ -1,0 +1,14 @@
+{
+  "type": "neoforge:add_features",
+  "biomes": "minecraft:sunflower_plains",
+  "features": [
+    "bloomingnature:flowers/sunflower_plains_sunflower_patch_placed",
+    "bloomingnature:flowers/sunflower_plains_flower_patch_placed",
+    "bloomingnature:grass/sparse_grass_patch_placed",
+    "bloomingnature:trees/plains_trees_checked",
+    "bloomingnature:temperate/stone_boulder_placed",
+    "bloomingnature:temperate/stone_slabs_placed",
+    "bloomingnature:temperate/stone_pile_placed"
+  ],
+  "step": "vegetal_decoration"
+}

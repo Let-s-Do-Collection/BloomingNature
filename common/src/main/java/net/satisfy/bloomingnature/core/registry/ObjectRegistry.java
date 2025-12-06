@@ -25,7 +25,7 @@ import net.minecraft.world.level.material.PushReaction;
 import net.satisfy.bloomingnature.BloomingNature;
 import net.satisfy.bloomingnature.core.block.*;
 import net.satisfy.bloomingnature.core.entity.ModBoatEntity;
-import net.satisfy.bloomingnature.core.item.MegaSaplingBlock;
+import net.satisfy.bloomingnature.core.block.MegaSaplingBlock;
 import net.satisfy.bloomingnature.core.item.ModBoatItem;
 import net.satisfy.bloomingnature.core.util.BloomingNatureGeneralUtil;
 import net.satisfy.bloomingnature.core.util.BloomingNatureWoodType;

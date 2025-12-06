@@ -1,0 +1,13 @@
+{
+  "type": "neoforge:add_features",
+  "biomes": "minecraft:cherry_grove",
+  "features": [
+    "bloomingnature:temperate/stone_boulder_placed",
+    "bloomingnature:temperate/stone_slabs_placed",
+    "bloomingnature:flowers/cherry_grove_flower_patch_placed",
+    "bloomingnature:trees/cherry_grove_trees_checked",
+    "bloomingnature:grass/bluff_grass_patch_placed",
+    "bloomingnature:grass/regular_grass_patch_placed"
+  ],
+  "step": "vegetal_decoration"
+}

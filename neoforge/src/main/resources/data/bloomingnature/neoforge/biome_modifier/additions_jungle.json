@@ -1,0 +1,13 @@
+{
+  "type": "neoforge:add_features",
+  "biomes": "minecraft:jungle",
+  "features": [
+    "bloomingnature:trees/jungle_trees_checked",
+    "bloomingnature:wet/laterit_slabs_placed",
+    "bloomingnature:wet/water_puddle_placed",
+    "bloomingnature:flowers/jungle_flower_patch_placed",
+    "bloomingnature:grass/silkgrass_patch_placed",
+    "bloomingnature:vegetation/floating_leaves_patch_placed"
+  ],
+  "step": "vegetal_decoration"
+}

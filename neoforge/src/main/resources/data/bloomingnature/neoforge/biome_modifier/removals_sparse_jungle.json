@@ -1,0 +1,10 @@
+{
+  "type": "neoforge:remove_features",
+  "biomes": "minecraft:sparse_jungle",
+  "features": [
+    "minecraft:trees_sparse_jungle",
+    "minecraft:patch_grass_jungle",
+    "minecraft:flower_warm"
+  ],
+  "steps": "vegetal_decoration"
+}

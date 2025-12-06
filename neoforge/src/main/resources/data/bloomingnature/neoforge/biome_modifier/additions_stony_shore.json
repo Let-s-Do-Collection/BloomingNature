@@ -1,0 +1,8 @@
+{
+  "type": "neoforge:add_features",
+  "biomes": "minecraft:stony_shore",
+  "features": [
+    "bloomingnature:temperate/stone_pile_placed"
+  ],
+  "step": "vegetal_decoration"
+}
