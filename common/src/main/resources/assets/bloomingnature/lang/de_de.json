@@ -457,5 +457,18 @@
   "block.bloomingnature.mossy_marlstone_stairs": "Bemooste Mergeltreppe",
   "block.bloomingnature.mossy_marlstone_slab": "Bemooste Mergelstufe",
   "block.bloomingnature.mossy_marlstone_wall": "Bemooste Mergelmauer",
-  "block.bloomingnature.blooming_oak_leaves": "Blühende Eichenblätter"
+  "block.bloomingnature.blooming_oak_leaves": "Blühende Eichenblätter",
+  "biome.bloomingnature.baobab_savanna": "Baobab Savanne",
+  "biome.bloomingnature.brushland": "Buschland",
+  "biome.bloomingnature.cold_grassland": "Kaltes Grassland",
+  "biome.bloomingnature.cold_river": "Gletscherbach",
+  "biome.bloomingnature.cypress_fields": "Zypressenfelder",
+  "biome.bloomingnature.desert_oasis": "Wüstenoase",
+  "biome.bloomingnature.desert_river": "Wüstenfluss",
+  "biome.bloomingnature.flower_glade": "Blumenlichtung",
+  "biome.bloomingnature.forest_edge": "Waldrand",
+  "biome.bloomingnature.golden_glade": "Goldene Lichtung",
+  "biome.bloomingnature.jungle_river": "Dschungelfluss",
+  "biome.bloomingnature.larch_forest": "Lärchenwald",
+  "biome.bloomingnature.marshland": "Moorland"
 }

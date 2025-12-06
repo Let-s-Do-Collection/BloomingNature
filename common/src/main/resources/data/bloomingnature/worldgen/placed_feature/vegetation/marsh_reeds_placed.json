@@ -1,0 +1,33 @@
+{
+  "feature": "bloomingnature:vegetation/river_reed_patch",
+  "placement": [
+    {
+      "type": "minecraft:rarity_filter",
+      "chance": 3
+    },
+    {
+      "type": "minecraft:count",
+      "count": {
+        "type": "minecraft:uniform",
+        "min_inclusive": 1,
+        "max_inclusive": 3
+      }
+    },
+    {
+      "type": "minecraft:noise_threshold_count",
+      "noise_level": -0.1,
+      "below_noise": 2,
+      "above_noise": 4
+    },
+    {
+      "type": "minecraft:in_square"
+    },
+    {
+      "type": "minecraft:heightmap",
+      "heightmap": "OCEAN_FLOOR"
+    },
+    {
+      "type": "minecraft:biome"
+    }
+  ]
+}

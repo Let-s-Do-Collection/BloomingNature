@@ -86,6 +86,12 @@ public class PlacedFeatures {
 
     public static final ResourceKey<PlacedFeature> GROUND_LITTER_PLACED = registerPlacedFeature("vegetation/ground_litter_placed");
 
+    public static final ResourceKey<PlacedFeature> SWAMP_TREES_CHECKED = registerPlacedFeature("trees/swamp_trees_checked");
+    public static final ResourceKey<PlacedFeature> SWAMP_FLOWER_PATCH_PLACED = registerPlacedFeature("flowers/swamp_flower_patch_placed");
+    public static final ResourceKey<PlacedFeature> MOSS_CARPET_PLACED = registerPlacedFeature("wet/moss_carpet_placed");
+    public static final ResourceKey<PlacedFeature> WET_GRASS_PATCH_PLACED = registerPlacedFeature("grass/wet_grass_patch_placed");
+    public static final ResourceKey<PlacedFeature> FLOATING_LEAVES_PATCH_PLACED = registerPlacedFeature("vegetation/floating_leaves_patch_placed");
+    public static final ResourceKey<PlacedFeature> REEDBELT_PLACED = registerPlacedFeature("vegetation/reedbelt_placed");
 
     public static ResourceKey<PlacedFeature> registerPlacedFeature(String name) {
         return ResourceKey.create(Registries.PLACED_FEATURE, BloomingNature.identifier(name));

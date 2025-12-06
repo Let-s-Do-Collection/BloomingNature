@@ -233,9 +233,13 @@ public final class BloomingNatureFabricWorldgen {
         world.add(ModificationPhase.ADDITIONS, oldGrowthPineTaiga, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.STRIPPED_SPRUCE_TREE_FALLEN_PLACED));
         world.add(ModificationPhase.ADDITIONS, oldGrowthPineTaiga, context -> context.getEffects().setWaterColor(3902136));
 
-
-
-
+        world.add(ModificationPhase.ADDITIONS, swamp, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.SWAMP_TREES_CHECKED));
+        world.add(ModificationPhase.ADDITIONS, swamp, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.SWAMP_FLOWER_PATCH_PLACED));
+        world.add(ModificationPhase.ADDITIONS, swamp, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.MOSS_CARPET_PLACED));
+        world.add(ModificationPhase.ADDITIONS, swamp, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.WET_GRASS_PATCH_PLACED));
+        world.add(ModificationPhase.ADDITIONS, swamp, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.FLOATING_LEAVES_PATCH_PLACED));
+        world.add(ModificationPhase.ADDITIONS, swamp, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.OAK_TREE_FALLEN_PLACED));
+        world.add(ModificationPhase.ADDITIONS, swamp, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.REEDBELT_PLACED));
     }
 
     public static void registerFeatureRemovals() {

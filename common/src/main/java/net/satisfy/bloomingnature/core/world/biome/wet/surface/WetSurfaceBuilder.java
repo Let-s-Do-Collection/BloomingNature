@@ -2,6 +2,7 @@ package net.satisfy.bloomingnature.core.world.biome.wet.surface;
 
 import com.terraformersmc.biolith.api.surface.BiolithSurfaceBuilder;
 import com.terraformersmc.biolith.api.surface.SurfaceGeneration;
+import net.minecraft.tags.BiomeTags;
 import net.minecraft.tags.FluidTags;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.biome.Biome;
@@ -16,7 +17,7 @@ import net.satisfy.bloomingnature.core.registry.ObjectRegistry;
 import net.satisfy.bloomingnature.core.world.biome.BloomingNatureBiomeKeys;
 
 public final class WetSurfaceBuilder extends BiolithSurfaceBuilder {
-    public enum Profile {JUNGLE, JUNGLE_RIVER, SPARSE_JUNGLE}
+    public enum Profile {JUNGLE, JUNGLE_RIVER, SPARSE_JUNGLE, SWAMP}
 
     private final Profile profile;
 
@@ -39,6 +40,69 @@ public final class WetSurfaceBuilder extends BiolithSurfaceBuilder {
         int heightWest = chunk.getHeight(Heightmap.Types.WORLD_SURFACE_WG, westX, localZ);
         int heightEast = chunk.getHeight(Heightmap.Types.WORLD_SURFACE_WG, eastX, localZ);
         int slope = Math.max(Math.max(Math.abs(topY - heightNorth), Math.abs(topY - heightSouth)), Math.max(Math.abs(topY - heightWest), Math.abs(topY - heightEast)));
+
+        if (profile == Profile.SWAMP) {
+            for (int d = 0; d <= 3 && topY - d >= 0; d++) {
+                if (column.getBlock(topY - d).getFluidState().is(FluidTags.WATER)) {
+                    return;
+                }
+            }
+
+            float baseNoise = smoothNoise(RandomSource.create(712345L), x + 17, z - 29, 0.032f);
+            float bandNoise = smoothNoise(RandomSource.create(398721L), x - 41, z + 63, 0.085f);
+            float dryness = saturate((baseNoise - 0.40f) / 0.40f);
+            float band = saturate((bandNoise - 0.35f) / 0.45f);
+            boolean isSteep = slope >= 4;
+
+            for (int y = 0; y <= topY; y++) {
+                if (y != topY) {
+                    continue;
+                }
+
+                if (isSteep) {
+                    if (band < 0.35f) {
+                        column.setBlock(y, Blocks.GRASS_BLOCK.defaultBlockState());
+                    } else if (band < 0.75f) {
+                        column.setBlock(y, Blocks.MUD.defaultBlockState());
+                    } else {
+                        column.setBlock(y, Blocks.MUD.defaultBlockState());
+                    }
+                    if (y - 1 >= 0) {
+                        column.setBlock(y - 1, Blocks.DIRT.defaultBlockState());
+                    }
+                    continue;
+                }
+
+                if (dryness < 0.35f) {
+                    column.setBlock(y, Blocks.GRASS_BLOCK.defaultBlockState());
+                    continue;
+                }
+
+                if (dryness < 0.7f) {
+                    if (band < 0.5f) {
+                        column.setBlock(y, Blocks.GRASS_BLOCK.defaultBlockState());
+                    } else {
+                        column.setBlock(y, Blocks.MUD.defaultBlockState());
+                        if (y - 1 >= 0) {
+                            column.setBlock(y - 1, Blocks.DIRT.defaultBlockState());
+                        }
+                    }
+                    continue;
+                }
+
+                if (band < 0.5f) {
+                    column.setBlock(y, Blocks.MUD.defaultBlockState());
+                } else {
+                    column.setBlock(y, Blocks.MUD.defaultBlockState());
+                }
+                if (y - 1 >= 0) {
+                    column.setBlock(y - 1, Blocks.DIRT.defaultBlockState());
+                }
+            }
+
+            return;
+        }
+
 
         if (profile == Profile.SPARSE_JUNGLE) {
             for (int d = 0; d <= 3 && topY - d >= 0; d++) {
@@ -312,6 +376,18 @@ public final class WetSurfaceBuilder extends BiolithSurfaceBuilder {
         SurfaceGeneration.addSurfaceBuilder(
                 BloomingNature.identifier("jungle_river"),
                 new WetSurfaceBuilder(Profile.JUNGLE_RIVER).setBiomeKey(BloomingNatureBiomeKeys.JUNGLE_RIVER)
+        );
+        SurfaceGeneration.addSurfaceBuilder(
+                BloomingNature.identifier("swamp"),
+                new WetSurfaceBuilder(Profile.JUNGLE_RIVER).setBiomeKey(Biomes.SWAMP)
+        );
+        SurfaceGeneration.addSurfaceBuilder(
+                BloomingNature.identifier("marshland_river"),
+                new WetSurfaceBuilder(Profile.JUNGLE_RIVER).setBiomeKey(BloomingNatureBiomeKeys.MARSHLAND)
+        );
+        SurfaceGeneration.addSurfaceBuilder(
+                BloomingNature.identifier("marshland_sparse"),
+                new WetSurfaceBuilder(Profile.SWAMP).setBiomeKey(BloomingNatureBiomeKeys.MARSHLAND)
         );
     }
 }

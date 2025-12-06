@@ -13,7 +13,7 @@ import java.util.Optional;
 
 public class FanPalmSproutBlock extends SaplingBlock {
     public FanPalmSproutBlock() {
-        super(new TreeGrower("fan_palm", Optional.empty(), Optional.of(ConfiguredFeatures.FAN_PALM_TREE_KEY), Optional.empty()), Properties.ofFullCopy(Blocks.ACACIA_SAPLING).noCollission().randomTicks().instabreak().sound(SoundType.GRASS));
+        super(new TreeGrower("trees/fan_palm/fan_palm", Optional.empty(), Optional.of(ConfiguredFeatures.FAN_PALM_TREE_KEY), Optional.empty()), Properties.ofFullCopy(Blocks.ACACIA_SAPLING).noCollission().randomTicks().instabreak().sound(SoundType.GRASS));
     }
 
     @Override

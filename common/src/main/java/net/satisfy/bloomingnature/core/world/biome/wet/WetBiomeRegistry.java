@@ -15,6 +15,7 @@ public final class WetBiomeRegistry extends BiolithSurfaceBuilder {
 
     public static void registerBiomePlacement() {
         registerJungleRiverPlacement();
+        registerMarshlandPlacement();
     }
 
     private static void registerJungleRiverPlacement() {
@@ -28,5 +29,14 @@ public final class WetBiomeRegistry extends BiolithSurfaceBuilder {
         BiomePlacement.addSubOverworld(Biomes.JUNGLE, BloomingNatureBiomeKeys.JUNGLE_RIVER, condEdge);
         BiomePlacement.addSubOverworld(Biomes.SPARSE_JUNGLE, BloomingNatureBiomeKeys.JUNGLE_RIVER, condEdge);
         BiomePlacement.addSubOverworld(Biomes.BAMBOO_JUNGLE, BloomingNatureBiomeKeys.JUNGLE_RIVER, condEdge);
+    }
+
+    private static void registerMarshlandPlacement() {
+        var nearWet = anyOf(neighbor(Biomes.SWAMP), neighbor(Biomes.MANGROVE_SWAMP));
+        var edgeZone = ratio(RatioTargets.EDGE, 0.0f, 0.55f);
+        var cond = allOf(nearWet, edgeZone);
+
+        BiomePlacement.addSubOverworld(Biomes.SWAMP, BloomingNatureBiomeKeys.MARSHLAND, cond);
+        BiomePlacement.addSubOverworld(Biomes.MANGROVE_SWAMP, BloomingNatureBiomeKeys.MARSHLAND, cond);
     }
 }

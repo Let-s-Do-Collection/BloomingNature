@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:random_selector",
+  "config": {
+    "features": [
+      {
+        "chance": 0.35,
+        "feature": "bloomingnature:trees/swamp_oak/swamp_oak_tree_swamp_checked"
+      },
+      {
+        "chance": 0.45,
+        "feature": "bloomingnature:trees/swamp_cypress/swamp_cypress_tree_checked"
+      },
+      {
+        "chance": 0.18,
+        "feature": "bloomingnature:trees/oak/oak_tree_swamp_checked"
+      },
+      {
+        "chance": 0.12,
+        "feature": "bloomingnature:trees/dark_oak/dark_oak_tree_willow_checked"
+      }
+    ],
+    "default": "bloomingnature:trees/oak/oak_tree_swamp_checked"
+  }
+}
