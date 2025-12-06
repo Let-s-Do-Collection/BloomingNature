@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/cube_all",
   "textures": {
-    "all": "bloomingnature:block/fir_slabs_double"
+    "all": "bloomingnature:block/fir_planks"
   }
 } 

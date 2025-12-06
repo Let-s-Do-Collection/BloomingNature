@@ -13,7 +13,7 @@ public class TabRegistry {
     public static final DeferredRegister<CreativeModeTab> BLOOMINGNATURE_TABS = DeferredRegister.create(BloomingNature.MOD_ID, Registries.CREATIVE_MODE_TAB);
 
     public static final RegistrySupplier<CreativeModeTab> BLOOMINGNATURE_TAB = BLOOMINGNATURE_TABS.register("bloomingnature", () -> CreativeModeTab.builder(CreativeModeTab.Row.TOP, 1)
-            .icon(() -> new ItemStack(ObjectRegistry.BLUEBELL.get()))
+            .icon(() -> new ItemStack(ObjectRegistry.TWIGS.get()))
             .title(Component.translatable("creative_tab.bloomingnature"))
             .displayItems((parameters, out) -> {
                 out.accept(ObjectRegistry.LARCH_LOG.get());
@@ -91,6 +91,7 @@ public class TabRegistry {
                 out.accept(ObjectRegistry.SWAMP_OAK_PRESSURE_PLATE.get());
                 out.accept(ObjectRegistry.SWAMP_OAK_BUTTON.get());
                 out.accept(ObjectRegistry.ORANGE_LEAVES.get());
+                out.accept(ObjectRegistry.BLOOMING_OAK_LEAVES.get());
                 out.accept(ObjectRegistry.SWAMP_OAK_SAPLING.get());
                 out.accept(ObjectRegistry.SWAMP_OAK_SIGN_ITEM.get());
                 out.accept(ObjectRegistry.SWAMP_OAK_HANGING_SIGN_ITEM.get());
@@ -398,6 +399,8 @@ public class TabRegistry {
                 out.accept(ObjectRegistry.REED.get());
                 out.accept(ObjectRegistry.CATTAIL.get());
                 out.accept(ObjectRegistry.FLOATING_LEAVES.get());
+                out.accept(ObjectRegistry.PEBBLES.get());
+                out.accept(ObjectRegistry.TWIGS.get());
                 out.accept(ObjectRegistry.BLOOMINGNATURE_BANNER.get());
                 out.accept(ObjectRegistry.WANDERING_GARDENER_SPAWN_EGG.get());
             })

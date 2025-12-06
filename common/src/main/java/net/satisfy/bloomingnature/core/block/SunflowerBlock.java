@@ -29,6 +29,9 @@ public final class SunflowerBlock extends DoublePlantBlock implements Bonemealab
         }
     }
 
+    private record PhaseInfo(Phase phase, long nextTime) {
+    }
+
     public static final EnumProperty<Phase> PHASE = EnumProperty.create("phase", Phase.class);
 
     public SunflowerBlock(Properties properties) {
@@ -44,48 +47,84 @@ public final class SunflowerBlock extends DoublePlantBlock implements Bonemealab
     @Override
     public void onPlace(BlockState state, Level level, BlockPos pos, BlockState oldState, boolean movedByPiston) {
         super.onPlace(state, level, pos, oldState, movedByPiston);
-        if (!level.isClientSide && state.getValue(HALF) == DoubleBlockHalf.UPPER) {
-            Phase current = getPhase(level);
-            level.setBlock(pos, state.setValue(PHASE, current), Block.UPDATE_ALL);
-            BlockPos below = pos.below();
-            BlockState lower = level.getBlockState(below);
-            if (lower.getBlock() == this) {
-                level.setBlock(below, lower.setValue(PHASE, current), Block.UPDATE_ALL);
+        if (!level.isClientSide && state.getValue(HALF) == DoubleBlockHalf.UPPER && level instanceof ServerLevel serverLevel) {
+            PhaseInfo phaseInfo = getPhaseInfo(level);
+            Phase currentPhase = phaseInfo.phase();
+            level.setBlock(pos, state.setValue(PHASE, currentPhase), Block.UPDATE_ALL);
+            BlockPos belowPos = pos.below();
+            BlockState belowState = level.getBlockState(belowPos);
+            if (belowState.getBlock() == this) {
+                level.setBlock(belowPos, belowState.setValue(PHASE, currentPhase), Block.UPDATE_ALL);
             }
-            scheduleNextTick((ServerLevel) level, pos);
+            scheduleNextTick(serverLevel, pos, phaseInfo);
         }
     }
 
     @Override
     public void tick(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {
-        if (state.getValue(HALF) != DoubleBlockHalf.UPPER) return;
-        Phase current = getPhase(level);
-        if (state.getValue(PHASE) != current) {
-            level.setBlock(pos, state.setValue(PHASE, current), Block.UPDATE_ALL);
-            BlockPos below = pos.below();
-            BlockState lower = level.getBlockState(below);
-            if (lower.getBlock() == this) {
-                level.setBlock(below, lower.setValue(PHASE, current), Block.UPDATE_ALL);
+        if (state.getValue(HALF) != DoubleBlockHalf.UPPER) {
+            return;
+        }
+
+        PhaseInfo phaseInfo = getPhaseInfo(level);
+        Phase currentPhase = phaseInfo.phase();
+
+        if (state.getValue(PHASE) != currentPhase) {
+            level.setBlock(pos, state.setValue(PHASE, currentPhase), Block.UPDATE_ALL);
+            BlockPos belowPos = pos.below();
+            BlockState belowState = level.getBlockState(belowPos);
+            if (belowState.getBlock() == this) {
+                level.setBlock(belowPos, belowState.setValue(PHASE, currentPhase), Block.UPDATE_ALL);
             }
         }
-        scheduleNextTick(level, pos);
+
+        scheduleNextTick(level, pos, phaseInfo);
     }
 
-    private void scheduleNextTick(ServerLevel level, BlockPos pos) {
-        level.scheduleTick(pos, this, 10);
-    }
-
-    private Phase getPhase(Level level) {
-        long time = level.dayTime() % 24000L;
-        if (level.isNight() || level.dimension() != Level.OVERWORLD) {
-            return Phase.NIGHT;
-        } else if (time < 2000L) {
-            return Phase.MORNING;
-        } else if (time >= 7000L) {
-            return Phase.EVENING;
-        } else {
-            return Phase.DAY;
+    private void scheduleNextTick(ServerLevel level, BlockPos pos, PhaseInfo phaseInfo) {
+        long dayTime = level.dayTime() % 24000L;
+        if (dayTime < 0L) {
+            dayTime = 0L;
         }
+
+        long targetTime = phaseInfo.nextTime();
+        long delta = targetTime - dayTime;
+        if (delta <= 0L) {
+            delta += 24000L;
+        }
+
+        int delay = (int) Math.max(1L, Math.min(delta, 24000L));
+        level.scheduleTick(pos, this, delay);
+    }
+
+    private PhaseInfo getPhaseInfo(Level level) {
+        long time = level.dayTime() % 24000L;
+        if (time < 0L) {
+            time = 0L;
+        }
+
+        if (level.dimension() != Level.OVERWORLD) {
+            long nextTime = (time + 200L) % 24000L;
+            return new PhaseInfo(Phase.DAY, nextTime);
+        }
+
+        if (level.isNight()) {
+            return new PhaseInfo(Phase.NIGHT, 0L);
+        }
+
+        if (time < 2000L) {
+            return new PhaseInfo(Phase.MORNING, 2000L);
+        }
+
+        if (time < 7000L) {
+            return new PhaseInfo(Phase.DAY, 7000L);
+        }
+
+        if (time < 13000L) {
+            return new PhaseInfo(Phase.EVENING, 13000L);
+        }
+
+        return new PhaseInfo(Phase.NIGHT, 0L);
     }
 
     @Override

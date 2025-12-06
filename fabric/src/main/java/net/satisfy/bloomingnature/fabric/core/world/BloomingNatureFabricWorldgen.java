@@ -8,6 +8,7 @@ import net.fabricmc.fabric.api.biome.v1.ModificationPhase;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
+import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.biome.Biomes;
 import net.minecraft.world.level.levelgen.GenerationStep;
 import net.satisfy.bloomingnature.BloomingNature;
@@ -17,6 +18,7 @@ import net.satisfy.bloomingnature.core.world.feature.placed.RemovedPlacedFeature
 import java.util.function.Predicate;
 
 public final class BloomingNatureFabricWorldgen {
+    public static final TagKey<Biome> HAS_GROUND_LITTER = TagKey.create(Registries.BIOME, BloomingNature.identifier("has_ground_litter"));
 
     public static void init() {
         registerFeatureAdditions();
@@ -48,10 +50,11 @@ public final class BloomingNatureFabricWorldgen {
     static Predicate<BiomeSelectionContext> stonyShore = BiomeSelectors.includeByKey(Biomes.STONY_SHORE);
     static Predicate<BiomeSelectionContext> bambooJungle = BiomeSelectors.includeByKey(Biomes.BAMBOO_JUNGLE);
     static Predicate<BiomeSelectionContext> snowySlopes = BiomeSelectors.includeByKey(Biomes.SNOWY_SLOPES);
-
+    static Predicate<BiomeSelectionContext> groundLitter = BiomeSelectors.tag(HAS_GROUND_LITTER);
 
     public static void registerFeatureAdditions() {
         BiomeModification world = BiomeModifications.create(ResourceLocation.fromNamespaceAndPath(BloomingNature.MOD_ID, "world_features"));
+        world.add(ModificationPhase.ADDITIONS, groundLitter, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.GROUND_LITTER_PLACED));
 
         world.add(ModificationPhase.ADDITIONS, plains, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.REGULAR_GRASS_PATCH_PLACED));
         world.add(ModificationPhase.ADDITIONS, plains, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.PLAINS_FLOWER_PATCH_PLACED));
@@ -176,6 +179,7 @@ public final class BloomingNatureFabricWorldgen {
         world.add(ModificationPhase.ADDITIONS, jungle, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.SILKGRASS_PATCH_PLACED));
         world.add(ModificationPhase.ADDITIONS, jungle, context -> context.getEffects().setGrassColor(8174674));
         world.add(ModificationPhase.ADDITIONS, jungle, context -> context.getEffects().setFoliageColor(7516981));
+        world.add(ModificationPhase.ADDITIONS, jungle, context -> context.getEffects().setWaterColor(7109721));
 
         world.add(ModificationPhase.ADDITIONS, sparseJungle, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.SPARSE_JUNGLE_TREES_CHECKED));
         world.add(ModificationPhase.ADDITIONS, sparseJungle, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.WATER_PUDDLE_PLACED));
@@ -186,9 +190,11 @@ public final class BloomingNatureFabricWorldgen {
         world.add(ModificationPhase.ADDITIONS, sparseJungle, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.SILKGRASS_PATCH_PLACED));
         world.add(ModificationPhase.ADDITIONS, sparseJungle, context -> context.getEffects().setGrassColor(8174674));
         world.add(ModificationPhase.ADDITIONS, sparseJungle, context -> context.getEffects().setFoliageColor(7516981));
+        world.add(ModificationPhase.ADDITIONS, sparseJungle, context -> context.getEffects().setWaterColor(7109721));
 
         world.add(ModificationPhase.ADDITIONS, bambooJungle, context -> context.getEffects().setGrassColor(8174674));
         world.add(ModificationPhase.ADDITIONS, bambooJungle, context -> context.getEffects().setFoliageColor(7516981));
+        world.add(ModificationPhase.ADDITIONS, bambooJungle, context -> context.getEffects().setWaterColor(7109721));
 
         world.add(ModificationPhase.ADDITIONS, snowyTaiga, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.SNOWY_TAIGA_TREES_CHECKED));
         world.add(ModificationPhase.ADDITIONS, snowyTaiga, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.SNOW_DRIFTS_PLACED));

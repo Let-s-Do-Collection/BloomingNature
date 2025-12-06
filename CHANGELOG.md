@@ -1,3 +1,45 @@
+[1.1.5]
+
+With this update, most biomes received a range of tweaks and enhancements. The addition of several smaller sub-biomes helps make the world feel more immersive and exciting to explore, adding a richer sense of realism to every journey.
+
+**Added**
+* You can now find twigs and pebbles laying on the ground in certain biomes. Use them to craft cobblestone or sticks. 
+* Cypress Wood Set 
+* Marlstone Stone Set 
+
+**Changed**
+* Reworked Floating Leaves Texture
+* Reworked Begonie Texture
+* Reworked Fan Palm Log Textures
+* Reworked Fir Window Textures 
+* Reworked most Leaves Textures
+* Reworked Quicksand Texture
+* Reworked Marsh Texture
+* Reworked Travertin Stone Set Textures
+* Rebalanced Wandering Gardener Trades
+
+**Biome Changes** 
+
+Plains
+* Added coarse and rooted dirt patches to enhance natural terrain variation
+* Added stone boulders
+* Adjusted tall grass density 
+* Reworked flower patch generation to a noise-based system for a more organic, less cluttered distribution
+
+Sunflower Plains
+* Adjusted tall grass density
+* Added coarse dirt patches to enhance natural terrain variation
+* New Sunflowers - they follow the direction of the sun
+
+River 
+* Cattail and Reed Patches can spawn near river beds 
+* 
+New Subbiome: Brushland. Intended to make transitions from Plains to hot Biomes more realistic
+
+
+***
+
+
 [1.1.4]
 
 **Fixed**

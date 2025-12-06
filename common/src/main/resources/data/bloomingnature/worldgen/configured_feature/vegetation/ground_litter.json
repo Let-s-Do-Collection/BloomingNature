@@ -1,0 +1,25 @@
+{
+  "type": "bloomingnature:ground_litter",
+  "config": {
+    "tries": 3,
+    "xz_spread": 6,
+    "y_spread": 3,
+    "to_place": {
+      "type": "minecraft:weighted_state_provider",
+      "entries": [
+        {
+          "weight": 3,
+          "data": {
+            "Name": "bloomingnature:pebbles"
+          }
+        },
+        {
+          "weight": 2,
+          "data": {
+            "Name": "bloomingnature:twigs"
+          }
+        }
+      ]
+    }
+  }
+}

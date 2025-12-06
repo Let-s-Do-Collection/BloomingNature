@@ -82,6 +82,51 @@ public final class TemperateSurfaceBuilder extends BiolithSurfaceBuilder {
             return;
         }
 
+        if (profile == Profile.BIRCH_FOREST) {
+            for (int d = 0; d <= 4 && topY - d >= 0; d++) {
+                if (column.getBlock(topY - d).getFluidState().is(FluidTags.WATER)) return;
+            }
+
+            float soilNoise = smoothNoise(RandomSource.create(41237L), x, z, 0.08f);
+            float lightSoilNoise = smoothNoise(RandomSource.create(71991L), x + 31, z - 17, 0.11f);
+
+            for (int y = 0; y <= topY; y++) {
+                if (y != topY) continue;
+                var state = column.getBlock(y);
+
+                if (slope >= 3 && state.is(Blocks.STONE)) {
+                    int r = mixIndex(x, y, z);
+                    if (r < 40) {
+                        column.setBlock(y, Blocks.STONE.defaultBlockState());
+                    } else if (r < 75) {
+                        column.setBlock(y, Blocks.COBBLESTONE.defaultBlockState());
+                    } else {
+                        column.setBlock(y, Blocks.MOSSY_COBBLESTONE.defaultBlockState());
+                    }
+                    continue;
+                }
+
+                if (soilNoise > 0.82f) {
+                    column.setBlock(y, Blocks.COARSE_DIRT.defaultBlockState());
+                    if (y - 1 >= 0) {
+                        column.setBlock(y - 1, Blocks.DIRT.defaultBlockState());
+                    }
+                    continue;
+                }
+
+                if (lightSoilNoise > 0.75f) {
+                    column.setBlock(y, Blocks.ROOTED_DIRT.defaultBlockState());
+                    if (y - 1 >= 0) {
+                        column.setBlock(y - 1, Blocks.DIRT.defaultBlockState());
+                    }
+                    continue;
+                }
+
+                column.setBlock(y, Blocks.GRASS_BLOCK.defaultBlockState());
+            }
+            return;
+        }
+
         if (profile == Profile.OLD_GROWTH_BIRCH_FOREST) {
             for (int d = 0; d <= 4 && topY - d >= 0; d++) {
                 if (column.getBlock(topY - d).getFluidState().is(FluidTags.WATER)) return;
@@ -251,7 +296,8 @@ public final class TemperateSurfaceBuilder extends BiolithSurfaceBuilder {
                 boolean groundOk = ground.is(Blocks.GRASS_BLOCK) || ground.is(Blocks.DIRT) || ground.is(Blocks.SAND) || ground.is(Blocks.GRAVEL);
                 if (groundOk && pocketNoise > 0.82f && slope >= 2) {
                     column.setBlock(topSurfaceY, Blocks.GRAVEL.defaultBlockState());
-                    if (topSurfaceY - 1 >= 0 && !column.getBlock(topSurfaceY - 1).getFluidState().is(FluidTags.WATER)) column.setBlock(topSurfaceY - 1, Blocks.DIRT.defaultBlockState());
+                    if (topSurfaceY - 1 >= 0 && !column.getBlock(topSurfaceY - 1).getFluidState().is(FluidTags.WATER))
+                        column.setBlock(topSurfaceY - 1, Blocks.DIRT.defaultBlockState());
                 }
             }
             return;
@@ -378,6 +424,12 @@ public final class TemperateSurfaceBuilder extends BiolithSurfaceBuilder {
                 column.setBlock(y, Blocks.GRASS_BLOCK.defaultBlockState());
             }
             return;
+        }
+
+        for (int d = 0; d <= 4 && topY - d >= 0; d++) {
+            if (column.getBlock(topY - d).getFluidState().is(FluidTags.WATER)) {
+                return;
+            }
         }
 
         for (int y = 0; y <= topY; y++) {

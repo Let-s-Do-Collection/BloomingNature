@@ -16,7 +16,14 @@ public final class ColdBiomeRegistry extends BiolithSurfaceBuilder {
     }
 
     private static void registerColdRiverPlacement() {
-        var coldBiomes = anyOf(neighbor(Biomes.SNOWY_TAIGA), neighbor(Biomes.TAIGA), neighbor(Biomes.OLD_GROWTH_SPRUCE_TAIGA), neighbor(Biomes.OLD_GROWTH_PINE_TAIGA));
+        var coldBiomes = anyOf(
+                neighbor(Biomes.SNOWY_TAIGA),
+                neighbor(Biomes.TAIGA),
+                neighbor(Biomes.OLD_GROWTH_SPRUCE_TAIGA),
+                neighbor(Biomes.OLD_GROWTH_PINE_TAIGA),
+                neighbor(BloomingNatureBiomeKeys.LARCH_FOREST),
+                neighbor(BloomingNatureBiomeKeys.COLD_GRASSLAND)
+        );
 
         BiomePlacement.addSubOverworld(Biomes.RIVER, BloomingNatureBiomeKeys.COLD_RIVER, coldBiomes);
     }

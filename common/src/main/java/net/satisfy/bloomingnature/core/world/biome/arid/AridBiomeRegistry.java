@@ -30,26 +30,18 @@ public final class AridBiomeRegistry extends BiolithSurfaceBuilder {
         BiomePlacement.replaceOverworld(Biomes.BADLANDS, BloomingNatureBiomeKeys.BRUSHLANDS, 0.22D);
         BiomePlacement.replaceOverworld(Biomes.SAVANNA, BloomingNatureBiomeKeys.BAOBAB_SAVANNA, 0.18D);
         BiomePlacement.replaceOverworld(Biomes.SAVANNA_PLATEAU, BloomingNatureBiomeKeys.BAOBAB_SAVANNA, 0.22D);
-        BiomePlacement.replaceOverworld(Biomes.DESERT, BloomingNatureBiomeKeys.DESERT_OASIS, 0.0725D);
 
-        refineAridReplacements();
         registerDesertRiverPlacement();
         registerOasisPlacement();
     }
 
-    private static void refineAridReplacements() {
-        var flatTight = value(BiomeParameterTargets.DEPTH, -0.04f, 0.04f);
-        var centerWindow = ratio(RatioTargets.CENTER, 0.68f, 0.80f);
-        var awayFromEdges = ratio(RatioTargets.EDGE, 0.0f, 0.18f);
-        var awayFromCoast = allOf(not(BEACHSIDE), not(OCEANSIDE));
-        var awayFromRivers = not(neighbor(BiomeTags.IS_RIVER));
-        var awayFromBadlands = allOf(not(neighbor(Biomes.BADLANDS)), not(neighbor(Biomes.WOODED_BADLANDS)), not(neighbor(Biomes.ERODED_BADLANDS)));
-
-        BiomePlacement.addSubOverworld(BloomingNatureBiomeKeys.DESERT_OASIS, Biomes.DESERT, allOf(flatTight, centerWindow, awayFromEdges, awayFromCoast, awayFromRivers, awayFromBadlands));
-    }
-
     private static void registerDesertRiverPlacement() {
-        var nearArid = anyOf(neighbor(Biomes.DESERT), neighbor(Biomes.BADLANDS), neighbor(Biomes.ERODED_BADLANDS), neighbor(Biomes.WOODED_BADLANDS));
+        var nearArid = anyOf(
+                neighbor(Biomes.DESERT),
+                neighbor(Biomes.BADLANDS),
+                neighbor(Biomes.ERODED_BADLANDS),
+                neighbor(Biomes.WOODED_BADLANDS)
+        );
         var warm = value(BiomeParameterTargets.TEMPERATURE, 0.45f, 2.0f);
         var shallow = value(BiomeParameterTargets.DEPTH, -0.35f, 0.25f);
 
@@ -58,12 +50,13 @@ public final class AridBiomeRegistry extends BiolithSurfaceBuilder {
 
     private static void registerOasisPlacement() {
         var nearRiver = neighbor(BiomeTags.IS_RIVER);
-        var center = ratio(RatioTargets.CENTER, 0.46f, 0.56f);
-        var shallow = value(BiomeParameterTargets.DEPTH, -0.10f, 0.03f);
+        var center = ratio(RatioTargets.CENTER, 0.46f, 0.72f);
+        var edges = ratio(RatioTargets.EDGE, 0.0f, 0.26f);
+        var shallow = value(BiomeParameterTargets.DEPTH, -0.16f, 0.06f);
         var flat = deviationMin(BiomeParameterTargets.PEAKS_VALLEYS, 0.0f);
-        var coolRelief = value(BiomeParameterTargets.PEAKS_VALLEYS, -1.0f, 0.25f);
-        var hot = value(BiomeParameterTargets.TEMPERATURE, 1.0f, 2.0f);
-        var cond = allOf(nearRiver, center, shallow, flat, coolRelief, hot);
+        var coolRelief = value(BiomeParameterTargets.PEAKS_VALLEYS, -1.0f, 0.35f);
+        var hot = value(BiomeParameterTargets.TEMPERATURE, 0.9f, 2.0f);
+        var cond = allOf(nearRiver, center, edges, shallow, flat, coolRelief, hot);
 
         BiomePlacement.addSubOverworld(Biomes.DESERT, BloomingNatureBiomeKeys.DESERT_OASIS, cond);
     }

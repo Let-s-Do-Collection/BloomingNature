@@ -5,12 +5,12 @@
       "type": "minecraft:count",
       "count": {
         "type": "minecraft:constant",
-        "value": 14
+        "value": 5
       }
     },
     {
       "type": "minecraft:rarity_filter",
-      "chance": 7
+      "chance": 16
     },
     {
       "type": "minecraft:in_square"

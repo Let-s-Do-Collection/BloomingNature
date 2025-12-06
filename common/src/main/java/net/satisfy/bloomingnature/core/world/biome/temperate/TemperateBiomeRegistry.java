@@ -5,6 +5,7 @@ import com.terraformersmc.biolith.api.biome.sub.BiomeParameterTargets;
 import com.terraformersmc.biolith.api.biome.sub.CriterionBuilder;
 import com.terraformersmc.biolith.api.biome.sub.RatioTargets;
 import com.terraformersmc.biolith.api.surface.BiolithSurfaceBuilder;
+import net.minecraft.tags.BiomeTags;
 import net.minecraft.world.level.biome.Biomes;
 import net.satisfy.bloomingnature.core.world.biome.BloomingNatureBiomeKeys;
 
@@ -17,16 +18,27 @@ public final class TemperateBiomeRegistry extends BiolithSurfaceBuilder {
     }
 
     private static void registerForestEdgePlacement() {
-        var neighborForestOrFlower = CriterionBuilder.anyOf(
-                CriterionBuilder.neighbor(Biomes.FOREST),
-                CriterionBuilder.neighbor(Biomes.FLOWER_FOREST)
-        );
-        var thinEdgeBand = CriterionBuilder.ratio(RatioTargets.CENTER, 0.17f, 0.23f);
-        var edgeOnNeighborSide = CriterionBuilder.allOf(neighborForestOrFlower, thinEdgeBand);
+        var neighborAnyForest = CriterionBuilder.neighbor(BiomeTags.IS_FOREST);
 
-        BiomePlacement.addSubOverworld(Biomes.PLAINS, BloomingNatureBiomeKeys.FOREST_EDGE, edgeOnNeighborSide);
-        BiomePlacement.addSubOverworld(Biomes.SUNFLOWER_PLAINS, BloomingNatureBiomeKeys.FOREST_EDGE, edgeOnNeighborSide);
-        BiomePlacement.addSubOverworld(Biomes.MEADOW, BloomingNatureBiomeKeys.FOREST_EDGE, edgeOnNeighborSide);
+        var excludeWaterAndFlowerForest = CriterionBuilder.allOf(
+                CriterionBuilder.not(CriterionBuilder.neighbor(BiomeTags.IS_RIVER)),
+                CriterionBuilder.not(CriterionBuilder.neighbor(BiomeTags.IS_OCEAN)),
+                CriterionBuilder.not(CriterionBuilder.neighbor(Biomes.FLOWER_FOREST))
+        );
+
+        var thinEdgeBand = CriterionBuilder.allOf(
+                CriterionBuilder.ratio(RatioTargets.CENTER, 0.28f, 0.52f),
+                CriterionBuilder.deviationMax(BiomeParameterTargets.PEAKS_VALLEYS, 0.12f),
+                excludeWaterAndFlowerForest
+        );
+
+        var edgeOnForestSide = CriterionBuilder.allOf(neighborAnyForest, thinEdgeBand);
+
+        BiomePlacement.addSubOverworld(Biomes.PLAINS, BloomingNatureBiomeKeys.FOREST_EDGE, edgeOnForestSide);
+        BiomePlacement.addSubOverworld(Biomes.SUNFLOWER_PLAINS, BloomingNatureBiomeKeys.FOREST_EDGE, edgeOnForestSide);
+        BiomePlacement.addSubOverworld(Biomes.MEADOW, BloomingNatureBiomeKeys.FOREST_EDGE, edgeOnForestSide);
+        BiomePlacement.addSubOverworld(Biomes.BEACH, BloomingNatureBiomeKeys.FOREST_EDGE, edgeOnForestSide);
+        BiomePlacement.addSubOverworld(Biomes.STONY_SHORE, BloomingNatureBiomeKeys.FOREST_EDGE, edgeOnForestSide);
     }
 
     private static void registerFlowerGladePlacement() {

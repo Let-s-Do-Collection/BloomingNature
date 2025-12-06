@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/pressure_plate_up",
   "textures": {
-    "texture": "bloomingnature:block/swamp_cypress_pressure_plate"
+    "texture": "bloomingnature:block/swamp_cypress_planks"
   }
 }

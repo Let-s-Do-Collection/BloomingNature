@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/cube_all",
   "textures": {
-    "all": "bloomingnature:block/fan_palm_slabs_double"
+    "all": "bloomingnature:block/fan_palm_planks"
   }
 }

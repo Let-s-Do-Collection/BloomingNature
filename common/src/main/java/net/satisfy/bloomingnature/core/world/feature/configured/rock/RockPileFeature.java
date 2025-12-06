@@ -16,32 +16,35 @@ public class RockPileFeature extends Feature<RockPileFeatureConfig> {
 
     @Override
     public boolean place(FeaturePlaceContext<RockPileFeatureConfig> context) {
+        var level = context.level();
         var origin = context.origin();
         var random = context.random();
-        var cfg = context.config();
+        var config = context.config();
 
-        int span = Math.max(0, cfg.maxCount() - cfg.minCount());
-        int pileCount = cfg.minCount() + (span == 0 ? 0 : random.nextInt(span + 1));
+        int span = Math.max(0, config.maxCount() - config.minCount());
+        int pileCount = config.minCount() + (span == 0 ? 0 : random.nextInt(span + 1));
 
         boolean placedAny = false;
 
         for (int n = 0; n < pileCount; n++) {
-            if (cfg.rocks().isEmpty()) break;
-            var spec = cfg.rocks().get(random.nextInt(cfg.rocks().size()));
+            if (config.rocks().isEmpty()) break;
+            var specification = config.rocks().get(random.nextInt(config.rocks().size()));
 
-            int sizeX = Math.max(1, spec.pickSizeX(random));
-            int sizeY = Math.max(1, spec.pickSizeY(random));
-            int sizeZ = Math.max(1, spec.pickSizeZ(random));
-            int bury = Math.max(0, Math.min(spec.pickBury(random), sizeY));
-            float roughness = Math.max(0f, spec.pickRoughness(random));
+            int sizeX = Math.max(1, specification.pickSizeX(random));
+            int sizeY = Math.max(1, specification.pickSizeY(random));
+            int sizeZ = Math.max(1, specification.pickSizeZ(random));
+            int bury = Math.max(0, Math.min(specification.pickBury(random), sizeY));
+            float roughness = Math.max(0f, specification.pickRoughness(random));
 
-            int offX = random.nextInt(cfg.spreadX() * 2 + 1) - cfg.spreadX();
-            int offZ = random.nextInt(cfg.spreadZ() * 2 + 1) - cfg.spreadZ();
+            int offsetX = random.nextInt(config.spreadX() * 2 + 1) - config.spreadX();
+            int offsetZ = random.nextInt(config.spreadZ() * 2 + 1) - config.spreadZ();
 
-            int surfaceY = context.level().getHeight(Heightmap.Types.WORLD_SURFACE_WG, origin.getX() + offX, origin.getZ() + offZ) - 1;
-            var base = new BlockPos(origin.getX() + offX, surfaceY, origin.getZ() + offZ);
+            int surfaceY = level.getHeight(Heightmap.Types.WORLD_SURFACE_WG, origin.getX() + offsetX, origin.getZ() + offsetZ) - 1;
+            var basePosition = new BlockPos(origin.getX() + offsetX, surfaceY, origin.getZ() + offsetZ);
 
-            if (placeOne(context, base, sizeX, sizeY, sizeZ, bury, roughness, spec)) placedAny = true;
+            if (!level.getBlockState(basePosition).getFluidState().isEmpty()) continue;
+
+            if (placeOne(context, basePosition, sizeX, sizeY, sizeZ, bury, roughness, specification)) placedAny = true;
         }
 
         return placedAny;
@@ -50,6 +53,11 @@ public class RockPileFeature extends Feature<RockPileFeatureConfig> {
     private boolean placeOne(FeaturePlaceContext<RockPileFeatureConfig> ctx, BlockPos base, int sizeX, int sizeY, int sizeZ, int bury, float roughness, RockPileFeatureConfig.RockSpec spec) {
         var level = ctx.level();
         var random = ctx.random();
+
+        var stateAboveBase = level.getBlockState(base.above());
+        if (!stateAboveBase.getFluidState().isEmpty()) {
+            return false;
+        }
 
         int rx = Math.max(1, sizeX / 2);
         int ry = Math.max(1, sizeY / 2);
@@ -77,7 +85,10 @@ public class RockPileFeature extends Feature<RockPileFeatureConfig> {
                     boolean canReplaceAbove = !belowSurface && (stateAt.isAir() || stateAt.is(BlockTags.REPLACEABLE) || stateAt.is(BlockTags.SNOW));
                     if (!(canReplaceBelow || canReplaceAbove)) continue;
 
-                    level.setBlock(pos, spec.state(random, pos), 2);
+                    boolean isOuterShell = Math.abs(dx) == rx || Math.abs(dz) == rz;
+                    var stateToPlace = (belowSurface || isOuterShell) ? Blocks.GRAVEL.defaultBlockState() : spec.state(random, pos);
+
+                    level.setBlock(pos, stateToPlace, 2);
                     placed = true;
 
                     boolean nearTop = dy >= topLayer - 1;
@@ -97,5 +108,4 @@ public class RockPileFeature extends Feature<RockPileFeatureConfig> {
         }
 
         return placed;
-    }
-}
+    }}

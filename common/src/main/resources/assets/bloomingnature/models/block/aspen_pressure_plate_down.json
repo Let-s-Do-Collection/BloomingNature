@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/pressure_plate_down",
   "textures": {
-    "texture": "bloomingnature:block/aspen_pressure_plate"
+    "texture": "bloomingnature:block/aspen_planks"
   }
 }

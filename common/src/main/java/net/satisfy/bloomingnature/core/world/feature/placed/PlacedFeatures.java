@@ -84,6 +84,7 @@ public class PlacedFeatures {
     public static final ResourceKey<PlacedFeature> MOSSGRASS_PATCH_PLACED = registerPlacedFeature("grass/mossgrass_patch_placed");
     public static final ResourceKey<PlacedFeature> FOREST_MOSS_CARPET_PLACED = registerPlacedFeature("cold/forest_moss_carpet_placed");
 
+    public static final ResourceKey<PlacedFeature> GROUND_LITTER_PLACED = registerPlacedFeature("vegetation/ground_litter_placed");
 
 
     public static ResourceKey<PlacedFeature> registerPlacedFeature(String name) {
