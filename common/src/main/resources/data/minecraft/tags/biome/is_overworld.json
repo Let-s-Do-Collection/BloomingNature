@@ -1,0 +1,19 @@
+{
+  "replace": false,
+  "values": [
+    "bloomingnature:aspen_forest",
+    "bloomingnature:baobab_savanna",
+    "bloomingnature:brushland",
+    "bloomingnature:cold_grassland",
+    "bloomingnature:cold_river",
+    "bloomingnature:cypress_fields",
+    "bloomingnature:desert_oasis",
+    "bloomingnature:desert_river",
+    "bloomingnature:forest_edge",
+    "bloomingnature:flower_glade",
+    "bloomingnature:golden_glade",
+    "bloomingnature:jungle_river",
+    "bloomingnature:larch_forest",
+    "bloomingnature:marshland"
+  ]
+}

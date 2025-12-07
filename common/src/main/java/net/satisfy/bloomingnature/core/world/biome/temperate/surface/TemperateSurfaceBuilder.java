@@ -13,6 +13,7 @@ import net.minecraft.world.level.chunk.ChunkAccess;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.satisfy.bloomingnature.BloomingNature;
 import net.satisfy.bloomingnature.core.registry.ObjectRegistry;
+import net.satisfy.bloomingnature.core.world.biome.BloomingNatureBiomeKeys;
 
 public final class TemperateSurfaceBuilder extends BiolithSurfaceBuilder {
     public enum Profile {RIVER, FOREST, PLAINS, BIRCH_FOREST, OLD_GROWTH_BIRCH_FOREST, STONY_SHORE, DARK_FOREST}
@@ -499,6 +500,10 @@ public final class TemperateSurfaceBuilder extends BiolithSurfaceBuilder {
         SurfaceGeneration.addSurfaceBuilder(
                 BloomingNature.identifier("dark_forest"),
                 new TemperateSurfaceBuilder(Profile.DARK_FOREST).setBiomeKey(Biomes.DARK_FOREST)
+        );
+        SurfaceGeneration.addSurfaceBuilder(
+                BloomingNature.identifier("aspen_forest"),
+                new TemperateSurfaceBuilder(Profile.OLD_GROWTH_BIRCH_FOREST).setBiomeKey(BloomingNatureBiomeKeys.ASPEN_FOREST)
         );
     }
 }

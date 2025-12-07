@@ -25,6 +25,7 @@ public final class AridBiomeRegistry extends BiolithSurfaceBuilder {
         registerBaobabSavannaPlacement();
         registerDesertRiverPlacement();
         registerOasisPlacement();
+        registerCypressFieldsPlacement();
     }
 
     private static void registerBaobabSavannaPlacement() {
@@ -54,5 +55,23 @@ public final class AridBiomeRegistry extends BiolithSurfaceBuilder {
         var cond = CriterionBuilder.allOf(center, depth, temp);
 
         BiomePlacement.addSubOverworld(Biomes.DESERT, BloomingNatureBiomeKeys.DESERT_OASIS, cond);
+    }
+
+    private static void registerCypressFieldsPlacement() {
+        var warmTemperature = CriterionBuilder.value(BiomeParameterTargets.TEMPERATURE, 0.4f, 2.0f);
+
+        var nearColdBiomes = CriterionBuilder.anyOf(
+                CriterionBuilder.neighbor(Biomes.SNOWY_PLAINS),
+                CriterionBuilder.neighbor(Biomes.GROVE),
+                CriterionBuilder.neighbor(Biomes.SNOWY_SLOPES),
+                CriterionBuilder.neighbor(Biomes.FROZEN_PEAKS),
+                CriterionBuilder.neighbor(Biomes.JAGGED_PEAKS)
+        );
+
+        var notNearColdBiomes = CriterionBuilder.not(nearColdBiomes);
+        var cypressCondition = CriterionBuilder.allOf(warmTemperature, notNearColdBiomes);
+
+        BiomePlacement.addSubOverworld(Biomes.PLAINS, BloomingNatureBiomeKeys.CYPRESS_FIELDS, cypressCondition);
+        BiomePlacement.addSubOverworld(Biomes.SUNFLOWER_PLAINS, BloomingNatureBiomeKeys.CYPRESS_FIELDS, cypressCondition);
     }
 }

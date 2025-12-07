@@ -15,6 +15,7 @@ public final class TemperateBiomeRegistry extends BiolithSurfaceBuilder {
         registerFlowerGladePlacement();
         registerGoldenGladePlacement();
         registerOldGrowthBirchPlacement();
+        registerAspenForestPlacement();
     }
 
     private static void registerForestEdgePlacement() {
@@ -82,5 +83,10 @@ public final class TemperateBiomeRegistry extends BiolithSurfaceBuilder {
                 CriterionBuilder.deviationMin(BiomeParameterTargets.PEAKS_VALLEYS, 0.04f)
         );
         BiomePlacement.addSubOverworld(Biomes.BIRCH_FOREST, Biomes.OLD_GROWTH_BIRCH_FOREST, cond);
+    }
+
+    private static void registerAspenForestPlacement() {
+        BiomePlacement.replaceOverworld(Biomes.BIRCH_FOREST, BloomingNatureBiomeKeys.ASPEN_FOREST, 0.55D);
+        BiomePlacement.replaceOverworld(Biomes.OLD_GROWTH_BIRCH_FOREST, BloomingNatureBiomeKeys.ASPEN_FOREST, 0.85D);
     }
 }

@@ -19,6 +19,7 @@ public final class BloomingNatureBiomeKeys {
     public static final ResourceKey<Biome> COLD_GRASSLAND = ResourceKey.create(Registries.BIOME, BloomingNature.identifier("cold_grassland"));
     public static final ResourceKey<Biome> LARCH_FOREST = ResourceKey.create(Registries.BIOME, BloomingNature.identifier("larch_forest"));
     public static final ResourceKey<Biome> MARSHLAND = ResourceKey.create(Registries.BIOME, BloomingNature.identifier("marshland"));
+    public static final ResourceKey<Biome> ASPEN_FOREST = ResourceKey.create(Registries.BIOME, BloomingNature.identifier("aspen_forest"));
 
     private BloomingNatureBiomeKeys() {
     }
