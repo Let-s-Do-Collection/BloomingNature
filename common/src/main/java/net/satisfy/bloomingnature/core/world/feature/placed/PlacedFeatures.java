@@ -62,7 +62,6 @@ public class PlacedFeatures {
     public static final ResourceKey<PlacedFeature> SLATE_SLABS_PLACED = registerPlacedFeature("arid/slate_slabs_placed");
     public static final ResourceKey<PlacedFeature> CACTUS_PATCH_PLACED = registerPlacedFeature("vegetation/cactus_patch_placed");
     public static final ResourceKey<PlacedFeature> ARID_VEGETATION_PATCH_PLACED = registerPlacedFeature("vegetation/arid_scrub_patch_placed");
-    public static final ResourceKey<PlacedFeature> DRY_GRASS_PATCH_PLACED = registerPlacedFeature("grass/dry_grass_patch_placed");
 
     public static final ResourceKey<PlacedFeature> SPARSE_JUNGLE_TREES_CHECKED = registerPlacedFeature("trees/sparse_jungle_trees_checked");
     public static final ResourceKey<PlacedFeature> JUNGLE_TREES_CHECKED = registerPlacedFeature("trees/jungle_trees_checked");
@@ -92,6 +91,9 @@ public class PlacedFeatures {
     public static final ResourceKey<PlacedFeature> WET_GRASS_PATCH_PLACED = registerPlacedFeature("grass/wet_grass_patch_placed");
     public static final ResourceKey<PlacedFeature> FLOATING_LEAVES_PATCH_PLACED = registerPlacedFeature("vegetation/floating_leaves_patch_placed");
     public static final ResourceKey<PlacedFeature> REEDBELT_PLACED = registerPlacedFeature("vegetation/reedbelt_placed");
+
+    public static final ResourceKey<PlacedFeature> DRY_BUSH_PATCH_PLACED = registerPlacedFeature("vegetation/dry_bush_patch_placed");
+    public static final ResourceKey<PlacedFeature> DRY_GRASS_PATCH_PLACED = registerPlacedFeature("grass/dry_grass_patch_placed");
 
     public static ResourceKey<PlacedFeature> registerPlacedFeature(String name) {
         return ResourceKey.create(Registries.PLACED_FEATURE, BloomingNature.identifier(name));

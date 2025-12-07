@@ -120,12 +120,12 @@ public final class BloomingNatureFabricWorldgen {
         world.add(ModificationPhase.ADDITIONS, birchForest, context -> context.getEffects().setGrassColor(10799444));
         world.add(ModificationPhase.ADDITIONS, birchForest, context -> context.getEffects().setFoliageColor(8567370));
 
-        world.add(ModificationPhase.ADDITIONS, oldGrowthBirchForest, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.SUNGRASS_PATCH_PLACED));
         world.add(ModificationPhase.ADDITIONS, oldGrowthBirchForest, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.OLD_GROWTH_BIRCH_FOREST_TREES_CHECKED));
         world.add(ModificationPhase.ADDITIONS, oldGrowthBirchForest, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.OLD_GROWTH_BIRCH_FOREST_FLOWER_PATCH_PLACED));
         world.add(ModificationPhase.ADDITIONS, oldGrowthBirchForest, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.STONE_BOULDER_PLACED));
         world.add(ModificationPhase.ADDITIONS, oldGrowthBirchForest, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.STONE_SLABS_PLACED));
         world.add(ModificationPhase.ADDITIONS, oldGrowthBirchForest, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.BIRCH_TREE_FALLEN_PLACED));
+        world.add(ModificationPhase.ADDITIONS, oldGrowthBirchForest, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.SUNGRASS_PATCH_PLACED));
         world.add(ModificationPhase.ADDITIONS, oldGrowthBirchForest, context -> context.getEffects().setGrassColor(14406505));
         world.add(ModificationPhase.ADDITIONS, oldGrowthBirchForest, context -> context.getEffects().setFoliageColor(7386187));
 
@@ -158,6 +158,7 @@ public final class BloomingNatureFabricWorldgen {
         world.add(ModificationPhase.ADDITIONS, beach, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.SAND_LAYER_1_PLACED));
         world.add(ModificationPhase.ADDITIONS, beach, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.SAND_LAYER_2_PLACED));
         world.add(ModificationPhase.ADDITIONS, beach, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.DRY_GRASS_PATCH_PLACED));
+        world.add(ModificationPhase.ADDITIONS, beach, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.DRY_BUSH_PATCH_PLACED));
         world.add(ModificationPhase.ADDITIONS, beach, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.STONE_PILE_PLACED));
 
         world.add(ModificationPhase.ADDITIONS, stonyShore, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.STONE_PILE_PLACED));

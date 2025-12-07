@@ -22,8 +22,15 @@ public final class AridBiomeRegistry extends BiolithSurfaceBuilder {
         BiomePlacement.replaceOverworld(Biomes.SAVANNA, BloomingNatureBiomeKeys.BAOBAB_SAVANNA, 0.55D);
         BiomePlacement.replaceOverworld(Biomes.SAVANNA_PLATEAU, BloomingNatureBiomeKeys.BAOBAB_SAVANNA, 0.65D);
 
+        registerBaobabSavannaPlacement();
         registerDesertRiverPlacement();
         registerOasisPlacement();
+    }
+
+    private static void registerBaobabSavannaPlacement() {
+        BiomePlacement.replaceOverworld(Biomes.SAVANNA, BloomingNatureBiomeKeys.BAOBAB_SAVANNA, 0.40D);
+        BiomePlacement.replaceOverworld(Biomes.SAVANNA_PLATEAU, BloomingNatureBiomeKeys.BAOBAB_SAVANNA, 0.40D);
+        BiomePlacement.replaceOverworld(Biomes.WINDSWEPT_SAVANNA, BloomingNatureBiomeKeys.BAOBAB_SAVANNA, 0.40D);
     }
 
     private static void registerDesertRiverPlacement() {

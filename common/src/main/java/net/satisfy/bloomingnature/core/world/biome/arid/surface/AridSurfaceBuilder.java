@@ -43,6 +43,62 @@ public final class AridSurfaceBuilder extends BiolithSurfaceBuilder {
             if (column.getBlock(topY - d).getFluidState().is(FluidTags.WATER)) return;
         }
 
+        if (profile == Profile.CYPRESS_FIELDS) {
+            float mask = smoothNoise(RandomSource.create(912345L), x - 113, z + 271, 0.02f);
+            float n1 = smoothNoise(RandomSource.create(34187L), x, z, 0.08f);
+            float n2 = smoothNoise(RandomSource.create(7123L), x + 91, z + 37, 0.12f);
+
+            for (int y = 0; y <= topY; y++) {
+                if (y != topY) continue;
+
+                if (slope >= 3) {
+                    int cliffDepth = 3 + random.nextInt(3);
+                    for (int depthStep = 0; depthStep < cliffDepth; depthStep++) {
+                        int cliffY = y - depthStep;
+                        if (cliffY < 0) break;
+
+                        int r = mixIndex(x, cliffY, z);
+                        if (r < 20) {
+                            column.setBlock(cliffY, ObjectRegistry.MOSSY_COBBLED_MARLSTONE.get().defaultBlockState());
+                        } else if (r < 50) {
+                            column.setBlock(cliffY, ObjectRegistry.COBBLED_MARLSTONE.get().defaultBlockState());
+                        } else {
+                            column.setBlock(cliffY, ObjectRegistry.MARLSTONE.get().defaultBlockState());
+                        }
+
+                        if (cliffY - 1 >= 0) {
+                            var below = column.getBlock(cliffY - 1);
+                            if (below.is(Blocks.DIRT) || below.is(Blocks.GRASS_BLOCK) || below.is(Blocks.COARSE_DIRT)) {
+                                column.setBlock(cliffY - 1, ObjectRegistry.MARLSTONE.get().defaultBlockState());
+                            }
+                        }
+                    }
+                    continue;
+                }
+
+                if (mask <= 0.70f) {
+                    column.setBlock(y, Blocks.GRASS_BLOCK.defaultBlockState());
+                    continue;
+                }
+                if (n1 > 0.85f) {
+                    column.setBlock(y, Blocks.ROOTED_DIRT.defaultBlockState());
+                    if (y - 1 >= 0) column.setBlock(y - 1, Blocks.DIRT.defaultBlockState());
+                    continue;
+                }
+                if (n1 > 0.70f) {
+                    if (n2 > 0.90f) {
+                        column.setBlock(y, Blocks.WHITE_TERRACOTTA.defaultBlockState());
+                    } else {
+                        column.setBlock(y, Blocks.COARSE_DIRT.defaultBlockState());
+                        if (y - 1 >= 0) column.setBlock(y - 1, Blocks.DIRT.defaultBlockState());
+                    }
+                    continue;
+                }
+                column.setBlock(y, Blocks.GRASS_BLOCK.defaultBlockState());
+            }
+            return;
+        }
+
         if (profile == Profile.BRUSHLAND) {
             float mask = smoothNoise(RandomSource.create(912345L), x - 113, z + 271, 0.02f);
             float n1 = smoothNoise(RandomSource.create(34187L), x, z, 0.08f);

@@ -27,7 +27,8 @@ public class EntityTypeRegistry {
     public static final Supplier<EntityType<ModChestBoatEntity>> MOD_CHEST_BOAT = PlatformHelper.registerBoatType("mod_chest_boat", ModChestBoatEntity::new, MobCategory.MISC, 1.375F, 0.5625F, 10);
 
     public static final RegistrySupplier<BlockEntityType<CompletionistBannerEntity>> BLOOMINGNATURE_BANNER = registerBlockEntity("bloomingnature_banner", () -> BlockEntityType.Builder.of(CompletionistBannerEntity::new, ObjectRegistry.BLOOMINGNATURE_BANNER.get(), ObjectRegistry.BLOOMINGNATURE_WALL_BANNER.get()).build(null));
-
+    public static final RegistrySupplier<BlockEntityType<SunflowerBlockEntity>> SUNFLOWER = registerBlockEntity("sunflower", () -> BlockEntityType.Builder.of(SunflowerBlockEntity::new, ObjectRegistry.SUNFLOWER.get()).build(null)
+    );
     public static final RegistrySupplier<BlockEntityType<ModSignBlockEntity>> MOD_SIGN = BLOCK_ENTITY_TYPES.register("mod_sign", () -> BlockEntityType.Builder.of(
             ModSignBlockEntity::new,
             ObjectRegistry.LARCH_SIGN.get(), ObjectRegistry.LARCH_WALL_SIGN.get(),

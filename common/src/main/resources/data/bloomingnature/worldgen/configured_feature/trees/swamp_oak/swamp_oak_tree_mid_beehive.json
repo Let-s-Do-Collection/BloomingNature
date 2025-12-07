@@ -30,7 +30,6 @@
       "state": {
         "Name": "bloomingnature:swamp_oak_leaves",
         "Properties": {
-          "distance": "7",
           "persistent": "false",
           "waterlogged": "false"
         }

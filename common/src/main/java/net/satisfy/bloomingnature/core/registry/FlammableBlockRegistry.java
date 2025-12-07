@@ -56,7 +56,8 @@ public class FlammableBlockRegistry {
                 ObjectRegistry.ASPEN_LEAVES.get(),
                 ObjectRegistry.EBONY_LEAVES.get(),
                 ObjectRegistry.ORANGE_LEAVES.get(),
-                ObjectRegistry.CYPRESS_LEAVES.get()
+                ObjectRegistry.CYPRESS_LEAVES.get(),
+                ObjectRegistry.BLOOMING_OAK_LEAVES.get()
         );
     }
 

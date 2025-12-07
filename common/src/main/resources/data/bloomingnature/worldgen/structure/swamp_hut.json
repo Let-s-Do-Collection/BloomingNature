@@ -3,7 +3,7 @@
   "start_pool": "bloomingnature:swamp_hut/start_pool",
   "size": 2,
   "max_distance_from_center": 80,
-  "biomes": "#bloomingnature:has_structure/swamp",
+  "biomes": "#minecraft:has_structure/swamp_hut",
   "step": "surface_structures",
   "terrain_adaptation": "beard_thin",
   "start_height": {

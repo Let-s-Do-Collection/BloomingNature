@@ -1,8 +1,8 @@
 {
   "type": "minecraft:random_patch",
   "config": {
-    "tries": 17,
-    "xz_spread": 10,
+    "tries": 8,
+    "xz_spread": 4,
     "y_spread": 2,
     "feature": {
       "feature": {
@@ -12,9 +12,18 @@
             "type": "minecraft:weighted_state_provider",
             "entries": [
               {
-                "weight": 19,
+                "weight": 12,
                 "data": {
-                  "Name": "bloomingnature:dry_grass"
+                  "Name": "bloomingnature:dry_bush"
+                }
+              },
+              {
+                "weight": 8,
+                "data": {
+                  "Name": "bloomingnature:dry_bush_tall",
+                  "Properties": {
+                    "half": "lower"
+                  }
                 }
               }
             ]
