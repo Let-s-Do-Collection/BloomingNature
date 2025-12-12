@@ -1,15 +1,16 @@
 {
-  "feature": "bloomingnature:trees/aspen_forest_trees",
+  "feature": "bloomingnature:trees/cold_grassland_trees",
   "placement": [
     {
-      "type": "minecraft:noise_threshold_count",
-      "noise_level": -0.1,
-      "below_noise": 4,
-      "above_noise": 14
+      "type": "minecraft:rarity_filter",
+      "chance": 3
     },
     {
-      "type": "minecraft:rarity_filter",
-      "chance": 1
+      "type": "minecraft:count",
+      "count": {
+        "type": "minecraft:constant",
+        "value": 1
+      }
     },
     {
       "type": "minecraft:in_square"
@@ -20,7 +21,7 @@
     },
     {
       "type": "minecraft:heightmap",
-      "heightmap": "OCEAN_FLOOR"
+      "heightmap": "MOTION_BLOCKING_NO_LEAVES"
     },
     {
       "type": "minecraft:biome"

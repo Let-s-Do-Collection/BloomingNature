@@ -138,6 +138,8 @@
   "block.bloomingnature.dry_bush": "Dry Bush",
   "block.bloomingnature.dry_bush_tall": "Tall Dry Bush",
   "block.bloomingnature.dry_grass": "Dry Grass",
+  "block.bloomingnature.fen_moss": "Fen Moss",
+  "block.bloomingnature.fen_moss_carpet": "Fen Moss",
   "block.bloomingnature.ebony_button": "Ebony Button",
   "block.bloomingnature.ebony_door": "Ebony Door",
   "block.bloomingnature.ebony_fence": "Ebony Fence",
@@ -471,5 +473,6 @@
   "tooltip.bloomingnature.banner.thankyou_2": "When placed:",
   "tooltip.bloomingnature.banner.thankyou_3": "Thank you for playing BloomingNature!",
   "tooltip.bloomingnature.banner.thankyou_4": "Grants Strength II in a radius of 8 blocks",
-  "tooltip.bloomingnature.canbeplaced": "Can be Placed"
+  "tooltip.bloomingnature.canbeplaced": "Can be Placed",
+  "biome.bloomingnature.fen": "Fen"
 }

@@ -8,16 +8,16 @@ import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.biome.BiomeManager;
 import net.minecraft.world.level.biome.Biomes;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.chunk.BlockColumn;
 import net.minecraft.world.level.chunk.ChunkAccess;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.satisfy.bloomingnature.BloomingNature;
 import net.satisfy.bloomingnature.core.registry.ObjectRegistry;
 import net.satisfy.bloomingnature.core.world.biome.BloomingNatureBiomeKeys;
-import net.satisfy.bloomingnature.core.world.biome.temperate.surface.TemperateSurfaceBuilder;
 
 public final class ColdSurfaceBuilder extends BiolithSurfaceBuilder {
-    public enum Profile {COLD_RIVER, TAIGA, OLD_GROWTH_SPRUCE_TAIGA, OLD_GROWTH_PINE_TAIGA, COLD_GRASSLAND, LARCH_FOREST}
+    public enum Profile {FEN, COLD_RIVER, TAIGA, OLD_GROWTH_SPRUCE_TAIGA, OLD_GROWTH_PINE_TAIGA, COLD_GRASSLAND, LARCH_FOREST}
 
     private final Profile profile;
 
@@ -158,6 +158,7 @@ public final class ColdSurfaceBuilder extends BiolithSurfaceBuilder {
             }
             return;
         }
+
         if (profile == Profile.TAIGA) {
             for (int y = 0; y <= topY; y++) {
                 if (column.getBlock(y).is(Blocks.SAND)) {
@@ -169,6 +170,8 @@ public final class ColdSurfaceBuilder extends BiolithSurfaceBuilder {
                 if (column.getBlock(topY - d).getFluidState().is(FluidTags.WATER)) return;
             }
 
+            if (column.getBlock(topY + 1).getFluidState().is(FluidTags.WATER)) return;
+
             float soilNoise = smoothNoise(RandomSource.create(23874L), x, z, 0.1f);
             float mossNoise = smoothNoise(RandomSource.create(57813L), x + 17, z - 43, 0.15f);
             float podzolNoise = smoothNoise(RandomSource.create(98723L), x - 23, z + 61, 0.09f);
@@ -178,6 +181,9 @@ public final class ColdSurfaceBuilder extends BiolithSurfaceBuilder {
                 var state = column.getBlock(y);
 
                 if (slope >= 3 && state.is(Blocks.STONE)) {
+                    if (y - 1 < 0 || column.getBlock(y - 1).isAir()) {
+                        continue;
+                    }
                     int r = mixIndex(x, y, z);
                     if (r < 40) column.setBlock(y, Blocks.STONE.defaultBlockState());
                     else if (r < 70) column.setBlock(y, Blocks.COBBLESTONE.defaultBlockState());
@@ -205,6 +211,68 @@ public final class ColdSurfaceBuilder extends BiolithSurfaceBuilder {
 
                 column.setBlock(y, Blocks.GRASS_BLOCK.defaultBlockState());
             }
+            return;
+        }
+
+        if (profile == Profile.FEN) {
+            for (int scanY = 0; scanY <= topY; scanY++) {
+                if (column.getBlock(scanY).is(Blocks.SAND)) {
+                    column.setBlock(scanY, Blocks.DIRT.defaultBlockState());
+                }
+            }
+
+            int surfaceY = topY;
+            while (surfaceY > 0 && column.getBlock(surfaceY).getFluidState().is(FluidTags.WATER)) {
+                surfaceY--;
+            }
+            while (surfaceY > 0 && column.getBlock(surfaceY).isAir()) {
+                surfaceY--;
+            }
+            if (surfaceY <= 1) {
+                return;
+            }
+
+            float mossNoise = smoothNoise(RandomSource.create(77113L), x + 19, z - 37, 0.09f);
+            float coarseNoise = smoothNoise(RandomSource.create(88217L), x - 41, z + 23, 0.075f);
+            float mudNoise = smoothNoise(RandomSource.create(91337L), x + 7, z + 11, 0.11f);
+
+            boolean mossPatch = mossNoise > 0.62f;
+            boolean coarsePatch = coarseNoise > 0.72f;
+            boolean rareMudPatch = mudNoise > 0.89f;
+
+            int y = surfaceY;
+
+            BlockState topState;
+            BlockState belowState;
+
+            if (slope >= 3) {
+                topState = Blocks.GRASS_BLOCK.defaultBlockState();
+                int mix = Math.floorMod(mixIndex(x, y - 1, z), 100);
+                belowState = mix < 70 ? Blocks.MUD.defaultBlockState() : Blocks.COARSE_DIRT.defaultBlockState();
+            } else if (rareMudPatch) {
+                topState = Blocks.MUD.defaultBlockState();
+                belowState = Blocks.MUD.defaultBlockState();
+            } else if (mossPatch) {
+                topState = ObjectRegistry.FEN_MOSS.get().defaultBlockState();
+                belowState = Blocks.MUD.defaultBlockState();
+            } else if (coarsePatch) {
+                topState = Blocks.COARSE_DIRT.defaultBlockState();
+                belowState = Blocks.MUD.defaultBlockState();
+            } else {
+                topState = Blocks.GRASS_BLOCK.defaultBlockState();
+                int mix = Math.floorMod(mixIndex(x, y - 1, z), 100);
+                belowState = mix < 70 ? Blocks.MUD.defaultBlockState() : Blocks.COARSE_DIRT.defaultBlockState();
+            }
+
+            column.setBlock(y, topState);
+            column.setBlock(y - 1, belowState);
+
+            for (int subY = y - 2; subY >= y - 5 && subY >= 0; subY--) {
+                if (subY >= y - 1) continue;
+                int clayMix = Math.floorMod(mixIndex(x, subY, z), 100);
+                column.setBlock(subY, clayMix < 85 ? Blocks.CLAY.defaultBlockState() : Blocks.COARSE_DIRT.defaultBlockState());
+            }
+
             return;
         }
 
@@ -291,6 +359,7 @@ public final class ColdSurfaceBuilder extends BiolithSurfaceBuilder {
                 boolean belowWater = column.getBlock(y + 1).getFluidState().is(FluidTags.WATER) || column.getBlock(y).getFluidState().is(FluidTags.WATER);
                 boolean steep = slope >= 3;
                 if (!replaceable || !belowWater) continue;
+                if (y - 1 < 0 || column.getBlock(y - 1).isAir()) continue;
 
                 if (bedNoise > 0.55f || steep) {
                     if (patchNoise > 0.66f) {
@@ -405,6 +474,10 @@ public final class ColdSurfaceBuilder extends BiolithSurfaceBuilder {
         SurfaceGeneration.addSurfaceBuilder(
                 BloomingNature.identifier("larch_forest"),
                 new ColdSurfaceBuilder(Profile.LARCH_FOREST).setBiomeKey(BloomingNatureBiomeKeys.LARCH_FOREST)
+        );
+        SurfaceGeneration.addSurfaceBuilder(
+                BloomingNature.identifier("fen"),
+                new ColdSurfaceBuilder(Profile.FEN).setBiomeKey(BloomingNatureBiomeKeys.FEN)
         );
     }
 }

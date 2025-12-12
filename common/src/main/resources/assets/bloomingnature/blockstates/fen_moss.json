@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "bloomingnature:block/fen_moss",
+        "weight": 1
+      }
+    ]
+  }
+}

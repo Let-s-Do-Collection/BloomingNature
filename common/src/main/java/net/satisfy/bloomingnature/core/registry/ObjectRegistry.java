@@ -515,6 +515,8 @@ public class ObjectRegistry {
     public static final RegistrySupplier<Block> POTTED_DESERT_LILY = registerWithoutItem("potted_desert_lily", () -> new FlowerPotBlock(DESERT_LILY.get(), BlockBehaviour.Properties.ofFullCopy(Blocks.FLOWER_POT)));
     public static final RegistrySupplier<Block> TWIGS = registerWithItem("twigs", () -> new GroundDetailBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_WOOD).instabreak().noOcclusion()));
     public static final RegistrySupplier<Block> PEBBLES = registerWithItem("pebbles", () -> new GroundDetailBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_WOOD).instabreak().noOcclusion()));
+    public static final RegistrySupplier<Block> FEN_MOSS = registerWithItem("fen_moss", () -> new FenMossBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.MOSS_BLOCK).randomTicks()));
+    public static final RegistrySupplier<Block> FEN_MOSS_CARPET = registerWithItem("fen_moss_carpet", () -> new CarpetBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.MOSS_CARPET)));
 
     public static void init() {
         ITEMS.register();

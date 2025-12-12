@@ -8,6 +8,7 @@ import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class RockPileFeature extends Feature<RockPileFeatureConfig> {
     public RockPileFeature() {
@@ -28,13 +29,13 @@ public class RockPileFeature extends Feature<RockPileFeatureConfig> {
 
         for (int n = 0; n < pileCount; n++) {
             if (config.rocks().isEmpty()) break;
-            var specification = config.rocks().get(random.nextInt(config.rocks().size()));
+            var shapeSpec = config.rocks().get(random.nextInt(config.rocks().size()));
 
-            int sizeX = Math.max(1, specification.pickSizeX(random));
-            int sizeY = Math.max(1, specification.pickSizeY(random));
-            int sizeZ = Math.max(1, specification.pickSizeZ(random));
-            int bury = Math.max(0, Math.min(specification.pickBury(random), sizeY));
-            float roughness = Math.max(0f, specification.pickRoughness(random));
+            int sizeX = Math.max(1, shapeSpec.pickSizeX(random));
+            int sizeY = Math.max(1, shapeSpec.pickSizeY(random));
+            int sizeZ = Math.max(1, shapeSpec.pickSizeZ(random));
+            int bury = Math.max(0, Math.min(shapeSpec.pickBury(random), sizeY));
+            float roughness = Math.max(0f, shapeSpec.pickRoughness(random));
 
             int offsetX = random.nextInt(config.spreadX() * 2 + 1) - config.spreadX();
             int offsetZ = random.nextInt(config.spreadZ() * 2 + 1) - config.spreadZ();
@@ -44,68 +45,112 @@ public class RockPileFeature extends Feature<RockPileFeatureConfig> {
 
             if (!level.getBlockState(basePosition).getFluidState().isEmpty()) continue;
 
-            if (placeOne(context, basePosition, sizeX, sizeY, sizeZ, bury, roughness, specification)) placedAny = true;
+            if (placeOne(context, basePosition, sizeX, sizeY, sizeZ, bury, roughness, config.rocks())) placedAny = true;
         }
 
         return placedAny;
     }
 
-    private boolean placeOne(FeaturePlaceContext<RockPileFeatureConfig> ctx, BlockPos base, int sizeX, int sizeY, int sizeZ, int bury, float roughness, RockPileFeatureConfig.RockSpec spec) {
-        var level = ctx.level();
-        var random = ctx.random();
+    private boolean placeOne(FeaturePlaceContext<RockPileFeatureConfig> context, BlockPos basePosition, int sizeX, int sizeY, int sizeZ, int bury, float roughness, List<RockPileFeatureConfig.RockSpec> rockSpecs) {
+        var level = context.level();
+        var random = context.random();
 
-        var stateAboveBase = level.getBlockState(base.above());
+        var stateAboveBase = level.getBlockState(basePosition.above());
         if (!stateAboveBase.getFluidState().isEmpty()) {
             return false;
         }
 
-        int rx = Math.max(1, sizeX / 2);
-        int ry = Math.max(1, sizeY / 2);
-        int rz = Math.max(1, sizeZ / 2);
+        int radiusX = Math.max(1, sizeX / 2);
+        int radiusY = Math.max(1, sizeY / 2);
+        int radiusZ = Math.max(1, sizeZ / 2);
         int topLayer = sizeY - bury - 1;
 
-        var topCorner = new ArrayList<BlockPos>();
+        var topCornerPositions = new ArrayList<BlockPos>();
+        var placedPositions = new ArrayList<BlockPos>();
         boolean placed = false;
 
-        for (int dy = -bury; dy < sizeY - bury; dy++) {
-            for (int dx = -rx; dx <= rx; dx++) {
-                for (int dz = -rz; dz <= rz; dz++) {
-                    double nx = (double) dx / rx;
-                    double ny = (double) dy / ry;
-                    double nz = (double) dz / rz;
-                    double shape = nx * nx + ny * ny + nz * nz;
+        for (int offsetY = -bury; offsetY < sizeY - bury; offsetY++) {
+            for (int offsetX = -radiusX; offsetX <= radiusX; offsetX++) {
+                for (int offsetZ = -radiusZ; offsetZ <= radiusZ; offsetZ++) {
+                    double normalizedX = (double) offsetX / radiusX;
+                    double normalizedY = (double) offsetY / radiusY;
+                    double normalizedZ = (double) offsetZ / radiusZ;
+                    double shape = normalizedX * normalizedX + normalizedY * normalizedY + normalizedZ * normalizedZ;
                     double jitter = random.nextDouble() * roughness;
                     if (shape + jitter > 1.0) continue;
 
-                    var pos = base.offset(dx, dy, dz);
-                    var stateAt = level.getBlockState(pos);
+                    var currentPosition = basePosition.offset(offsetX, offsetY, offsetZ);
+                    var stateAtPosition = level.getBlockState(currentPosition);
 
-                    boolean belowSurface = dy < 0;
-                    boolean canReplaceBelow = belowSurface && stateAt.getFluidState().isEmpty();
-                    boolean canReplaceAbove = !belowSurface && (stateAt.isAir() || stateAt.is(BlockTags.REPLACEABLE) || stateAt.is(BlockTags.SNOW));
+                    boolean belowSurface = offsetY < 0;
+                    boolean canReplaceBelow = belowSurface && stateAtPosition.getFluidState().isEmpty();
+                    boolean canReplaceAbove = !belowSurface && (stateAtPosition.isAir() || stateAtPosition.is(BlockTags.REPLACEABLE) || stateAtPosition.is(BlockTags.SNOW));
                     if (!(canReplaceBelow || canReplaceAbove)) continue;
 
-                    boolean isOuterShell = Math.abs(dx) == rx || Math.abs(dz) == rz;
-                    var stateToPlace = (belowSurface || isOuterShell) ? Blocks.GRAVEL.defaultBlockState() : spec.state(random, pos);
+                    boolean isOuterShell = Math.abs(offsetX) == radiusX || Math.abs(offsetZ) == radiusZ;
+                    var stateToPlace = (belowSurface || isOuterShell)
+                            ? Blocks.GRAVEL.defaultBlockState()
+                            : rockSpecs.get(random.nextInt(rockSpecs.size())).state(random, currentPosition);
 
-                    level.setBlock(pos, stateToPlace, 2);
+                    level.setBlock(currentPosition, stateToPlace, 2);
                     placed = true;
+                    placedPositions.add(currentPosition.immutable());
 
-                    boolean nearTop = dy >= topLayer - 1;
-                    boolean nearCorner = Math.abs(dx) >= rx - 1 && Math.abs(dz) >= rz - 1;
-                    if (nearTop && nearCorner) topCorner.add(pos.immutable());
+                    boolean nearTop = offsetY >= topLayer - 1;
+                    boolean nearCorner = Math.abs(offsetX) >= radiusX - 1 && Math.abs(offsetZ) >= radiusZ - 1;
+                    if (nearTop && nearCorner) topCornerPositions.add(currentPosition.immutable());
                 }
             }
         }
 
-        if (!topCorner.isEmpty()) {
-            int carveCount = Math.min(topCorner.size(), 1 + random.nextInt(3));
+        if (!topCornerPositions.isEmpty()) {
+            int carveCount = Math.min(topCornerPositions.size(), 1 + random.nextInt(3));
             for (int i = 0; i < carveCount; i++) {
-                int idx = random.nextInt(topCorner.size());
-                var pos = topCorner.remove(idx);
-                level.setBlock(pos, Blocks.AIR.defaultBlockState(), 2);
+                int index = random.nextInt(topCornerPositions.size());
+                var carvePosition = topCornerPositions.remove(index);
+                level.setBlock(carvePosition, Blocks.AIR.defaultBlockState(), 2);
+            }
+        }
+
+        if (!placedPositions.isEmpty()) {
+            for (var rockPosition : placedPositions) {
+                transformAdjacentBlocks(context, rockPosition);
             }
         }
 
         return placed;
-    }}
+    }
+
+    private void transformAdjacentBlocks(FeaturePlaceContext<RockPileFeatureConfig> context, BlockPos rockPosition) {
+        var level = context.level();
+        var random = context.random();
+
+        if (random.nextFloat() >= 0.6F) {
+            return;
+        }
+
+        var northPosition = rockPosition.north();
+        var southPosition = rockPosition.south();
+        var eastPosition = rockPosition.east();
+        var westPosition = rockPosition.west();
+
+        transformSingleAdjacentBlock(level, northPosition);
+        transformSingleAdjacentBlock(level, southPosition);
+        transformSingleAdjacentBlock(level, eastPosition);
+        transformSingleAdjacentBlock(level, westPosition);
+    }
+
+    private void transformSingleAdjacentBlock(net.minecraft.world.level.WorldGenLevel level, BlockPos position) {
+        var stateAtPosition = level.getBlockState(position);
+        if (!(stateAtPosition.is(Blocks.SAND) || stateAtPosition.is(Blocks.GRASS_BLOCK))) {
+            return;
+        }
+
+        var stateAbovePosition = level.getBlockState(position.above());
+        if (!(stateAbovePosition.isAir() || stateAbovePosition.is(BlockTags.REPLACEABLE) || stateAbovePosition.is(BlockTags.SNOW))) {
+            return;
+        }
+
+        level.setBlock(position, Blocks.GRAVEL.defaultBlockState(), 2);
+    }
+}

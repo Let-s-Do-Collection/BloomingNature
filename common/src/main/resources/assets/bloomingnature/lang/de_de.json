@@ -471,5 +471,8 @@
   "biome.bloomingnature.jungle_river": "Dschungelfluss",
   "biome.bloomingnature.larch_forest": "Lärchenwald",
   "biome.bloomingnature.marshland": "Moorland",
-  "biome.bloomingnature.aspen_forest": "Aspenwald"
+  "biome.bloomingnature.aspen_forest": "Aspenwald",
+  "biome.bloomingnature.fen": "Fenn",
+  "block.bloomingnature.fen_moss": "Fennmoos",
+  "block.bloomingnature.fen_moss_carpet": "Fennmoos Teppich"
 }

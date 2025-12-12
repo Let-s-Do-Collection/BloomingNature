@@ -350,6 +350,8 @@ public class TabRegistry {
                 out.accept(ObjectRegistry.SAND.get());
                 out.accept(ObjectRegistry.FOREST_MOSS.get());
                 out.accept(ObjectRegistry.FOREST_MOSS_CARPET.get());
+                out.accept(ObjectRegistry.FEN_MOSS.get());
+                out.accept(ObjectRegistry.FEN_MOSS_CARPET.get());
                 out.accept(ObjectRegistry.SUNGRASS.get());
                 out.accept(ObjectRegistry.TALL_SUNGRASS.get());
                 out.accept(ObjectRegistry.BLUFF_GRASS.get());
