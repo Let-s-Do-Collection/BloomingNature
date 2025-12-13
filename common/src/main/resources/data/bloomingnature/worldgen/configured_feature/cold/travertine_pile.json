@@ -1,0 +1,83 @@
+{
+  "type": "bloomingnature:rock_pile",
+  "config": {
+    "min_count": 1,
+    "max_count": 3,
+    "spread_x": 6,
+    "spread_z": 6,
+    "rocks": [
+      {
+        "state_provider": {
+          "type": "minecraft:simple_state_provider",
+          "state": {
+            "Name": "bloomingnature:travertin"
+          }
+        },
+        "min_size_x": 4,
+        "max_size_x": 6,
+        "min_size_y": 3,
+        "max_size_y": 5,
+        "min_size_z": 4,
+        "max_size_z": 6,
+        "min_bury": 2,
+        "max_bury": 3,
+        "min_roughness": 0.15,
+        "max_roughness": 0.30
+      },
+      {
+        "state_provider": {
+          "type": "minecraft:simple_state_provider",
+          "state": {
+            "Name": "bloomingnature:mossy_travertin"
+          }
+        },
+        "min_size_x": 4,
+        "max_size_x": 6,
+        "min_size_y": 3,
+        "max_size_y": 5,
+        "min_size_z": 4,
+        "max_size_z": 6,
+        "min_bury": 2,
+        "max_bury": 4,
+        "min_roughness": 0.20,
+        "max_roughness": 0.35
+      },
+      {
+        "state_provider": {
+          "type": "minecraft:simple_state_provider",
+          "state": {
+            "Name": "bloomingnature:cobbled_travertin"
+          }
+        },
+        "min_size_x": 3,
+        "max_size_x": 5,
+        "min_size_y": 2,
+        "max_size_y": 4,
+        "min_size_z": 3,
+        "max_size_z": 5,
+        "min_bury": 3,
+        "max_bury": 5,
+        "min_roughness": 0.25,
+        "max_roughness": 0.40
+      },
+      {
+        "state_provider": {
+          "type": "minecraft:simple_state_provider",
+          "state": {
+            "Name": "bloomingnature:mossy_cobbled_travertin"
+          }
+        },
+        "min_size_x": 2,
+        "max_size_x": 4,
+        "min_size_y": 1,
+        "max_size_y": 3,
+        "min_size_z": 2,
+        "max_size_z": 4,
+        "min_bury": 4,
+        "max_bury": 6,
+        "min_roughness": 0.30,
+        "max_roughness": 0.50
+      }
+    ]
+  }
+}

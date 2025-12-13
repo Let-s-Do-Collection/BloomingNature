@@ -2,6 +2,8 @@
   "replace": false,
   "values": [
     "bloomingnature:cold_grassland",
-    "bloomingnature:larch_forest"
+    "bloomingnature:larch_forest",
+    "bloomingnature:highland_woods",
+    "bloomingnature:fen"
   ]
 }

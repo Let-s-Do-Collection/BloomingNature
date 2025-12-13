@@ -60,9 +60,9 @@ public final class BloomingNatureFabricWorldgen {
         world.add(ModificationPhase.ADDITIONS, plains, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.PLAINS_FLOWER_PATCH_PLACED));
         world.add(ModificationPhase.ADDITIONS, plains, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.PLAINS_TREES_CHECKED));
         world.add(ModificationPhase.ADDITIONS, plains, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.PLAINS_TREES_GROUP_CHECKED));
-        world.add(ModificationPhase.ADDITIONS, plains, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.STONE_BOULDER_PLACED));
-        world.add(ModificationPhase.ADDITIONS, plains, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.STONE_SLABS_PLACED));
-        world.add(ModificationPhase.ADDITIONS, plains, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.STONE_PILE_PLACED));
+        world.add(ModificationPhase.ADDITIONS, plains, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.LOCAL_MODIFICATIONS, PlacedFeatures.STONE_BOULDER_PLACED));
+        world.add(ModificationPhase.ADDITIONS, plains, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.LOCAL_MODIFICATIONS, PlacedFeatures.STONE_SLABS_PLACED));
+        world.add(ModificationPhase.ADDITIONS, plains, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.LOCAL_MODIFICATIONS, PlacedFeatures.STONE_PILE_PLACED));
         world.add(ModificationPhase.ADDITIONS, plains, context -> context.getEffects().setGrassColor(11063154));
         world.add(ModificationPhase.ADDITIONS, plains, context -> context.getEffects().setFoliageColor(7386187));
 
@@ -70,11 +70,12 @@ public final class BloomingNatureFabricWorldgen {
         world.add(ModificationPhase.ADDITIONS, river, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.SPARSE_GRASS_PATCH_PLACED));
         world.add(ModificationPhase.ADDITIONS, river, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.RIVER_FLOWER_PATCH_PLACED));
         world.add(ModificationPhase.ADDITIONS, river, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.RIVER_TREES_CHECKED));
-        world.add(ModificationPhase.ADDITIONS, river, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.STONE_BOULDER_PLACED));
-        world.add(ModificationPhase.ADDITIONS, river, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.STONE_SLABS_PLACED));
         world.add(ModificationPhase.ADDITIONS, river, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.RIVER_REED_PATCH_PLACED));
         world.add(ModificationPhase.ADDITIONS, river, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.RIVER_SEAGRASS_PLACED));
-        world.add(ModificationPhase.ADDITIONS, river, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.STONE_PILE_PLACED));
+        world.add(ModificationPhase.ADDITIONS, river, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.LOCAL_MODIFICATIONS, PlacedFeatures.STONE_PILE_PLACED));
+        world.add(ModificationPhase.ADDITIONS, river, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.LOCAL_MODIFICATIONS, PlacedFeatures.ORE_TRAVERTINE_PLACED));
+        world.add(ModificationPhase.ADDITIONS, river, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.LOCAL_MODIFICATIONS, PlacedFeatures.STONE_BOULDER_PLACED));
+        world.add(ModificationPhase.ADDITIONS, river, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.LOCAL_MODIFICATIONS, PlacedFeatures.STONE_SLABS_PLACED));
         world.add(ModificationPhase.ADDITIONS, river, context -> context.getEffects().setGrassColor(11063154));
         world.add(ModificationPhase.ADDITIONS, river, context -> context.getEffects().setFoliageColor(7386187));
 
@@ -82,9 +83,9 @@ public final class BloomingNatureFabricWorldgen {
         world.add(ModificationPhase.ADDITIONS, sunflowerPlains, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.SUNFLOWER_PLAINS_FLOWER_PATCH_PLACED));
         world.add(ModificationPhase.ADDITIONS, sunflowerPlains, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.SPARSE_GRASS_PATCH_PLACED));
         world.add(ModificationPhase.ADDITIONS, sunflowerPlains, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.PLAINS_TREES_CHECKED));
-        world.add(ModificationPhase.ADDITIONS, sunflowerPlains, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.STONE_BOULDER_PLACED));
-        world.add(ModificationPhase.ADDITIONS, sunflowerPlains, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.STONE_SLABS_PLACED));
-        world.add(ModificationPhase.ADDITIONS, sunflowerPlains, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.STONE_PILE_PLACED));
+        world.add(ModificationPhase.ADDITIONS, sunflowerPlains, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.LOCAL_MODIFICATIONS, PlacedFeatures.STONE_BOULDER_PLACED));
+        world.add(ModificationPhase.ADDITIONS, sunflowerPlains, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.LOCAL_MODIFICATIONS, PlacedFeatures.STONE_SLABS_PLACED));
+        world.add(ModificationPhase.ADDITIONS, sunflowerPlains, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.LOCAL_MODIFICATIONS, PlacedFeatures.STONE_PILE_PLACED));
         world.add(ModificationPhase.ADDITIONS, sunflowerPlains, context -> context.getEffects().setGrassColor(10799444));
         world.add(ModificationPhase.ADDITIONS, sunflowerPlains, context -> context.getEffects().setFoliageColor(7386187));
 
@@ -92,93 +93,93 @@ public final class BloomingNatureFabricWorldgen {
         world.add(ModificationPhase.ADDITIONS, forest, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.FOREST_FLOWER_PATCH_PLACED));
         world.add(ModificationPhase.ADDITIONS, forest, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.OAK_TREE_FALLEN_PLACED));
         world.add(ModificationPhase.ADDITIONS, forest, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.FOREST_TREES_CHECKED));
-        world.add(ModificationPhase.ADDITIONS, forest, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.STONE_BOULDER_PLACED));
-        world.add(ModificationPhase.ADDITIONS, forest, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.STONE_SLABS_PLACED));
+        world.add(ModificationPhase.ADDITIONS, forest, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.LOCAL_MODIFICATIONS, PlacedFeatures.STONE_BOULDER_PLACED));
+        world.add(ModificationPhase.ADDITIONS, forest, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.LOCAL_MODIFICATIONS, PlacedFeatures.STONE_SLABS_PLACED));
         world.add(ModificationPhase.ADDITIONS, forest, context -> context.getEffects().setGrassColor(10799444));
         world.add(ModificationPhase.ADDITIONS, forest, context -> context.getEffects().setFoliageColor(7386187));
 
         world.add(ModificationPhase.ADDITIONS, flowerForest, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.DENSE_WILD_GRASS_PATCH_PLACED));
         world.add(ModificationPhase.ADDITIONS, flowerForest, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.FLOWER_FOREST_FLOWER_PATCH_PLACED));
         world.add(ModificationPhase.ADDITIONS, flowerForest, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.FLOWER_FOREST_TREES_CHECKED));
-        world.add(ModificationPhase.ADDITIONS, flowerForest, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.STONE_BOULDER_PLACED));
-        world.add(ModificationPhase.ADDITIONS, flowerForest, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.STONE_SLABS_PLACED));
         world.add(ModificationPhase.ADDITIONS, flowerForest, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.OAK_TREE_FALLEN_PLACED));
+        world.add(ModificationPhase.ADDITIONS, flowerForest, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.LOCAL_MODIFICATIONS, PlacedFeatures.STONE_BOULDER_PLACED));
+        world.add(ModificationPhase.ADDITIONS, flowerForest, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.LOCAL_MODIFICATIONS, PlacedFeatures.STONE_SLABS_PLACED));
 
-        world.add(ModificationPhase.ADDITIONS, cherryGrove, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.STONE_BOULDER_PLACED));
-        world.add(ModificationPhase.ADDITIONS, cherryGrove, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.STONE_SLABS_PLACED));
         world.add(ModificationPhase.ADDITIONS, cherryGrove, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.CHERRY_GROVE_FLOWER_PATCH_PLACED));
         world.add(ModificationPhase.ADDITIONS, cherryGrove, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.CHERRY_GROVE_TREES_CHECKED));
         world.add(ModificationPhase.ADDITIONS, cherryGrove, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.BLUFF_GRASS_PATCH_PLACED));
         world.add(ModificationPhase.ADDITIONS, cherryGrove, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.REGULAR_GRASS_PATCH_PLACED));
+        world.add(ModificationPhase.ADDITIONS, cherryGrove, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.LOCAL_MODIFICATIONS, PlacedFeatures.STONE_BOULDER_PLACED));
+        world.add(ModificationPhase.ADDITIONS, cherryGrove, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.LOCAL_MODIFICATIONS, PlacedFeatures.STONE_SLABS_PLACED));
 
         world.add(ModificationPhase.ADDITIONS, birchForest, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.REGULAR_GRASS_PATCH_PLACED));
         world.add(ModificationPhase.ADDITIONS, birchForest, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.BIRCH_FOREST_TREES_CHECKED));
         world.add(ModificationPhase.ADDITIONS, birchForest, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.BIRCH_FOREST_FLOWER_PATCH_PLACED));
-        world.add(ModificationPhase.ADDITIONS, birchForest, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.STONE_BOULDER_PLACED));
-        world.add(ModificationPhase.ADDITIONS, birchForest, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.STONE_SLABS_PLACED));
         world.add(ModificationPhase.ADDITIONS, birchForest, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.BIRCH_TREE_FALLEN_PLACED));
+        world.add(ModificationPhase.ADDITIONS, birchForest, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.LOCAL_MODIFICATIONS, PlacedFeatures.STONE_BOULDER_PLACED));
+        world.add(ModificationPhase.ADDITIONS, birchForest, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.LOCAL_MODIFICATIONS, PlacedFeatures.STONE_SLABS_PLACED));
         world.add(ModificationPhase.ADDITIONS, birchForest, context -> context.getEffects().setGrassColor(10799444));
         world.add(ModificationPhase.ADDITIONS, birchForest, context -> context.getEffects().setFoliageColor(8567370));
 
         world.add(ModificationPhase.ADDITIONS, oldGrowthBirchForest, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.OLD_GROWTH_BIRCH_FOREST_TREES_CHECKED));
         world.add(ModificationPhase.ADDITIONS, oldGrowthBirchForest, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.OLD_GROWTH_BIRCH_FOREST_FLOWER_PATCH_PLACED));
-        world.add(ModificationPhase.ADDITIONS, oldGrowthBirchForest, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.STONE_BOULDER_PLACED));
-        world.add(ModificationPhase.ADDITIONS, oldGrowthBirchForest, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.STONE_SLABS_PLACED));
         world.add(ModificationPhase.ADDITIONS, oldGrowthBirchForest, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.BIRCH_TREE_FALLEN_PLACED));
         world.add(ModificationPhase.ADDITIONS, oldGrowthBirchForest, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.SUNGRASS_PATCH_PLACED));
+        world.add(ModificationPhase.ADDITIONS, oldGrowthBirchForest, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.LOCAL_MODIFICATIONS, PlacedFeatures.STONE_BOULDER_PLACED));
+        world.add(ModificationPhase.ADDITIONS, oldGrowthBirchForest, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.LOCAL_MODIFICATIONS, PlacedFeatures.STONE_SLABS_PLACED));
         world.add(ModificationPhase.ADDITIONS, oldGrowthBirchForest, context -> context.getEffects().setGrassColor(14406505));
         world.add(ModificationPhase.ADDITIONS, oldGrowthBirchForest, context -> context.getEffects().setFoliageColor(7386187));
 
         world.add(ModificationPhase.ADDITIONS, savanna, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.RED_OAT_GRASS_PATCH_PLACED));
         world.add(ModificationPhase.ADDITIONS, savanna, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.DENSE_GRASS_PATCH_PLACED));
         world.add(ModificationPhase.ADDITIONS, savanna, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.SAVANNA_TREES_CHECKED));
-        world.add(ModificationPhase.ADDITIONS, savanna, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.GRANITE_BOULDERS_PLACED));
-        world.add(ModificationPhase.ADDITIONS, savanna, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.GRANITE_SLABS_PLACED));
-        world.add(ModificationPhase.ADDITIONS, savanna, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.PACKED_MUD_DISK_PLACED));
+        world.add(ModificationPhase.ADDITIONS, savanna, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.LOCAL_MODIFICATIONS, PlacedFeatures.GRANITE_BOULDERS_PLACED));
+        world.add(ModificationPhase.ADDITIONS, savanna, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.LOCAL_MODIFICATIONS, PlacedFeatures.GRANITE_SLABS_PLACED));
+        world.add(ModificationPhase.ADDITIONS, savanna, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.LOCAL_MODIFICATIONS, PlacedFeatures.PACKED_MUD_DISK_PLACED));
         world.add(ModificationPhase.ADDITIONS, savanna, context -> context.getEffects().setGrassColor(15259000));
         world.add(ModificationPhase.ADDITIONS, savanna, context -> context.getEffects().setFoliageColor(10399058));
 
         world.add(ModificationPhase.ADDITIONS, savannaPlateau, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.DENSE_GRASS_PATCH_PLACED));
         world.add(ModificationPhase.ADDITIONS, savannaPlateau, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.SAVANNA_TREES_CHECKED));
-        world.add(ModificationPhase.ADDITIONS, savannaPlateau, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.GRANITE_BOULDERS_PLACED));
-        world.add(ModificationPhase.ADDITIONS, savannaPlateau, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.GRANITE_SLABS_PLACED));
         world.add(ModificationPhase.ADDITIONS, savannaPlateau, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.PACKED_MUD_DISK_PLACED));
+        world.add(ModificationPhase.ADDITIONS, savannaPlateau, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.LOCAL_MODIFICATIONS, PlacedFeatures.GRANITE_BOULDERS_PLACED));
+        world.add(ModificationPhase.ADDITIONS, savannaPlateau, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.LOCAL_MODIFICATIONS, PlacedFeatures.GRANITE_SLABS_PLACED));
         world.add(ModificationPhase.ADDITIONS, savannaPlateau, context -> context.getEffects().setGrassColor(15259000));
         world.add(ModificationPhase.ADDITIONS, savannaPlateau, context -> context.getEffects().setFoliageColor(10399058));
 
         world.add(ModificationPhase.ADDITIONS, desert, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.SAND_LAYER_0_PLACED));
         world.add(ModificationPhase.ADDITIONS, desert, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.SAND_LAYER_1_PLACED));
         world.add(ModificationPhase.ADDITIONS, desert, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.SAND_LAYER_2_PLACED));
-        world.add(ModificationPhase.ADDITIONS, desert, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.SLATE_BOULDER_PLACED));
-        world.add(ModificationPhase.ADDITIONS, desert, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.SLATE_SLABS_PLACED));
         world.add(ModificationPhase.ADDITIONS, desert, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.CACTUS_PATCH_PLACED));
         world.add(ModificationPhase.ADDITIONS, desert, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.ARID_VEGETATION_PATCH_PLACED));
+        world.add(ModificationPhase.ADDITIONS, desert, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.LOCAL_MODIFICATIONS, PlacedFeatures.SLATE_BOULDER_PLACED));
+        world.add(ModificationPhase.ADDITIONS, desert, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.LOCAL_MODIFICATIONS, PlacedFeatures.SLATE_SLABS_PLACED));
 
         world.add(ModificationPhase.ADDITIONS, beach, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.SAND_LAYER_0_PLACED));
         world.add(ModificationPhase.ADDITIONS, beach, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.SAND_LAYER_1_PLACED));
         world.add(ModificationPhase.ADDITIONS, beach, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.SAND_LAYER_2_PLACED));
         world.add(ModificationPhase.ADDITIONS, beach, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.DRY_GRASS_PATCH_PLACED));
         world.add(ModificationPhase.ADDITIONS, beach, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.DRY_BUSH_PATCH_PLACED));
-        world.add(ModificationPhase.ADDITIONS, beach, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.STONE_PILE_PLACED));
+        world.add(ModificationPhase.ADDITIONS, beach, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.LOCAL_MODIFICATIONS, PlacedFeatures.STONE_PILE_PLACED));
 
-        world.add(ModificationPhase.ADDITIONS, stonyShore, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.STONE_PILE_PLACED));
+        world.add(ModificationPhase.ADDITIONS, stonyShore, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.LOCAL_MODIFICATIONS, PlacedFeatures.STONE_PILE_PLACED));
 
         world.add(ModificationPhase.ADDITIONS, darkForest, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.DENSE_WILD_GRASS_PATCH_PLACED));
         world.add(ModificationPhase.ADDITIONS, darkForest, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.DARK_FOREST_FLOWER_PATCH_PLACED));
         world.add(ModificationPhase.ADDITIONS, darkForest, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.DARK_FOREST_TREES_CHECKED));
         world.add(ModificationPhase.ADDITIONS, darkForest, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.DARK_OAK_TREE_FALLEN_PLACED));
-        world.add(ModificationPhase.ADDITIONS, darkForest, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.STONE_BOULDER_PLACED));
-        world.add(ModificationPhase.ADDITIONS, darkForest, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.STONE_SLABS_PLACED));
-        world.add(ModificationPhase.ADDITIONS, darkForest, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.STONE_PILE_PLACED));
+        world.add(ModificationPhase.ADDITIONS, darkForest, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.LOCAL_MODIFICATIONS, PlacedFeatures.STONE_BOULDER_PLACED));
+        world.add(ModificationPhase.ADDITIONS, darkForest, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.LOCAL_MODIFICATIONS, PlacedFeatures.STONE_SLABS_PLACED));
+        world.add(ModificationPhase.ADDITIONS, darkForest, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.LOCAL_MODIFICATIONS, PlacedFeatures.STONE_PILE_PLACED));
         world.add(ModificationPhase.ADDITIONS, darkForest, context -> context.getEffects().setGrassColor(6975545));
         world.add(ModificationPhase.ADDITIONS, darkForest, context -> context.getEffects().setFoliageColor(10399058));
 
         world.add(ModificationPhase.ADDITIONS, jungle, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.JUNGLE_TREES_CHECKED));
-        world.add(ModificationPhase.ADDITIONS, jungle, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.LATERIT_SLABS_PLACED));
         world.add(ModificationPhase.ADDITIONS, jungle, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.WATER_PUDDLE_PLACED));
         world.add(ModificationPhase.ADDITIONS, jungle, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.JUNGLE_FLOWER_PATCH_PLACED));
         world.add(ModificationPhase.ADDITIONS, jungle, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.SILKGRASS_PATCH_PLACED));
         world.add(ModificationPhase.ADDITIONS, jungle, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.FLOATING_LEAVES_PATCH_PLACED));
+        world.add(ModificationPhase.ADDITIONS, jungle, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.LOCAL_MODIFICATIONS, PlacedFeatures.LATERIT_SLABS_PLACED));
         world.add(ModificationPhase.ADDITIONS, jungle, context -> context.getEffects().setGrassColor(8174674));
         world.add(ModificationPhase.ADDITIONS, jungle, context -> context.getEffects().setFoliageColor(7516981));
         world.add(ModificationPhase.ADDITIONS, jungle, context -> context.getEffects().setWaterColor(7109721));
@@ -186,11 +187,11 @@ public final class BloomingNatureFabricWorldgen {
         world.add(ModificationPhase.ADDITIONS, sparseJungle, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.SPARSE_JUNGLE_TREES_CHECKED));
         world.add(ModificationPhase.ADDITIONS, sparseJungle, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.WATER_PUDDLE_PLACED));
         world.add(ModificationPhase.ADDITIONS, sparseJungle, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.SPARSE_JUNGLE_FLOWER_PATCH_PLACED));
-        world.add(ModificationPhase.ADDITIONS, sparseJungle, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.STONE_SLABS_PLACED));
-        world.add(ModificationPhase.ADDITIONS, sparseJungle, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.STONE_BOULDER_PLACED));
         world.add(ModificationPhase.ADDITIONS, sparseJungle, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.RIVER_REED_PATCH_PLACED));
         world.add(ModificationPhase.ADDITIONS, sparseJungle, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.SILKGRASS_PATCH_PLACED));
         world.add(ModificationPhase.ADDITIONS, sparseJungle, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.FLOATING_LEAVES_PATCH_PLACED));
+        world.add(ModificationPhase.ADDITIONS, sparseJungle, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.LOCAL_MODIFICATIONS, PlacedFeatures.STONE_SLABS_PLACED));
+        world.add(ModificationPhase.ADDITIONS, sparseJungle, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.LOCAL_MODIFICATIONS, PlacedFeatures.STONE_BOULDER_PLACED));
         world.add(ModificationPhase.ADDITIONS, sparseJungle, context -> context.getEffects().setGrassColor(8174674));
         world.add(ModificationPhase.ADDITIONS, sparseJungle, context -> context.getEffects().setFoliageColor(7516981));
         world.add(ModificationPhase.ADDITIONS, sparseJungle, context -> context.getEffects().setWaterColor(7109721));
@@ -206,34 +207,35 @@ public final class BloomingNatureFabricWorldgen {
         world.add(ModificationPhase.ADDITIONS, snowySlopes, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.SNOW_DRIFTS_PLACED));
 
         world.add(ModificationPhase.ADDITIONS, taiga, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.TAIGA_TREES_CHECKED));
-        world.add(ModificationPhase.ADDITIONS, taiga, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.STONE_BOULDER_PLACED));
-        world.add(ModificationPhase.ADDITIONS, taiga, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.STONE_SLABS_PLACED));
-        world.add(ModificationPhase.ADDITIONS, taiga, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.MOSSGRASS_PATCH_PLACED));
         world.add(ModificationPhase.ADDITIONS, taiga, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.SPRUCE_TREE_FALLEN_PLACED));
         world.add(ModificationPhase.ADDITIONS, taiga, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.DENSE_WILD_GRASS_PATCH_PLACED));
         world.add(ModificationPhase.ADDITIONS, taiga, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.TAIGA_FLOWER_PATCH_PLACED));
-        world.add(ModificationPhase.ADDITIONS, taiga, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.COBBLESTONE_PILE_PLACED));
         world.add(ModificationPhase.ADDITIONS, taiga, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.FOREST_MOSS_CARPET_PLACED));
+        world.add(ModificationPhase.ADDITIONS, taiga, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.LOCAL_MODIFICATIONS, PlacedFeatures.COBBLESTONE_PILE_PLACED));
+        world.add(ModificationPhase.ADDITIONS, taiga, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.LOCAL_MODIFICATIONS, PlacedFeatures.STONE_BOULDER_PLACED));
+        world.add(ModificationPhase.ADDITIONS, taiga, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.LOCAL_MODIFICATIONS, PlacedFeatures.STONE_SLABS_PLACED));
+        world.add(ModificationPhase.ADDITIONS, taiga, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.LOCAL_MODIFICATIONS, PlacedFeatures.MOSSGRASS_PATCH_PLACED));
+
         world.add(ModificationPhase.ADDITIONS, taiga, context -> context.getEffects().setWaterColor(3902136));
 
         world.add(ModificationPhase.ADDITIONS, oldGrowthSpruceTaiga, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.OLD_GROWTH_SPRUCE_TAIGA_TREES_CHECKED));
-        world.add(ModificationPhase.ADDITIONS, oldGrowthSpruceTaiga, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.STONE_BOULDER_PLACED));
-        world.add(ModificationPhase.ADDITIONS, oldGrowthSpruceTaiga, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.STONE_SLABS_PLACED));
-        world.add(ModificationPhase.ADDITIONS, oldGrowthSpruceTaiga, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.MOSSGRASS_PATCH_PLACED));
         world.add(ModificationPhase.ADDITIONS, oldGrowthSpruceTaiga, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.SPRUCE_TREE_FALLEN_PLACED));
         world.add(ModificationPhase.ADDITIONS, oldGrowthSpruceTaiga, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.DENSE_WILD_GRASS_PATCH_PLACED));
         world.add(ModificationPhase.ADDITIONS, oldGrowthSpruceTaiga, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.TAIGA_FLOWER_PATCH_PLACED));
-        world.add(ModificationPhase.ADDITIONS, oldGrowthSpruceTaiga, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.COBBLESTONE_PILE_PLACED));
         world.add(ModificationPhase.ADDITIONS, oldGrowthSpruceTaiga, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.FOREST_MOSS_CARPET_PLACED));
         world.add(ModificationPhase.ADDITIONS, oldGrowthSpruceTaiga, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.STRIPPED_SPRUCE_TREE_FALLEN_PLACED));
+        world.add(ModificationPhase.ADDITIONS, oldGrowthSpruceTaiga, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.LOCAL_MODIFICATIONS, PlacedFeatures.STONE_BOULDER_PLACED));
+        world.add(ModificationPhase.ADDITIONS, oldGrowthSpruceTaiga, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.LOCAL_MODIFICATIONS, PlacedFeatures.STONE_SLABS_PLACED));
+        world.add(ModificationPhase.ADDITIONS, oldGrowthSpruceTaiga, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.LOCAL_MODIFICATIONS, PlacedFeatures.MOSSGRASS_PATCH_PLACED));
+        world.add(ModificationPhase.ADDITIONS, oldGrowthSpruceTaiga, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.LOCAL_MODIFICATIONS, PlacedFeatures.COBBLESTONE_PILE_PLACED));
         world.add(ModificationPhase.ADDITIONS, oldGrowthSpruceTaiga, context -> context.getEffects().setWaterColor(3902136));
 
         world.add(ModificationPhase.ADDITIONS, oldGrowthPineTaiga, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.OLD_GROWTH_PINE_TREES_CHECKED));
         world.add(ModificationPhase.ADDITIONS, oldGrowthPineTaiga, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.DENSE_WILD_GRASS_PATCH_PLACED));
         world.add(ModificationPhase.ADDITIONS, oldGrowthPineTaiga, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.TAIGA_FLOWER_PATCH_PLACED));
-        world.add(ModificationPhase.ADDITIONS, oldGrowthPineTaiga, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.COBBLESTONE_PILE_PLACED));
         world.add(ModificationPhase.ADDITIONS, oldGrowthPineTaiga, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.FOREST_MOSS_CARPET_PLACED));
         world.add(ModificationPhase.ADDITIONS, oldGrowthPineTaiga, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.STRIPPED_SPRUCE_TREE_FALLEN_PLACED));
+        world.add(ModificationPhase.ADDITIONS, oldGrowthPineTaiga, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.LOCAL_MODIFICATIONS, PlacedFeatures.COBBLESTONE_PILE_PLACED));
         world.add(ModificationPhase.ADDITIONS, oldGrowthPineTaiga, context -> context.getEffects().setWaterColor(3902136));
 
         world.add(ModificationPhase.ADDITIONS, swamp, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.SWAMP_TREES_CHECKED));

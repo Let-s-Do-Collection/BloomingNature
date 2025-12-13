@@ -15,17 +15,10 @@
       "sound": "minecraft:ambient.cave",
       "tick_delay": 6000
     },
-    "music": {
-      "max_delay": 24000,
-      "min_delay": 12000,
-      "replace_current_music": false,
-      "sound": "minecraft:music.overworld.forest"
-    },
-    "sky_color": 7972607,
-    "water_color": 4159204,
+    "sky_color": 8421631,
+    "water_color": 3902136,
     "water_fog_color": 329011,
-    "grass_color": 10799444,
-    "foliage_color": 7386187
+    "grass_color": 9542993
   },
   "features": [
     [],
@@ -33,23 +26,16 @@
       "minecraft:lake_lava_underground"
     ],
     [
-      "minecraft:amethyst_geode"
+      "bloomingnature:cold/travertine_pile_placed",
+      "bloomingnature:temperate/stone_boulder_placed",
+      "bloomingnature:temperate/stone_slabs_placed"
     ],
     [
       "minecraft:monster_room",
       "minecraft:monster_room_deep"
     ],
-    [
-      "bloomingnature:flowers/forest_edge_flower_patch_placed",
-      "bloomingnature:grass/dense_grass_patch_placed",
-      "bloomingnature:trees/forest_edge_trees_checked"
-    ],
-    [
-      "bloomingnature:temperate/stone_boulder_placed",
-      "bloomingnature:temperate/stone_slabs_placed",
-      "bloomingnature:temperate/ore_travertine_placed",
-      "bloomingnature:fallen_trees/stripped_oak_tree_fallen_placed"
-    ],
+    [],
+    [],
     [
       "minecraft:ore_dirt",
       "minecraft:ore_gravel",
@@ -79,23 +65,31 @@
       "minecraft:underwater_magma",
       "minecraft:disk_sand",
       "minecraft:disk_clay",
-      "minecraft:disk_gravel"
-    ],
-    [],
-    [
-      "minecraft:spring_water",
-      "minecraft:spring_lava"
+      "minecraft:disk_gravel",
+      "bloomingnature:temperate/ore_travertine_placed"
     ],
     [
-      "minecraft:glow_lichen",
-      "minecraft:brown_mushroom_normal",
-      "minecraft:red_mushroom_normal",
+      "minecraft:glow_lichen"
+    ],
+    [
+      "minecraft:spring_water"
+    ],
+    [
+      "bloomingnature:trees/cold_grassland_trees_checked",
+      "bloomingnature:trees/highland_trees_checked",
+      "bloomingnature:grass/mossgrass_patch_placed",
+      "bloomingnature:grass/dense_wild_grass_patch_placed",
+      "bloomingnature:flowers/cold_grassland_flower_patch_placed",
+      "minecraft:brown_mushroom_taiga",
+      "minecraft:red_mushroom_taiga",
       "minecraft:patch_sugar_cane",
-      "minecraft:patch_pumpkin"
+      "minecraft:patch_pumpkin",
+      "minecraft:patch_berry_common"
     ],
     [
-      "minecraft:freeze_top_layer"
-    ]
+      "bloomingnature:fallen_trees/stripped_spruce_tree_fallen_placed"
+    ],
+    []
   ],
   "has_precipitation": true,
   "spawn_costs": {},
@@ -138,7 +132,13 @@
         "type": "minecraft:wolf",
         "maxCount": 4,
         "minCount": 4,
-        "weight": 5
+        "weight": 8
+      },
+      {
+        "type": "minecraft:rabbit",
+        "maxCount": 3,
+        "minCount": 2,
+        "weight": 4
       }
     ],
     "misc": [],
@@ -203,5 +203,5 @@
     "water_ambient": [],
     "water_creature": []
   },
-  "temperature": 0.7
+  "temperature": 0.2725
 }

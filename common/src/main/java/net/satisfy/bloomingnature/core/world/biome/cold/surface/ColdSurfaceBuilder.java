@@ -17,7 +17,7 @@ import net.satisfy.bloomingnature.core.registry.ObjectRegistry;
 import net.satisfy.bloomingnature.core.world.biome.BloomingNatureBiomeKeys;
 
 public final class ColdSurfaceBuilder extends BiolithSurfaceBuilder {
-    public enum Profile {FEN, COLD_RIVER, TAIGA, OLD_GROWTH_SPRUCE_TAIGA, OLD_GROWTH_PINE_TAIGA, COLD_GRASSLAND, LARCH_FOREST}
+    public enum Profile {FEN, COLD_RIVER, TAIGA, OLD_GROWTH_SPRUCE_TAIGA, OLD_GROWTH_PINE_TAIGA, COLD_GRASSLAND, LARCH_FOREST, HIGHLAND_WOODS}
 
     private final Profile profile;
 
@@ -241,6 +241,7 @@ public final class ColdSurfaceBuilder extends BiolithSurfaceBuilder {
             boolean rareMudPatch = mudNoise > 0.89f;
 
             int y = surfaceY;
+            boolean aboveWater = column.getBlock(y + 1).getFluidState().is(FluidTags.WATER);
 
             BlockState topState;
             BlockState belowState;
@@ -252,7 +253,7 @@ public final class ColdSurfaceBuilder extends BiolithSurfaceBuilder {
             } else if (rareMudPatch) {
                 topState = Blocks.MUD.defaultBlockState();
                 belowState = Blocks.MUD.defaultBlockState();
-            } else if (mossPatch) {
+            } else if (mossPatch && !aboveWater) {
                 topState = ObjectRegistry.FEN_MOSS.get().defaultBlockState();
                 belowState = Blocks.MUD.defaultBlockState();
             } else if (coarsePatch) {
@@ -268,7 +269,6 @@ public final class ColdSurfaceBuilder extends BiolithSurfaceBuilder {
             column.setBlock(y - 1, belowState);
 
             for (int subY = y - 2; subY >= y - 5 && subY >= 0; subY--) {
-                if (subY >= y - 1) continue;
                 int clayMix = Math.floorMod(mixIndex(x, subY, z), 100);
                 column.setBlock(subY, clayMix < 85 ? Blocks.CLAY.defaultBlockState() : Blocks.COARSE_DIRT.defaultBlockState());
             }
@@ -347,23 +347,22 @@ public final class ColdSurfaceBuilder extends BiolithSurfaceBuilder {
             int maxDepth = hasWater ? 3 : 0;
 
             float bedNoise = smoothNoise(RandomSource.create(31117L), x, z, 0.11f);
-            float patchNoise = smoothNoise(RandomSource.create(53101L), x - 27, z + 9, 0.07f);
             float pocketNoise = smoothNoise(RandomSource.create(17171L), x + 41, z - 33, 0.12f);
 
             int waterFloorY = hasWater ? bedrockY : topSurfaceY;
             int underwaterTop = hasWater ? Math.min(waterTopY - 1, bedrockY + maxDepth) : bedrockY - 1;
 
             for (int y = waterFloorY; y <= underwaterTop; y++) {
-                var state = column.getBlock(y);
+                BlockState state = column.getBlock(y);
                 boolean replaceable = state.is(Blocks.STONE) || state.is(Blocks.DIRT) || state.is(Blocks.GRAVEL) || state.is(Blocks.SAND);
-                boolean belowWater = column.getBlock(y + 1).getFluidState().is(FluidTags.WATER) || column.getBlock(y).getFluidState().is(FluidTags.WATER);
-                boolean steep = slope >= 3;
+                boolean belowWater = column.getBlock(y + 1).getFluidState().is(FluidTags.WATER) || state.getFluidState().is(FluidTags.WATER);
                 if (!replaceable || !belowWater) continue;
                 if (y - 1 < 0 || column.getBlock(y - 1).isAir()) continue;
 
-                if (bedNoise > 0.55f || steep) {
-                    if (patchNoise > 0.66f) {
-                        int mix = mixIndex(x, y, z);
+                if (state.is(Blocks.STONE)) {
+                    int chance = Math.floorMod(mixIndex(x, y, z), 100);
+                    if (chance < 30) {
+                        int mix = Math.floorMod(mixIndex(x, y + 11, z - 7), 100);
                         if (mix < 20) column.setBlock(y, ObjectRegistry.MOSSY_TRAVERTIN.get().defaultBlockState());
                         else if (mix < 60) column.setBlock(y, ObjectRegistry.TRAVERTIN.get().defaultBlockState());
                         else column.setBlock(y, ObjectRegistry.COBBLED_TRAVERTIN.get().defaultBlockState());
@@ -372,6 +371,10 @@ public final class ColdSurfaceBuilder extends BiolithSurfaceBuilder {
                     } else if (bedNoise > 0.70f && y <= bedrockY + 1) {
                         column.setBlock(y, Blocks.GRAVEL.defaultBlockState());
                     }
+                } else if (bedNoise > 0.75f && y <= bedrockY + 1) {
+                    column.setBlock(y, Blocks.CLAY.defaultBlockState());
+                } else if (bedNoise > 0.70f && y <= bedrockY + 1) {
+                    column.setBlock(y, Blocks.GRAVEL.defaultBlockState());
                 }
 
                 if (column.getBlock(y).is(Blocks.SAND)) {
@@ -384,8 +387,8 @@ public final class ColdSurfaceBuilder extends BiolithSurfaceBuilder {
             int bankEndY = Math.min(topSurfaceY, bankTopY + 1);
 
             for (int y = bankStartY; y <= bankEndY; y++) {
-                var state = column.getBlock(y);
-                boolean nearWater = (y + 1 <= topSurfaceY && column.getBlock(y + 1).getFluidState().is(FluidTags.WATER)) || column.getBlock(y).getFluidState().is(FluidTags.WATER);
+                BlockState state = column.getBlock(y);
+                boolean nearWater = (y + 1 <= topSurfaceY && column.getBlock(y + 1).getFluidState().is(FluidTags.WATER)) || state.getFluidState().is(FluidTags.WATER);
                 boolean replaceable = state.is(Blocks.GRASS_BLOCK) || state.is(Blocks.DIRT) || state.is(Blocks.COARSE_DIRT) || state.is(Blocks.GRAVEL) || state.is(Blocks.SAND);
                 if (!nearWater || !replaceable) continue;
 
@@ -403,7 +406,7 @@ public final class ColdSurfaceBuilder extends BiolithSurfaceBuilder {
             }
 
             if (!hasWater) {
-                var ground = column.getBlock(topSurfaceY);
+                BlockState ground = column.getBlock(topSurfaceY);
                 boolean groundOk = ground.is(Blocks.GRASS_BLOCK) || ground.is(Blocks.DIRT) || ground.is(Blocks.SAND) || ground.is(Blocks.GRAVEL);
                 if (groundOk && pocketNoise > 0.82f && slope >= 2) {
                     column.setBlock(topSurfaceY, Blocks.GRAVEL.defaultBlockState());
@@ -474,6 +477,10 @@ public final class ColdSurfaceBuilder extends BiolithSurfaceBuilder {
         SurfaceGeneration.addSurfaceBuilder(
                 BloomingNature.identifier("larch_forest"),
                 new ColdSurfaceBuilder(Profile.LARCH_FOREST).setBiomeKey(BloomingNatureBiomeKeys.LARCH_FOREST)
+        );
+        SurfaceGeneration.addSurfaceBuilder(
+                BloomingNature.identifier("highland_woods"),
+                new ColdSurfaceBuilder(Profile.OLD_GROWTH_SPRUCE_TAIGA).setBiomeKey(BloomingNatureBiomeKeys.HIGHLAND_WOODS)
         );
         SurfaceGeneration.addSurfaceBuilder(
                 BloomingNature.identifier("fen"),

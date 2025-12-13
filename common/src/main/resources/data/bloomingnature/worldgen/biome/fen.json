@@ -23,8 +23,7 @@
   "features": [
     [],
     [
-      "minecraft:lake_lava_underground",
-      "minecraft:lake_lava_surface"
+      "minecraft:lake_lava_underground"
     ],
     [
       "minecraft:amethyst_geode"
@@ -38,7 +37,8 @@
       "bloomingnature:vegetation/floating_leaves_patch_placed",
       "bloomingnature:cold/fen_moss_carpet_placed",
       "bloomingnature:wet/water_puddle_placed",
-      "bloomingnature:grass/wet_grass_patch_placed"
+      "bloomingnature:grass/wet_grass_patch_placed",
+      "bloomingnature:grass/mossgrass_patch_placed"
     ],
     [
       "bloomingnature:trees/fen_trees_checked"

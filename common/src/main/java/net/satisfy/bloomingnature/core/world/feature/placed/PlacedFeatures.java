@@ -50,6 +50,7 @@ public class PlacedFeatures {
     public static final ResourceKey<PlacedFeature> STONE_BOULDER_PLACED = registerPlacedFeature("temperate/stone_boulder_placed");
     public static final ResourceKey<PlacedFeature> STONE_SLABS_PLACED = registerPlacedFeature("temperate/stone_slabs_placed");
     public static final ResourceKey<PlacedFeature> STONE_PILE_PLACED = registerPlacedFeature("temperate/stone_pile_placed");
+    public static final ResourceKey<PlacedFeature> ORE_TRAVERTINE_PLACED = registerPlacedFeature("temperate/ore_travertine_placed");
 
     public static final ResourceKey<PlacedFeature> GRANITE_BOULDERS_PLACED = registerPlacedFeature("arid/granite_boulders_placed");
     public static final ResourceKey<PlacedFeature> GRANITE_SLABS_PLACED = registerPlacedFeature("arid/granite_slabs_placed");

@@ -474,5 +474,6 @@
   "biome.bloomingnature.aspen_forest": "Aspenwald",
   "biome.bloomingnature.fen": "Fenn",
   "block.bloomingnature.fen_moss": "Fennmoos",
-  "block.bloomingnature.fen_moss_carpet": "Fennmoos Teppich"
+  "block.bloomingnature.fen_moss_carpet": "Fennmoos Teppich",
+  "biome.bloomingnature.highland_woods": "Hochlandwald"
 }

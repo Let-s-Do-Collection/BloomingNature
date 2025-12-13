@@ -28,8 +28,7 @@
   "features": [
     [],
     [
-      "minecraft:lake_lava_underground",
-      "minecraft:lake_lava_surface"
+      "minecraft:lake_lava_underground"
     ],
     [
       "minecraft:amethyst_geode"
@@ -46,6 +45,7 @@
     [
       "bloomingnature:temperate/stone_boulder_placed",
       "bloomingnature:temperate/stone_slabs_placed",
+      "bloomingnature:temperate/ore_travertine_placed",
       "bloomingnature:cold/cobblestone_pile_placed",
       "bloomingnature:fallen_trees/stripped_spruce_tree_fallen_placed"
     ],

@@ -22,13 +22,14 @@
   "features": [
     [],
     [
-      "minecraft:lake_lava_underground",
-      "minecraft:lake_lava_surface"
+      "minecraft:lake_lava_underground"
     ],
     [
-      "minecraft:amethyst_geode"
+      "bloomingnature:temperate/stone_boulder_placed",
+      "bloomingnature:temperate/stone_slabs_placed"
     ],
     [
+      "minecraft:amethyst_geode",
       "minecraft:monster_room",
       "minecraft:monster_room_deep"
     ],
@@ -66,8 +67,7 @@
       "minecraft:disk_gravel"
     ],
     [
-      "bloomingnature:temperate/stone_boulder_placed",
-      "bloomingnature:temperate/stone_slabs_placed"
+      "minecraft:glow_lichen"
     ],
     [
       "minecraft:spring_water"
@@ -77,10 +77,9 @@
       "bloomingnature:grass/dense_wild_grass_patch_placed",
       "bloomingnature:grass/mossgrass_patch_placed",
       "bloomingnature:cold/forest_moss_carpet_placed",
-      "bloomingnature:flowers/larch_forest_flower_patch_placed",
-      "minecraft:glow_lichen",
       "minecraft:brown_mushroom_taiga",
       "minecraft:red_mushroom_taiga",
+      "bloomingnature:flowers/larch_forest_flower_patch_placed",
       "minecraft:patch_sugar_cane",
       "minecraft:patch_pumpkin",
       "minecraft:patch_berry_common"

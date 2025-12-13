@@ -28,7 +28,7 @@
         "state_provider": {
           "type": "minecraft:simple_state_provider",
           "state": {
-            "Name": "minecraft:cobblestone"
+            "Name": "minecraft:stone"
           }
         },
         "min_size_x": 4,

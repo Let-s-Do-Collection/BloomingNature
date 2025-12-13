@@ -14,6 +14,7 @@ public final class ColdBiomeRegistry extends BiolithSurfaceBuilder {
         registerColdGrasslandPlacement();
         registerLarchForestPlacement();
         registerFenPlacement();
+        registerHighlandWoodsPlacement();
     }
 
     private static void registerColdRiverPlacement() {
@@ -82,5 +83,20 @@ public final class ColdBiomeRegistry extends BiolithSurfaceBuilder {
         BiomePlacement.addSubOverworld(Biomes.OLD_GROWTH_PINE_TAIGA, BloomingNatureBiomeKeys.FEN, inlandCond);
         BiomePlacement.addSubOverworld(BloomingNatureBiomeKeys.LARCH_FOREST, BloomingNatureBiomeKeys.FEN, inlandCond);
         BiomePlacement.addSubOverworld(BloomingNatureBiomeKeys.COLD_GRASSLAND, BloomingNatureBiomeKeys.FEN, inlandCond);
+    }
+
+    private static void registerHighlandWoodsPlacement() {
+        var nearCold = CriterionBuilder.anyOf(
+                CriterionBuilder.neighbor(Biomes.TAIGA),
+                CriterionBuilder.neighbor(Biomes.SNOWY_TAIGA),
+                CriterionBuilder.neighbor(Biomes.OLD_GROWTH_SPRUCE_TAIGA),
+                CriterionBuilder.neighbor(Biomes.OLD_GROWTH_PINE_TAIGA),
+                CriterionBuilder.neighbor(BloomingNatureBiomeKeys.LARCH_FOREST),
+                CriterionBuilder.neighbor(BloomingNatureBiomeKeys.COLD_RIVER),
+                CriterionBuilder.neighbor(Biomes.FROZEN_RIVER)
+        );
+
+        BiomePlacement.addSubOverworld(Biomes.PLAINS, BloomingNatureBiomeKeys.HIGHLAND_WOODS, nearCold);
+        BiomePlacement.addSubOverworld(BloomingNatureBiomeKeys.COLD_GRASSLAND, BloomingNatureBiomeKeys.HIGHLAND_WOODS, nearCold);
     }
 }

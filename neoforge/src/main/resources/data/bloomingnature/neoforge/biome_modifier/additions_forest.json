@@ -7,7 +7,8 @@
     "bloomingnature:fallen_trees/oak_tree_fallen_placed",
     "bloomingnature:trees/forest_trees_checked",
     "bloomingnature:temperate/stone_boulder_placed",
-    "bloomingnature:temperate/stone_slabs_placed"
+    "bloomingnature:temperate/stone_slabs_placed",
+    "bloomingnature:temperate/ore_travertine_placed"
   ],
   "step": "vegetal_decoration"
 }

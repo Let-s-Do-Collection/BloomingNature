@@ -58,7 +58,9 @@ public final class AridBiomeRegistry extends BiolithSurfaceBuilder {
     }
 
     private static void registerCypressFieldsPlacement() {
-        var warmTemperature = CriterionBuilder.value(BiomeParameterTargets.TEMPERATURE, 0.4f, 2.0f);
+        var warmTemperature = CriterionBuilder.value(BiomeParameterTargets.TEMPERATURE, 0.55f, 2.0f);
+
+        var depth = CriterionBuilder.value(BiomeParameterTargets.DEPTH, -0.20f, 0.35f);
 
         var nearColdBiomes = CriterionBuilder.anyOf(
                 CriterionBuilder.neighbor(Biomes.SNOWY_PLAINS),
@@ -68,10 +70,13 @@ public final class AridBiomeRegistry extends BiolithSurfaceBuilder {
                 CriterionBuilder.neighbor(Biomes.JAGGED_PEAKS)
         );
 
-        var notNearColdBiomes = CriterionBuilder.not(nearColdBiomes);
-        var cypressCondition = CriterionBuilder.allOf(warmTemperature, notNearColdBiomes);
+        var cypressCondition = CriterionBuilder.allOf(
+                warmTemperature,
+                depth,
+                CriterionBuilder.not(nearColdBiomes)
+        );
 
-        BiomePlacement.addSubOverworld(Biomes.PLAINS, BloomingNatureBiomeKeys.CYPRESS_FIELDS, cypressCondition);
-        BiomePlacement.addSubOverworld(Biomes.SUNFLOWER_PLAINS, BloomingNatureBiomeKeys.CYPRESS_FIELDS, cypressCondition);
+        BiomePlacement.addSubOverworld(Biomes.SAVANNA, BloomingNatureBiomeKeys.CYPRESS_FIELDS, cypressCondition);
+        BiomePlacement.addSubOverworld(Biomes.SAVANNA_PLATEAU, BloomingNatureBiomeKeys.CYPRESS_FIELDS, cypressCondition);
     }
 }

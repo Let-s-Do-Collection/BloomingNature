@@ -32,8 +32,7 @@
       "bloomingnature:grass/dry_grass_patch_placed"
     ],
     [
-      "minecraft:lake_lava_underground",
-      "minecraft:lake_lava_surface"
+      "minecraft:lake_lava_underground"
     ],
     [
       "minecraft:amethyst_geode"
