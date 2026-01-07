@@ -1,3 +1,14 @@
+[1.1.5]
+
+**Fixed**
+* Possible crash related to the waterlogged property on Cattails
+* Cold biomes causing blocky biome borders near rivers
+
+**Changed**
+* Release channel set to **release**
+
+***
+
 [1.1.4]
 
 With this update, most biomes received a range of tweaks and enhancements. The addition of several smaller sub-biomes helps make the world feel more immersive and exciting to explore, adding a richer sense of realism to every journey.

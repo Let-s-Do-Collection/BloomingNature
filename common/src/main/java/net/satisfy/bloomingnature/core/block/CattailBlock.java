@@ -85,6 +85,7 @@ public class CattailBlock extends TallFlowerBlock implements SimpleWaterloggedBl
         return super.mayPlaceOn(floor, world, pos)
                 || floor.is(BlockTags.SAND)
                 || floor.is(Blocks.CLAY)
+                || floor.is(Blocks.GRASS_BLOCK)
                 || floor.is(Blocks.COARSE_DIRT)
                 || floor.is(Blocks.DIRT)
                 || floor.is(Blocks.MUD);

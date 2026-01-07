@@ -82,7 +82,8 @@
       "bloomingnature:flowers/larch_forest_flower_patch_placed",
       "minecraft:patch_sugar_cane",
       "minecraft:patch_pumpkin",
-      "minecraft:patch_berry_common"
+      "minecraft:patch_berry_common",
+      "minecraft:freeze_top_layer"
     ],
     [
       "bloomingnature:cold/cobblestone_pile_placed",
