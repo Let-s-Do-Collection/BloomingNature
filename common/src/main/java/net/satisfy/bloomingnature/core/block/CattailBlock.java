@@ -61,24 +61,27 @@ public class CattailBlock extends TallFlowerBlock implements SimpleWaterloggedBl
     public @NotNull BlockState updateShape(BlockState state, Direction direction, BlockState neighbor, LevelAccessor level, BlockPos pos, BlockPos fromPos) {
         BlockState result = super.updateShape(state, direction, neighbor, level, pos, fromPos);
 
-        if (state.getValue(HALF) == DoubleBlockHalf.LOWER) {
-            if (direction == Direction.UP && neighbor.getBlock() == this) {
-                boolean isWaterlogged = state.getValue(WATERLOGGED);
-                if (neighbor.getValue(WATERLOGGED) != isWaterlogged) {
-                    level.setBlock(fromPos, neighbor.setValue(WATERLOGGED, isWaterlogged), 2);
-                }
-            }
-        } else {
-            if (direction == Direction.DOWN && neighbor.getBlock() == this) {
+        if (result.getBlock() != this) {
+            return result;
+        }
+
+        if (!result.hasProperty(WATERLOGGED) || !state.hasProperty(WATERLOGGED)) {
+            return result;
+        }
+
+        if (state.getValue(HALF) == DoubleBlockHalf.UPPER) {
+            if (direction == Direction.DOWN && neighbor.getBlock() == this && neighbor.hasProperty(WATERLOGGED)) {
                 boolean lowerWaterlogged = neighbor.getValue(WATERLOGGED);
-                if (state.getValue(WATERLOGGED) != lowerWaterlogged) {
-                    result = result.setValue(WATERLOGGED, lowerWaterlogged);
+                if (result.getValue(WATERLOGGED) != lowerWaterlogged) {
+                    return result.setValue(WATERLOGGED, lowerWaterlogged);
                 }
             }
+            return result;
         }
 
         return result;
     }
+
 
     @Override
     protected boolean mayPlaceOn(BlockState floor, BlockGetter world, BlockPos pos) {

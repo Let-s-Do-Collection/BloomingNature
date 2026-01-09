@@ -1,3 +1,11 @@
+[1.1.5-hotfix]
+
+**Fixed**
+* Crash related to the waterlogged property on Cattails  
+  The fix for this issue was **not included in 1.1.5** as intended.
+
+***
+
 [1.1.5]
 
 **Fixed**
