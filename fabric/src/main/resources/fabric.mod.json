@@ -20,9 +20,6 @@
     ],
     "client": [
       "net.satisfy.bloomingnature.fabric.client.BloomingNatureClientFabric"
-    ],
-    "modmenu": [
-      "net.satisfy.bloomingnature.fabric.core.config.ModMenu"
     ]
   },
   "mixins": [

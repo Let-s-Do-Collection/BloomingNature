@@ -51,7 +51,7 @@ public final class TemperateSurfaceBuilder extends BiolithSurfaceBuilder {
 
             for (int y = 0; y <= topY; y++) {
                 if (y != topY) continue;
-                var state = column.getBlock(y);
+                BlockState state = column.getBlock(y);
 
                 if (slope >= 3 && state.is(Blocks.STONE)) {
                     int r = mixIndex(x, y, z);
@@ -94,7 +94,7 @@ public final class TemperateSurfaceBuilder extends BiolithSurfaceBuilder {
 
             for (int y = 0; y <= topY; y++) {
                 if (y != topY) continue;
-                var state = column.getBlock(y);
+                BlockState state = column.getBlock(y);
 
                 if (slope >= 3 && state.is(Blocks.STONE)) {
                     int r = mixIndex(x, y, z);
@@ -110,17 +110,13 @@ public final class TemperateSurfaceBuilder extends BiolithSurfaceBuilder {
 
                 if (soilNoise > 0.82f) {
                     column.setBlock(y, Blocks.COARSE_DIRT.defaultBlockState());
-                    if (y - 1 >= 0) {
-                        column.setBlock(y - 1, Blocks.DIRT.defaultBlockState());
-                    }
+                    if (y - 1 >= 0) column.setBlock(y - 1, Blocks.DIRT.defaultBlockState());
                     continue;
                 }
 
                 if (lightSoilNoise > 0.75f) {
                     column.setBlock(y, Blocks.ROOTED_DIRT.defaultBlockState());
-                    if (y - 1 >= 0) {
-                        column.setBlock(y - 1, Blocks.DIRT.defaultBlockState());
-                    }
+                    if (y - 1 >= 0) column.setBlock(y - 1, Blocks.DIRT.defaultBlockState());
                     continue;
                 }
 
@@ -191,7 +187,7 @@ public final class TemperateSurfaceBuilder extends BiolithSurfaceBuilder {
             boolean sparseSoil = soilMask > 0.83f && soilDetail > 0.56f;
 
             for (int y = bedrockY; y <= underwaterTop; y++) {
-                var state = column.getBlock(y);
+                BlockState state = column.getBlock(y);
                 boolean belowWater = column.getBlock(y + 1).getFluidState().is(FluidTags.WATER) || column.getBlock(y).getFluidState().is(FluidTags.WATER);
                 boolean replaceable = state.is(Blocks.STONE) || state.is(Blocks.DIRT) || state.is(Blocks.GRAVEL) || state.is(Blocks.SAND) || state.is(Blocks.CLAY);
                 if (!belowWater || !replaceable) continue;
@@ -239,9 +235,15 @@ public final class TemperateSurfaceBuilder extends BiolithSurfaceBuilder {
         if (profile == Profile.RIVER) {
             int bedrockY = chunk.getHeight(Heightmap.Types.OCEAN_FLOOR_WG, localX, localZ);
             int topSurfaceY = chunk.getHeight(Heightmap.Types.WORLD_SURFACE_WG, localX, localZ);
+
             int waterTopY = topSurfaceY;
-            while (waterTopY > bedrockY && column.getBlock(waterTopY).getFluidState().is(FluidTags.WATER)) waterTopY--;
-            boolean hasWater = waterTopY < topSurfaceY && column.getBlock(waterTopY + 1).getFluidState().is(FluidTags.WATER);
+            while (waterTopY > bedrockY && column.getBlock(waterTopY).getFluidState().is(FluidTags.WATER)) {
+                waterTopY--;
+            }
+
+            boolean hasWater = waterTopY < topSurfaceY
+                    && column.getBlock(waterTopY + 1).getFluidState().is(FluidTags.WATER);
+
             int maxDepth = hasWater ? 3 : 0;
 
             float bedNoise = smoothNoise(RandomSource.create(31117L), x, z, 0.11f);
@@ -252,11 +254,23 @@ public final class TemperateSurfaceBuilder extends BiolithSurfaceBuilder {
 
             for (int y = waterFloorY; y <= underwaterTop; y++) {
                 BlockState state = column.getBlock(y);
-                boolean replaceable = state.is(Blocks.STONE) || state.is(Blocks.DIRT) || state.is(Blocks.GRAVEL) || state.is(Blocks.SAND);
-                boolean belowWater = column.getBlock(y + 1).getFluidState().is(FluidTags.WATER) || state.getFluidState().is(FluidTags.WATER);
-                boolean steep = slope >= 3;
+
+                boolean belowWater =
+                        state.getFluidState().is(FluidTags.WATER)
+                                || column.getBlock(y + 1).getFluidState().is(FluidTags.WATER);
+
+                boolean replaceable =
+                        state.is(Blocks.STONE)
+                                || state.is(Blocks.DIRT)
+                                || state.is(Blocks.GRAVEL)
+                                || state.is(Blocks.SAND)
+                                || state.is(Blocks.GRASS_BLOCK)
+                                || state.is(Blocks.COARSE_DIRT);
+
                 if (!replaceable || !belowWater) continue;
                 if (y - 1 < 0 || column.getBlock(y - 1).isAir()) continue;
+
+                boolean steep = slope >= 3;
 
                 if (state.is(Blocks.STONE)) {
                     int chance = Math.floorMod(mixIndex(x, y, z), 100);
@@ -290,11 +304,22 @@ public final class TemperateSurfaceBuilder extends BiolithSurfaceBuilder {
 
             for (int y = bankStartY; y <= bankEndY; y++) {
                 BlockState state = column.getBlock(y);
-                boolean nearWater = (y + 1 <= topSurfaceY && column.getBlock(y + 1).getFluidState().is(FluidTags.WATER)) || state.getFluidState().is(FluidTags.WATER);
-                boolean replaceable = state.is(Blocks.GRASS_BLOCK) || state.is(Blocks.DIRT) || state.is(Blocks.COARSE_DIRT) || state.is(Blocks.GRAVEL) || state.is(Blocks.SAND);
+
+                boolean nearWater =
+                        state.getFluidState().is(FluidTags.WATER)
+                                || column.getBlock(y + 1).getFluidState().is(FluidTags.WATER);
+
+                boolean replaceable =
+                        state.is(Blocks.GRASS_BLOCK)
+                                || state.is(Blocks.DIRT)
+                                || state.is(Blocks.COARSE_DIRT)
+                                || state.is(Blocks.GRAVEL)
+                                || state.is(Blocks.SAND);
+
                 if (!nearWater || !replaceable) continue;
 
                 int choice = Math.floorMod(mixIndex(x, y, z), 100);
+
                 if (warmBiome && choice < 6) {
                     column.setBlock(y, Blocks.SAND.defaultBlockState());
                 } else if (choice < 58) {
@@ -306,14 +331,21 @@ public final class TemperateSurfaceBuilder extends BiolithSurfaceBuilder {
 
             if (!hasWater) {
                 BlockState ground = column.getBlock(topSurfaceY);
-                boolean groundOk = ground.is(Blocks.GRASS_BLOCK) || ground.is(Blocks.DIRT) || ground.is(Blocks.SAND) || ground.is(Blocks.GRAVEL);
+                boolean groundOk =
+                        ground.is(Blocks.GRASS_BLOCK)
+                                || ground.is(Blocks.DIRT)
+                                || ground.is(Blocks.SAND)
+                                || ground.is(Blocks.GRAVEL);
+
                 if (groundOk && pocketNoise > 0.82f && slope >= 2) {
                     column.setBlock(topSurfaceY, Blocks.GRAVEL.defaultBlockState());
-                    if (topSurfaceY - 1 >= 0 && !column.getBlock(topSurfaceY - 1).getFluidState().is(FluidTags.WATER)) {
+                    if (topSurfaceY - 1 >= 0
+                            && !column.getBlock(topSurfaceY - 1).getFluidState().is(FluidTags.WATER)) {
                         column.setBlock(topSurfaceY - 1, Blocks.DIRT.defaultBlockState());
                     }
                 }
             }
+
             return;
         }
 
@@ -333,7 +365,7 @@ public final class TemperateSurfaceBuilder extends BiolithSurfaceBuilder {
 
             for (int y = 0; y <= topY; y++) {
                 if (y != topY) continue;
-                var state = column.getBlock(y);
+                BlockState state = column.getBlock(y);
 
                 if (slope >= 3 && state.is(Blocks.STONE)) {
                     int r = mixIndex(x, y, z);

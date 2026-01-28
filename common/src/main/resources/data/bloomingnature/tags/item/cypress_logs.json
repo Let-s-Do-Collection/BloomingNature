@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "bloomingnature:cypress_log",
+    "bloomingnature:stripped_cypress_log",
+    "bloomingnature:cypress_wood",
+    "bloomingnature:stripped_cypress_wood"
+  ]
+}

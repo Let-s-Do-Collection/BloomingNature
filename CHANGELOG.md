@@ -1,3 +1,15 @@
+[1.1.6]
+
+**Fixed**
+* Crash on Fabric due to a invalid ModMenu reference
+* Cypress Planks not being craftable due to a missing tag
+* Missing loottable for Cypress Log & Wood
+
+**Changed**
+* River generation adjusted so grass blocks no longer generate in riverbeds
+
+***
+
 [1.1.5-hotfix]
 
 **Fixed**
