@@ -475,5 +475,7 @@
   "biome.bloomingnature.fen": "Fenn",
   "block.bloomingnature.fen_moss": "Fennmoos",
   "block.bloomingnature.fen_moss_carpet": "Fennmoos Teppich",
-  "biome.bloomingnature.highland_woods": "Hochlandwald"
+  "biome.bloomingnature.highland_woods": "Hochlandwald",
+  "block.bloomingnature.blooming_oak_sapling": "Blühender Eichensetzling",
+  "block.bloomingnature.potted_blooming_oak_sapling": "Eingetopfter blühender Eichensetzling"
 }
