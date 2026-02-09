@@ -59,5 +59,18 @@ public class CompostableRegistry {
         ComposterBlock.COMPOSTABLES.put(ObjectRegistry.PRICKLY_PEAR_CACTUS.get().asItem(), 0.3F);
         ComposterBlock.COMPOSTABLES.put(ObjectRegistry.BARREL_CACTUS.get().asItem(), 0.3F);
         ComposterBlock.COMPOSTABLES.put(ObjectRegistry.SMALL_CACTUS.get().asItem(), 0.3F);
+        ComposterBlock.COMPOSTABLES.put(ObjectRegistry.JOE_PYE.get().asItem(), 0.3F);
+        ComposterBlock.COMPOSTABLES.put(ObjectRegistry.GOLDEN_ROD.get().asItem(), 0.3F);
+        ComposterBlock.COMPOSTABLES.put(ObjectRegistry.MUNSTEAD.get().asItem(), 0.3F);
+        ComposterBlock.COMPOSTABLES.put(ObjectRegistry.MYOSOTIS.get().asItem(), 0.3F);
+        ComposterBlock.COMPOSTABLES.put(ObjectRegistry.SUNFLOWER.get().asItem(), 0.3F);
+        ComposterBlock.COMPOSTABLES.put(ObjectRegistry.DESERT_LILY.get().asItem(), 0.3F);
+        ComposterBlock.COMPOSTABLES.put(ObjectRegistry.BLUFF_GRASS.get().asItem(), 0.3F);
+        ComposterBlock.COMPOSTABLES.put(ObjectRegistry.TALL_BLUFF_GRASS.get().asItem(), 0.3F);
+        ComposterBlock.COMPOSTABLES.put(ObjectRegistry.BLOOMING_OAK_SAPLING.get().asItem(), 0.3F);
+        ComposterBlock.COMPOSTABLES.put(ObjectRegistry.BLOOMING_OAK_LEAVES.get().asItem(), 0.3F);
+        ComposterBlock.COMPOSTABLES.put(ObjectRegistry.FEN_MOSS.get().asItem(), 0.3F);
+        ComposterBlock.COMPOSTABLES.put(ObjectRegistry.FEN_MOSS_CARPET.get().asItem(), 0.3F);
+        ComposterBlock.COMPOSTABLES.put(ObjectRegistry.FOREST_MOSS.get().asItem(), 0.3F);
     }
 }

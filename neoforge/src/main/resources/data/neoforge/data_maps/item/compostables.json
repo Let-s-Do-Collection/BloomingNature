@@ -1,0 +1,212 @@
+{
+  "replace": false,
+  "values": {
+    "bloomingnature:cattail": {
+      "chance": 0.4
+    },
+    "bloomingnature:reed": {
+      "chance": 0.3
+    },
+    "bloomingnature:hyssop": {
+      "chance": 0.3
+    },
+    "bloomingnature:mountain_snowbell": {
+      "chance": 0.3
+    },
+    "bloomingnature:cardinal": {
+      "chance": 0.3
+    },
+    "bloomingnature:mountain_laurel": {
+      "chance": 0.3
+    },
+    "bloomingnature:bird_of_paradise": {
+      "chance": 0.3
+    },
+    "bloomingnature:white_orchid": {
+      "chance": 0.3
+    },
+    "bloomingnature:daphne": {
+      "chance": 0.3
+    },
+    "bloomingnature:bottlebrushes": {
+      "chance": 0.3
+    },
+    "bloomingnature:bluebell": {
+      "chance": 0.3
+    },
+    "bloomingnature:begonie": {
+      "chance": 0.3
+    },
+    "bloomingnature:goatsbeard": {
+      "chance": 0.3
+    },
+    "bloomingnature:genisteae": {
+      "chance": 0.3
+    },
+    "bloomingnature:foxglove_white": {
+      "chance": 0.3
+    },
+    "bloomingnature:foxglove_pink": {
+      "chance": 0.3
+    },
+    "bloomingnature:freesia_yellow": {
+      "chance": 0.3
+    },
+    "bloomingnature:freesia_pink": {
+      "chance": 0.3
+    },
+    "bloomingnature:lupine_blue": {
+      "chance": 0.3
+    },
+    "bloomingnature:lupine_purple": {
+      "chance": 0.3
+    },
+    "bloomingnature:anemone": {
+      "chance": 0.3
+    },
+    "bloomingnature:amaryllis": {
+      "chance": 0.3
+    },
+    "bloomingnature:gladiolus": {
+      "chance": 0.3
+    },
+    "bloomingnature:forsythia": {
+      "chance": 0.3
+    },
+    "bloomingnature:joe_pye": {
+      "chance": 0.3
+    },
+    "bloomingnature:golden_rod": {
+      "chance": 0.3
+    },
+    "bloomingnature:munstead": {
+      "chance": 0.3
+    },
+    "bloomingnature:myosotis": {
+      "chance": 0.3
+    },
+    "bloomingnature:sunflower": {
+      "chance": 0.3
+    },
+    "bloomingnature:desert_lily": {
+      "chance": 0.3
+    },
+    "bloomingnature:sungrass": {
+      "chance": 0.3
+    },
+    "bloomingnature:tall_sungrass": {
+      "chance": 0.3
+    },
+    "bloomingnature:red_oat_grass": {
+      "chance": 0.3
+    },
+    "bloomingnature:tall_red_oat_grass": {
+      "chance": 0.3
+    },
+    "bloomingnature:silkgrass": {
+      "chance": 0.3
+    },
+    "bloomingnature:tall_silkgrass": {
+      "chance": 0.3
+    },
+    "bloomingnature:mossgrass": {
+      "chance": 0.3
+    },
+    "bloomingnature:bluff_grass": {
+      "chance": 0.3
+    },
+    "bloomingnature:tall_bluff_grass": {
+      "chance": 0.3
+    },
+    "bloomingnature:dry_grass": {
+      "chance": 0.3
+    },
+    "bloomingnature:dry_bush": {
+      "chance": 0.3
+    },
+    "bloomingnature:dry_bush_tall": {
+      "chance": 0.3
+    },
+    "bloomingnature:aspen_sapling": {
+      "chance": 0.3
+    },
+    "bloomingnature:fir_sapling": {
+      "chance": 0.3
+    },
+    "bloomingnature:baobab_sapling": {
+      "chance": 0.3
+    },
+    "bloomingnature:swamp_cypress_sapling": {
+      "chance": 0.3
+    },
+    "bloomingnature:swamp_oak_sapling": {
+      "chance": 0.3
+    },
+    "bloomingnature:ebony_sapling": {
+      "chance": 0.3
+    },
+    "bloomingnature:larch_sapling": {
+      "chance": 0.3
+    },
+    "bloomingnature:chestnut_sapling": {
+      "chance": 0.3
+    },
+    "bloomingnature:cypress_sapling": {
+      "chance": 0.3
+    },
+    "bloomingnature:aspen_leaves": {
+      "chance": 0.3
+    },
+    "bloomingnature:fir_leaves": {
+      "chance": 0.3
+    },
+    "bloomingnature:baobab_leaves": {
+      "chance": 0.3
+    },
+    "bloomingnature:swamp_cypress_leaves": {
+      "chance": 0.3
+    },
+    "bloomingnature:swamp_oak_leaves": {
+      "chance": 0.3
+    },
+    "bloomingnature:ebony_leaves": {
+      "chance": 0.3
+    },
+    "bloomingnature:larch_leaves": {
+      "chance": 0.3
+    },
+    "bloomingnature:chestnut_leaves": {
+      "chance": 0.3
+    },
+    "bloomingnature:orange_leaves": {
+      "chance": 0.3
+    },
+    "bloomingnature:blooming_oak_leaves": {
+      "chance": 0.3
+    },
+    "bloomingnature:floating_leaves": {
+      "chance": 0.3
+    },
+    "bloomingnature:fen_moss": {
+      "chance": 0.3
+    },
+    "bloomingnature:blooming_oak_sapling": {
+      "chance": 0.3
+    },
+    "bloomingnature:fen_moss_carpet": {
+      "chance": 0.3
+    },
+    "bloomingnature:forest_moss": {
+      "chance": 0.3
+    },
+    "bloomingnature:small_cactus": {
+      "chance": 0.3
+    },
+    "bloomingnature:barrel_cactus": {
+      "chance": 0.3
+    },
+    "bloomingnature:prickly_pear_cactus": {
+      "chance": 0.3
+    }
+  }
+}

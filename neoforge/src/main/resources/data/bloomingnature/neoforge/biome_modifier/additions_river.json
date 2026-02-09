@@ -10,8 +10,10 @@
     "bloomingnature:temperate/stone_slabs_placed",
     "bloomingnature:vegetation/river_reed_patch_placed",
     "bloomingnature:vegetation/river_seagrass_placed",
+    "bloomingnature:vegetation/river_reed_on_mud_patch_placed",
     "bloomingnature:temperate/stone_pile_placed",
-    "bloomingnature:temperate/ore_travertine_placed"
+    "bloomingnature:temperate/ore_travertine_placed",
+    "bloomingnature:temperate/mud_disk_placed"
   ],
   "step": "vegetal_decoration"
 }

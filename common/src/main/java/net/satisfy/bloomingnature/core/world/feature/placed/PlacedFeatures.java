@@ -13,6 +13,7 @@ public class PlacedFeatures {
     public static final ResourceKey<PlacedFeature> RIVER_FLOWER_PATCH_PLACED = registerPlacedFeature("flowers/river_flower_patch_placed");
     public static final ResourceKey<PlacedFeature> RIVER_REED_PATCH_PLACED = registerPlacedFeature("vegetation/river_reed_patch_placed");
     public static final ResourceKey<PlacedFeature> RIVER_SEAGRASS_PLACED = registerPlacedFeature("vegetation/river_seagrass_placed");
+    public static final ResourceKey<PlacedFeature> RIVER_REED_ON_MUD_PATCH_PLACED = registerPlacedFeature("vegetation/river_reed_on_mud_patch_placed");
     public static final ResourceKey<PlacedFeature> FOREST_TREES_CHECKED = registerPlacedFeature("trees/forest_trees_checked");
     public static final ResourceKey<PlacedFeature> FOREST_FLOWER_PATCH_PLACED = registerPlacedFeature("flowers/forest_flower_patch_placed");
     public static final ResourceKey<PlacedFeature> BIRCH_FOREST_TREES_CHECKED = registerPlacedFeature("trees/birch_forest_trees_checked");
@@ -55,6 +56,7 @@ public class PlacedFeatures {
     public static final ResourceKey<PlacedFeature> GRANITE_BOULDERS_PLACED = registerPlacedFeature("arid/granite_boulders_placed");
     public static final ResourceKey<PlacedFeature> GRANITE_SLABS_PLACED = registerPlacedFeature("arid/granite_slabs_placed");
     public static final ResourceKey<PlacedFeature> PACKED_MUD_DISK_PLACED = registerPlacedFeature("arid/packed_mud_disk_placed");
+    public static final ResourceKey<PlacedFeature> MUD_DISK_PLACED = registerPlacedFeature("temperate/mud_disk_placed");
 
     public static final ResourceKey<PlacedFeature> SAND_LAYER_0_PLACED = registerPlacedFeature("arid/sand_layer_0_placed");
     public static final ResourceKey<PlacedFeature> SAND_LAYER_1_PLACED = registerPlacedFeature("arid/sand_layer_1_placed");

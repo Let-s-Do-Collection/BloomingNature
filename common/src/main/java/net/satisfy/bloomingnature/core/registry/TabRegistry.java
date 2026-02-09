@@ -91,6 +91,7 @@ public class TabRegistry {
                 out.accept(ObjectRegistry.SWAMP_OAK_PRESSURE_PLATE.get());
                 out.accept(ObjectRegistry.SWAMP_OAK_BUTTON.get());
                 out.accept(ObjectRegistry.ORANGE_LEAVES.get());
+                out.accept(ObjectRegistry.BLOOMING_OAK_SAPLING.get());
                 out.accept(ObjectRegistry.BLOOMING_OAK_LEAVES.get());
                 out.accept(ObjectRegistry.SWAMP_OAK_SAPLING.get());
                 out.accept(ObjectRegistry.SWAMP_OAK_SIGN_ITEM.get());
@@ -225,6 +226,8 @@ public class TabRegistry {
                 out.accept(ObjectRegistry.CYPRESS_WINDOW.get());
                 out.accept(ObjectRegistry.CYPRESS_PRESSURE_PLATE.get());
                 out.accept(ObjectRegistry.CYPRESS_BUTTON.get());
+                out.accept(ObjectRegistry.CYPRESS_LEAVES.get());
+                out.accept(ObjectRegistry.CYPRESS_SAPLING.get());
                 out.accept(ObjectRegistry.CYPRESS_SIGN_ITEM.get());
                 out.accept(ObjectRegistry.CYPRESS_HANGING_SIGN_ITEM.get());
                 out.accept(ObjectRegistry.CYPRESS_BOAT.get());

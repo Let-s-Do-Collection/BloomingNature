@@ -42,6 +42,8 @@ public class ObjectRegistry {
     public static final Registrar<Block> BLOCK_REGISTRAR = BLOCKS.getRegistrar();
 
     public static final RegistrySupplier<Item> WANDERING_GARDENER_SPAWN_EGG = registerItem("wandering_gardener_spawn_egg", () -> new ArchitecturySpawnEggItem(EntityTypeRegistry.WANDERING_GARDENER, -1, -1, getSettings()));
+    public static final RegistrySupplier<Block> BLOOMING_OAK_SAPLING = registerWithItem("blooming_oak_sapling", () -> new SaplingBlock(new TreeGrower("oak", Optional.empty(), Optional.of(configuredFeatureKey("trees/oak/blooming_oak_tree_tall")), Optional.empty()), BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_SAPLING)));
+    public static final RegistrySupplier<Block> POTTED_BLOOMING_OAK_SAPLING = registerWithoutItem("potted_blooming_oak_sapling", () -> new FlowerPotBlock(BLOOMING_OAK_SAPLING.get(), BlockBehaviour.Properties.ofFullCopy(Blocks.FLOWER_POT)));
     public static final RegistrySupplier<Block> LARCH_LOG = registerWithItem("larch_log", () -> new RotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_LOG).sound(SoundType.WOOD).strength(2.0f)));
     public static final RegistrySupplier<Block> LARCH_WOOD = registerWithItem("larch_wood", () -> new RotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_WOOD).sound(SoundType.WOOD).strength(2.0f)));
     public static final RegistrySupplier<Block> STRIPPED_LARCH_WOOD = registerWithItem("stripped_larch_wood", () -> new RotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STRIPPED_OAK_WOOD).sound(SoundType.WOOD).strength(2.0f)));
@@ -480,6 +482,7 @@ public class ObjectRegistry {
     public static final RegistrySupplier<Block> CYPRESS_LEAVES = registerWithItem("cypress_leaves", () -> new LeavesBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_LEAVES)));
     public static final RegistrySupplier<Block> CYPRESS_WINDOW = registerWithItem("cypress_window", () -> new WindowBlock(BlockBehaviour.Properties.of().strength(0.2f).randomTicks().sound(SoundType.GLASS).noOcclusion().isViewBlocking((state, world, pos) -> false).isSuffocating((state, world, pos) -> false).mapColor(MapColor.GRASS).pushReaction(PushReaction.IGNORE)));
     public static final RegistrySupplier<Block> CYPRESS_SAPLING = registerWithItem("cypress_sapling", () -> new SaplingBlock(new TreeGrower("cypress", Optional.empty(), Optional.of(configuredFeatureKey("trees/cypress/cypress_tree")), Optional.empty()), BlockBehaviour.Properties.ofFullCopy(Blocks.SPRUCE_SAPLING)));
+    public static final RegistrySupplier<Block> POTTED_CYPRESS_SAPLING = registerWithoutItem("potted_cypress_sapling", () -> new FlowerPotBlock(CYPRESS_SAPLING.get(), BlockBehaviour.Properties.ofFullCopy(Blocks.FLOWER_POT)));
     public static final RegistrySupplier<Block> MARLSTONE = registerWithItem("marlstone", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)));
     public static final RegistrySupplier<Block> MARLSTONE_STAIRS = registerWithItem("marlstone_stairs", () -> new StairBlock(MARLSTONE.get().defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(TRAVERTIN.get())));
     public static final RegistrySupplier<Block> MARLSTONE_SLAB = registerWithItem("marlstone_slab", () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(MARLSTONE.get())));

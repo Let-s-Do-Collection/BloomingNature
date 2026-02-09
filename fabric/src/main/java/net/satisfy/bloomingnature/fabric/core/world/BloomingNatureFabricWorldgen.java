@@ -72,10 +72,12 @@ public final class BloomingNatureFabricWorldgen {
         world.add(ModificationPhase.ADDITIONS, river, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.RIVER_TREES_CHECKED));
         world.add(ModificationPhase.ADDITIONS, river, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.RIVER_REED_PATCH_PLACED));
         world.add(ModificationPhase.ADDITIONS, river, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.RIVER_SEAGRASS_PLACED));
+        world.add(ModificationPhase.ADDITIONS, river, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.RIVER_REED_ON_MUD_PATCH_PLACED));
         world.add(ModificationPhase.ADDITIONS, river, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.LOCAL_MODIFICATIONS, PlacedFeatures.STONE_PILE_PLACED));
         world.add(ModificationPhase.ADDITIONS, river, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.LOCAL_MODIFICATIONS, PlacedFeatures.ORE_TRAVERTINE_PLACED));
         world.add(ModificationPhase.ADDITIONS, river, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.LOCAL_MODIFICATIONS, PlacedFeatures.STONE_BOULDER_PLACED));
         world.add(ModificationPhase.ADDITIONS, river, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.LOCAL_MODIFICATIONS, PlacedFeatures.STONE_SLABS_PLACED));
+        world.add(ModificationPhase.ADDITIONS, river, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.LOCAL_MODIFICATIONS, PlacedFeatures.MUD_DISK_PLACED));
         world.add(ModificationPhase.ADDITIONS, river, context -> context.getEffects().setGrassColor(11063154));
         world.add(ModificationPhase.ADDITIONS, river, context -> context.getEffects().setFoliageColor(7386187));
 

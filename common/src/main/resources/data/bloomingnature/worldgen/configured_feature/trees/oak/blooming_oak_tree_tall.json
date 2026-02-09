@@ -46,7 +46,10 @@
       "root_provider": {
         "type": "minecraft:simple_state_provider",
         "state": {
-          "Name": "minecraft:oak_wood"
+          "Name": "minecraft:oak_wood",
+          "Properties": {
+            "axis": "y"
+          }
         }
       },
       "trunk_offset_y": 0,
@@ -71,7 +74,10 @@
         "muddy_roots_provider": {
           "type": "minecraft:simple_state_provider",
           "state": {
-            "Name": "minecraft:oak_wood"
+            "Name": "minecraft:oak_wood",
+            "Properties": {
+              "axis": "y"
+            }
           }
         }
       }
@@ -104,13 +110,12 @@
     "sapling_provider": {
       "type": "minecraft:simple_state_provider",
       "state": {
-        "Name": "minecraft:oak_sapling",
+        "Name": "bloomingnature:blooming_oak_sapling",
         "Properties": {
           "stage": "0"
         }
       }
     },
-    "decorators": [
-    ]
+    "decorators": []
   }
 }

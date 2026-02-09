@@ -1,7 +1,7 @@
 {
   "type": "minecraft:random_patch",
   "config": {
-    "tries": 48,
+    "tries": 128,
     "xz_spread": 5,
     "y_spread": 1,
     "feature": {
@@ -12,13 +12,13 @@
             "type": "minecraft:weighted_state_provider",
             "entries": [
               {
-                "weight": 85,
+                "weight": 95,
                 "data": {
                   "Name": "minecraft:mud"
                 }
               },
               {
-                "weight": 15,
+                "weight": 5,
                 "data": {
                   "Name": "minecraft:grass_block"
                 }

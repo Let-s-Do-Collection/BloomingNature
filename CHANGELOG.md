@@ -1,3 +1,18 @@
+[1.1.7]
+
+**Fixed**
+* Items not being compostable on NeoForge
+* Biome tags being in the wrong subfolder
+* Cutout render layer missing for Cypress trees
+* Cypress tree and leaves missing from the creative tab
+
+**Changed**
+* Adjusted render layer registration Swamp Oak Doors & Windows to prevent incorrect rendering
+
+**Added**
+* Missing potted Cypress sapling
+* Blooming Oak sapling
+
 [1.1.6]
 
 **Fixed**
