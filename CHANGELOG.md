@@ -13,6 +13,8 @@
 * Missing potted Cypress sapling
 * Blooming Oak sapling
 
+*** 
+
 [1.1.6]
 
 **Fixed**
