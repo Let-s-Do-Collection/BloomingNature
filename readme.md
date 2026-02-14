@@ -1,28 +1,114 @@
-<p align="center"><img src="https://imgur.com/aHbesRp.png" width="1200"></p>
+![Blooming Nature](https://lets-do.ch/assets/mod-logos/bloomingnature.png)
 
-<h1 style="text-align: center;">Welcome to BloomingNature</h1>
 <br>
-<p style="text-align: center;">
-    Explore a redesigned overworld: new animals, reshaped biomes, livelier landscapes.
-</p>
-<br>
-<p style="text-align: center;">
-    Virtually all biomes have been completely revamped: Trees in Forests, Birch Forests, Flower Forests, 
-    and Taiga Biomes are larger and redesigned. New flowers and plants adorn 
-    the surroundings. In Savannas, towering Baobab trees now grow. In snowy regions, snow-covered spruces grow, creating a more 
-    rugged appearance.
-</p>
-
-<h1 align="center">Available for</h1>
-<p align="center"><img src="https://imgur.com/gREqi3m.png" width="240" height="120"></p>
-
-<h1 align="center">Be Part of Our Journey</h1>
 
 <p align="center">
-    <a title="discord" href="https://discord.gg/Vqu6wYZwdZ">
-        <img style="display: block; margin-left: auto; margin-right: auto;" src="https://1000logos.net/wp-content/uploads/2021/06/Discord-logo-2015.png" alt="" width="" height="140" />
-    </a>
-    <a title="patreon" href="https://www.patreon.com/user?u=78595058">
-        <img style="display: block; margin-left: auto; margin-right: auto;" src="https://cdn.icon-icons.com/icons2/2699/PNG/512/patreon_logo_icon_170869.png" alt="" width="" height="140" />
-    </a>
+  <strong>Overgrown Worlds & Living Landscapes</strong>
+</p>
+
+<p align="center">
+  <em>The wild biome overhaul of the Let's Do collection</em>
+</p>
+
+<br>
+
+<p align="center">
+  <em>"Let the world grow"</em>
+</p>
+
+<br>
+
+BloomingNature reshapes nearly every Vanilla biome with new tree forms, fresh vegetation, subtle terrain changes and atmospheric detail. The goal is simple: make the world feel denser, wilder and more alive.
+
+<br>
+
+Not louder. Not bigger. Just blooming.
+
+<br>
+
+## A Living Overhaul
+
+<br>
+
+- Overhauls nearly all biomes
+- Introduces 10 new smaller biomes designed as natural transitions between existing regions  
+- Adds larger new forests such as Aspen and Larch Forests  
+- Expands vegetation with 26 new flower species, new Grass Variants and much more 
+- Introduces new stone types including Laterite, Travertine, Marlstone and more  
+- Adds Mushroom Bricks, Quicksand, Marsh Blocks, Forest Moss and many additional ambient and decorative blocks  
+
+<br>
+
+BloomingNature refines and replaces vanilla features while preserving biome placement and overall world structure.
+
+<br>
+
+## Worldgen Compatibility
+
+<br>
+
+BloomingNature integrates seamlessly with major world generation overhauls.
+
+<br>
+
+<details>
+<summary><strong>Confirmed Compatible Mods</strong></summary>
+
+<br>
+
+- Terralith  
+- Meadow  
+- Beachparty  
+- Nature's Spirit  
+- Regions Unexplored  
+- Reterraforged  
+- William Wythers Expanded Ecosphere  
+- William Wythers Overhauled Overworld  
+- Continents  
+- Biome Makeover  
+- Ecologics  
+- Naturalist  
+- Spawn  
+- Good Ending  
+
+<br>
+
+</details>
+
+<br>
+
+<p align="center">
+  <em>BloomingNature is not intended to be realistic or adhere to real-world biome accuracy. It embraces artistic freedom while drawing inspiration from nature.</em>
+</p>
+
+<br>
+
+<div align="center">
+
+# The Let’s Do Collection
+
+<br>
+
+<a href="https://lets-do.ch/mods/">
+  <img src="https://github.com/Let-s-Do-Collection/Let-s-Do-Collection/raw/main/LOGO.png?raw=true" width="350" alt="The Let’s Do Collection">
+</a>
+
+<br>
+
+# Support & Community
+
+</div>
+
+<br>
+
+<p align="center">
+  Let’s Do grows through its community.
+</p>
+
+<br>
+
+<p align="center">
+  <a href="https://github.com/Let-s-Do-Collection/Let-s-Do-Collection">GitHub</a> •
+  <a href="https://discord.gg/Jb2bgpYr">Discord</a> •
+  <a href="https://www.patreon.com/c/u78595058">Patreon</a>
 </p>
