@@ -1,4 +1,4 @@
-![Blooming Nature](https://lets-do.ch/assets/mod-logos/bloomingnature.png)
+![Blooming Nature](https://lets-do.ch/assets/mod-logos/bloomingnature.webp)
 
 <br>
 
