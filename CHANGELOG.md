@@ -1,3 +1,15 @@
+[1.1.8]
+
+**Fixed**
+* Monster spawn list is now correctly applied to the following biomes: Baobab Savanna, Brushland, Cypress Fields and Desert Oasis
+* Potted Blooming Oak Sapling having a missing texture
+
+**Changed**
+* Added Blooming Nature biomes to appropriate c: biome tags to improve cross-mod compat 
+* Updated ru_ru translation (tefnya)
+
+***
+
 [1.1.7]
 
 **Fixed**
