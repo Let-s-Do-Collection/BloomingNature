@@ -268,7 +268,7 @@
   "item.bloomingnature.wandering_gardener_spawn_egg": "Wanderner-Gärtner-Spawn-Ei",
   "tooltip.bloomingnature.canbeplaced": "Kann platziert werden",
   "block.bloomingnature.bloomingnature_banner": "Vervollständigungsbanner: §aBloomingNature",
-  "tooltip.bloomingnature.banner.thankyou_1": "Eine Belohnung für das abschliessen des Abenteuerzeit Fortschritt",
+  "tooltip.bloomingnature.banner.thankyou_1": "Eine Belohnung für das abschliessen des Blühende Horizonte Fortschritt",
   "tooltip.bloomingnature.banner.thankyou_2": "Wenn platzier:",
   "tooltip.bloomingnature.banner.thankyou_3": "Danke, dass du BloomingNature spielst!",
   "tooltip.bloomingnature.banner.thankyou_4": "Gewährt Stength II einem Radius von 8 Blöcken",
@@ -477,5 +477,7 @@
   "block.bloomingnature.fen_moss_carpet": "Fennmoos Teppich",
   "biome.bloomingnature.highland_woods": "Hochlandwald",
   "block.bloomingnature.blooming_oak_sapling": "Blühender Eichensetzling",
-  "block.bloomingnature.potted_blooming_oak_sapling": "Eingetopfter blühender Eichensetzling"
+  "block.bloomingnature.potted_blooming_oak_sapling": "Eingetopfter blühender Eichensetzling",
+  "advancement.bloomingnature.blooming_horizons": "Blühende Horizonte",
+  "advancement.bloomingnature.blooming_horizons.description": "Entdecke alle durch Blooming Nature hinzugefügten Biome."
 }

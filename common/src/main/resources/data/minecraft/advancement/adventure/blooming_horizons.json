@@ -1,0 +1,334 @@
+{
+  "parent": "minecraft:adventure/sleep_in_bed",
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancement.bloomingnature.blooming_horizons.description"
+    },
+    "frame": "challenge",
+    "hidden": false,
+    "icon": {
+      "id": "bloomingnature:twigs",
+      "count": 1
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancement.bloomingnature.blooming_horizons"
+    }
+  },
+  "criteria": {
+    "bloomingnature:aspen_forest": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "biomes": "bloomingnature:aspen_forest"
+              }
+            }
+          }
+        ]
+      }
+    },
+    "bloomingnature:baobab_savanna": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "biomes": "bloomingnature:baobab_savanna"
+              }
+            }
+          }
+        ]
+      }
+    },
+    "bloomingnature:brushland": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "biomes": "bloomingnature:brushland"
+              }
+            }
+          }
+        ]
+      }
+    },
+    "bloomingnature:cold_grassland": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "biomes": "bloomingnature:cold_grassland"
+              }
+            }
+          }
+        ]
+      }
+    },
+    "bloomingnature:cold_river": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "biomes": "bloomingnature:cold_river"
+              }
+            }
+          }
+        ]
+      }
+    },
+    "bloomingnature:cypress_fields": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "biomes": "bloomingnature:cypress_fields"
+              }
+            }
+          }
+        ]
+      }
+    },
+    "bloomingnature:desert_oasis": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "biomes": "bloomingnature:desert_oasis"
+              }
+            }
+          }
+        ]
+      }
+    },
+    "bloomingnature:desert_river": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "biomes": "bloomingnature:desert_river"
+              }
+            }
+          }
+        ]
+      }
+    },
+    "bloomingnature:fen": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "biomes": "bloomingnature:fen"
+              }
+            }
+          }
+        ]
+      }
+    },
+    "bloomingnature:flower_glade": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "biomes": "bloomingnature:flower_glade"
+              }
+            }
+          }
+        ]
+      }
+    },
+    "bloomingnature:forest_edge": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "biomes": "bloomingnature:forest_edge"
+              }
+            }
+          }
+        ]
+      }
+    },
+    "bloomingnature:golden_glade": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "biomes": "bloomingnature:golden_glade"
+              }
+            }
+          }
+        ]
+      }
+    },
+    "bloomingnature:highland_woods": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "biomes": "bloomingnature:highland_woods"
+              }
+            }
+          }
+        ]
+      }
+    },
+    "bloomingnature:jungle_river": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "biomes": "bloomingnature:jungle_river"
+              }
+            }
+          }
+        ]
+      }
+    },
+    "bloomingnature:larch_forest": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "biomes": "bloomingnature:larch_forest"
+              }
+            }
+          }
+        ]
+      }
+    },
+    "bloomingnature:marshland": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "biomes": "bloomingnature:marshland"
+              }
+            }
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "bloomingnature:aspen_forest"
+    ],
+    [
+      "bloomingnature:baobab_savanna"
+    ],
+    [
+      "bloomingnature:brushland"
+    ],
+    [
+      "bloomingnature:cold_grassland"
+    ],
+    [
+      "bloomingnature:cold_river"
+    ],
+    [
+      "bloomingnature:cypress_fields"
+    ],
+    [
+      "bloomingnature:desert_oasis"
+    ],
+    [
+      "bloomingnature:desert_river"
+    ],
+    [
+      "bloomingnature:fen"
+    ],
+    [
+      "bloomingnature:flower_glade"
+    ],
+    [
+      "bloomingnature:forest_edge"
+    ],
+    [
+      "bloomingnature:golden_glade"
+    ],
+    [
+      "bloomingnature:highland_woods"
+    ],
+    [
+      "bloomingnature:jungle_river"
+    ],
+    [
+      "bloomingnature:larch_forest"
+    ],
+    [
+      "bloomingnature:marshland"
+    ]
+  ],
+  "rewards": {
+    "experience": 500,
+    "loot": [
+      "bloomingnature:advancements/blooming_horizons"
+    ]
+  },
+  "sends_telemetry_event": true
+}

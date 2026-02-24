@@ -7,6 +7,7 @@
 **Changed**
 * Added Blooming Nature biomes to appropriate c: biome tags to improve cross-mod compat 
 * Updated ru_ru translation (tefnya)
+* Added a new “Blooming Horizons” advancement for visiting all Blooming Nature biomes instead of extending Adventuring Time
 
 ***
 

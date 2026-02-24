@@ -471,11 +471,13 @@
   "item.bloomingnature.swamp_oak_boat": "Swamp Oak Boat",
   "item.bloomingnature.swamp_oak_chest_boat": "Swamp Oak Chest Boat",
   "item.bloomingnature.wandering_gardener_spawn_egg": "Wandering Gardener Spawn Egg",
-  "tooltip.bloomingnature.banner.thankyou_1": "A reward for completing the Adventuring Time Advancement",
+  "tooltip.bloomingnature.banner.thankyou_1": "A reward for completing the Blooming Horizons Advancement",
   "tooltip.bloomingnature.banner.thankyou_2": "When placed:",
   "tooltip.bloomingnature.banner.thankyou_3": "Thank you for playing BloomingNature!",
   "tooltip.bloomingnature.banner.thankyou_4": "Grants Strength II in a radius of 8 blocks",
   "tooltip.bloomingnature.canbeplaced": "Can be Placed",
   "biome.bloomingnature.fen": "Fen",
-  "biome.bloomingnature.highland_woods": "Highland Woods"
+  "biome.bloomingnature.highland_woods": "Highland Woods",
+  "advancement.bloomingnature.blooming_horizons": "Blooming Horizons",
+  "advancement.bloomingnature.blooming_horizons.description": "Discover all biomes added by Blooming Nature."
 }
