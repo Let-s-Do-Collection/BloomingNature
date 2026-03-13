@@ -11,7 +11,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "bloomingnature:marlstone_bricks"
+          "name": "bloomingnature:mossy_marlstone_bricks"
         }
       ],
       "rolls": 1.0

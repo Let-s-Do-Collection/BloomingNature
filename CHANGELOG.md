@@ -1,3 +1,13 @@
+[1.1.9]
+
+**Fixed**
+* Fan Palm trees not growing from Fan Palm Sprouts
+* Boats not rendering when using shaders
+* Cypress Plate appearing as Cypress Planks in the inventory
+* Mossy Marlstone Bricks dropping Marlstone Bricks instead of Mossy Marlstone Bricks
+
+***
+
 [1.1.8]
 
 **Fixed**

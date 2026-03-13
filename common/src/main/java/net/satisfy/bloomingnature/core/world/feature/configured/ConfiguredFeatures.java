@@ -17,7 +17,7 @@ import net.satisfy.bloomingnature.core.world.feature.configured.rock.RockPileFea
 public class ConfiguredFeatures {
     public static final DeferredRegister<Feature<?>> FEATURES = DeferredRegister.create(BloomingNature.MOD_ID, Registries.FEATURE);
 
-    public static final ResourceKey<ConfiguredFeature<?, ?>> FAN_PALM_TREE_KEY = registerConfiguredFeature("beach_fan_palm");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> FAN_PALM_TREE_KEY = registerConfiguredFeature("trees/fan_palm/fan_palm");
     public static final ResourceKey<ConfiguredFeature<?, ?>> FOREST_MOSS_PATCH_BONEMEAL_KEY = registerConfiguredFeature("vegetation/forest_moss_patch_bonemeal");
     public static final ResourceKey<ConfiguredFeature<?, ?>> BOG_MOSS_PATCH_BONEMEAL_KEY = registerConfiguredFeature("vegetation/bog_moss_patch_bonemeal");
     public static final ResourceKey<ConfiguredFeature<?, ?>> GROUND_LITTER_KEY = registerConfiguredFeature("vegetation/ground_litter");

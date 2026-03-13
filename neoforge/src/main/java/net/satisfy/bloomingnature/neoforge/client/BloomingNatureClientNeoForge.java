@@ -24,7 +24,7 @@ public class BloomingNatureClientNeoForge {
 
     @SubscribeEvent
     public static void onClientSetup(FMLClientSetupEvent event) {
-        BloomingNatureClient.initClient();
+        event.enqueueWork(BloomingNatureClient::initClient);
     }
 
     @SubscribeEvent
