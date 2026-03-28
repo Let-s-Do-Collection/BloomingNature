@@ -1,3 +1,10 @@
+[1.1.10]
+
+**Fixed**
+* Lake feature crash during world generation
+
+***
+
 [1.1.9]
 
 **Fixed**
