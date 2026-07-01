@@ -24,7 +24,9 @@ public class BloomingNatureForge {
 
 
     private void commonSetup(final FMLCommonSetupEvent event) {
-        event.enqueueWork(CompostableRegistry::init);
-        BloomingNature.commonInit();
+        event.enqueueWork(() -> {
+            CompostableRegistry.init();
+            BloomingNature.commonInit();
+        });
     }
 }
