@@ -65,10 +65,10 @@ public final class ColdSurfaceBuilder extends BiolithSurfaceBuilder {
                     int mix = mixIndex(x, y, z);
                     if (mix < 90) {
                         column.setBlock(y, Blocks.COARSE_DIRT.defaultBlockState());
-                        if (y - 1 >= 0) column.setBlock(y - 1, Blocks.DIRT.defaultBlockState());
+                        if (y - 1 >= 0 && !column.getBlock(y - 1).isAir()) column.setBlock(y - 1, Blocks.DIRT.defaultBlockState());
                     } else {
                         column.setBlock(y, Blocks.ROOTED_DIRT.defaultBlockState());
-                        if (y - 1 >= 0) column.setBlock(y - 1, Blocks.DIRT.defaultBlockState());
+                        if (y - 1 >= 0 && !column.getBlock(y - 1).isAir()) column.setBlock(y - 1, Blocks.DIRT.defaultBlockState());
                     }
                     continue;
                 }
@@ -80,13 +80,13 @@ public final class ColdSurfaceBuilder extends BiolithSurfaceBuilder {
 
                 if (n1 > 0.85f) {
                     column.setBlock(y, Blocks.ROOTED_DIRT.defaultBlockState());
-                    if (y - 1 >= 0) column.setBlock(y - 1, Blocks.DIRT.defaultBlockState());
+                    if (y - 1 >= 0 && !column.getBlock(y - 1).isAir()) column.setBlock(y - 1, Blocks.DIRT.defaultBlockState());
                     continue;
                 }
 
                 if (n1 > 0.70f) {
                     column.setBlock(y, Blocks.COARSE_DIRT.defaultBlockState());
-                    if (y - 1 >= 0) column.setBlock(y - 1, Blocks.DIRT.defaultBlockState());
+                    if (y - 1 >= 0 && !column.getBlock(y - 1).isAir()) column.setBlock(y - 1, Blocks.DIRT.defaultBlockState());
                     continue;
                 }
 
@@ -143,7 +143,7 @@ public final class ColdSurfaceBuilder extends BiolithSurfaceBuilder {
 
                 if (mossNoise > 0.75f && podzolNoise < 0.35f) {
                     column.setBlock(y, ObjectRegistry.FOREST_MOSS.get().defaultBlockState());
-                    if (y - 1 >= 0) {
+                    if (y - 1 >= 0 && !column.getBlock(y - 1).isAir()) {
                         column.setBlock(y - 1, Blocks.DIRT.defaultBlockState());
                     }
                     continue;
@@ -201,7 +201,7 @@ public final class ColdSurfaceBuilder extends BiolithSurfaceBuilder {
                 }
                 if (soilNoise > 0.7f) {
                     column.setBlock(y, ObjectRegistry.FOREST_MOSS.get().defaultBlockState());
-                    if (y - 1 >= 0) column.setBlock(y - 1, Blocks.DIRT.defaultBlockState());
+                    if (y - 1 >= 0 && !column.getBlock(y - 1).isAir()) column.setBlock(y - 1, Blocks.DIRT.defaultBlockState());
                     continue;
                 }
                 if (mossNoise < 0.25f && slope >= 3) {
@@ -266,9 +266,15 @@ public final class ColdSurfaceBuilder extends BiolithSurfaceBuilder {
             }
 
             column.setBlock(y, topState);
+            if (column.getBlock(y - 1).isAir()) {
+                return;
+            }
             column.setBlock(y - 1, belowState);
 
             for (int subY = y - 2; subY >= y - 5 && subY >= 0; subY--) {
+                if (column.getBlock(subY).isAir()) {
+                    break;
+                }
                 int clayMix = Math.floorMod(mixIndex(x, subY, z), 100);
                 column.setBlock(subY, clayMix < 85 ? Blocks.CLAY.defaultBlockState() : Blocks.COARSE_DIRT.defaultBlockState());
             }
@@ -312,7 +318,7 @@ public final class ColdSurfaceBuilder extends BiolithSurfaceBuilder {
 
                 if (mossNoise > 0.78f && slope <= 2) {
                     column.setBlock(y, ObjectRegistry.FOREST_MOSS.get().defaultBlockState());
-                    if (y - 1 >= 0) {
+                    if (y - 1 >= 0 && !column.getBlock(y - 1).isAir()) {
                         column.setBlock(y - 1, Blocks.DIRT.defaultBlockState());
                     }
                     continue;

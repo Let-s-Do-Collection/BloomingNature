@@ -82,7 +82,7 @@ public final class AridSurfaceBuilder extends BiolithSurfaceBuilder {
                 }
                 if (n1 > 0.85f) {
                     column.setBlock(y, Blocks.ROOTED_DIRT.defaultBlockState());
-                    if (y - 1 >= 0) column.setBlock(y - 1, Blocks.DIRT.defaultBlockState());
+                    if (y - 1 >= 0 && !column.getBlock(y - 1).isAir()) column.setBlock(y - 1, Blocks.DIRT.defaultBlockState());
                     continue;
                 }
                 if (n1 > 0.70f) {
@@ -90,7 +90,7 @@ public final class AridSurfaceBuilder extends BiolithSurfaceBuilder {
                         column.setBlock(y, Blocks.WHITE_TERRACOTTA.defaultBlockState());
                     } else {
                         column.setBlock(y, Blocks.COARSE_DIRT.defaultBlockState());
-                        if (y - 1 >= 0) column.setBlock(y - 1, Blocks.DIRT.defaultBlockState());
+                        if (y - 1 >= 0 && !column.getBlock(y - 1).isAir()) column.setBlock(y - 1, Blocks.DIRT.defaultBlockState());
                     }
                     continue;
                 }
@@ -118,10 +118,10 @@ public final class AridSurfaceBuilder extends BiolithSurfaceBuilder {
                     int mix = mixIndex(x, y, z);
                     if (mix < 90) {
                         column.setBlock(y, Blocks.COARSE_DIRT.defaultBlockState());
-                        if (y - 1 >= 0) column.setBlock(y - 1, Blocks.DIRT.defaultBlockState());
+                        if (y - 1 >= 0 && !column.getBlock(y - 1).isAir()) column.setBlock(y - 1, Blocks.DIRT.defaultBlockState());
                     } else {
                         column.setBlock(y, Blocks.ROOTED_DIRT.defaultBlockState());
-                        if (y - 1 >= 0) column.setBlock(y - 1, Blocks.DIRT.defaultBlockState());
+                        if (y - 1 >= 0 && !column.getBlock(y - 1).isAir()) column.setBlock(y - 1, Blocks.DIRT.defaultBlockState());
                     }
                     continue;
                 }
@@ -131,12 +131,12 @@ public final class AridSurfaceBuilder extends BiolithSurfaceBuilder {
                 }
                 if (n1 > 0.85f) {
                     column.setBlock(y, Blocks.ROOTED_DIRT.defaultBlockState());
-                    if (y - 1 >= 0) column.setBlock(y - 1, Blocks.DIRT.defaultBlockState());
+                    if (y - 1 >= 0 && !column.getBlock(y - 1).isAir()) column.setBlock(y - 1, Blocks.DIRT.defaultBlockState());
                     continue;
                 }
                 if (n1 > 0.70f) {
                     column.setBlock(y, Blocks.COARSE_DIRT.defaultBlockState());
-                    if (y - 1 >= 0) column.setBlock(y - 1, Blocks.DIRT.defaultBlockState());
+                    if (y - 1 >= 0 && !column.getBlock(y - 1).isAir()) column.setBlock(y - 1, Blocks.DIRT.defaultBlockState());
                     continue;
                 }
                 column.setBlock(y, Blocks.GRASS_BLOCK.defaultBlockState());
@@ -166,7 +166,7 @@ public final class AridSurfaceBuilder extends BiolithSurfaceBuilder {
                 }
 
                 column.setBlock(y, Blocks.GRASS_BLOCK.defaultBlockState());
-                if (y - 1 >= 0) {
+                if (y - 1 >= 0 && !column.getBlock(y - 1).isAir()) {
                     column.setBlock(y - 1, sandPatch ? Blocks.SAND.defaultBlockState() : Blocks.DIRT.defaultBlockState());
                 }
             }
@@ -319,6 +319,8 @@ public final class AridSurfaceBuilder extends BiolithSurfaceBuilder {
             float bandNoise = smoothNoise(RandomSource.create(55123L), x + 53, z - 41, 0.018f);
             float patchNoise = smoothNoise(RandomSource.create(77411L), x - 19, z + 87, 0.022f);
             float combined = dryness * 0.65f + bandNoise * 0.35f;
+            float redDetail = smoothNoise(RandomSource.create(41911L), x + 5, z - 9, 0.04f);
+            float fringeDetail = smoothNoise(RandomSource.create(63217L), x - 27, z + 33, 0.045f);
 
             for (int y = 0; y <= topY; y++) {
                 if (y != topY) continue;
@@ -332,14 +334,13 @@ public final class AridSurfaceBuilder extends BiolithSurfaceBuilder {
                     continue;
                 }
 
-                int r = mixIndex(x, y, z);
-                boolean redBand = combined > 0.63f && patchNoise > 0.70f && r < 32;
+                boolean redBand = combined > 0.63f && patchNoise > 0.70f && redDetail > 0.5f;
                 boolean coarseCore = combined > 0.57f && patchNoise > 0.58f;
-                boolean coarseFringe = !coarseCore && combined > 0.53f && patchNoise > 0.54f;
+                boolean coarseFringe = !coarseCore && combined > 0.53f && patchNoise > 0.54f && fringeDetail > 0.45f;
 
                 if (redBand) {
                     column.setBlock(y, Blocks.RED_SAND.defaultBlockState());
-                    if (y - 1 >= 0) {
+                    if (y - 1 >= 0 && !column.getBlock(y - 1).isAir()) {
                         column.setBlock(y - 1, Blocks.RED_SAND.defaultBlockState());
                     }
                     continue;
@@ -347,15 +348,15 @@ public final class AridSurfaceBuilder extends BiolithSurfaceBuilder {
 
                 if (coarseCore) {
                     column.setBlock(y, Blocks.COARSE_DIRT.defaultBlockState());
-                    if (y - 1 >= 0) {
+                    if (y - 1 >= 0 && !column.getBlock(y - 1).isAir()) {
                         column.setBlock(y - 1, Blocks.DIRT.defaultBlockState());
                     }
                     continue;
                 }
 
-                if (coarseFringe && r < 40) {
+                if (coarseFringe) {
                     column.setBlock(y, Blocks.COARSE_DIRT.defaultBlockState());
-                    if (y - 1 >= 0) {
+                    if (y - 1 >= 0 && !column.getBlock(y - 1).isAir()) {
                         column.setBlock(y - 1, Blocks.DIRT.defaultBlockState());
                     }
                     continue;
@@ -397,7 +398,7 @@ public final class AridSurfaceBuilder extends BiolithSurfaceBuilder {
             }
             if (n1 > 0.85f) {
                 column.setBlock(y, Blocks.ROOTED_DIRT.defaultBlockState());
-                if (y - 1 >= 0) column.setBlock(y - 1, Blocks.DIRT.defaultBlockState());
+                if (y - 1 >= 0 && !column.getBlock(y - 1).isAir()) column.setBlock(y - 1, Blocks.DIRT.defaultBlockState());
                 continue;
             }
             if (n1 > 0.70f) {
@@ -405,7 +406,7 @@ public final class AridSurfaceBuilder extends BiolithSurfaceBuilder {
                     column.setBlock(y, Blocks.WHITE_TERRACOTTA.defaultBlockState());
                 } else {
                     column.setBlock(y, Blocks.COARSE_DIRT.defaultBlockState());
-                    if (y - 1 >= 0) column.setBlock(y - 1, Blocks.DIRT.defaultBlockState());
+                    if (y - 1 >= 0 && !column.getBlock(y - 1).isAir()) column.setBlock(y - 1, Blocks.DIRT.defaultBlockState());
                 }
                 continue;
             }

@@ -7,7 +7,8 @@
 * Pebbles playing wood placement/breaking sounds instead of stone sounds
 * Sand floating in the air after the block below it was removed, only falling after a long delay
 * Forest Moss patches getting completely overrun by mushrooms within a single night due to missing density limit
-* Floating Laterit blocks generating under thin cliff overhangs and near surface caves in Jungle biomes
+* Floating single blocks (Laterit, Dirt, Coarse Dirt, Gravel, Red Sand, etc.) generating under thin cliff overhangs and near surface caves across most biome surface builders
+* Baobab Savanna's Red Sand and Coarse Dirt patches appearing as scattered single-block speckles instead of small, cohesive patches
 
 **Added**
 * pt_br translation (thanks to Leirbag)

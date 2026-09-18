@@ -54,47 +54,25 @@ public final class WetSurfaceBuilder extends BiolithSurfaceBuilder {
             float band = saturate((bandNoise - 0.35f) / 0.45f);
             boolean isSteep = slope >= 4;
 
-            for (int y = 0; y <= topY; y++) {
-                if (y != topY) {
-                    continue;
+            int y = topY;
+            if (isSteep) {
+                column.setBlock(y, band < 0.35f ? Blocks.GRASS_BLOCK.defaultBlockState() : Blocks.MUD.defaultBlockState());
+                if (y - 1 >= 0) {
+                    column.setBlock(y - 1, Blocks.DIRT.defaultBlockState());
                 }
-
-                if (isSteep) {
-                    if (band < 0.35f) {
-                        column.setBlock(y, Blocks.GRASS_BLOCK.defaultBlockState());
-                    } else if (band < 0.75f) {
-                        column.setBlock(y, Blocks.MUD.defaultBlockState());
-                    } else {
-                        column.setBlock(y, Blocks.MUD.defaultBlockState());
-                    }
+            } else if (dryness < 0.35f) {
+                column.setBlock(y, Blocks.GRASS_BLOCK.defaultBlockState());
+            } else if (dryness < 0.7f) {
+                if (band < 0.5f) {
+                    column.setBlock(y, Blocks.GRASS_BLOCK.defaultBlockState());
+                } else {
+                    column.setBlock(y, Blocks.MUD.defaultBlockState());
                     if (y - 1 >= 0) {
                         column.setBlock(y - 1, Blocks.DIRT.defaultBlockState());
                     }
-                    continue;
                 }
-
-                if (dryness < 0.35f) {
-                    column.setBlock(y, Blocks.GRASS_BLOCK.defaultBlockState());
-                    continue;
-                }
-
-                if (dryness < 0.7f) {
-                    if (band < 0.5f) {
-                        column.setBlock(y, Blocks.GRASS_BLOCK.defaultBlockState());
-                    } else {
-                        column.setBlock(y, Blocks.MUD.defaultBlockState());
-                        if (y - 1 >= 0) {
-                            column.setBlock(y - 1, Blocks.DIRT.defaultBlockState());
-                        }
-                    }
-                    continue;
-                }
-
-                if (band < 0.5f) {
-                    column.setBlock(y, Blocks.MUD.defaultBlockState());
-                } else {
-                    column.setBlock(y, Blocks.MUD.defaultBlockState());
-                }
+            } else {
+                column.setBlock(y, Blocks.MUD.defaultBlockState());
                 if (y - 1 >= 0) {
                     column.setBlock(y - 1, Blocks.DIRT.defaultBlockState());
                 }
@@ -117,42 +95,30 @@ public final class WetSurfaceBuilder extends BiolithSurfaceBuilder {
             float band = saturate((bandNoise - 0.35f) / 0.45f);
             boolean isSteep = slope >= 4;
 
-            for (int y = 0; y <= topY; y++) {
-                if (y != topY) {
-                    continue;
+            int y = topY;
+            if (isSteep) {
+                if (band < 0.35f) {
+                    column.setBlock(y, Blocks.GRASS_BLOCK.defaultBlockState());
+                } else if (band < 0.75f) {
+                    column.setBlock(y, Blocks.COARSE_DIRT.defaultBlockState());
+                } else {
+                    column.setBlock(y, Blocks.MUD.defaultBlockState());
                 }
-
-                if (isSteep) {
-                    if (band < 0.35f) {
-                        column.setBlock(y, Blocks.GRASS_BLOCK.defaultBlockState());
-                    } else if (band < 0.75f) {
-                        column.setBlock(y, Blocks.COARSE_DIRT.defaultBlockState());
-                    } else {
-                        column.setBlock(y, Blocks.MUD.defaultBlockState());
-                    }
+                if (y - 1 >= 0) {
+                    column.setBlock(y - 1, Blocks.DIRT.defaultBlockState());
+                }
+            } else if (dryness < 0.35f) {
+                column.setBlock(y, Blocks.GRASS_BLOCK.defaultBlockState());
+            } else if (dryness < 0.7f) {
+                if (band < 0.5f) {
+                    column.setBlock(y, Blocks.GRASS_BLOCK.defaultBlockState());
+                } else {
+                    column.setBlock(y, Blocks.COARSE_DIRT.defaultBlockState());
                     if (y - 1 >= 0) {
                         column.setBlock(y - 1, Blocks.DIRT.defaultBlockState());
                     }
-                    continue;
                 }
-
-                if (dryness < 0.35f) {
-                    column.setBlock(y, Blocks.GRASS_BLOCK.defaultBlockState());
-                    continue;
-                }
-
-                if (dryness < 0.7f) {
-                    if (band < 0.5f) {
-                        column.setBlock(y, Blocks.GRASS_BLOCK.defaultBlockState());
-                    } else {
-                        column.setBlock(y, Blocks.COARSE_DIRT.defaultBlockState());
-                        if (y - 1 >= 0) {
-                            column.setBlock(y - 1, Blocks.DIRT.defaultBlockState());
-                        }
-                    }
-                    continue;
-                }
-
+            } else {
                 if (band < 0.5f) {
                     column.setBlock(y, Blocks.MUD.defaultBlockState());
                 } else {
@@ -185,49 +151,34 @@ public final class WetSurfaceBuilder extends BiolithSurfaceBuilder {
             boolean isSteep = slope >= 3;
             boolean isFoot = isSteep && topY <= seaLevel + 2;
 
-            for (int y = 0; y <= topY; y++) {
-                if (y != topY) {
-                    continue;
-                }
-
-                if (isSteep) {
-                    if (isFoot) {
-                        float footNoise = smoothNoise(RandomSource.create(55123L), x, z, 0.12f);
-                        if (footNoise < 0.5f) {
-                            column.setBlock(y, Blocks.COARSE_DIRT.defaultBlockState());
-                        } else {
-                            column.setBlock(y, Blocks.GRAVEL.defaultBlockState());
-                        }
+            int y = topY;
+            if (isSteep) {
+                if (isFoot) {
+                    float footNoise = smoothNoise(RandomSource.create(55123L), x, z, 0.12f);
+                    if (footNoise < 0.5f) {
+                        column.setBlock(y, Blocks.COARSE_DIRT.defaultBlockState());
                     } else {
-                        column.setBlock(y, ObjectRegistry.LATERIT.get().defaultBlockState());
-                        if (y - 1 >= 0 && !column.getBlock(y - 1).isAir()) {
-                            column.setBlock(y - 1, ObjectRegistry.LATERIT.get().defaultBlockState());
-                        }
+                        column.setBlock(y, Blocks.GRAVEL.defaultBlockState());
                     }
-                    continue;
-                }
-
-                if (wetFactor <= 0.18f) {
-                    column.setBlock(y, Blocks.GRASS_BLOCK.defaultBlockState());
-                    continue;
-                }
-
-                if (wetFactor <= 0.45f) {
-                    column.setBlock(y, Blocks.COARSE_DIRT.defaultBlockState());
-                    if (y - 1 >= 0) {
-                        column.setBlock(y - 1, Blocks.DIRT.defaultBlockState());
+                } else {
+                    column.setBlock(y, ObjectRegistry.LATERIT.get().defaultBlockState());
+                    if (y - 1 >= 0 && !column.getBlock(y - 1).isAir()) {
+                        column.setBlock(y - 1, ObjectRegistry.LATERIT.get().defaultBlockState());
                     }
-                    continue;
                 }
-
-                if (wetFactor <= 0.78f) {
-                    column.setBlock(y, Blocks.MOSS_BLOCK.defaultBlockState());
-                    if (y - 1 >= 0) {
-                        column.setBlock(y - 1, Blocks.DIRT.defaultBlockState());
-                    }
-                    continue;
+            } else if (wetFactor <= 0.18f) {
+                column.setBlock(y, Blocks.GRASS_BLOCK.defaultBlockState());
+            } else if (wetFactor <= 0.45f) {
+                column.setBlock(y, Blocks.COARSE_DIRT.defaultBlockState());
+                if (y - 1 >= 0) {
+                    column.setBlock(y - 1, Blocks.DIRT.defaultBlockState());
                 }
-
+            } else if (wetFactor <= 0.78f) {
+                column.setBlock(y, Blocks.MOSS_BLOCK.defaultBlockState());
+                if (y - 1 >= 0) {
+                    column.setBlock(y - 1, Blocks.DIRT.defaultBlockState());
+                }
+            } else {
                 column.setBlock(y, Blocks.MUD.defaultBlockState());
                 if (y - 1 >= 0) {
                     column.setBlock(y - 1, Blocks.DIRT.defaultBlockState());
@@ -256,19 +207,16 @@ public final class WetSurfaceBuilder extends BiolithSurfaceBuilder {
                 }
             }
 
-            int maxDepth = Math.max(8, topY - floorY);
-            for (int y = topY; y >= floorY; y--) {
-                if (column.getBlock(y).isAir()) {
+            for (int stoneY = topY; stoneY >= floorY; stoneY--) {
+                if (column.getBlock(stoneY).isAir()) {
                     break;
                 }
-                if (column.getBlock(y).is(Blocks.STONE)) {
-                    int depthFromTop = topY - y;
+                if (column.getBlock(stoneY).is(Blocks.STONE)) {
+                    int depthFromTop = topY - stoneY;
                     if (depthFromTop <= 6) {
-                        column.setBlock(y, ObjectRegistry.LATERIT.get().defaultBlockState());
-                    } else if (depthFromTop <= maxDepth) {
-                        column.setBlock(y, Blocks.TUFF.defaultBlockState());
+                        column.setBlock(stoneY, ObjectRegistry.LATERIT.get().defaultBlockState());
                     } else {
-                        column.setBlock(y, Blocks.TUFF.defaultBlockState());
+                        column.setBlock(stoneY, Blocks.TUFF.defaultBlockState());
                     }
                 }
             }
@@ -281,8 +229,7 @@ public final class WetSurfaceBuilder extends BiolithSurfaceBuilder {
             waterTop--;
         }
         boolean hasWater = waterTop < topY && column.getBlock(waterTop + 1).getFluidState().is(FluidTags.WATER);
-        int edgeGap = Math.max(Math.abs(topY - heightNorth), Math.max(Math.abs(topY - heightSouth), Math.max(Math.abs(topY - heightWest), Math.abs(topY - heightEast))));
-        int ramp = Math.max(1, Math.min(4, edgeGap / 2));
+        int ramp = Math.max(1, Math.min(4, slope / 2));
 
         if (topY <= floorY) {
             return;

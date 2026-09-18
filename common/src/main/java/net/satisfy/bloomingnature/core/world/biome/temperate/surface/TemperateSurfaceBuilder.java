@@ -71,7 +71,7 @@ public final class TemperateSurfaceBuilder extends BiolithSurfaceBuilder {
                 }
                 if (soilNoise > 0.7f) {
                     column.setBlock(y, Blocks.ROOTED_DIRT.defaultBlockState());
-                    if (y - 1 >= 0) column.setBlock(y - 1, Blocks.DIRT.defaultBlockState());
+                    if (y - 1 >= 0 && !column.getBlock(y - 1).isAir()) column.setBlock(y - 1, Blocks.DIRT.defaultBlockState());
                     continue;
                 }
                 if (mossNoise < 0.25f && slope >= 3) {
@@ -110,13 +110,13 @@ public final class TemperateSurfaceBuilder extends BiolithSurfaceBuilder {
 
                 if (soilNoise > 0.82f) {
                     column.setBlock(y, Blocks.COARSE_DIRT.defaultBlockState());
-                    if (y - 1 >= 0) column.setBlock(y - 1, Blocks.DIRT.defaultBlockState());
+                    if (y - 1 >= 0 && !column.getBlock(y - 1).isAir()) column.setBlock(y - 1, Blocks.DIRT.defaultBlockState());
                     continue;
                 }
 
                 if (lightSoilNoise > 0.75f) {
                     column.setBlock(y, Blocks.ROOTED_DIRT.defaultBlockState());
-                    if (y - 1 >= 0) column.setBlock(y - 1, Blocks.DIRT.defaultBlockState());
+                    if (y - 1 >= 0 && !column.getBlock(y - 1).isAir()) column.setBlock(y - 1, Blocks.DIRT.defaultBlockState());
                     continue;
                 }
 
@@ -156,13 +156,13 @@ public final class TemperateSurfaceBuilder extends BiolithSurfaceBuilder {
                     int mix = mixIndex(x, y, z);
                     if (packedMudNoise > 0.76f && mix >= 65) {
                         column.setBlock(y, Blocks.PACKED_MUD.defaultBlockState());
-                        if (y - 1 >= 0) column.setBlock(y - 1, Blocks.DIRT.defaultBlockState());
+                        if (y - 1 >= 0 && !column.getBlock(y - 1).isAir()) column.setBlock(y - 1, Blocks.DIRT.defaultBlockState());
                     } else if (mix < 72) {
                         column.setBlock(y, Blocks.COARSE_DIRT.defaultBlockState());
-                        if (y - 1 >= 0) column.setBlock(y - 1, Blocks.DIRT.defaultBlockState());
+                        if (y - 1 >= 0 && !column.getBlock(y - 1).isAir()) column.setBlock(y - 1, Blocks.DIRT.defaultBlockState());
                     } else {
                         column.setBlock(y, Blocks.ROOTED_DIRT.defaultBlockState());
-                        if (y - 1 >= 0) column.setBlock(y - 1, Blocks.DIRT.defaultBlockState());
+                        if (y - 1 >= 0 && !column.getBlock(y - 1).isAir()) column.setBlock(y - 1, Blocks.DIRT.defaultBlockState());
                     }
                     continue;
                 }
@@ -216,7 +216,7 @@ public final class TemperateSurfaceBuilder extends BiolithSurfaceBuilder {
                     int soilMix = mixIndex(x, y, z);
                     if (soilMix < 65) {
                         column.setBlock(y, Blocks.COARSE_DIRT.defaultBlockState());
-                        if (y - 1 >= 0) column.setBlock(y - 1, Blocks.DIRT.defaultBlockState());
+                        if (y - 1 >= 0 && !column.getBlock(y - 1).isAir()) column.setBlock(y - 1, Blocks.DIRT.defaultBlockState());
                     } else {
                         column.setBlock(y, Blocks.GRASS_BLOCK.defaultBlockState());
                     }
@@ -392,7 +392,7 @@ public final class TemperateSurfaceBuilder extends BiolithSurfaceBuilder {
 
                 if (podzolNoise > 0.78f) {
                     column.setBlock(y, Blocks.PODZOL.defaultBlockState());
-                    if (y - 1 >= 0) column.setBlock(y - 1, Blocks.DIRT.defaultBlockState());
+                    if (y - 1 >= 0 && !column.getBlock(y - 1).isAir()) column.setBlock(y - 1, Blocks.DIRT.defaultBlockState());
                     continue;
                 }
 
@@ -403,7 +403,7 @@ public final class TemperateSurfaceBuilder extends BiolithSurfaceBuilder {
                     } else {
                         column.setBlock(y, Blocks.ROOTED_DIRT.defaultBlockState());
                     }
-                    if (y - 1 >= 0) column.setBlock(y - 1, Blocks.DIRT.defaultBlockState());
+                    if (y - 1 >= 0 && !column.getBlock(y - 1).isAir()) column.setBlock(y - 1, Blocks.DIRT.defaultBlockState());
                     continue;
                 }
 
@@ -442,10 +442,10 @@ public final class TemperateSurfaceBuilder extends BiolithSurfaceBuilder {
                     int mix = mixIndex(x, y, z);
                     if (mix < 90) {
                         column.setBlock(y, Blocks.COARSE_DIRT.defaultBlockState());
-                        if (y - 1 >= 0) column.setBlock(y - 1, Blocks.DIRT.defaultBlockState());
+                        if (y - 1 >= 0 && !column.getBlock(y - 1).isAir()) column.setBlock(y - 1, Blocks.DIRT.defaultBlockState());
                     } else {
                         column.setBlock(y, Blocks.ROOTED_DIRT.defaultBlockState());
-                        if (y - 1 >= 0) column.setBlock(y - 1, Blocks.DIRT.defaultBlockState());
+                        if (y - 1 >= 0 && !column.getBlock(y - 1).isAir()) column.setBlock(y - 1, Blocks.DIRT.defaultBlockState());
                     }
                     continue;
                 }
@@ -457,13 +457,13 @@ public final class TemperateSurfaceBuilder extends BiolithSurfaceBuilder {
 
                 if (n1 > 0.85f) {
                     column.setBlock(y, Blocks.ROOTED_DIRT.defaultBlockState());
-                    if (y - 1 >= 0) column.setBlock(y - 1, Blocks.DIRT.defaultBlockState());
+                    if (y - 1 >= 0 && !column.getBlock(y - 1).isAir()) column.setBlock(y - 1, Blocks.DIRT.defaultBlockState());
                     continue;
                 }
 
                 if (n1 > 0.70f) {
                     column.setBlock(y, Blocks.COARSE_DIRT.defaultBlockState());
-                    if (y - 1 >= 0) column.setBlock(y - 1, Blocks.DIRT.defaultBlockState());
+                    if (y - 1 >= 0 && !column.getBlock(y - 1).isAir()) column.setBlock(y - 1, Blocks.DIRT.defaultBlockState());
                     continue;
                 }
 
