@@ -61,6 +61,10 @@ public class ForestMossBlock extends Block implements BonemealableBlock {
             return;
         }
 
+        if (countNearbyMushrooms(level, targetPos) >= 4) {
+            return;
+        }
+
         BlockState mushroomState = randomSource.nextBoolean()
                 ? Blocks.BROWN_MUSHROOM.defaultBlockState()
                 : Blocks.RED_MUSHROOM.defaultBlockState();
@@ -68,6 +72,20 @@ public class ForestMossBlock extends Block implements BonemealableBlock {
         if (mushroomState.canSurvive(level, targetPos)) {
             level.setBlock(targetPos, mushroomState, Block.UPDATE_CLIENTS);
         }
+    }
+
+    private static int countNearbyMushrooms(Level level, BlockPos pos) {
+        int count = 0;
+        for (BlockPos checkPos : BlockPos.betweenClosed(pos.offset(-4, -1, -4), pos.offset(4, 1, 4))) {
+            BlockState state = level.getBlockState(checkPos);
+            if (state.is(Blocks.BROWN_MUSHROOM) || state.is(Blocks.RED_MUSHROOM)) {
+                count++;
+                if (count >= 4) {
+                    return count;
+                }
+            }
+        }
+        return count;
     }
 
     @Override

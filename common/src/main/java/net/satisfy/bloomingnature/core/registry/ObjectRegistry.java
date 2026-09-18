@@ -15,6 +15,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.SignItem;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.grower.TreeGrower;
+import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.properties.BlockSetType;
 import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
@@ -517,7 +518,7 @@ public class ObjectRegistry {
     public static final RegistrySupplier<Block> DESERT_LILY = registerWithItem("desert_lily", () -> new DeadBushBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.WHITE_TULIP)));
     public static final RegistrySupplier<Block> POTTED_DESERT_LILY = registerWithoutItem("potted_desert_lily", () -> new FlowerPotBlock(DESERT_LILY.get(), BlockBehaviour.Properties.ofFullCopy(Blocks.FLOWER_POT)));
     public static final RegistrySupplier<Block> TWIGS = registerWithItem("twigs", () -> new GroundDetailBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_WOOD).instabreak().noOcclusion()));
-    public static final RegistrySupplier<Block> PEBBLES = registerWithItem("pebbles", () -> new GroundDetailBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_WOOD).instabreak().noOcclusion()));
+    public static final RegistrySupplier<Block> PEBBLES = registerWithItem("pebbles", () -> new GroundDetailBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_WOOD).sound(SoundType.STONE).instabreak().noOcclusion()));
     public static final RegistrySupplier<Block> FEN_MOSS = registerWithItem("fen_moss", () -> new FenMossBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.MOSS_BLOCK).randomTicks()));
     public static final RegistrySupplier<Block> FEN_MOSS_CARPET = registerWithItem("fen_moss_carpet", () -> new CarpetBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.MOSS_CARPET)));
 

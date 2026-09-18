@@ -200,7 +200,7 @@ public final class WetSurfaceBuilder extends BiolithSurfaceBuilder {
                         }
                     } else {
                         column.setBlock(y, ObjectRegistry.LATERIT.get().defaultBlockState());
-                        if (y - 1 >= 0) {
+                        if (y - 1 >= 0 && !column.getBlock(y - 1).isAir()) {
                             column.setBlock(y - 1, ObjectRegistry.LATERIT.get().defaultBlockState());
                         }
                     }
@@ -258,6 +258,9 @@ public final class WetSurfaceBuilder extends BiolithSurfaceBuilder {
 
             int maxDepth = Math.max(8, topY - floorY);
             for (int y = topY; y >= floorY; y--) {
+                if (column.getBlock(y).isAir()) {
+                    break;
+                }
                 if (column.getBlock(y).is(Blocks.STONE)) {
                     int depthFromTop = topY - y;
                     if (depthFromTop <= 6) {

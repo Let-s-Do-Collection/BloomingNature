@@ -30,9 +30,6 @@ public class SinkInSandBlock extends SinkInBlock {
                 }
             }
         }
-        if (entity instanceof LivingEntity) {
-            entity.hurt(level.damageSources().inWall(), 1.f);
-        }
 
         if (!level.isClientSide) {
             if (entity.isOnFire() && (level.getGameRules().getBoolean(GameRules.RULE_MOBGRIEFING) || entity instanceof Player) && entity.mayInteract(level, blockPos)) {

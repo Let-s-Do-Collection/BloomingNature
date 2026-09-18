@@ -20,11 +20,11 @@
     "bloomingnature:mossy_laterit_wall",
     "bloomingnature:mossy_travertin_wall",
     "bloomingnature:mossy_slate_wall",
-    "bloomingnature:marlstone_slab",
-    "bloomingnature:cobbled_marlstone_slab",
-    "bloomingnature:marlstone_brick_slab",
-    "bloomingnature:mossy_marlstone_brick_slab",
-    "bloomingnature:mossy_cobbled_marlstone_slab",
-    "bloomingnature:mossy_marlstone_slab"
+    "bloomingnature:marlstone_wall",
+    "bloomingnature:cobbled_marlstone_wall",
+    "bloomingnature:marlstone_brick_wall",
+    "bloomingnature:mossy_marlstone_brick_wall",
+    "bloomingnature:mossy_cobbled_marlstone_wall",
+    "bloomingnature:mossy_marlstone_wall"
   ]
 }

@@ -7,6 +7,7 @@ import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.item.FallingBlockEntity;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.LightLayer;
 import net.minecraft.world.level.block.Block;
@@ -73,10 +74,25 @@ public class SandLayerBlock extends Block {
             dropResources(blockState, serverLevel, blockPos);
             serverLevel.removeBlock(blockPos, false);
         }
-        if (!canFall(serverLevel, blockPos)) {
-            return;
+    }
+
+    @Override
+    public void onPlace(BlockState blockState, Level level, BlockPos blockPos, BlockState oldState, boolean movedByPiston) {
+        if (!level.isClientSide) {
+            level.scheduleTick(blockPos, this, 2);
         }
-        if (!serverLevel.isClientSide()) {
+    }
+
+    @Override
+    public void neighborChanged(BlockState blockState, Level level, BlockPos blockPos, Block block, BlockPos fromPos, boolean isMoving) {
+        if (!level.isClientSide) {
+            level.scheduleTick(blockPos, this, 2);
+        }
+    }
+
+    @Override
+    public void tick(BlockState blockState, ServerLevel serverLevel, BlockPos blockPos, RandomSource randomSource) {
+        if (canFall(serverLevel, blockPos)) {
             FallingBlockEntity.fall(serverLevel, blockPos, blockState);
         }
     }

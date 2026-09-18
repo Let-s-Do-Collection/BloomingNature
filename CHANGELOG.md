@@ -1,3 +1,20 @@
+[1.1.11]
+
+**Fixed**
+* Marsh Block and Quicksand instantly dealing suffocation damage when walked into sideways or landed on
+* Marlstone Walls missing the `#minecraft:walls` tag, causing them to connect to non-solid blocks like other walls, slabs and stairs
+* Mossy Cobbled Slate (and its stair, slab and wall variants) showing the Mossy Cobbled Travertin texture once placed
+* Pebbles playing wood placement/breaking sounds instead of stone sounds
+* Sand floating in the air after the block below it was removed, only falling after a long delay
+* Forest Moss patches getting completely overrun by mushrooms within a single night due to missing density limit
+* Floating Laterit blocks generating under thin cliff overhangs and near surface caves in Jungle biomes
+
+**Added**
+* pt_br translation (thanks to Leirbag)
+* es_ar translation (thanks to Texaliuz)
+
+***
+
 [1.1.10]
 
 **Fixed**
