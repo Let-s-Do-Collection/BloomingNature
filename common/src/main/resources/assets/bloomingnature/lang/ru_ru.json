@@ -59,7 +59,7 @@
   "block.bloomingnature.brown_mushroom_brick_slab": "Плита из коричневого грибного кирпича",
   "block.bloomingnature.brown_mushroom_brick_stairs": "Ступеньки из коричневого грибного кирпича",
   "block.bloomingnature.brown_mushroom_brick_wall": "Ограда из коричневого грибного кирпича",
-  "block.bloomingnature.brown_mushroom_bricks": "Кирпичи из коричневого гриба",
+  "block.bloomingnature.brown_mushroom_bricks": "Коричневые грибные кирпичи",
   "block.bloomingnature.cactus_button": "Кактусовая кнопка",
   "block.bloomingnature.cactus_door": "Кактусовая дверь",
   "block.bloomingnature.cactus_fence": "Кактусовый забор",
@@ -471,11 +471,13 @@
   "item.bloomingnature.swamp_oak_boat": "Лодка из болотного дуба",
   "item.bloomingnature.swamp_oak_chest_boat": "Грузовая лодка из болотного дуба",
   "item.bloomingnature.wandering_gardener_spawn_egg": "Яйцо призыва странствующего садовника",
-  "tooltip.bloomingnature.banner.thankyou_1": "Награда за достижение «Время приключений»",
+  "tooltip.bloomingnature.banner.thankyou_1": "Награда за достижение «Цветущие горизонты»",
   "tooltip.bloomingnature.banner.thankyou_2": "При размещении:",
   "tooltip.bloomingnature.banner.thankyou_3": "Спасибо, что играете с BloomingNature!",
   "tooltip.bloomingnature.banner.thankyou_4": "Наделяет силой II в радиусе 8 блоков",
   "tooltip.bloomingnature.canbeplaced": "Можно поставить",
   "biome.bloomingnature.fen": "Низинное болото",
-  "biome.bloomingnature.highland_woods": "Высокогорный лес"
+  "biome.bloomingnature.highland_woods": "Высокогорный лес",
+  "advancement.bloomingnature.blooming_horizons": "Цветущие горизонты",
+  "advancement.bloomingnature.blooming_horizons.description": "Найдите все биомы, добавленные Blooming Nature."
 }

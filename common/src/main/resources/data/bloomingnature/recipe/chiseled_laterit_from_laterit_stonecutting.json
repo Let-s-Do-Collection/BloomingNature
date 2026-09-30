@@ -1,10 +1,10 @@
 {
   "type": "minecraft:stonecutting",
   "ingredient": {
-    "item": "bloomingnature:marlstone"
+    "item": "bloomingnature:laterit"
   },
   "result": {
-    "id": "bloomingnature:chiseled_marlstone",
+    "id": "bloomingnature:chiseled_laterit",
     "count": 1
   }
 }

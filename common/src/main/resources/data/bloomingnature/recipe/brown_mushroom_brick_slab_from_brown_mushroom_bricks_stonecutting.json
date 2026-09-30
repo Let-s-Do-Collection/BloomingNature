@@ -1,7 +1,7 @@
 {
   "type": "minecraft:stonecutting",
   "ingredient": {
-    "item": "bloomingnature:travertin"
+    "item": "bloomingnature:brown_mushroom_bricks"
   },
   "result": {
     "id": "bloomingnature:brown_mushroom_brick_slab",

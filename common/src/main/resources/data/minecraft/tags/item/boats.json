@@ -1,0 +1,16 @@
+{
+  "replace": false,
+  "values": [
+    "bloomingnature:larch_boat",
+    "bloomingnature:aspen_boat",
+    "bloomingnature:swamp_oak_boat",
+    "bloomingnature:swamp_cypress_boat",
+    "bloomingnature:fir_boat",
+    "bloomingnature:baobab_boat",
+    "bloomingnature:chestnut_boat",
+    "bloomingnature:ebony_boat",
+    "bloomingnature:fan_palm_boat",
+    "bloomingnature:cactus_boat",
+    "bloomingnature:cypress_boat"
+  ]
+}
