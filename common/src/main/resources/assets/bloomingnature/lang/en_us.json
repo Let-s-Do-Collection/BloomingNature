@@ -479,5 +479,9 @@
   "biome.bloomingnature.fen": "Fen",
   "biome.bloomingnature.highland_woods": "Highland Woods",
   "advancement.bloomingnature.blooming_horizons": "Blooming Horizons",
-  "advancement.bloomingnature.blooming_horizons.description": "Discover all biomes added by Blooming Nature."
+  "advancement.bloomingnature.blooming_horizons.description": "Discover all biomes added by Blooming Nature.",
+  "block.bloomingnature.jungle_fern": "Jungle Fern",
+  "block.bloomingnature.tall_jungle_fern": "Tall Jungle Fern",
+  "block.bloomingnature.wild_vines": "Wild Vines",
+  "block.bloomingnature.flowering_lily_pad": "Flowering Lily Pad"
 }

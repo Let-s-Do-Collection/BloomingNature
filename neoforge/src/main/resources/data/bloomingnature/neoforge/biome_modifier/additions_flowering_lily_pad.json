@@ -1,0 +1,8 @@
+{
+  "type": "neoforge:add_features",
+  "biomes": "#bloomingnature:spawns_flowering_lily_pad",
+  "features": [
+    "bloomingnature:flowering_lily_pad"
+  ],
+  "step": "vegetal_decoration"
+}

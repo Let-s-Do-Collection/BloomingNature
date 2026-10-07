@@ -479,5 +479,9 @@
   "block.bloomingnature.blooming_oak_sapling": "Blühender Eichensetzling",
   "block.bloomingnature.potted_blooming_oak_sapling": "Eingetopfter blühender Eichensetzling",
   "advancement.bloomingnature.blooming_horizons": "Blühende Horizonte",
-  "advancement.bloomingnature.blooming_horizons.description": "Entdecke alle durch Blooming Nature hinzugefügten Biome."
+  "advancement.bloomingnature.blooming_horizons.description": "Entdecke alle durch Blooming Nature hinzugefügten Biome.",
+  "block.bloomingnature.jungle_fern": "Dschungelfarn",
+  "block.bloomingnature.tall_jungle_fern": "Hoher Dschungelfarn",
+  "block.bloomingnature.wild_vines": "Wildranke",
+  "block.bloomingnature.flowering_lily_pad": "Blühende Seerose"
 }

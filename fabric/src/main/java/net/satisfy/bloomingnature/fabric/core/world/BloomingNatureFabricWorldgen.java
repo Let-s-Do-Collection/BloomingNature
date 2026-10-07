@@ -1,5 +1,6 @@
 package net.satisfy.bloomingnature.fabric.core.world;
 
+import net.minecraft.resources.ResourceKey;
 import net.fabricmc.fabric.api.biome.v1.BiomeModification;
 import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
 import net.fabricmc.fabric.api.biome.v1.BiomeSelectionContext;
@@ -54,6 +55,10 @@ public final class BloomingNatureFabricWorldgen {
 
     public static void registerFeatureAdditions() {
         BiomeModification world = BiomeModifications.create(ResourceLocation.fromNamespaceAndPath(BloomingNature.MOD_ID, "world_features"));
+        for (String flora : new String[]{"jungle_fern", "wild_vines", "flowering_lily_pad"}) {
+            world.add(ModificationPhase.ADDITIONS, BiomeSelectors.tag(TagKey.create(Registries.BIOME, BloomingNature.identifier("spawns_" + flora))),
+                    context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ResourceKey.create(Registries.PLACED_FEATURE, BloomingNature.identifier(flora))));
+        }
         world.add(ModificationPhase.ADDITIONS, groundLitter, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.GROUND_LITTER_PLACED));
 
         world.add(ModificationPhase.ADDITIONS, plains, context -> context.getGenerationSettings().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeatures.REGULAR_GRASS_PATCH_PLACED));

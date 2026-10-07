@@ -1,0 +1,54 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "bloomingnature:block/blooming_lily_pad",
+        "y": 0
+      },
+      {
+        "model": "bloomingnature:block/blooming_lily_pad",
+        "y": 90
+      },
+      {
+        "model": "bloomingnature:block/blooming_lily_pad",
+        "y": 180
+      },
+      {
+        "model": "bloomingnature:block/blooming_lily_pad",
+        "y": 270
+      },
+      {
+        "model": "bloomingnature:block/blooming_lily_pad_pair",
+        "y": 0
+      },
+      {
+        "model": "bloomingnature:block/blooming_lily_pad_pair",
+        "y": 90
+      },
+      {
+        "model": "bloomingnature:block/blooming_lily_pad_pair",
+        "y": 180
+      },
+      {
+        "model": "bloomingnature:block/blooming_lily_pad_pair",
+        "y": 270
+      },
+      {
+        "model": "bloomingnature:block/blooming_lily_pad_cluster",
+        "y": 0
+      },
+      {
+        "model": "bloomingnature:block/blooming_lily_pad_cluster",
+        "y": 90
+      },
+      {
+        "model": "bloomingnature:block/blooming_lily_pad_cluster",
+        "y": 180
+      },
+      {
+        "model": "bloomingnature:block/blooming_lily_pad_cluster",
+        "y": 270
+      }
+    ]
+  }
+}

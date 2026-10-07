@@ -14,7 +14,8 @@ authors = "satisfy"
 description = '''
 Hello wanderer! The overworld has changed: New flowers bloom, fresh woods grow, and reshaped biomes await your footsteps.
 '''
-logoFile = "pack.png"
+logoFile = "logo.png"
+displayURL = "https://www.lets-do.ch"
 
 [[dependencies.bloomingnature]]
 modId = "neoforge"
@@ -26,13 +27,20 @@ side = "BOTH"
 [[dependencies.bloomingnature]]
 modId = "minecraft"
 type = "required"
-versionRange = "[1.21,)"
+versionRange = "[1.21.1,1.22)"
 ordering = "NONE"
 side = "BOTH"
 
 [[dependencies.bloomingnature]]
 modId = "architectury"
 type = "required"
-versionRange = "[9.0.8,)"
+versionRange = "[13.0.8,)"
+ordering = "AFTER"
+side = "BOTH"
+
+[[dependencies.bloomingnature]]
+modId = "foundation"
+type = "required"
+versionRange = "[1.0.1,)"
 ordering = "AFTER"
 side = "BOTH"

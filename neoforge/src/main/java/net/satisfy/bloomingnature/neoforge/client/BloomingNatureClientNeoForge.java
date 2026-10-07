@@ -1,5 +1,8 @@
 package net.satisfy.bloomingnature.neoforge.client;
 
+import net.neoforged.neoforge.client.event.RegisterParticleProvidersEvent;
+import net.satisfy.bloomingnature.client.particle.FireflyParticle;
+import net.satisfy.bloomingnature.core.registry.FloraRegistry;
 import net.minecraft.client.model.BoatModel;
 import net.minecraft.client.model.ChestBoatModel;
 import net.minecraft.client.model.geom.ModelLayerLocation;
@@ -25,6 +28,11 @@ public class BloomingNatureClientNeoForge {
     @SubscribeEvent
     public static void onClientSetup(FMLClientSetupEvent event) {
         event.enqueueWork(BloomingNatureClient::initClient);
+    }
+
+    @SubscribeEvent
+    public static void registerParticles(RegisterParticleProvidersEvent event) {
+        event.registerSpriteSet(FloraRegistry.FIREFLY.get(), FireflyParticle.Provider::new);
     }
 
     @SubscribeEvent

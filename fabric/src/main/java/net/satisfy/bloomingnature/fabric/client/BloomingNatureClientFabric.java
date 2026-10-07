@@ -14,6 +14,7 @@ public class BloomingNatureClientFabric implements ClientModInitializer {
     @Override
     public void onInitializeClient() {
         BloomingNatureClient.preInitClient();
+        BloomingNatureClient.registerParticles();
         BloomingNatureClient.initClient();
         registerBoatModels();
     }

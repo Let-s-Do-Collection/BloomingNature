@@ -10,6 +10,10 @@ import net.fabricmc.api.Environment;
 import net.minecraft.client.renderer.BiomeColors;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.world.level.FoliageColor;
+import net.minecraft.world.level.GrassColor;
+import dev.architectury.registry.client.particle.ParticleProviderRegistry;
+import net.satisfy.bloomingnature.client.particle.FireflyParticle;
+import net.satisfy.bloomingnature.core.registry.FloraRegistry;
 import net.satisfy.bloomingnature.client.model.WanderingGardenerModel;
 import net.satisfy.bloomingnature.client.renderer.block.*;
 import net.satisfy.bloomingnature.client.renderer.entity.ModBoatRenderer;
@@ -39,7 +43,16 @@ public class BloomingNatureClient {
             return BiomeColors.getAverageGrassColor(world, pos);
         }, SUNGRASS.get(), TALL_SUNGRASS.get());
 
+        RenderTypeRegistry.register(RenderType.cutout(), FloraRegistry.JUNGLE_FERN.get(), FloraRegistry.TALL_JUNGLE_FERN.get(), FloraRegistry.WILD_VINES.get(), FloraRegistry.FLOWERING_LILY_PAD.get());
+        ColorHandlerRegistry.registerBlockColors((state, world, pos, tintIndex) -> world == null || pos == null ? GrassColor.getDefaultColor() : BiomeColors.getAverageGrassColor(world, pos), FloraRegistry.JUNGLE_FERN.get(), FloraRegistry.TALL_JUNGLE_FERN.get());
+        ColorHandlerRegistry.registerBlockColors((state, world, pos, tintIndex) -> tintIndex != 0 ? -1 : world == null || pos == null ? FoliageColor.getDefaultColor() : BiomeColors.getAverageFoliageColor(world, pos), FloraRegistry.FLOWERING_LILY_PAD.get());
+        FireflyAmbience.init();
+
         registerBlockEntityRenderer();
+    }
+
+    public static void registerParticles() {
+        ParticleProviderRegistry.register(FloraRegistry.FIREFLY, FireflyParticle.Provider::new);
     }
 
     public static void preInitClient() {

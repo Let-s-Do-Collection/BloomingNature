@@ -1,0 +1,33 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "bloomingnature:wild_vines"
+    },
+    {
+      "item": "bloomingnature:wild_vines"
+    },
+    {
+      "item": "bloomingnature:wild_vines"
+    }
+  ],
+  "result": {
+    "id": "farm_and_charm:rope",
+    "count": 1
+  },
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:all_mods_loaded",
+      "values": [
+        "farm_and_charm"
+      ]
+    }
+  ],
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "farm_and_charm"
+    }
+  ]
+}

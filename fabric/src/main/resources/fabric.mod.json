@@ -8,8 +8,10 @@
     "satisfy"
   ],
   "contact": {
-    "homepage": "https://legacy.curseforge.com/minecraft/mc-mods/lets-do-bloomingnature",
-    "sources": "https://github.com/satisfyu/bloomingnature"
+    "homepage": "https://www.lets-do.ch",
+    "sources": "https://github.com/satisfyu/bloomingnature",
+    "wiki": "https://lets-do.ch/wiki/bloomingnature/",
+    "issues": "https://github.com/satisfyu/Let-s-Do-Hub"
   },
   "license": "Custom",
   "icon": "pack.png",
@@ -27,7 +29,8 @@
   ],
   "depends": {
     "fabric": "*",
-    "minecraft": ">=1.20",
-    "architectury": ">=9.0.8"
+    "minecraft": ">=1.21.1 <1.22",
+    "architectury": ">=13.0.8",
+    "foundation": ">=1.0.1"
   }
 }

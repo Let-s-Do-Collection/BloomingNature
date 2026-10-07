@@ -1,0 +1,358 @@
+{
+  "multipart": [
+    {
+      "when": {
+        "north": "true",
+        "part": "top",
+        "night": "false"
+      },
+      "apply": {
+        "model": "bloomingnature:block/wild_vines_top",
+        "uvlock": true
+      }
+    },
+    {
+      "when": {
+        "east": "true",
+        "part": "top",
+        "night": "false"
+      },
+      "apply": {
+        "model": "bloomingnature:block/wild_vines_top",
+        "uvlock": true,
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "south": "true",
+        "part": "top",
+        "night": "false"
+      },
+      "apply": {
+        "model": "bloomingnature:block/wild_vines_top",
+        "uvlock": true,
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "west": "true",
+        "part": "top",
+        "night": "false"
+      },
+      "apply": {
+        "model": "bloomingnature:block/wild_vines_top",
+        "uvlock": true,
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "up": "true",
+        "part": "top",
+        "night": "false"
+      },
+      "apply": {
+        "model": "bloomingnature:block/wild_vines_top",
+        "uvlock": true,
+        "x": 270
+      }
+    },
+    {
+      "when": {
+        "north": "true",
+        "part": "top",
+        "night": "true"
+      },
+      "apply": {
+        "model": "bloomingnature:block/wild_vines_fireflies_top",
+        "uvlock": true
+      }
+    },
+    {
+      "when": {
+        "east": "true",
+        "part": "top",
+        "night": "true"
+      },
+      "apply": {
+        "model": "bloomingnature:block/wild_vines_fireflies_top",
+        "uvlock": true,
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "south": "true",
+        "part": "top",
+        "night": "true"
+      },
+      "apply": {
+        "model": "bloomingnature:block/wild_vines_fireflies_top",
+        "uvlock": true,
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "west": "true",
+        "part": "top",
+        "night": "true"
+      },
+      "apply": {
+        "model": "bloomingnature:block/wild_vines_fireflies_top",
+        "uvlock": true,
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "up": "true",
+        "part": "top",
+        "night": "true"
+      },
+      "apply": {
+        "model": "bloomingnature:block/wild_vines_fireflies_top",
+        "uvlock": true,
+        "x": 270
+      }
+    },
+    {
+      "when": {
+        "north": "true",
+        "part": "mid",
+        "night": "false"
+      },
+      "apply": {
+        "model": "bloomingnature:block/wild_vines_mid",
+        "uvlock": true
+      }
+    },
+    {
+      "when": {
+        "east": "true",
+        "part": "mid",
+        "night": "false"
+      },
+      "apply": {
+        "model": "bloomingnature:block/wild_vines_mid",
+        "uvlock": true,
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "south": "true",
+        "part": "mid",
+        "night": "false"
+      },
+      "apply": {
+        "model": "bloomingnature:block/wild_vines_mid",
+        "uvlock": true,
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "west": "true",
+        "part": "mid",
+        "night": "false"
+      },
+      "apply": {
+        "model": "bloomingnature:block/wild_vines_mid",
+        "uvlock": true,
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "up": "true",
+        "part": "mid",
+        "night": "false"
+      },
+      "apply": {
+        "model": "bloomingnature:block/wild_vines_mid",
+        "uvlock": true,
+        "x": 270
+      }
+    },
+    {
+      "when": {
+        "north": "true",
+        "part": "mid",
+        "night": "true"
+      },
+      "apply": {
+        "model": "bloomingnature:block/wild_vines_fireflies_mid",
+        "uvlock": true
+      }
+    },
+    {
+      "when": {
+        "east": "true",
+        "part": "mid",
+        "night": "true"
+      },
+      "apply": {
+        "model": "bloomingnature:block/wild_vines_fireflies_mid",
+        "uvlock": true,
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "south": "true",
+        "part": "mid",
+        "night": "true"
+      },
+      "apply": {
+        "model": "bloomingnature:block/wild_vines_fireflies_mid",
+        "uvlock": true,
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "west": "true",
+        "part": "mid",
+        "night": "true"
+      },
+      "apply": {
+        "model": "bloomingnature:block/wild_vines_fireflies_mid",
+        "uvlock": true,
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "up": "true",
+        "part": "mid",
+        "night": "true"
+      },
+      "apply": {
+        "model": "bloomingnature:block/wild_vines_fireflies_mid",
+        "uvlock": true,
+        "x": 270
+      }
+    },
+    {
+      "when": {
+        "north": "true",
+        "part": "bottom",
+        "night": "false"
+      },
+      "apply": {
+        "model": "bloomingnature:block/wild_vines_bottom",
+        "uvlock": true
+      }
+    },
+    {
+      "when": {
+        "east": "true",
+        "part": "bottom",
+        "night": "false"
+      },
+      "apply": {
+        "model": "bloomingnature:block/wild_vines_bottom",
+        "uvlock": true,
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "south": "true",
+        "part": "bottom",
+        "night": "false"
+      },
+      "apply": {
+        "model": "bloomingnature:block/wild_vines_bottom",
+        "uvlock": true,
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "west": "true",
+        "part": "bottom",
+        "night": "false"
+      },
+      "apply": {
+        "model": "bloomingnature:block/wild_vines_bottom",
+        "uvlock": true,
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "up": "true",
+        "part": "bottom",
+        "night": "false"
+      },
+      "apply": {
+        "model": "bloomingnature:block/wild_vines_bottom",
+        "uvlock": true,
+        "x": 270
+      }
+    },
+    {
+      "when": {
+        "north": "true",
+        "part": "bottom",
+        "night": "true"
+      },
+      "apply": {
+        "model": "bloomingnature:block/wild_vines_fireflies_bottom",
+        "uvlock": true
+      }
+    },
+    {
+      "when": {
+        "east": "true",
+        "part": "bottom",
+        "night": "true"
+      },
+      "apply": {
+        "model": "bloomingnature:block/wild_vines_fireflies_bottom",
+        "uvlock": true,
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "south": "true",
+        "part": "bottom",
+        "night": "true"
+      },
+      "apply": {
+        "model": "bloomingnature:block/wild_vines_fireflies_bottom",
+        "uvlock": true,
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "west": "true",
+        "part": "bottom",
+        "night": "true"
+      },
+      "apply": {
+        "model": "bloomingnature:block/wild_vines_fireflies_bottom",
+        "uvlock": true,
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "up": "true",
+        "part": "bottom",
+        "night": "true"
+      },
+      "apply": {
+        "model": "bloomingnature:block/wild_vines_fireflies_bottom",
+        "uvlock": true,
+        "x": 270
+      }
+    }
+  ]
+}
