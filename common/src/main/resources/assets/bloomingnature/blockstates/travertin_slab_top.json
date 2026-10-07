@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/slab_top",
-  "textures": {
-    "bottom": "bloomingnature:block/travertin",
-    "top": "bloomingnature:block/travertin",
-    "side": "bloomingnature:block/travertin"
-  }
-}

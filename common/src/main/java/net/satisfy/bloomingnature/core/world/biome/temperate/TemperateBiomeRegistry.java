@@ -1,6 +1,6 @@
 package net.satisfy.bloomingnature.core.world.biome.temperate;
 
-import com.terraformersmc.biolith.api.biome.BiomePlacement;
+import net.satisfy.bloomingnature.core.world.biome.ConfiguredBiomePlacement;
 import com.terraformersmc.biolith.api.biome.sub.BiomeParameterTargets;
 import com.terraformersmc.biolith.api.biome.sub.CriterionBuilder;
 import com.terraformersmc.biolith.api.biome.sub.RatioTargets;
@@ -43,18 +43,18 @@ public final class TemperateBiomeRegistry extends BiolithSurfaceBuilder {
 
         var edgeOnForestSide = CriterionBuilder.allOf(neighborAnyForest, thinEdgeBand);
 
-        BiomePlacement.addSubOverworld(Biomes.PLAINS, BloomingNatureBiomeKeys.FOREST_EDGE, edgeOnForestSide);
-        BiomePlacement.addSubOverworld(Biomes.SUNFLOWER_PLAINS, BloomingNatureBiomeKeys.FOREST_EDGE, edgeOnForestSide);
-        BiomePlacement.addSubOverworld(Biomes.MEADOW, BloomingNatureBiomeKeys.FOREST_EDGE, edgeOnForestSide);
-        BiomePlacement.addSubOverworld(Biomes.BADLANDS, BloomingNatureBiomeKeys.FOREST_EDGE, edgeOnForestSide);
-        BiomePlacement.addSubOverworld(Biomes.SAVANNA, BloomingNatureBiomeKeys.FOREST_EDGE, edgeOnForestSide);
-        BiomePlacement.addSubOverworld(Biomes.SAVANNA_PLATEAU, BloomingNatureBiomeKeys.FOREST_EDGE, edgeOnForestSide);
-        BiomePlacement.addSubOverworld(Biomes.STONY_PEAKS, BloomingNatureBiomeKeys.FOREST_EDGE, edgeOnForestSide);
-        BiomePlacement.addSubOverworld(Biomes.SNOWY_PLAINS, BloomingNatureBiomeKeys.FOREST_EDGE, edgeOnForestSide);
-        BiomePlacement.addSubOverworld(BloomingNatureBiomeKeys.CYPRESS_FIELDS, BloomingNatureBiomeKeys.FOREST_EDGE, edgeOnForestSide);
-        BiomePlacement.addSubOverworld(BloomingNatureBiomeKeys.BAOBAB_SAVANNA, BloomingNatureBiomeKeys.FOREST_EDGE, edgeOnForestSide);
-        BiomePlacement.addSubOverworld(BloomingNatureBiomeKeys.COLD_GRASSLAND, BloomingNatureBiomeKeys.FOREST_EDGE, edgeOnForestSide);
-        BiomePlacement.addSubOverworld(BloomingNatureBiomeKeys.BRUSHLANDS, BloomingNatureBiomeKeys.FOREST_EDGE, edgeOnForestSide);
+        ConfiguredBiomePlacement.addSubOverworld(Biomes.PLAINS, BloomingNatureBiomeKeys.FOREST_EDGE, edgeOnForestSide);
+        ConfiguredBiomePlacement.addSubOverworld(Biomes.SUNFLOWER_PLAINS, BloomingNatureBiomeKeys.FOREST_EDGE, edgeOnForestSide);
+        ConfiguredBiomePlacement.addSubOverworld(Biomes.MEADOW, BloomingNatureBiomeKeys.FOREST_EDGE, edgeOnForestSide);
+        ConfiguredBiomePlacement.addSubOverworld(Biomes.BADLANDS, BloomingNatureBiomeKeys.FOREST_EDGE, edgeOnForestSide);
+        ConfiguredBiomePlacement.addSubOverworld(Biomes.SAVANNA, BloomingNatureBiomeKeys.FOREST_EDGE, edgeOnForestSide);
+        ConfiguredBiomePlacement.addSubOverworld(Biomes.SAVANNA_PLATEAU, BloomingNatureBiomeKeys.FOREST_EDGE, edgeOnForestSide);
+        ConfiguredBiomePlacement.addSubOverworld(Biomes.STONY_PEAKS, BloomingNatureBiomeKeys.FOREST_EDGE, edgeOnForestSide);
+        ConfiguredBiomePlacement.addSubOverworld(Biomes.SNOWY_PLAINS, BloomingNatureBiomeKeys.FOREST_EDGE, edgeOnForestSide);
+        ConfiguredBiomePlacement.addSubOverworld(BloomingNatureBiomeKeys.CYPRESS_FIELDS, BloomingNatureBiomeKeys.FOREST_EDGE, edgeOnForestSide);
+        ConfiguredBiomePlacement.addSubOverworld(BloomingNatureBiomeKeys.BAOBAB_SAVANNA, BloomingNatureBiomeKeys.FOREST_EDGE, edgeOnForestSide);
+        ConfiguredBiomePlacement.addSubOverworld(BloomingNatureBiomeKeys.COLD_GRASSLAND, BloomingNatureBiomeKeys.FOREST_EDGE, edgeOnForestSide);
+        ConfiguredBiomePlacement.addSubOverworld(BloomingNatureBiomeKeys.BRUSHLANDS, BloomingNatureBiomeKeys.FOREST_EDGE, edgeOnForestSide);
     }
 
     private static void registerFlowerGladePlacement() {
@@ -62,8 +62,8 @@ public final class TemperateBiomeRegistry extends BiolithSurfaceBuilder {
                 CriterionBuilder.deviationMin(BiomeParameterTargets.PEAKS_VALLEYS, 0.06f),
                 CriterionBuilder.ratio(RatioTargets.CENTER, 0.24f, 0.30f)
         );
-        BiomePlacement.addSubOverworld(Biomes.FOREST, BloomingNatureBiomeKeys.FLOWER_GLADE, innerBand);
-        BiomePlacement.addSubOverworld(Biomes.FLOWER_FOREST, BloomingNatureBiomeKeys.FLOWER_GLADE, innerBand);
+        ConfiguredBiomePlacement.addSubOverworld(Biomes.FOREST, BloomingNatureBiomeKeys.FLOWER_GLADE, innerBand);
+        ConfiguredBiomePlacement.addSubOverworld(Biomes.FLOWER_FOREST, BloomingNatureBiomeKeys.FLOWER_GLADE, innerBand);
     }
 
     private static void registerGoldenGladePlacement() {
@@ -71,8 +71,8 @@ public final class TemperateBiomeRegistry extends BiolithSurfaceBuilder {
                 CriterionBuilder.deviationMin(BiomeParameterTargets.PEAKS_VALLEYS, 0.06f),
                 CriterionBuilder.ratio(RatioTargets.CENTER, 0.24f, 0.30f)
         );
-        BiomePlacement.addSubOverworld(Biomes.OLD_GROWTH_BIRCH_FOREST, BloomingNatureBiomeKeys.GOLDEN_GLADE, innerBand);
-        BiomePlacement.addSubOverworld(Biomes.BIRCH_FOREST, BloomingNatureBiomeKeys.GOLDEN_GLADE, innerBand);
+        ConfiguredBiomePlacement.addSubOverworld(Biomes.OLD_GROWTH_BIRCH_FOREST, BloomingNatureBiomeKeys.GOLDEN_GLADE, innerBand);
+        ConfiguredBiomePlacement.addSubOverworld(Biomes.BIRCH_FOREST, BloomingNatureBiomeKeys.GOLDEN_GLADE, innerBand);
     }
 
     private static void registerOldGrowthBirchPlacement() {
@@ -82,11 +82,11 @@ public final class TemperateBiomeRegistry extends BiolithSurfaceBuilder {
                 CriterionBuilder.ratio(RatioTargets.CENTER, 0.20f, 0.26f),
                 CriterionBuilder.deviationMin(BiomeParameterTargets.PEAKS_VALLEYS, 0.04f)
         );
-        BiomePlacement.addSubOverworld(Biomes.BIRCH_FOREST, Biomes.OLD_GROWTH_BIRCH_FOREST, cond);
+        ConfiguredBiomePlacement.addSubOverworld(Biomes.BIRCH_FOREST, Biomes.OLD_GROWTH_BIRCH_FOREST, cond);
     }
 
     private static void registerAspenForestPlacement() {
-        BiomePlacement.replaceOverworld(Biomes.BIRCH_FOREST, BloomingNatureBiomeKeys.ASPEN_FOREST, 0.55D);
-        BiomePlacement.replaceOverworld(Biomes.OLD_GROWTH_BIRCH_FOREST, BloomingNatureBiomeKeys.ASPEN_FOREST, 0.85D);
+        ConfiguredBiomePlacement.replaceOverworld(Biomes.BIRCH_FOREST, BloomingNatureBiomeKeys.ASPEN_FOREST, 0.55D);
+        ConfiguredBiomePlacement.replaceOverworld(Biomes.OLD_GROWTH_BIRCH_FOREST, BloomingNatureBiomeKeys.ASPEN_FOREST, 0.85D);
     }
 }

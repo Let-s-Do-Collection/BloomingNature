@@ -1,6 +1,6 @@
 package net.satisfy.bloomingnature.core.world.biome.wet;
 
-import com.terraformersmc.biolith.api.biome.BiomePlacement;
+import net.satisfy.bloomingnature.core.world.biome.ConfiguredBiomePlacement;
 import com.terraformersmc.biolith.api.biome.sub.RatioTargets;
 import com.terraformersmc.biolith.api.surface.BiolithSurfaceBuilder;
 import net.minecraft.world.level.biome.Biomes;
@@ -20,15 +20,15 @@ public final class WetBiomeRegistry extends BiolithSurfaceBuilder {
 
     private static void registerJungleRiverPlacement() {
         var nearJungle = anyOf(neighbor(Biomes.JUNGLE), neighbor(Biomes.SPARSE_JUNGLE), neighbor(Biomes.BAMBOO_JUNGLE));
-        BiomePlacement.addSubOverworld(Biomes.RIVER, BloomingNatureBiomeKeys.JUNGLE_RIVER, nearJungle);
+        ConfiguredBiomePlacement.addSubOverworld(Biomes.RIVER, BloomingNatureBiomeKeys.JUNGLE_RIVER, nearJungle);
 
         var riverTouch = neighbor(Biomes.RIVER);
         var edgeBand = ratio(RatioTargets.EDGE, 0.35f, 1.0f);
         var condEdge = allOf(riverTouch, edgeBand);
 
-        BiomePlacement.addSubOverworld(Biomes.JUNGLE, BloomingNatureBiomeKeys.JUNGLE_RIVER, condEdge);
-        BiomePlacement.addSubOverworld(Biomes.SPARSE_JUNGLE, BloomingNatureBiomeKeys.JUNGLE_RIVER, condEdge);
-        BiomePlacement.addSubOverworld(Biomes.BAMBOO_JUNGLE, BloomingNatureBiomeKeys.JUNGLE_RIVER, condEdge);
+        ConfiguredBiomePlacement.addSubOverworld(Biomes.JUNGLE, BloomingNatureBiomeKeys.JUNGLE_RIVER, condEdge);
+        ConfiguredBiomePlacement.addSubOverworld(Biomes.SPARSE_JUNGLE, BloomingNatureBiomeKeys.JUNGLE_RIVER, condEdge);
+        ConfiguredBiomePlacement.addSubOverworld(Biomes.BAMBOO_JUNGLE, BloomingNatureBiomeKeys.JUNGLE_RIVER, condEdge);
     }
 
     private static void registerMarshlandPlacement() {
@@ -36,7 +36,7 @@ public final class WetBiomeRegistry extends BiolithSurfaceBuilder {
         var edgeZone = ratio(RatioTargets.EDGE, 0.0f, 0.55f);
         var cond = allOf(nearWet, edgeZone);
 
-        BiomePlacement.addSubOverworld(Biomes.SWAMP, BloomingNatureBiomeKeys.MARSHLAND, cond);
-        BiomePlacement.addSubOverworld(Biomes.MANGROVE_SWAMP, BloomingNatureBiomeKeys.MARSHLAND, cond);
+        ConfiguredBiomePlacement.addSubOverworld(Biomes.SWAMP, BloomingNatureBiomeKeys.MARSHLAND, cond);
+        ConfiguredBiomePlacement.addSubOverworld(Biomes.MANGROVE_SWAMP, BloomingNatureBiomeKeys.MARSHLAND, cond);
     }
 }

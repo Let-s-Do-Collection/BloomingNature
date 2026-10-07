@@ -1,8 +1,13 @@
 package net.satisfy.bloomingnature;
 
+import dev.architectury.event.events.common.LifecycleEvent;
 import dev.architectury.hooks.item.tool.AxeItemHooks;
 import net.minecraft.resources.ResourceLocation;
+import net.satisfy.bloomingnature.core.registry.WoodSet;
+import net.satisfy.bloomingnature.core.spawn.GardenerSpawner;
 import net.satisfy.bloomingnature.core.registry.*;
+import net.satisfy.foundation.rarity.FoundationRarities;
+import net.satisfy.foundation.rarity.FoundationRarity;
 
 public class BloomingNature {
     public static final String MOD_ID = "bloomingnature";
@@ -18,30 +23,22 @@ public class BloomingNature {
         TabRegistry.init();
         PlacerTypeRegistry.init();
         WorldgenRegistry.init();
+        LifecycleEvent.SETUP.register(BloomingNature::registerRarities);
+    }
+
+    private static void registerRarities() {
+        FoundationRarities.register(ObjectRegistry.BLOOMINGNATURE_BANNER.get(), FoundationRarity.LEGENDARY);
     }
 
     public static void commonInit() {
         FlammableBlockRegistry.init();
-        AxeItemHooks.addStrippable(ObjectRegistry.ASPEN_LOG.get(), ObjectRegistry.STRIPPED_ASPEN_LOG.get());
-        AxeItemHooks.addStrippable(ObjectRegistry.ASPEN_WOOD.get(), ObjectRegistry.STRIPPED_ASPEN_WOOD.get());
-        AxeItemHooks.addStrippable(ObjectRegistry.BAOBAB_LOG.get(), ObjectRegistry.STRIPPED_BAOBAB_LOG.get());
-        AxeItemHooks.addStrippable(ObjectRegistry.BAOBAB_WOOD.get(), ObjectRegistry.STRIPPED_BAOBAB_WOOD.get());
-        AxeItemHooks.addStrippable(ObjectRegistry.SWAMP_CYPRESS_LOG.get(), ObjectRegistry.STRIPPED_SWAMP_CYPRESS_LOG.get());
-        AxeItemHooks.addStrippable(ObjectRegistry.SWAMP_CYPRESS_WOOD.get(), ObjectRegistry.STRIPPED_SWAMP_CYPRESS_WOOD.get());
-        AxeItemHooks.addStrippable(ObjectRegistry.SWAMP_OAK_LOG.get(), ObjectRegistry.STRIPPED_SWAMP_OAK_LOG.get());
-        AxeItemHooks.addStrippable(ObjectRegistry.SWAMP_OAK_WOOD.get(), ObjectRegistry.STRIPPED_SWAMP_OAK_WOOD.get());
-        AxeItemHooks.addStrippable(ObjectRegistry.FAN_PALM_LOG.get(), ObjectRegistry.STRIPPED_FAN_PALM_LOG.get());
-        AxeItemHooks.addStrippable(ObjectRegistry.FAN_PALM_WOOD.get(), ObjectRegistry.STRIPPED_FAN_PALM_WOOD.get());
-        AxeItemHooks.addStrippable(ObjectRegistry.FIR_LOG.get(), ObjectRegistry.STRIPPED_FIR_LOG.get());
-        AxeItemHooks.addStrippable(ObjectRegistry.FIR_WOOD.get(), ObjectRegistry.STRIPPED_FIR_WOOD.get());
-        AxeItemHooks.addStrippable(ObjectRegistry.LARCH_LOG.get(), ObjectRegistry.STRIPPED_LARCH_LOG.get());
-        AxeItemHooks.addStrippable(ObjectRegistry.LARCH_WOOD.get(), ObjectRegistry.STRIPPED_LARCH_WOOD.get());
-        AxeItemHooks.addStrippable(ObjectRegistry.EBONY_LOG.get(), ObjectRegistry.STRIPPED_EBONY_LOG.get());
-        AxeItemHooks.addStrippable(ObjectRegistry.EBONY_WOOD.get(), ObjectRegistry.STRIPPED_EBONY_WOOD.get());
-        AxeItemHooks.addStrippable(ObjectRegistry.CHESTNUT_LOG.get(), ObjectRegistry.STRIPPED_CHESTNUT_LOG.get());
-        AxeItemHooks.addStrippable(ObjectRegistry.CHESTNUT_WOOD.get(), ObjectRegistry.STRIPPED_CHESTNUT_WOOD.get());
-        AxeItemHooks.addStrippable(ObjectRegistry.CYPRESS_LOG.get(), ObjectRegistry.STRIPPED_CYPRESS_LOG.get());
-        AxeItemHooks.addStrippable(ObjectRegistry.CYPRESS_WOOD.get(), ObjectRegistry.STRIPPED_CYPRESS_WOOD.get());
+        GardenerSpawner.init();
+        for (WoodSet set : WoodSet.all()) {
+            if (set.log != null) {
+                AxeItemHooks.addStrippable(set.log.get(), set.strippedLog.get());
+                AxeItemHooks.addStrippable(set.wood.get(), set.strippedWood.get());
+            }
+        }
     }
 }
 

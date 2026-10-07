@@ -1,0 +1,8 @@
+{
+  "ambientocclusion": false,
+  "parent": "minecraft:block/cross",
+  "render_type": "minecraft:cutout",
+  "textures": {
+    "cross": "bloomingnature:block/pampas_grass_2_bottom"
+  }
+}

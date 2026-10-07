@@ -1,0 +1,8 @@
+{
+  "type": "neoforge:add_features",
+  "biomes": "#bloomingnature:spawns_pampas_grass",
+  "features": [
+    "bloomingnature:pampas_grass"
+  ],
+  "step": "vegetal_decoration"
+}

@@ -10,10 +10,10 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.satisfy.bloomingnature.BloomingNature;
 import net.satisfy.bloomingnature.core.block.entity.*;
-import net.satisfy.bloomingnature.core.entity.ModBoatEntity;
-import net.satisfy.bloomingnature.core.entity.ModChestBoatEntity;
 import net.satisfy.bloomingnature.core.entity.WanderingGardenerEntity;
 import net.satisfy.bloomingnature.platform.PlatformHelper;
+import net.satisfy.foundation.banner.CompletionistBannerEntity;
+import net.satisfy.foundation.wood.*;
 
 import java.util.HashSet;
 import java.util.function.Supplier;
@@ -23,40 +23,20 @@ public class EntityTypeRegistry {
     private static final DeferredRegister<EntityType<?>> ENTITY_TYPES = DeferredRegister.create(BloomingNature.MOD_ID, Registries.ENTITY_TYPE);
 
     public static final RegistrySupplier<EntityType<WanderingGardenerEntity>> WANDERING_GARDENER = registerEntityType("wandering_gardener", () -> EntityType.Builder.of(WanderingGardenerEntity::new, MobCategory.CREATURE).sized(0.6f, 1.95f).clientTrackingRange(10).build(BloomingNature.identifier("wandering_gardener").toString()));
-    public static final Supplier<EntityType<ModBoatEntity>> MOD_BOAT = PlatformHelper.registerBoatType("mod_boat", ModBoatEntity::new, MobCategory.MISC, 1.375F, 0.5625F, 10);
-    public static final Supplier<EntityType<ModChestBoatEntity>> MOD_CHEST_BOAT = PlatformHelper.registerBoatType("mod_chest_boat", ModChestBoatEntity::new, MobCategory.MISC, 1.375F, 0.5625F, 10);
+    public static final Supplier<EntityType<WoodBoat>> MOD_BOAT = PlatformHelper.registerBoatType("mod_boat", WoodBoat::new, MobCategory.MISC, 1.375F, 0.5625F, 10);
+    public static final Supplier<EntityType<WoodBoat>> MOD_CHEST_BOAT = PlatformHelper.<WoodBoat>registerBoatType("mod_chest_boat", WoodChestBoat::new, MobCategory.MISC, 1.375F, 0.5625F, 10);
 
     public static final RegistrySupplier<BlockEntityType<CompletionistBannerEntity>> BLOOMINGNATURE_BANNER = registerBlockEntity("bloomingnature_banner", () -> BlockEntityType.Builder.of(CompletionistBannerEntity::new, ObjectRegistry.BLOOMINGNATURE_BANNER.get(), ObjectRegistry.BLOOMINGNATURE_WALL_BANNER.get()).build(null));
     public static final RegistrySupplier<BlockEntityType<SunflowerBlockEntity>> SUNFLOWER = registerBlockEntity("sunflower", () -> BlockEntityType.Builder.of(SunflowerBlockEntity::new, ObjectRegistry.SUNFLOWER.get()).build(null)
     );
-    public static final RegistrySupplier<BlockEntityType<ModSignBlockEntity>> MOD_SIGN = BLOCK_ENTITY_TYPES.register("mod_sign", () -> BlockEntityType.Builder.of(
-            ModSignBlockEntity::new,
-            ObjectRegistry.LARCH_SIGN.get(), ObjectRegistry.LARCH_WALL_SIGN.get(),
-            ObjectRegistry.ASPEN_SIGN.get(), ObjectRegistry.ASPEN_WALL_SIGN.get(),
-            ObjectRegistry.BAOBAB_SIGN.get(), ObjectRegistry.BAOBAB_WALL_SIGN.get(),
-            ObjectRegistry.EBONY_SIGN.get(), ObjectRegistry.EBONY_WALL_SIGN.get(),
-            ObjectRegistry.CHESTNUT_SIGN.get(), ObjectRegistry.CHESTNUT_WALL_SIGN.get(),
-            ObjectRegistry.SWAMP_OAK_SIGN.get(), ObjectRegistry.SWAMP_OAK_WALL_SIGN.get(),
-            ObjectRegistry.SWAMP_CYPRESS_SIGN.get(), ObjectRegistry.SWAMP_CYPRESS_WALL_SIGN.get(),
-            ObjectRegistry.FAN_PALM_SIGN.get(), ObjectRegistry.FAN_PALM_WALL_SIGN.get(),
-            ObjectRegistry.FIR_SIGN.get(), ObjectRegistry.FIR_WALL_SIGN.get(),
-            ObjectRegistry.CYPRESS_SIGN.get(), ObjectRegistry.CYPRESS_WALL_SIGN.get(),
-            ObjectRegistry.CACTUS_SIGN.get(), ObjectRegistry.CACTUS_WALL_SIGN.get()
+    public static final RegistrySupplier<BlockEntityType<WoodSignBlockEntity>> MOD_SIGN = BLOCK_ENTITY_TYPES.register("mod_sign", () -> BlockEntityType.Builder.of(
+            (pos, state) -> new WoodSignBlockEntity(EntityTypeRegistry.MOD_SIGN.get(), pos, state),
+            WoodSet.all().stream().flatMap(set -> java.util.stream.Stream.of(set.sign.get(), set.wallSign.get())).toArray(Block[]::new)
     ).build(null));
 
-    public static final RegistrySupplier<BlockEntityType<ModHangingSignBlockEntity>> MOD_HANGING_SIGN = BLOCK_ENTITY_TYPES.register("mod_hanging_sign", () -> BlockEntityType.Builder.of(
-            ModHangingSignBlockEntity::new,
-            ObjectRegistry.LARCH_HANGING_SIGN.get(), ObjectRegistry.LARCH_WALL_HANGING_SIGN.get(),
-            ObjectRegistry.ASPEN_HANGING_SIGN.get(), ObjectRegistry.ASPEN_WALL_HANGING_SIGN.get(),
-            ObjectRegistry.BAOBAB_HANGING_SIGN.get(), ObjectRegistry.BAOBAB_WALL_HANGING_SIGN.get(),
-            ObjectRegistry.EBONY_HANGING_SIGN.get(), ObjectRegistry.EBONY_WALL_HANGING_SIGN.get(),
-            ObjectRegistry.CHESTNUT_HANGING_SIGN.get(), ObjectRegistry.CHESTNUT_WALL_HANGING_SIGN.get(),
-            ObjectRegistry.SWAMP_OAK_HANGING_SIGN.get(), ObjectRegistry.SWAMP_OAK_WALL_HANGING_SIGN.get(),
-            ObjectRegistry.SWAMP_CYPRESS_HANGING_SIGN.get(), ObjectRegistry.SWAMP_CYPRESS_WALL_HANGING_SIGN.get(),
-            ObjectRegistry.FAN_PALM_HANGING_SIGN.get(), ObjectRegistry.FAN_PALM_WALL_HANGING_SIGN.get(),
-            ObjectRegistry.FIR_HANGING_SIGN.get(), ObjectRegistry.FIR_WALL_HANGING_SIGN.get(),
-            ObjectRegistry.CYPRESS_HANGING_SIGN.get(), ObjectRegistry.CYPRESS_WALL_HANGING_SIGN.get(),
-            ObjectRegistry.CACTUS_HANGING_SIGN.get(), ObjectRegistry.CACTUS_WALL_HANGING_SIGN.get()
+    public static final RegistrySupplier<BlockEntityType<WoodHangingSignBlockEntity>> MOD_HANGING_SIGN = BLOCK_ENTITY_TYPES.register("mod_hanging_sign", () -> BlockEntityType.Builder.of(
+            (pos, state) -> new WoodHangingSignBlockEntity(EntityTypeRegistry.MOD_HANGING_SIGN.get(), pos, state),
+            WoodSet.all().stream().flatMap(set -> java.util.stream.Stream.of(set.hangingSign.get(), set.wallHangingSign.get())).toArray(Block[]::new)
     ).build(null));
 
     private static <T extends EntityType<?>> RegistrySupplier<T> registerEntityType(final String path, final Supplier<T> type) {

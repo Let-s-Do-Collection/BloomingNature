@@ -1,0 +1,26 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:plains",
+    "minecraft:sunflower_plains",
+    "minecraft:flower_forest",
+    "minecraft:forest",
+    "minecraft:birch_forest",
+    "minecraft:old_growth_birch_forest",
+    "minecraft:meadow",
+    "minecraft:cherry_grove",
+    "minecraft:savanna",
+    "minecraft:savanna_plateau",
+    "minecraft:swamp",
+    "bloomingnature:forest_edge",
+    "bloomingnature:flower_glade",
+    "bloomingnature:golden_glade",
+    "bloomingnature:aspen_forest",
+    "bloomingnature:cypress_fields",
+    "bloomingnature:marshland",
+    "bloomingnature:fen",
+    "bloomingnature:baobab_savanna",
+    "bloomingnature:desert_oasis",
+    "bloomingnature:brushland"
+  ]
+}

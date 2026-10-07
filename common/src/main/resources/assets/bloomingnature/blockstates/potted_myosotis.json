@@ -1,7 +1,7 @@
 {
   "variants": {
     "": {
-      "model": "bloomingnature:block/myosotis"
+      "model": "bloomingnature:block/potted_myosotis"
     }
   }
 }

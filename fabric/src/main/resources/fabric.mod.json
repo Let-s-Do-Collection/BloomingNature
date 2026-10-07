@@ -22,13 +22,14 @@
     ],
     "client": [
       "net.satisfy.bloomingnature.fabric.client.BloomingNatureClientFabric"
+    ],
+    "modmenu": [
+      "net.satisfy.bloomingnature.fabric.config.ModMenu"
     ]
   },
-  "mixins": [
-    "bloomingnature.mixins.json"
-  ],
   "depends": {
     "fabric": "*",
+    "cloth-config": "*",
     "minecraft": ">=1.21.1 <1.22",
     "architectury": ">=13.0.8",
     "foundation": ">=1.0.1"

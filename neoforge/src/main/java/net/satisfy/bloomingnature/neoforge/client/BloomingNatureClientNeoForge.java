@@ -1,20 +1,12 @@
 package net.satisfy.bloomingnature.neoforge.client;
 
-import net.neoforged.neoforge.client.event.RegisterParticleProvidersEvent;
-import net.satisfy.bloomingnature.client.particle.FireflyParticle;
-import net.satisfy.bloomingnature.core.registry.FloraRegistry;
-import net.minecraft.client.model.BoatModel;
-import net.minecraft.client.model.ChestBoatModel;
-import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
-import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 import net.neoforged.neoforge.registries.RegisterEvent;
 import net.satisfy.bloomingnature.BloomingNature;
 import net.satisfy.bloomingnature.client.BloomingNatureClient;
-import net.satisfy.bloomingnature.core.entity.ModBoatEntity;
 
 @SuppressWarnings("removal")
 @EventBusSubscriber(modid = BloomingNature.MOD_ID, value = Dist.CLIENT, bus = EventBusSubscriber.Bus.MOD)
@@ -28,18 +20,5 @@ public class BloomingNatureClientNeoForge {
     @SubscribeEvent
     public static void onClientSetup(FMLClientSetupEvent event) {
         event.enqueueWork(BloomingNatureClient::initClient);
-    }
-
-    @SubscribeEvent
-    public static void registerParticles(RegisterParticleProvidersEvent event) {
-        event.registerSpriteSet(FloraRegistry.FIREFLY.get(), FireflyParticle.Provider::new);
-    }
-
-    @SubscribeEvent
-    public static void registerLayerDefinitions(EntityRenderersEvent.RegisterLayerDefinitions event) {
-        for (ModBoatEntity.Type type : ModBoatEntity.Type.values()) {
-            event.registerLayerDefinition(new ModelLayerLocation(BloomingNature.identifier(type.getModelLocation()), "main"), BoatModel::createBodyModel);
-            event.registerLayerDefinition(new ModelLayerLocation(BloomingNature.identifier(type.getChestModelLocation()), "main"), ChestBoatModel::createBodyModel);
-        }
     }
 }

@@ -3,9 +3,6 @@ loaderVersion = "[4,)"
 license = "Custom"
 issueTrackerURL = "https://github.com/satisfyu/Let-s-Do-Hub"
 
-[[mixins]]
-config = "bloomingnature.mixins.json"
-
 [[mods]]
 modId = "bloomingnature"
 version = "${version}"

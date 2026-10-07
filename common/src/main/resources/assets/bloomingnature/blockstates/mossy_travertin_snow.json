@@ -1,9 +1,0 @@
-{
-  "parent": "minecraft:block/cube_bottom_top",
-  "textures": {
-    "bottom": "bloomingnature:block/travertin",
-    "particle": "bloomingnature:block/travertin",
-    "side": "bloomingnature:block/travertin_snow",
-    "top": "minecraft:block/grass_block_top"
-  }
-}

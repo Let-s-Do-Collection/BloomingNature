@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/inner_stairs",
-  "textures": {
-    "bottom": "bloomingnature:block/mossy_travertin",
-    "side": "bloomingnature:block/mossy_travertin",
-    "top": "bloomingnature:block/mossy_travertin"
-  }
-}

@@ -1,6 +1,11 @@
 package net.satisfy.bloomingnature.fabric;
 
+import me.shedaniel.autoconfig.AutoConfig;
+import me.shedaniel.autoconfig.ConfigHolder;
+import me.shedaniel.autoconfig.serializer.GsonConfigSerializer;
 import net.fabricmc.api.ModInitializer;
+import net.minecraft.world.InteractionResult;
+import net.satisfy.bloomingnature.fabric.config.BloomingNatureFabricConfig;
 import net.fabricmc.fabric.api.resource.ResourceManagerHelper;
 import net.fabricmc.fabric.api.resource.ResourcePackActivationType;
 import net.fabricmc.loader.api.FabricLoader;
@@ -15,6 +20,12 @@ import java.util.Optional;
 public class BloomingNatureFabric implements ModInitializer {
     @Override
     public void onInitialize() {
+        ConfigHolder<BloomingNatureFabricConfig> config = AutoConfig.register(BloomingNatureFabricConfig.class, GsonConfigSerializer::new);
+        config.getConfig().apply();
+        config.registerSaveListener((holder, data) -> {
+            data.apply();
+            return InteractionResult.SUCCESS;
+        });
         BloomingNature.init();
         BloomingNature.commonInit();
         CompostableRegistry.init();

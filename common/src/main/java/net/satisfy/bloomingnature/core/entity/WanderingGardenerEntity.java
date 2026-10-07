@@ -1,11 +1,20 @@
 package net.satisfy.bloomingnature.core.entity;
 
 import net.minecraft.world.entity.EntityType;
+import org.jetbrains.annotations.Nullable;
+import net.minecraft.world.level.ServerLevelAccessor;
+import net.minecraft.world.entity.animal.camel.Camel;
+import net.minecraft.world.entity.SpawnGroupData;
+import net.minecraft.world.entity.MobSpawnType;
+import net.minecraft.world.DifficultyInstance;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.npc.VillagerTrades;
 import net.minecraft.world.entity.npc.WanderingTrader;
 import net.minecraft.world.item.trading.MerchantOffers;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
+import net.satisfy.bloomingnature.core.registry.FloraRegistry;
+import net.satisfy.bloomingnature.core.config.BloomingNatureConfig;
 import net.satisfy.bloomingnature.core.registry.ObjectRegistry;
 import net.satisfy.bloomingnature.core.util.BloomingNatureGeneralUtil;
 
@@ -14,8 +23,44 @@ import java.util.HashMap;
 public class WanderingGardenerEntity extends WanderingTrader {
     public static final HashMap<Integer, VillagerTrades.ItemListing[]> TRADES = createTrades();
 
+    private static final double CAMEL_SEARCH_RADIUS = 12.0D;
+
+    private boolean needsCamel;
+
     public WanderingGardenerEntity(EntityType<? extends WanderingGardenerEntity> entityType, Level world) {
         super(entityType, world);
+    }
+
+    @Override
+    public SpawnGroupData finalizeSpawn(ServerLevelAccessor level, DifficultyInstance difficulty, MobSpawnType spawnType, @Nullable SpawnGroupData spawnGroupData) {
+        this.needsCamel = spawnType == MobSpawnType.EVENT && BloomingNatureConfig.gardenerBringsCamel;
+        return super.finalizeSpawn(level, difficulty, spawnType, spawnGroupData);
+    }
+
+    @Override
+    public void tick() {
+        super.tick();
+        if (this.needsCamel && this.level() instanceof ServerLevel serverLevel) {
+            this.needsCamel = false;
+            spawnCamel(serverLevel);
+        }
+    }
+
+    @Override
+    public void remove(RemovalReason reason) {
+        if (reason == RemovalReason.DISCARDED && this.level() instanceof ServerLevel serverLevel) {
+            for (Camel camel : serverLevel.getEntitiesOfClass(Camel.class, this.getBoundingBox().inflate(CAMEL_SEARCH_RADIUS), camel -> camel.getLeashHolder() == this)) {
+                camel.discard();
+            }
+        }
+        super.remove(reason);
+    }
+
+    private void spawnCamel(ServerLevel level) {
+        Camel camel = EntityType.CAMEL.spawn(level, this.blockPosition(), MobSpawnType.EVENT);
+        if (camel != null) {
+            camel.setLeashedTo(this, true);
+        }
     }
 
     private static HashMap<Integer, VillagerTrades.ItemListing[]> createTrades() {
@@ -45,6 +90,10 @@ public class WanderingGardenerEntity extends WanderingTrader {
                 new BloomingNatureGeneralUtil.BloomingNatureVillagerUtil.SellItemFactory(ObjectRegistry.DRY_BUSH.get(), 2, 4, 3, 15),
                 new BloomingNatureGeneralUtil.BloomingNatureVillagerUtil.SellItemFactory(ObjectRegistry.DRY_GRASS.get(), 2, 4, 3, 15),
                 new BloomingNatureGeneralUtil.BloomingNatureVillagerUtil.SellItemFactory(ObjectRegistry.DRY_BUSH_TALL.get(), 2, 4, 3, 15),
+                new BloomingNatureGeneralUtil.BloomingNatureVillagerUtil.SellItemFactory(FloraRegistry.JUNGLE_FERN.get(), 2, 4, 3, 15),
+                new BloomingNatureGeneralUtil.BloomingNatureVillagerUtil.SellItemFactory(FloraRegistry.WILD_VINES.get(), 2, 4, 3, 15),
+                new BloomingNatureGeneralUtil.BloomingNatureVillagerUtil.SellItemFactory(FloraRegistry.FLOWERING_LILY_PAD.get(), 2, 4, 3, 15),
+                new BloomingNatureGeneralUtil.BloomingNatureVillagerUtil.SellItemFactory(ObjectRegistry.PAMPAS_GRASS.get(), 2, 4, 3, 15),
                 new BloomingNatureGeneralUtil.BloomingNatureVillagerUtil.SellItemFactory(Blocks.SUNFLOWER, 3, 2, 10, 15)
         });
         return trades;

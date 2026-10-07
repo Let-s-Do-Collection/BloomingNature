@@ -38,6 +38,8 @@ dependencies {
     modApi "dev.architectury:architectury-fabric:${rootProject.architectury_version}"
     modApi "net.fabricmc.fabric-api:fabric-api:${rootProject.fabric_api_version}"
     modApi "com.terraformersmc:biolith-fabric:${rootProject.biolith_version}"
+    modApi("me.shedaniel.cloth:cloth-config-fabric:${rootProject.cloth_fabric_version}") { exclude group: "net.fabricmc.fabric-api" }
+    modImplementation("com.terraformersmc:modmenu:${rootProject.modmenu_version}") { exclude group: "net.fabricmc", module: "fabric-loader" }
     common(project(path: ":common", configuration: "namedElements")) { transitive false }
     shadowCommon(project(path: ":common", configuration: "transformProductionFabric")) { transitive false }
 }
@@ -99,6 +101,7 @@ modrinth {
     dependencies {
         required.project "architectury-api"
         required.project "biolith"
+        required.project "cloth-config"
     }
 }
 
@@ -116,6 +119,7 @@ tasks.register("curseforge962885", net.darkhax.curseforgegradle.TaskPublishCurse
     mainFile.addEnvironment("Client", "Server")
     mainFile.addRequirement("architectury-api")
     mainFile.addRequirement("biolith")
+    mainFile.addRequirement("cloth-config")
 }
 
 tasks.register("releaseChangelog") {

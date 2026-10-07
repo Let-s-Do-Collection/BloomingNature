@@ -1,0 +1,20 @@
+{
+  "variants": {
+    "half=lower": [
+      {
+        "model": "bloomingnature:block/pampas_grass_1_bottom",
+        "weight": 1
+      },
+      {
+        "model": "bloomingnature:block/pampas_grass_2_bottom",
+        "weight": 1
+      }
+    ],
+    "half=upper": [
+      {
+        "model": "bloomingnature:block/pampas_grass_top",
+        "weight": 1
+      }
+    ]
+  }
+}

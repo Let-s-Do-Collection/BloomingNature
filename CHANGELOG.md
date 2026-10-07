@@ -1,3 +1,28 @@
+[1.1.12]
+
+**Fixed**
+* Swamp Oak Leaves, Bottlebrushes, Jungle Fern, Tall Jungle Fern, Wild Vines and Flowering Lily Pad missing from the creative tab
+* Potted Myosotis dropping nothing when broken
+* Missing names for Potted Chestnut Sapling, Potted Dry Bush and Potted Fan Palm Sprout
+* Windows not reconnecting their top and bottom parts when a window in the middle of a stack is removed
+* Jungle Fern, Tall Jungle Fern and Wild Vines missing the vanilla tags for replaceable plants, hoe/axe mining and sword breaking speed
+* Fabric missing biome grass and foliage colors, Travertine in Forest and Flower Forest, and using different generation steps for boulders, slabs and piles than NeoForge
+
+**Added**
+* Pampas Grass, a tall grass that generates in Savannas, Savanna Plateaus and Windswept Savannas
+* Potted Jungle Fern
+* Config for the Completionist Banner effect, the Wandering Gardener visits, fireflies and every Blooming Nature biome (each can be switched off, needs a restart and only affects new chunks). On Fabric it can be opened through Mod Menu, on NeoForge through the mod list. Cloth Config is now required on Fabric
+* Fireflies now also appear around Cattail, Reed, Flowering Lily Pad and Wild Vines
+* The Wandering Gardener now also sells Jungle Fern, Wild Vines, Flowering Lily Pad and Pampas Grass
+* The Wandering Gardener now arrives with a leashed camel instead of trader llamas, and the camel leaves with him
+
+**Changed**
+* The Wandering Gardener now visits on his own schedule (every 1 to 2.5 days during daytime in the Overworld) instead of replacing the Wandering Trader, and no longer needs a mixin. He only visits meadow-like biomes (see the `#bloomingnature:gardener_visits` tag), respects the `doTraderSpawning` game rule and biomes without trader spawns, and meets players at village bells like the trader
+* The creative tab now has three side tabs: Timber & Treetops, Stone & Moss and Petals & Meadows
+* Boats, signs, windows, fireflies and the Completionist Banner now use Foundation. Boats placed in worlds before this update may load as Aspen boats
+
+***
+
 [1.1.11]
 
 **Fixed**

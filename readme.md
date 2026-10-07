@@ -109,6 +109,6 @@ BloomingNature integrates seamlessly with major world generation overhauls.
 
 <p align="center">
   <a href="https://github.com/Let-s-Do-Collection/Let-s-Do-Collection">GitHub</a> •
-  <a href="https://discord.gg/Jb2bgpYr">Discord</a> •
+  <a href="https://discord.gg/xa8DCaYFyq">Discord</a> •
   <a href="https://www.patreon.com/c/u78595058">Patreon</a>
 </p>

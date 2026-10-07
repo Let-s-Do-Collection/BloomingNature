@@ -1,6 +1,6 @@
 package net.satisfy.bloomingnature.core.world.biome.arid;
 
-import com.terraformersmc.biolith.api.biome.BiomePlacement;
+import net.satisfy.bloomingnature.core.world.biome.ConfiguredBiomePlacement;
 import com.terraformersmc.biolith.api.biome.sub.BiomeParameterTargets;
 import com.terraformersmc.biolith.api.biome.sub.CriterionBuilder;
 import com.terraformersmc.biolith.api.biome.sub.RatioTargets;
@@ -11,16 +11,16 @@ import net.satisfy.bloomingnature.core.world.biome.BloomingNatureBiomeKeys;
 public final class AridBiomeRegistry extends BiolithSurfaceBuilder {
 
     public static void registerBiomePlacement() {
-        BiomePlacement.replaceOverworld(Biomes.PLAINS, BloomingNatureBiomeKeys.CYPRESS_FIELDS, 0.28D);
-        BiomePlacement.replaceOverworld(Biomes.SUNFLOWER_PLAINS, BloomingNatureBiomeKeys.CYPRESS_FIELDS, 0.24D);
+        ConfiguredBiomePlacement.replaceOverworld(Biomes.PLAINS, BloomingNatureBiomeKeys.CYPRESS_FIELDS, 0.28D);
+        ConfiguredBiomePlacement.replaceOverworld(Biomes.SUNFLOWER_PLAINS, BloomingNatureBiomeKeys.CYPRESS_FIELDS, 0.24D);
 
-        BiomePlacement.replaceOverworld(Biomes.SAVANNA, BloomingNatureBiomeKeys.BRUSHLANDS, 0.16D);
-        BiomePlacement.replaceOverworld(Biomes.SAVANNA_PLATEAU, BloomingNatureBiomeKeys.BRUSHLANDS, 0.22D);
-        BiomePlacement.replaceOverworld(Biomes.DESERT, BloomingNatureBiomeKeys.BRUSHLANDS, 0.22D);
-        BiomePlacement.replaceOverworld(Biomes.BADLANDS, BloomingNatureBiomeKeys.BRUSHLANDS, 0.22D);
+        ConfiguredBiomePlacement.replaceOverworld(Biomes.SAVANNA, BloomingNatureBiomeKeys.BRUSHLANDS, 0.16D);
+        ConfiguredBiomePlacement.replaceOverworld(Biomes.SAVANNA_PLATEAU, BloomingNatureBiomeKeys.BRUSHLANDS, 0.22D);
+        ConfiguredBiomePlacement.replaceOverworld(Biomes.DESERT, BloomingNatureBiomeKeys.BRUSHLANDS, 0.22D);
+        ConfiguredBiomePlacement.replaceOverworld(Biomes.BADLANDS, BloomingNatureBiomeKeys.BRUSHLANDS, 0.22D);
 
-        BiomePlacement.replaceOverworld(Biomes.SAVANNA, BloomingNatureBiomeKeys.BAOBAB_SAVANNA, 0.55D);
-        BiomePlacement.replaceOverworld(Biomes.SAVANNA_PLATEAU, BloomingNatureBiomeKeys.BAOBAB_SAVANNA, 0.65D);
+        ConfiguredBiomePlacement.replaceOverworld(Biomes.SAVANNA, BloomingNatureBiomeKeys.BAOBAB_SAVANNA, 0.55D);
+        ConfiguredBiomePlacement.replaceOverworld(Biomes.SAVANNA_PLATEAU, BloomingNatureBiomeKeys.BAOBAB_SAVANNA, 0.65D);
 
         registerBaobabSavannaPlacement();
         registerDesertRiverPlacement();
@@ -29,9 +29,9 @@ public final class AridBiomeRegistry extends BiolithSurfaceBuilder {
     }
 
     private static void registerBaobabSavannaPlacement() {
-        BiomePlacement.replaceOverworld(Biomes.SAVANNA, BloomingNatureBiomeKeys.BAOBAB_SAVANNA, 0.40D);
-        BiomePlacement.replaceOverworld(Biomes.SAVANNA_PLATEAU, BloomingNatureBiomeKeys.BAOBAB_SAVANNA, 0.40D);
-        BiomePlacement.replaceOverworld(Biomes.WINDSWEPT_SAVANNA, BloomingNatureBiomeKeys.BAOBAB_SAVANNA, 0.40D);
+        ConfiguredBiomePlacement.replaceOverworld(Biomes.SAVANNA, BloomingNatureBiomeKeys.BAOBAB_SAVANNA, 0.40D);
+        ConfiguredBiomePlacement.replaceOverworld(Biomes.SAVANNA_PLATEAU, BloomingNatureBiomeKeys.BAOBAB_SAVANNA, 0.40D);
+        ConfiguredBiomePlacement.replaceOverworld(Biomes.WINDSWEPT_SAVANNA, BloomingNatureBiomeKeys.BAOBAB_SAVANNA, 0.40D);
     }
 
     private static void registerDesertRiverPlacement() {
@@ -44,7 +44,7 @@ public final class AridBiomeRegistry extends BiolithSurfaceBuilder {
         var warm = CriterionBuilder.value(BiomeParameterTargets.TEMPERATURE, 0.45f, 2.0f);
         var shallow = CriterionBuilder.value(BiomeParameterTargets.DEPTH, -0.35f, 0.25f);
 
-        BiomePlacement.addSubOverworld(Biomes.RIVER, BloomingNatureBiomeKeys.DESERT_RIVER, CriterionBuilder.allOf(nearArid, warm, shallow));
+        ConfiguredBiomePlacement.addSubOverworld(Biomes.RIVER, BloomingNatureBiomeKeys.DESERT_RIVER, CriterionBuilder.allOf(nearArid, warm, shallow));
     }
 
     private static void registerOasisPlacement() {
@@ -54,7 +54,7 @@ public final class AridBiomeRegistry extends BiolithSurfaceBuilder {
 
         var cond = CriterionBuilder.allOf(center, depth, temp);
 
-        BiomePlacement.addSubOverworld(Biomes.DESERT, BloomingNatureBiomeKeys.DESERT_OASIS, cond);
+        ConfiguredBiomePlacement.addSubOverworld(Biomes.DESERT, BloomingNatureBiomeKeys.DESERT_OASIS, cond);
     }
 
     private static void registerCypressFieldsPlacement() {
@@ -76,7 +76,7 @@ public final class AridBiomeRegistry extends BiolithSurfaceBuilder {
                 CriterionBuilder.not(nearColdBiomes)
         );
 
-        BiomePlacement.addSubOverworld(Biomes.SAVANNA, BloomingNatureBiomeKeys.CYPRESS_FIELDS, cypressCondition);
-        BiomePlacement.addSubOverworld(Biomes.SAVANNA_PLATEAU, BloomingNatureBiomeKeys.CYPRESS_FIELDS, cypressCondition);
+        ConfiguredBiomePlacement.addSubOverworld(Biomes.SAVANNA, BloomingNatureBiomeKeys.CYPRESS_FIELDS, cypressCondition);
+        ConfiguredBiomePlacement.addSubOverworld(Biomes.SAVANNA_PLATEAU, BloomingNatureBiomeKeys.CYPRESS_FIELDS, cypressCondition);
     }
 }

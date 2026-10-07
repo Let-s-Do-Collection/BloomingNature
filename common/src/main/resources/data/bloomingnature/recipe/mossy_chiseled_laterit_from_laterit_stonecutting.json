@@ -1,7 +1,7 @@
 {
   "type": "minecraft:stonecutting",
   "ingredient": {
-    "item": "bloomingnature:mossy_laterit"
+    "item": "bloomingnature:mossy_laterit_stone"
   },
   "result": {
     "id": "bloomingnature:mossy_chiseled_laterit",
