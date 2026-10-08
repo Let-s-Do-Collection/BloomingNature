@@ -1,6 +1,9 @@
 package net.satisfy.bloomingnature.core.entity;
 
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.level.levelgen.Heightmap;
+import net.minecraft.core.Direction;
+import net.minecraft.core.BlockPos;
 import org.jetbrains.annotations.Nullable;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.entity.animal.camel.Camel;
@@ -24,6 +27,8 @@ public class WanderingGardenerEntity extends WanderingTrader {
     public static final HashMap<Integer, VillagerTrades.ItemListing[]> TRADES = createTrades();
 
     private static final double CAMEL_SEARCH_RADIUS = 12.0D;
+    private static final int CAMEL_SPAWN_ATTEMPTS = 16;
+    private static final int CAMEL_SPAWN_RANGE = 4;
 
     private boolean needsCamel;
 
@@ -57,10 +62,30 @@ public class WanderingGardenerEntity extends WanderingTrader {
     }
 
     private void spawnCamel(ServerLevel level) {
-        Camel camel = EntityType.CAMEL.spawn(level, this.blockPosition(), MobSpawnType.EVENT);
+        BlockPos pos = findCamelPosition(level);
+        if (pos == null) {
+            return;
+        }
+        Camel camel = EntityType.CAMEL.spawn(level, pos, MobSpawnType.EVENT);
         if (camel != null) {
             camel.setLeashedTo(this, true);
         }
+    }
+
+    private BlockPos findCamelPosition(ServerLevel level) {
+        BlockPos origin = this.blockPosition();
+        for (int i = 0; i < CAMEL_SPAWN_ATTEMPTS; i++) {
+            int x = origin.getX() + this.random.nextInt(CAMEL_SPAWN_RANGE * 2 + 1) - CAMEL_SPAWN_RANGE;
+            int z = origin.getZ() + this.random.nextInt(CAMEL_SPAWN_RANGE * 2 + 1) - CAMEL_SPAWN_RANGE;
+            BlockPos pos = level.getHeightmapPos(Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, new BlockPos(x, origin.getY(), z));
+            if (Math.abs(pos.getY() - origin.getY()) > 2 || !level.getFluidState(pos.below()).isEmpty() || !level.getBlockState(pos.below()).isFaceSturdy(level, pos.below(), Direction.UP)) {
+                continue;
+            }
+            if (level.noCollision(EntityType.CAMEL.getSpawnAABB(pos.getX() + 0.5D, pos.getY(), pos.getZ() + 0.5D))) {
+                return pos;
+            }
+        }
+        return null;
     }
 
     private static HashMap<Integer, VillagerTrades.ItemListing[]> createTrades() {

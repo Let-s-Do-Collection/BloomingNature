@@ -15,35 +15,10 @@ import org.jetbrains.annotations.NotNull;
 
 public class PalmFoliagePlacer extends FoliagePlacer {
     public static final MapCodec<PalmFoliagePlacer> CODEC = RecordCodecBuilder.mapCodec((placer) -> foliagePlacerParts(placer).apply(placer, PalmFoliagePlacer::new));
+    private static final int MAX_LEAF_DISTANCE = 10;
 
     public PalmFoliagePlacer(IntProvider pRadius, IntProvider pOffset) {
         super(pRadius, pOffset);
-    }
-
-    private static void createQuadrant(Direction direction, BlockPos startingPos, LevelSimulatedReader pLevel, FoliagePlacer.FoliageSetter foliageSetter, RandomSource pRandom, TreeConfiguration pConfig) {
-        var pos = startingPos.mutable();
-
-        pos.move(direction);
-        tryPlaceLeaf(pLevel, foliageSetter, pRandom, pConfig, pos);
-
-        for (int i = 0; i < 2; i++) {
-            pos.move(direction);
-            tryPlaceLeaf(pLevel, foliageSetter, pRandom, pConfig, pos);
-            pos.move(Direction.DOWN);
-            tryPlaceLeaf(pLevel, foliageSetter, pRandom, pConfig, pos);
-        }
-
-        pos.set(startingPos);
-        pos.move(direction).move(direction.getCounterClockWise());
-        tryPlaceLeaf(pLevel, foliageSetter, pRandom, pConfig, pos);
-        pos.move(Direction.DOWN).move(direction.getCounterClockWise());
-        tryPlaceLeaf(pLevel, foliageSetter, pRandom, pConfig, pos);
-        pos.move(direction);
-        tryPlaceLeaf(pLevel, foliageSetter, pRandom, pConfig, pos.relative(direction.getClockWise()));
-        for (int i = 0; i < 3; i++) {
-            tryPlaceLeaf(pLevel, foliageSetter, pRandom, pConfig, pos);
-            pos.move(Direction.DOWN);
-        }
     }
 
     @Override
@@ -52,24 +27,60 @@ public class PalmFoliagePlacer extends FoliagePlacer {
     }
 
     @Override
-    protected void createFoliage(LevelSimulatedReader pLevel, FoliageSetter foliageSetter, RandomSource pRandom, TreeConfiguration pConfig, int i, FoliageAttachment pAttachment, int j, int k, int l) {
-        BlockPos startingPos = pAttachment.pos();
+    protected void createFoliage(LevelSimulatedReader level, FoliageSetter setter, RandomSource random, TreeConfiguration config, int maxFreeTreeHeight, FoliageAttachment attachment, int foliageHeight, int foliageRadius, int offset) {
+        BlockPos top = attachment.pos().above(offset);
 
-        tryPlaceLeaf(pLevel, foliageSetter, pRandom, pConfig, startingPos);
+        tryPlaceLeaf(level, setter, random, config, top);
+        tryPlaceLeaf(level, setter, random, config, top.above());
+        for (Direction direction : Direction.Plane.HORIZONTAL) {
+            tryPlaceLeaf(level, setter, random, config, top.relative(direction));
+        }
 
-        createQuadrant(Direction.NORTH, startingPos, pLevel, foliageSetter, pRandom, pConfig);
-        createQuadrant(Direction.EAST, startingPos, pLevel, foliageSetter, pRandom, pConfig);
-        createQuadrant(Direction.SOUTH, startingPos, pLevel, foliageSetter, pRandom, pConfig);
-        createQuadrant(Direction.WEST, startingPos, pLevel, foliageSetter, pRandom, pConfig);
+        int baseLength = 4 + foliageRadius;
+        for (Direction direction : Direction.Plane.HORIZONTAL) {
+            createFrond(level, setter, random, config, top, direction, null, baseLength + random.nextInt(2));
+            if (random.nextInt(5) != 0) {
+                createFrond(level, setter, random, config, top, direction, direction.getClockWise(), baseLength - 1 + random.nextInt(2));
+            }
+        }
+    }
+
+    private static void createFrond(LevelSimulatedReader level, FoliageSetter setter, RandomSource random, TreeConfiguration config, BlockPos top, Direction primary, Direction secondary, int length) {
+        BlockPos.MutableBlockPos pos = top.mutable().move(Direction.UP);
+        int droopStart = length / 2 + random.nextInt(2);
+        int distance = 2;
+
+        for (int step = 1; step <= length; step++) {
+            pos.move(primary);
+            if (!placeFrondLeaf(level, setter, random, config, pos, ++distance)) return;
+            if (secondary != null) {
+                pos.move(secondary);
+                if (!placeFrondLeaf(level, setter, random, config, pos, ++distance)) return;
+            }
+            if (step == 1 || (step >= droopStart && step < length)) {
+                pos.move(Direction.DOWN);
+                if (!placeFrondLeaf(level, setter, random, config, pos, ++distance)) return;
+            }
+        }
+
+        if (random.nextBoolean()) {
+            placeFrondLeaf(level, setter, random, config, pos.move(Direction.DOWN), ++distance);
+        }
+    }
+
+    private static boolean placeFrondLeaf(LevelSimulatedReader level, FoliageSetter setter, RandomSource random, TreeConfiguration config, BlockPos pos, int distance) {
+        if (distance > MAX_LEAF_DISTANCE) return false;
+        tryPlaceLeaf(level, setter, random, config, pos);
+        return true;
     }
 
     @Override
-    public int foliageHeight(RandomSource pRandom, int pHeight, TreeConfiguration pConfig) {
+    public int foliageHeight(RandomSource random, int height, TreeConfiguration config) {
         return 0;
     }
 
     @Override
-    protected boolean shouldSkipLocation(RandomSource pRandom, int pLocalX, int pLocalY, int pLocalZ, int pRange, boolean pLarge) {
+    protected boolean shouldSkipLocation(RandomSource random, int localX, int localY, int localZ, int range, boolean large) {
         return false;
     }
 }

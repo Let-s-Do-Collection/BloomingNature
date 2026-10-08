@@ -1,5 +1,8 @@
 package net.satisfy.bloomingnature.core.world.biome.arid.surface;
 
+import net.satisfy.bloomingnature.core.world.biome.CliffFace;
+import net.satisfy.bloomingnature.core.world.biome.SupportedColumn;
+import net.satisfy.bloomingnature.core.world.biome.SurfaceNoise;
 import com.terraformersmc.biolith.api.surface.BiolithSurfaceBuilder;
 import com.terraformersmc.biolith.api.surface.SurfaceGeneration;
 import net.minecraft.tags.FluidTags;
@@ -25,7 +28,22 @@ public final class AridSurfaceBuilder extends BiolithSurfaceBuilder {
     }
 
     @Override
-    public void generate(BiomeManager biomeManager, BlockColumn column, RandomSource random, ChunkAccess chunk, Biome biome, int x, int z, int vHeight, int seaLevel) {
+    public void generate(BiomeManager biomeManager, BlockColumn rawColumn, RandomSource random, ChunkAccess chunk, Biome biome, int x, int z, int vHeight, int seaLevel) {
+        generateSurface(biomeManager, rawColumn, random, chunk, biome, x, z, vHeight, seaLevel);
+        CliffFace.paint(chunk, SupportedColumn.wrap(rawColumn), x, z, cliffPalette());
+    }
+
+    private CliffFace.Palette cliffPalette() {
+        return switch (profile) {
+            case CYPRESS_FIELDS, BRUSHLAND -> CliffFace.Palette.of(ObjectRegistry.MARLSTONE.get().defaultBlockState(), ObjectRegistry.COBBLED_MARLSTONE.get().defaultBlockState(), ObjectRegistry.MOSSY_COBBLED_MARLSTONE.get().defaultBlockState());
+            case BAOBAB_SAVANNA -> CliffFace.Palette.of(Blocks.GRANITE.defaultBlockState(), Blocks.GRANITE.defaultBlockState(), Blocks.STONE.defaultBlockState());
+            case DESERT_OASIS, DESERT -> CliffFace.Palette.of(Blocks.SANDSTONE.defaultBlockState(), Blocks.SANDSTONE.defaultBlockState(), Blocks.SMOOTH_SANDSTONE.defaultBlockState());
+            case DESERT_RIVER -> null;
+        };
+    }
+
+    private void generateSurface(BiomeManager biomeManager, BlockColumn rawColumn, RandomSource random, ChunkAccess chunk, Biome biome, int x, int z, int vHeight, int seaLevel) {
+        BlockColumn column = SupportedColumn.wrap(rawColumn);
         int localX = x & 15;
         int localZ = z & 15;
         int topY = chunk.getHeight(Heightmap.Types.WORLD_SURFACE_WG, localX, localZ);
@@ -44,9 +62,18 @@ public final class AridSurfaceBuilder extends BiolithSurfaceBuilder {
         }
 
         if (profile == Profile.CYPRESS_FIELDS) {
-            float mask = smoothNoise(RandomSource.create(912345L), x - 113, z + 271, 0.02f);
-            float n1 = smoothNoise(RandomSource.create(34187L), x, z, 0.08f);
-            float n2 = smoothNoise(RandomSource.create(7123L), x + 91, z + 37, 0.12f);
+            float mask = smoothNoise(x - 113, z + 271, 0.02f);
+            float n1 = smoothNoise(x, z, 0.08f);
+            float n2 = smoothNoise(x + 91, z + 37, 0.12f);
+
+            int soilDepth = 5 + random.nextInt(3);
+            int buriedY = Math.min(Math.min(heightNorth, heightSouth), Math.min(heightWest, heightEast)) - 3;
+            for (int y = Math.max(0, topY - soilDepth); y < topY; y++) {
+                var state = column.getBlock(y);
+                if (state.isAir() || !state.getFluidState().isEmpty()) continue;
+                boolean clayPocket = y < buriedY && smoothNoise(x + 17 * y, z - 11 * y, 0.08f) > 0.72f;
+                column.setBlock(y, clayPocket ? Blocks.CLAY.defaultBlockState() : Blocks.DIRT.defaultBlockState());
+            }
 
             for (int y = 0; y <= topY; y++) {
                 if (y != topY) continue;
@@ -56,6 +83,8 @@ public final class AridSurfaceBuilder extends BiolithSurfaceBuilder {
                     for (int depthStep = 0; depthStep < cliffDepth; depthStep++) {
                         int cliffY = y - depthStep;
                         if (cliffY < 0) break;
+                        var current = column.getBlock(cliffY);
+                        if (current.isAir() || !current.getFluidState().isEmpty()) break;
 
                         int r = mixIndex(x, cliffY, z);
                         if (r < 20) {
@@ -100,18 +129,23 @@ public final class AridSurfaceBuilder extends BiolithSurfaceBuilder {
         }
 
         if (profile == Profile.BRUSHLAND) {
-            float mask = smoothNoise(RandomSource.create(912345L), x - 113, z + 271, 0.02f);
-            float n1 = smoothNoise(RandomSource.create(34187L), x, z, 0.08f);
-            float warpA = smoothNoise(RandomSource.create(87777L), x - 113, z + 271, 0.03f) * 6.0f;
-            float warpB = smoothNoise(RandomSource.create(12341L), x + 47, z - 31, 0.07f) * 2.5f;
-            float patchNoise = smoothNoise(RandomSource.create(44417L), x + (int) warpA, z + (int) warpB, 0.028f);
-            float detailNoise = smoothNoise(RandomSource.create(90123L), x, z, 0.085f);
+            float mask = smoothNoise(x - 113, z + 271, 0.02f);
+            float n1 = smoothNoise(x, z, 0.08f);
+            float warpA = smoothNoise(x - 113, z + 271, 0.03f) * 6.0f;
+            float warpB = smoothNoise(x + 47, z - 31, 0.07f) * 2.5f;
+            float patchNoise = smoothNoise(x + (int) warpA, z + (int) warpB, 0.028f);
+            float detailNoise = smoothNoise(x, z, 0.085f);
             boolean inPatch = patchNoise > 0.74f && detailNoise > 0.45f;
 
             for (int y = 0; y <= topY; y++) {
                 if (y != topY) continue;
                 if (slope >= 3) {
-                    column.setBlock(y, Blocks.GRASS_BLOCK.defaultBlockState());
+                    int cliffDepth = 3 + random.nextInt(3);
+                    for (int depthStep = 0; depthStep < cliffDepth && y - depthStep >= 0; depthStep++) {
+                        int cliffY = y - depthStep;
+                        int r = mixIndex(x, cliffY, z);
+                        column.setBlock(cliffY, r < 15 ? ObjectRegistry.MOSSY_COBBLED_MARLSTONE.get().defaultBlockState() : r < 40 ? ObjectRegistry.COBBLED_MARLSTONE.get().defaultBlockState() : ObjectRegistry.MARLSTONE.get().defaultBlockState());
+                    }
                     continue;
                 }
                 if (inPatch) {
@@ -145,8 +179,8 @@ public final class AridSurfaceBuilder extends BiolithSurfaceBuilder {
         }
 
         if (profile == Profile.DESERT_OASIS) {
-            float sandNoiseA = smoothNoise(RandomSource.create(91111L), x - 73, z + 159, 0.025f);
-            float sandNoiseB = smoothNoise(RandomSource.create(91222L), x + 41, z - 93, 0.032f);
+            float sandNoiseA = smoothNoise(x - 73, z + 159, 0.025f);
+            float sandNoiseB = smoothNoise(x + 41, z - 93, 0.032f);
             float sandMask = (sandNoiseA + sandNoiseB) * 0.5f;
             boolean sandPatch = sandMask > 0.62f;
 
@@ -161,6 +195,16 @@ public final class AridSurfaceBuilder extends BiolithSurfaceBuilder {
                         column.setBlock(y, ObjectRegistry.MOSSY_COBBLED_SLATE.get().defaultBlockState());
                     } else {
                         column.setBlock(y, Blocks.SANDSTONE.defaultBlockState());
+                    }
+                    continue;
+                }
+
+                float streak = smoothNoise(x * 2 + 311, z - 207, 0.045f);
+                boolean sandTop = sandMask > 0.56f || (streak > 0.68f && mixIndex(x, y, z) < 70);
+                if (sandTop) {
+                    column.setBlock(y, Blocks.SAND.defaultBlockState());
+                    for (int d = 1; d <= 3 && y - d >= 0; d++) {
+                        if (!column.getBlock(y - d).isAir()) column.setBlock(y - d, Blocks.SAND.defaultBlockState());
                     }
                     continue;
                 }
@@ -198,7 +242,7 @@ public final class AridSurfaceBuilder extends BiolithSurfaceBuilder {
             int chunkX = x >> 4;
             int chunkZ = z >> 4;
             var patchRand = RandomSource.create(chunkX * 915131L + chunkZ * 121421L + 4973L);
-            float chunkMask = smoothNoise(RandomSource.create(1337L), chunkX, chunkZ, 0.18f);
+            float chunkMask = smoothNoise(chunkX, chunkZ, 0.18f);
             boolean patchActive = patchRand.nextInt(23) == 0 && chunkMask > 0.75f;
             if (patchActive) {
                 int cx = (chunkX << 4) + 2 + patchRand.nextInt(12);
@@ -230,7 +274,7 @@ public final class AridSurfaceBuilder extends BiolithSurfaceBuilder {
                     s2 = (float) (Math.pow(Math.abs(xr2) / rx, p) + Math.pow(Math.abs(zr2) / rz, p));
                 }
 
-                float jitter = smoothNoise(RandomSource.create(8849L), x + 37, z - 21, 0.12f) * 0.2f;
+                float jitter = smoothNoise(x + 37, z - 21, 0.12f) * 0.2f;
                 boolean inside = Math.min(s1, s2) + jitter <= 1.0f;
 
                 if (inside) {
@@ -315,12 +359,12 @@ public final class AridSurfaceBuilder extends BiolithSurfaceBuilder {
         }
 
         if (profile == Profile.BAOBAB_SAVANNA) {
-            float dryness = smoothNoise(RandomSource.create(912349L), x - 77, z + 193, 0.012f);
-            float bandNoise = smoothNoise(RandomSource.create(55123L), x + 53, z - 41, 0.018f);
-            float patchNoise = smoothNoise(RandomSource.create(77411L), x - 19, z + 87, 0.022f);
+            float dryness = smoothNoise(x - 77, z + 193, 0.012f);
+            float bandNoise = smoothNoise(x + 53, z - 41, 0.018f);
+            float patchNoise = smoothNoise(x - 19, z + 87, 0.022f);
             float combined = dryness * 0.65f + bandNoise * 0.35f;
-            float redDetail = smoothNoise(RandomSource.create(41911L), x + 5, z - 9, 0.04f);
-            float fringeDetail = smoothNoise(RandomSource.create(63217L), x - 27, z + 33, 0.045f);
+            float redDetail = smoothNoise(x + 5, z - 9, 0.04f);
+            float fringeDetail = smoothNoise(x - 27, z + 33, 0.045f);
 
             for (int y = 0; y <= topY; y++) {
                 if (y != topY) continue;
@@ -367,9 +411,9 @@ public final class AridSurfaceBuilder extends BiolithSurfaceBuilder {
             return;
         }
 
-        float mask = smoothNoise(RandomSource.create(912345L), x - 113, z + 271, 0.02f);
-        float n1 = smoothNoise(RandomSource.create(34187L), x, z, 0.08f);
-        float n2 = smoothNoise(RandomSource.create(7123L), x + 91, z + 37, 0.12f);
+        float mask = smoothNoise(x - 113, z + 271, 0.02f);
+        float n1 = smoothNoise(x, z, 0.08f);
+        float n2 = smoothNoise(x + 91, z + 37, 0.12f);
 
         for (int y = 0; y <= topY; y++) {
             if (y != topY) continue;
@@ -415,28 +459,11 @@ public final class AridSurfaceBuilder extends BiolithSurfaceBuilder {
     }
 
     private int mixIndex(int x, int y, int z) {
-        long seed = (long) x * 341873128712L + (long) y * 132897987541L + (long) z * 42317861L;
-        return RandomSource.create(seed).nextInt(100);
+        return SurfaceNoise.patchIndex(x, y, z);
     }
 
-    private float smoothNoise(RandomSource random, int x, int z, float scale) {
-        float xf = x * scale;
-        float zf = z * scale;
-        int xi = (int) Math.floor(xf);
-        int zi = (int) Math.floor(zf);
-        float tx = xf - xi;
-        float tz = zf - zi;
-        random.setSeed(xi * 49632L + zi * 325176L);
-        float c = random.nextFloat();
-        random.setSeed((xi + 1) * 49632L + zi * 325176L);
-        float e = random.nextFloat();
-        random.setSeed(xi * 49632L + (zi + 1) * 325176L);
-        float s = random.nextFloat();
-        random.setSeed((xi + 1) * 49632L + (zi + 1) * 325176L);
-        float se = random.nextFloat();
-        float i1 = lerp(c, e, tx);
-        float i2 = lerp(s, se, tx);
-        return lerp(i1, i2, tz);
+    private float smoothNoise(int x, int z, float scale) {
+        return SurfaceNoise.smooth(x, z, scale);
     }
 
     private float lerp(float a, float b, float t) {

@@ -11,6 +11,7 @@ import net.minecraft.client.renderer.BiomeColors;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.world.level.FoliageColor;
 import net.minecraft.world.level.GrassColor;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.network.chat.Component;
 import net.satisfy.bloomingnature.core.registry.FloraRegistry;
 import net.satisfy.bloomingnature.core.registry.TabRegistry;
@@ -58,13 +59,16 @@ public class BloomingNatureClient {
             if (world == null || pos == null) {
                 return -1;
             }
-            return BiomeColors.getAverageGrassColor(world, pos);
+            return OasisGrassColor.get(world, pos);
         }, SUNGRASS.get(), TALL_SUNGRASS.get());
+        ColorHandlerRegistry.registerBlockColors((state, world, pos, tintIndex) -> world == null || pos == null ? GrassColor.getDefaultColor() : OasisGrassColor.get(world, pos), Blocks.GRASS_BLOCK, Blocks.SHORT_GRASS, Blocks.TALL_GRASS, Blocks.FERN, Blocks.LARGE_FERN);
 
         RenderTypeRegistry.register(RenderType.cutout(), FloraRegistry.JUNGLE_FERN.get(), FloraRegistry.POTTED_JUNGLE_FERN.get(), FloraRegistry.TALL_JUNGLE_FERN.get(), FloraRegistry.WILD_VINES.get(), FloraRegistry.FLOWERING_LILY_PAD.get());
         ColorHandlerRegistry.registerBlockColors((state, world, pos, tintIndex) -> world == null || pos == null ? GrassColor.getDefaultColor() : BiomeColors.getAverageGrassColor(world, pos), FloraRegistry.JUNGLE_FERN.get(), FloraRegistry.POTTED_JUNGLE_FERN.get(), FloraRegistry.TALL_JUNGLE_FERN.get());
         ColorHandlerRegistry.registerBlockColors((state, world, pos, tintIndex) -> tintIndex != 0 ? -1 : world == null || pos == null ? FoliageColor.getDefaultColor() : BiomeColors.getAverageFoliageColor(world, pos), FloraRegistry.FLOWERING_LILY_PAD.get());
         FireflyAmbience.init(() -> BloomingNatureConfig.firefliesEnabled);
+        FallingLeaves.init();
+        MistFog.init();
 
         registerBlockEntityRenderer();
     }

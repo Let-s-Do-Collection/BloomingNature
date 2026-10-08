@@ -11,16 +11,13 @@ import net.satisfy.bloomingnature.core.world.biome.BloomingNatureBiomeKeys;
 public final class AridBiomeRegistry extends BiolithSurfaceBuilder {
 
     public static void registerBiomePlacement() {
-        ConfiguredBiomePlacement.replaceOverworld(Biomes.PLAINS, BloomingNatureBiomeKeys.CYPRESS_FIELDS, 0.28D);
-        ConfiguredBiomePlacement.replaceOverworld(Biomes.SUNFLOWER_PLAINS, BloomingNatureBiomeKeys.CYPRESS_FIELDS, 0.24D);
+        ConfiguredBiomePlacement.replaceOverworld(Biomes.PLAINS, BloomingNatureBiomeKeys.CYPRESS_FIELDS, 0.20D);
+        ConfiguredBiomePlacement.replaceOverworld(Biomes.SUNFLOWER_PLAINS, BloomingNatureBiomeKeys.CYPRESS_FIELDS, 0.20D);
 
         ConfiguredBiomePlacement.replaceOverworld(Biomes.SAVANNA, BloomingNatureBiomeKeys.BRUSHLANDS, 0.16D);
         ConfiguredBiomePlacement.replaceOverworld(Biomes.SAVANNA_PLATEAU, BloomingNatureBiomeKeys.BRUSHLANDS, 0.22D);
         ConfiguredBiomePlacement.replaceOverworld(Biomes.DESERT, BloomingNatureBiomeKeys.BRUSHLANDS, 0.22D);
         ConfiguredBiomePlacement.replaceOverworld(Biomes.BADLANDS, BloomingNatureBiomeKeys.BRUSHLANDS, 0.22D);
-
-        ConfiguredBiomePlacement.replaceOverworld(Biomes.SAVANNA, BloomingNatureBiomeKeys.BAOBAB_SAVANNA, 0.55D);
-        ConfiguredBiomePlacement.replaceOverworld(Biomes.SAVANNA_PLATEAU, BloomingNatureBiomeKeys.BAOBAB_SAVANNA, 0.65D);
 
         registerBaobabSavannaPlacement();
         registerDesertRiverPlacement();
@@ -48,9 +45,9 @@ public final class AridBiomeRegistry extends BiolithSurfaceBuilder {
     }
 
     private static void registerOasisPlacement() {
-        var center = CriterionBuilder.ratio(RatioTargets.CENTER, 0.45f, 0.55f);
-        var depth = CriterionBuilder.value(BiomeParameterTargets.DEPTH, -0.20f, 0.10f);
-        var temp = CriterionBuilder.value(BiomeParameterTargets.TEMPERATURE, 0.9f, 2.0f);
+        var center = CriterionBuilder.ratioMax(RatioTargets.CENTER, 0.19f);
+        var depth = CriterionBuilder.value(BiomeParameterTargets.DEPTH, -0.30f, 0.20f);
+        var temp = CriterionBuilder.value(BiomeParameterTargets.TEMPERATURE, 0.55f, 2.0f);
 
         var cond = CriterionBuilder.allOf(center, depth, temp);
 

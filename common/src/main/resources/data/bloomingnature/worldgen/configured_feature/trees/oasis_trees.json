@@ -3,11 +3,11 @@
   "config": {
     "features": [
       {
-        "chance": 0.4,
+        "chance": 0.2,
         "feature": "bloomingnature:trees/fan_palm/fan_palm_checked"
       },
       {
-        "chance": 0.6,
+        "chance": 0.8,
         "feature": "bloomingnature:trees/oak/oak_bush_checked"
       }
     ],

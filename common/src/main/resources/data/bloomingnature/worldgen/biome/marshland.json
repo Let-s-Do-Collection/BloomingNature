@@ -26,7 +26,11 @@
     },
     "sky_color": 7907327,
     "water_color": 6388580,
-    "water_fog_color": 2302743
+    "water_fog_color": 2302743,
+    "additions_sound": {
+      "sound": "minecraft:entity.frog.ambient",
+      "tick_chance": 0.004
+    }
   },
   "features": [
     [],

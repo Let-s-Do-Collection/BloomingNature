@@ -83,9 +83,10 @@ public class RockPileFeature extends Feature<RockPileFeatureConfig> {
                     var stateAtPosition = level.getBlockState(currentPosition);
 
                     boolean belowSurface = offsetY < 0;
-                    boolean canReplaceBelow = belowSurface && stateAtPosition.getFluidState().isEmpty();
+                    boolean canReplaceBelow = belowSurface && !stateAtPosition.isAir() && stateAtPosition.getFluidState().isEmpty();
                     boolean canReplaceAbove = !belowSurface && (stateAtPosition.isAir() || stateAtPosition.is(BlockTags.REPLACEABLE) || stateAtPosition.is(BlockTags.SNOW));
                     if (!(canReplaceBelow || canReplaceAbove)) continue;
+                    if (!level.getBlockState(currentPosition.below()).blocksMotion()) continue;
 
                     boolean isOuterShell = Math.abs(offsetX) == radiusX || Math.abs(offsetZ) == radiusZ;
                     var stateToPlace = (belowSurface || isOuterShell)

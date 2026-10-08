@@ -18,7 +18,17 @@
     "sky_color": 8421631,
     "grass_color": 9542993,
     "water_color": 6388580,
-    "water_fog_color": 2302743
+    "water_fog_color": 2302743,
+    "music": {
+      "max_delay": 24000,
+      "min_delay": 12000,
+      "replace_current_music": false,
+      "sound": "minecraft:music.overworld.swamp"
+    },
+    "additions_sound": {
+      "sound": "minecraft:entity.frog.ambient",
+      "tick_chance": 0.004
+    }
   },
   "features": [
     [],
@@ -38,7 +48,8 @@
       "bloomingnature:cold/fen_moss_carpet_placed",
       "bloomingnature:wet/water_puddle_placed",
       "bloomingnature:grass/wet_grass_patch_placed",
-      "bloomingnature:grass/mossgrass_patch_placed"
+      "bloomingnature:grass/mossgrass_patch_placed",
+      "bloomingnature:firefly_hotspot"
     ],
     [
       "bloomingnature:trees/fen_trees_checked"

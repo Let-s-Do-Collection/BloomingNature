@@ -1,0 +1,13 @@
+{
+  "replace": false,
+  "values": [
+    "bloomingnature:cobbled_travertin",
+    "bloomingnature:cobbled_marlstone",
+    "bloomingnature:cobbled_slate",
+    "bloomingnature:cobbled_laterit",
+    "bloomingnature:mossy_cobbled_travertin",
+    "bloomingnature:mossy_cobbled_marlstone",
+    "bloomingnature:mossy_cobbled_slate",
+    "bloomingnature:mossy_cobbled_laterit"
+  ]
+}

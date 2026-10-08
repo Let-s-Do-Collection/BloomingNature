@@ -1,23 +1,44 @@
 [1.1.12]
 
 **Fixed**
-* Swamp Oak Leaves, Bottlebrushes, Jungle Fern, Tall Jungle Fern, Wild Vines and Flowering Lily Pad missing from the creative tab
-* Potted Myosotis dropping nothing when broken
-* Missing names for Potted Chestnut Sapling, Potted Dry Bush and Potted Fan Palm Sprout
-* Windows not reconnecting their top and bottom parts when a window in the middle of a stack is removed
-* Jungle Fern, Tall Jungle Fern and Wild Vines missing the vanilla tags for replaceable plants, hoe/axe mining and sword breaking speed
-* Fabric missing biome grass and foliage colors, Travertine in Forest and Flower Forest, and using different generation steps for boulders, slabs and piles than NeoForge
+* Swamp Oak Leaves, Bottlebrushes, Jungle Fern, Tall Jungle Fern, Wild Vines and Flowering Lily Pad were missing from the creative tab
+* Potted Myosotis dropped nothing when broken
+* Potted Chestnut Sapling, Potted Dry Bush and Potted Fan Palm Sprout were missing their names
+* Windows no longer reconnect their top and bottom parts when a window in the middle of a stack is removed
+* Jungle Fern, Tall Jungle Fern and Wild Vines were missing the vanilla tags for replaceable plants, hoe/axe mining and sword breaking speed
+* Fabric was missing biome grass and foliage colors, Travertine in Forest and Flower Forest, and was using different generation steps for boulders, slabs and piles than NeoForge
+* Gravel and sand from biome surfaces could float on Stony Shore cliffs, overhangs and sea caves until a nearby block was updated
+* Rock piles could leave floating gravel on slopes and fill small caves underneath them
+* Biome surfaces could leave floating blocks under overhangs and on cliffs, such as hanging Marlstone walls in Cypress Fields
+* Clay from Cypress Fields could float above rivers and caves or show up on cliff faces instead of staying underground
+* Brushland mountains were a patchwork of bare stone, Granite blobs and Marlstone. Slopes are now covered in Marlstone and Granite veins no longer generate there
+* Fallen hollow trunks could generate on top of tree leaves or in water, and were using upright logs instead of sideways ones
+* Baobab trees could cut through stone, ores and other trees, grow long log pillars down cliffs and leave floating water inside their trunks
+* Flower Glades and Golden Glades could generate as huge areas or rings instead of small clearings inside Forests and Birch Forests, with Flower Glades sometimes replacing entire Flower Forests
+* Desert Oases could generate as rings near the edge of deserts instead of inside them
+* Vanilla Savannas and Savanna Plateaus almost never generated because Baobab Savanna was registered twice
+* Fens could take over entire taigas next to rivers, while Cold Rivers would never generate where Fens could
+* Jungle Rivers could take over most of a jungle next to a river, while Highland Woods could take over entire plains and Cold Grasslands next to cold biomes
 
 **Added**
-* Pampas Grass, a tall grass that generates in Savannas, Savanna Plateaus and Windswept Savannas
-* Potted Jungle Fern
-* Config for the Completionist Banner effect, the Wandering Gardener visits, fireflies and every Blooming Nature biome (each can be switched off, needs a restart and only affects new chunks). On Fabric it can be opened through Mod Menu, on NeoForge through the mod list. Cloth Config is now required on Fabric
+* Mist hollows: at night and in the morning thick mist gathers in low ground and hollows of foggy biomes
+* Firefly hotspots in Fens: small pools surrounded by reeds, cattails, lily pads and wild vines, where fireflies gather at night
+* Desert Oases now have small ponds with lily pads, reeds and sugar cane, surrounded by a ring of grass and fan palms
+* Morning and rain mist in swamps, rivers and forests (Fen, Marshland, Swamp, Mangrove Swamp, all rivers, Forest, Birch, Dark and Flower Forest, Cherry Grove, the Taigas and the Blooming Nature woodlands), using Foundation's new shared fog. Thickness, morning and rain mist and every biome can be adjusted in the config
+* Falling leaves under all trees, vanilla and Blooming Nature: tinted like the tree they fall from, they flutter, tumble and drift with the wind, settle on the ground or float on water, and fall more in storms (density is configurable)
+* Frogs now croak in Fens and Marshlands, with fitting music for Brushlands, Cold Grasslands, Cypress Fields, Desert Oases, Fens, Highland Woods, Larch Forests, Flower Glades and Golden Glades
+* Config options for the Completionist Banner effect, Wandering Gardener visits, fireflies and every Blooming Nature biome. Each can be switched off, requires a restart and only affects new chunks.
 * Fireflies now also appear around Cattail, Reed, Flowering Lily Pad and Wild Vines
 * The Wandering Gardener now also sells Jungle Fern, Wild Vines, Flowering Lily Pad and Pampas Grass
 * The Wandering Gardener now arrives with a leashed camel instead of trader llamas, and the camel leaves with him
 
 **Changed**
-* The Wandering Gardener now visits on his own schedule (every 1 to 2.5 days during daytime in the Overworld) instead of replacing the Wandering Trader, and no longer needs a mixin. He only visits meadow-like biomes (see the `#bloomingnature:gardener_visits` tag), respects the `doTraderSpawning` game rule and biomes without trader spawns, and meets players at village bells like the trader
+* Added common `c:` tags for compatibility with other mods: stripped logs and woods, fences, fence gates, boats, stones, cobblestones, small and tall flowers, and climate, vegetation and type tags for every biome
+* Forest Edge now only generates as a thin band in Plains, Sunflower Plains and Meadows right next to Forests and Flower Forests, instead of as large patches in plains, savannas, badlands and mountains
+* Old Growth Birch Forests inside Birch Forests now only generate in the middle of the biome
+* Aspen Forest, Cold Grassland, Larch Forest and Cypress Fields now replace less of their vanilla biomes, so Birch Forests, Snowy Taigas and Plains still show up. Larch Forests also generate more often in regular Taigas
+* Fens now only form as a strip along river banks in cold biomes and on frozen rivers, Jungle Rivers as a strip along jungle river banks, and Highland Woods as a border next to cold biomes
+* The Wandering Gardener now visits on his own schedule (every 1 to 2.5 days during daytime in the Overworld) instead of replacing the Wandering Trader. He no longer needs a mixin, only visits meadow-like biomes (see the `#bloomingnature:gardener_visits` tag), respects the `doTraderSpawning` game rule and biomes without trader spawns, and meets players at village bells like the trader
 * The creative tab now has three side tabs: Timber & Treetops, Stone & Moss and Petals & Meadows
 * Boats, signs, windows, fireflies and the Completionist Banner now use Foundation. Boats placed in worlds before this update may load as Aspen boats
 

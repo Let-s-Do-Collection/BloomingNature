@@ -6,13 +6,19 @@
     "fog_color": 15789546,
     "water_color": 12040179,
     "water_fog_color": 9333605,
-    "grass_color": 15067781,
+    "grass_color": 13030005,
     "foliage_color": 9940541,
     "mood_sound": {
       "sound": "minecraft:ambient.cave",
       "tick_delay": 6000,
       "block_search_extent": 8,
       "offset": 2
+    },
+    "music": {
+      "max_delay": 24000,
+      "min_delay": 12000,
+      "replace_current_music": false,
+      "sound": "minecraft:music.overworld.desert"
     }
   },
   "spawners": {
@@ -24,8 +30,7 @@
         "maxCount": 8
       }
     ],
-    "creature": [
-    ],
+    "creature": [],
     "monster": [
       {
         "type": "minecraft:spider",
@@ -90,11 +95,13 @@
   },
   "features": [
     [
-      "bloomingnature:grass/dry_grass_patch_placed",
+      "bloomingnature:oasis_pond",
+      "bloomingnature:grass/oasis_dry_grass_patch_placed",
+      "bloomingnature:vegetation/dry_bush_patch_placed",
+      "bloomingnature:oasis_pampas_grass",
       "bloomingnature:trees/oasis_trees_checked"
     ],
-    [
-    ],
+    [],
     [
       "minecraft:lake_lava_underground"
     ],
@@ -105,8 +112,7 @@
       "minecraft:monster_room",
       "minecraft:monster_room_deep"
     ],
-    [
-    ],
+    [],
     [
       "minecraft:ore_dirt",
       "minecraft:ore_gravel",

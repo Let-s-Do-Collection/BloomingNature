@@ -1,0 +1,26 @@
+{
+  "replace": false,
+  "values": [
+    "bloomingnature:aspen_leaves",
+    "bloomingnature:baobab_leaves",
+    "bloomingnature:larch_leaves",
+    "bloomingnature:ebony_leaves",
+    "bloomingnature:chestnut_leaves",
+    "bloomingnature:swamp_oak_leaves",
+    "bloomingnature:swamp_cypress_leaves",
+    "bloomingnature:fan_palm_leaves",
+    "bloomingnature:fir_leaves",
+    "bloomingnature:cypress_leaves",
+    "bloomingnature:orange_leaves",
+    "bloomingnature:blooming_oak_leaves",
+    "minecraft:oak_leaves",
+    "minecraft:birch_leaves",
+    "minecraft:spruce_leaves",
+    "minecraft:jungle_leaves",
+    "minecraft:acacia_leaves",
+    "minecraft:dark_oak_leaves",
+    "minecraft:mangrove_leaves",
+    "minecraft:azalea_leaves",
+    "minecraft:flowering_azalea_leaves"
+  ]
+}

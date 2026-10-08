@@ -1,0 +1,16 @@
+{
+  "replace": false,
+  "values": [
+    "bloomingnature:aspen_sign",
+    "bloomingnature:baobab_sign",
+    "bloomingnature:larch_sign",
+    "bloomingnature:ebony_sign",
+    "bloomingnature:chestnut_sign",
+    "bloomingnature:swamp_oak_sign",
+    "bloomingnature:swamp_cypress_sign",
+    "bloomingnature:fan_palm_sign",
+    "bloomingnature:fir_sign",
+    "bloomingnature:cactus_sign",
+    "bloomingnature:cypress_sign"
+  ]
+}

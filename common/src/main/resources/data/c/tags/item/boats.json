@@ -1,0 +1,27 @@
+{
+  "replace": false,
+  "values": [
+    "bloomingnature:aspen_boat",
+    "bloomingnature:baobab_boat",
+    "bloomingnature:larch_boat",
+    "bloomingnature:ebony_boat",
+    "bloomingnature:chestnut_boat",
+    "bloomingnature:swamp_oak_boat",
+    "bloomingnature:swamp_cypress_boat",
+    "bloomingnature:fan_palm_boat",
+    "bloomingnature:fir_boat",
+    "bloomingnature:cactus_boat",
+    "bloomingnature:cypress_boat",
+    "bloomingnature:aspen_chest_boat",
+    "bloomingnature:baobab_chest_boat",
+    "bloomingnature:larch_chest_boat",
+    "bloomingnature:ebony_chest_boat",
+    "bloomingnature:chestnut_chest_boat",
+    "bloomingnature:swamp_oak_chest_boat",
+    "bloomingnature:swamp_cypress_chest_boat",
+    "bloomingnature:fan_palm_chest_boat",
+    "bloomingnature:fir_chest_boat",
+    "bloomingnature:cactus_chest_boat",
+    "bloomingnature:cypress_chest_boat"
+  ]
+}

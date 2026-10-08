@@ -1,0 +1,16 @@
+{
+  "replace": false,
+  "values": [
+    "bloomingnature:aspen_fence_gate",
+    "bloomingnature:baobab_fence_gate",
+    "bloomingnature:larch_fence_gate",
+    "bloomingnature:ebony_fence_gate",
+    "bloomingnature:chestnut_fence_gate",
+    "bloomingnature:swamp_oak_fence_gate",
+    "bloomingnature:swamp_cypress_fence_gate",
+    "bloomingnature:fan_palm_fence_gate",
+    "bloomingnature:fir_fence_gate",
+    "bloomingnature:cactus_fence_gate",
+    "bloomingnature:cypress_fence_gate"
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:clay",
+    "minecraft:cobblestone",
+    "minecraft:mossy_cobblestone",
+    "minecraft:smooth_sandstone",
+    "minecraft:packed_mud",
+    "bloomingnature:cobbled_laterit",
+    "bloomingnature:cobbled_marlstone",
+    "bloomingnature:cobbled_slate",
+    "bloomingnature:cobbled_travertin",
+    "bloomingnature:mossy_cobbled_laterit",
+    "bloomingnature:mossy_cobbled_marlstone",
+    "bloomingnature:mossy_cobbled_slate",
+    "bloomingnature:mossy_cobbled_travertin",
+    "bloomingnature:mossy_travertin",
+    "bloomingnature:quicksand"
+  ]
+}

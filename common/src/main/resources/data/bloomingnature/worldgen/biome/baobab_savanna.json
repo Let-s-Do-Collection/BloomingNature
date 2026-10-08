@@ -101,11 +101,11 @@
   },
   "features": [
     [
+      "bloomingnature:savanna_waterhole",
       "bloomingnature:grass/regular_grass_patch_placed",
       "bloomingnature:trees/baobab_savanna_trees_checked"
     ],
-    [
-    ],
+    [],
     [
       "minecraft:lake_lava_underground"
     ],
@@ -119,8 +119,7 @@
     [
       "bloomingnature:arid/granite_rock_placed",
       "bloomingnature:arid/slate_boulder_placed",
-      "bloomingnature:arid/slate_slabs_placed",
-      "bloomingnature:arid/packed_mud_disk_placed"
+      "bloomingnature:arid/slate_slabs_placed"
     ],
     [
       "minecraft:ore_dirt",

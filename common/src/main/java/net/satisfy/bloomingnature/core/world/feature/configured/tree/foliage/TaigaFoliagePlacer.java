@@ -62,24 +62,6 @@ public class TaigaFoliagePlacer extends FoliagePlacer {
 
             placeRing(level, setter, random, config, anchor, ringRadius, y, attachment.doubleTrunk(), layerIndex, random);
         }
-
-        int radiusStep = random.nextInt(2);
-        int maxRadius = 1;
-        int previousRadius = 0;
-
-        int bottomLimit = -2;
-        int lowestRelativeY = Math.max(-foliageHeight, bottomLimit);
-
-        for (int relativeY = topEnd - 1; relativeY >= lowestRelativeY; --relativeY) {
-            placeLeavesRow(level, setter, random, config, anchor, radiusStep, relativeY, attachment.doubleTrunk());
-            if (radiusStep >= maxRadius) {
-                radiusStep = previousRadius;
-                previousRadius = 1;
-                maxRadius = Math.min(maxRadius + 1, radius + attachment.radiusOffset());
-            } else {
-                ++radiusStep;
-            }
-        }
     }
 
     private void placeRing(LevelSimulatedReader level, FoliageSetter setter, RandomSource random, TreeConfiguration config, BlockPos center, int ringRadius, int relativeY, boolean doubleTrunk, int layerIndex, RandomSource rng) {

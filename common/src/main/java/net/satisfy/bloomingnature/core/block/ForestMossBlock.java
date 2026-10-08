@@ -44,11 +44,11 @@ public class ForestMossBlock extends Block implements BonemealableBlock {
 
     @Override
     public void randomTick(BlockState blockState, ServerLevel level, BlockPos blockPos, RandomSource randomSource) {
-        if (!level.getBiome(blockPos).is(BiomeTags.IS_TAIGA)) {
+        if (randomSource.nextInt(8) != 0) {
             return;
         }
 
-        if (randomSource.nextInt(8) != 0) {
+        if (!level.getBiome(blockPos).is(BiomeTags.IS_TAIGA)) {
             return;
         }
 

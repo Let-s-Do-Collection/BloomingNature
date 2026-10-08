@@ -1,5 +1,8 @@
 package net.satisfy.bloomingnature.core.world.biome.wet.surface;
 
+import net.satisfy.bloomingnature.core.world.biome.CliffFace;
+import net.satisfy.bloomingnature.core.world.biome.SupportedColumn;
+import net.satisfy.bloomingnature.core.world.biome.SurfaceNoise;
 import com.terraformersmc.biolith.api.surface.BiolithSurfaceBuilder;
 import com.terraformersmc.biolith.api.surface.SurfaceGeneration;
 import net.minecraft.tags.BiomeTags;
@@ -26,7 +29,20 @@ public final class WetSurfaceBuilder extends BiolithSurfaceBuilder {
     }
 
     @Override
-    public void generate(BiomeManager biomeManager, BlockColumn column, RandomSource random, ChunkAccess chunk, Biome biome, int x, int z, int vHeight, int seaLevel) {
+    public void generate(BiomeManager biomeManager, BlockColumn rawColumn, RandomSource random, ChunkAccess chunk, Biome biome, int x, int z, int vHeight, int seaLevel) {
+        generateSurface(biomeManager, rawColumn, random, chunk, biome, x, z, vHeight, seaLevel);
+        CliffFace.paint(chunk, SupportedColumn.wrap(rawColumn), x, z, cliffPalette());
+    }
+
+    private CliffFace.Palette cliffPalette() {
+        return switch (profile) {
+            case JUNGLE, SPARSE_JUNGLE -> CliffFace.Palette.of(ObjectRegistry.LATERIT.get().defaultBlockState(), ObjectRegistry.COBBLED_LATERIT.get().defaultBlockState(), ObjectRegistry.MOSSY_COBBLED_LATERIT.get().defaultBlockState());
+            case JUNGLE_RIVER, SWAMP -> null;
+        };
+    }
+
+    private void generateSurface(BiomeManager biomeManager, BlockColumn rawColumn, RandomSource random, ChunkAccess chunk, Biome biome, int x, int z, int vHeight, int seaLevel) {
+        BlockColumn column = SupportedColumn.wrap(rawColumn);
         int localX = x & 15;
         int localZ = z & 15;
         int topY = chunk.getHeight(Heightmap.Types.WORLD_SURFACE_WG, localX, localZ);
@@ -48,8 +64,8 @@ public final class WetSurfaceBuilder extends BiolithSurfaceBuilder {
                 }
             }
 
-            float baseNoise = smoothNoise(RandomSource.create(712345L), x + 17, z - 29, 0.032f);
-            float bandNoise = smoothNoise(RandomSource.create(398721L), x - 41, z + 63, 0.085f);
+            float baseNoise = smoothNoise(x + 17, z - 29, 0.032f);
+            float bandNoise = smoothNoise(x - 41, z + 63, 0.085f);
             float dryness = saturate((baseNoise - 0.40f) / 0.40f);
             float band = saturate((bandNoise - 0.35f) / 0.45f);
             boolean isSteep = slope >= 4;
@@ -89,8 +105,8 @@ public final class WetSurfaceBuilder extends BiolithSurfaceBuilder {
                 }
             }
 
-            float baseNoise = smoothNoise(RandomSource.create(712345L), x + 17, z - 29, 0.032f);
-            float bandNoise = smoothNoise(RandomSource.create(398721L), x - 41, z + 63, 0.085f);
+            float baseNoise = smoothNoise(x + 17, z - 29, 0.032f);
+            float bandNoise = smoothNoise(x - 41, z + 63, 0.085f);
             float dryness = saturate((baseNoise - 0.40f) / 0.40f);
             float band = saturate((bandNoise - 0.35f) / 0.45f);
             boolean isSteep = slope >= 4;
@@ -139,9 +155,9 @@ public final class WetSurfaceBuilder extends BiolithSurfaceBuilder {
                 }
             }
 
-            float maskLow = smoothNoise(RandomSource.create(912345L), x - 113, z + 271, 0.018f);
-            float maskHigh = smoothNoise(RandomSource.create(34187L), x + 31, z - 47, 0.045f);
-            float detail = smoothNoise(RandomSource.create(90123L), x, z, 0.095f);
+            float maskLow = smoothNoise(x - 113, z + 271, 0.018f);
+            float maskHigh = smoothNoise(x + 31, z - 47, 0.045f);
+            float detail = smoothNoise(x, z, 0.095f);
 
             float bandBase = saturate((maskLow - 0.50f) / 0.28f);
             float bandDetail = saturate((maskHigh - 0.40f) / 0.35f);
@@ -154,7 +170,7 @@ public final class WetSurfaceBuilder extends BiolithSurfaceBuilder {
             int y = topY;
             if (isSteep) {
                 if (isFoot) {
-                    float footNoise = smoothNoise(RandomSource.create(55123L), x, z, 0.12f);
+                    float footNoise = smoothNoise(x, z, 0.12f);
                     if (footNoise < 0.5f) {
                         column.setBlock(y, Blocks.COARSE_DIRT.defaultBlockState());
                     } else {
@@ -235,7 +251,7 @@ public final class WetSurfaceBuilder extends BiolithSurfaceBuilder {
             return;
         }
 
-        float noise = smoothNoise(random, x, z, 0.08f);
+        float noise = smoothNoise(x, z, 0.08f);
         boolean isSteepRiver = slope >= 3;
         boolean isShore = hasWater && topY <= seaLevel + ramp;
 
@@ -283,24 +299,8 @@ public final class WetSurfaceBuilder extends BiolithSurfaceBuilder {
         }
     }
 
-    private float smoothNoise(RandomSource random, int x, int z, float scale) {
-        float xf = x * scale;
-        float zf = z * scale;
-        int xi = (int) Math.floor(xf);
-        int zi = (int) Math.floor(zf);
-        float tx = xf - xi;
-        float tz = zf - zi;
-        random.setSeed(xi * 49632L + zi * 325176L);
-        float c = random.nextFloat();
-        random.setSeed((xi + 1) * 49632L + zi * 325176L);
-        float e = random.nextFloat();
-        random.setSeed(xi * 49632L + (zi + 1) * 325176L);
-        float s = random.nextFloat();
-        random.setSeed((xi + 1) * 49632L + (zi + 1) * 325176L);
-        float se = random.nextFloat();
-        float i1 = c + (e - c) * tx;
-        float i2 = s + (se - s) * tx;
-        return lerp(i1, i2, tz);
+    private float smoothNoise(int x, int z, float scale) {
+        return SurfaceNoise.smooth(x, z, scale);
     }
 
     private float saturate(float value) {

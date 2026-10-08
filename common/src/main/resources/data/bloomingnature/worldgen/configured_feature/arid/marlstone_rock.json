@@ -13,16 +13,16 @@
             "Name": "bloomingnature:cobbled_marlstone"
           }
         },
-        "min_size_x": 3,
-        "max_size_x": 4,
-        "min_size_y": 3,
-        "max_size_y": 4,
-        "min_size_z": 2,
-        "max_size_z": 3,
+        "min_size_x": 5,
+        "max_size_x": 7,
+        "min_size_y": 4,
+        "max_size_y": 5,
+        "min_size_z": 4,
+        "max_size_z": 6,
         "min_bury": 1,
-        "max_bury": 3,
-        "min_roughness": 0.25,
-        "max_roughness": 0.4
+        "max_bury": 2,
+        "min_roughness": 0.15,
+        "max_roughness": 0.3
       }
     ]
   }

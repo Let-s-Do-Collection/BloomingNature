@@ -24,6 +24,7 @@ import java.util.function.BiConsumer;
 
 @SuppressWarnings("unused")
 public class BaobabTrunkPlacer extends TrunkPlacer {
+    private static final int MAX_ROOT_EXTENSION = 6;
     public static final MapCodec<BaobabTrunkPlacer> CODEC = RecordCodecBuilder.mapCodec(b -> trunkPlacerParts(b).apply(b, BaobabTrunkPlacer::new));
 
     public BaobabTrunkPlacer(int baseHeight, int heightRandA, int heightRandB) {
@@ -68,8 +69,7 @@ public class BaobabTrunkPlacer extends TrunkPlacer {
         if (random.nextFloat() >= 0.33f) return;
         for (int dx = 1; dx < 3; dx++) {
             for (int dz = 1; dz < 3; dz++) {
-                BlockPos pool = pos.offset(dx, 0, dz);
-                blockSetter.accept(pool, Blocks.WATER.defaultBlockState());
+                placeWater(level, blockSetter, pos.offset(dx, 0, dz));
             }
         }
     }
@@ -88,9 +88,12 @@ public class BaobabTrunkPlacer extends TrunkPlacer {
         if (random.nextFloat() >= 0.35f) return;
         int rx = 1 + random.nextInt(2);
         int rz = 1 + random.nextInt(2);
-        BlockPos pool = base.offset(rx, 0, rz);
+        placeWater(level, blockSetter, base.offset(rx, 0, rz));
+    }
+
+    private void placeWater(LevelSimulatedReader level, BiConsumer<BlockPos, BlockState> blockSetter, BlockPos pool) {
         boolean cavity = level.isStateAtPosition(pool, s -> s.isAir() || s.getFluidState().is(FluidTags.WATER));
-        boolean support = level.isStateAtPosition(pool.below(), s -> !s.isAir() || !s.getFluidState().isEmpty());
+        boolean support = level.isStateAtPosition(pool.below(), s -> !s.isAir() && (s.isSolid() || !s.getFluidState().isEmpty()));
         if (cavity && support) blockSetter.accept(pool, Blocks.WATER.defaultBlockState());
     }
 
@@ -169,14 +172,13 @@ public class BaobabTrunkPlacer extends TrunkPlacer {
     }
 
     private void placeVerticalLog(LevelSimulatedReader level, BiConsumer<BlockPos, BlockState> blockSetter, RandomSource random, BlockPos pos, TreeConfiguration config) {
-        BlockState state = config.trunkProvider.getState(random, pos).setValue(RotatedPillarBlock.AXIS, Direction.Axis.Y);
-        blockSetter.accept(pos, state);
+        placeLog(level, blockSetter, random, pos, config, state -> state.setValue(RotatedPillarBlock.AXIS, Direction.Axis.Y));
     }
 
     private void extendToGround(LevelSimulatedReader level, BiConsumer<BlockPos, BlockState> blockSetter, RandomSource random, BlockPos start, TreeConfiguration config) {
         BlockPos.MutableBlockPos cursor = start.mutable();
         int tries = 0;
-        while (tries < 96 && level.isStateAtPosition(cursor, s -> s.isAir() || s.getFluidState().is(FluidTags.WATER))) {
+        while (tries < MAX_ROOT_EXTENSION && level.isStateAtPosition(cursor, s -> s.isAir() || s.getFluidState().is(FluidTags.WATER))) {
             placeVerticalLog(level, blockSetter, random, cursor, config);
             cursor.move(Direction.DOWN);
             tries++;
@@ -235,7 +237,6 @@ public class BaobabTrunkPlacer extends TrunkPlacer {
     }
 
     private void placeHorizontalLog(LevelSimulatedReader level, BiConsumer<BlockPos, BlockState> blockSetter, RandomSource random, BlockPos pos, Direction.Axis axis, TreeConfiguration config) {
-        BlockState state = config.trunkProvider.getState(random, pos).setValue(RotatedPillarBlock.AXIS, axis);
-        blockSetter.accept(pos, state);
+        placeLog(level, blockSetter, random, pos, config, state -> state.setValue(RotatedPillarBlock.AXIS, axis));
     }
 }

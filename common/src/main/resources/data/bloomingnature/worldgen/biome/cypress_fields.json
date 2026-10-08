@@ -13,6 +13,12 @@
       "tick_delay": 6000,
       "block_search_extent": 8,
       "offset": 2
+    },
+    "music": {
+      "max_delay": 24000,
+      "min_delay": 12000,
+      "replace_current_music": false,
+      "sound": "minecraft:music.overworld.meadow"
     }
   },
   "spawners": {

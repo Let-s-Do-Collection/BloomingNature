@@ -18,7 +18,7 @@ public final class SunflowerBlockEntity extends BlockEntity {
     }
 
     public static void tick(Level level, BlockPos blockPos, BlockState blockState, SunflowerBlockEntity blockEntity) {
-        if (level.isClientSide) {
+        if (level.isClientSide || level.getGameTime() % 20L != 0L) {
             return;
         }
         if (!(blockState.getBlock() instanceof SunflowerBlock)) {

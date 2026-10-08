@@ -1,5 +1,8 @@
 package net.satisfy.bloomingnature.core.world.biome.temperate.surface;
 
+import net.satisfy.bloomingnature.core.world.biome.CliffFace;
+import net.satisfy.bloomingnature.core.world.biome.SupportedColumn;
+import net.satisfy.bloomingnature.core.world.biome.SurfaceNoise;
 import com.terraformersmc.biolith.api.surface.BiolithSurfaceBuilder;
 import com.terraformersmc.biolith.api.surface.SurfaceGeneration;
 import net.minecraft.tags.FluidTags;
@@ -26,7 +29,21 @@ public final class TemperateSurfaceBuilder extends BiolithSurfaceBuilder {
     }
 
     @Override
-    public void generate(BiomeManager biomeManager, BlockColumn column, RandomSource random, ChunkAccess chunk, Biome biome, int x, int z, int vHeight, int seaLevel) {
+    public void generate(BiomeManager biomeManager, BlockColumn rawColumn, RandomSource random, ChunkAccess chunk, Biome biome, int x, int z, int vHeight, int seaLevel) {
+        generateSurface(biomeManager, rawColumn, random, chunk, biome, x, z, vHeight, seaLevel);
+        CliffFace.paint(chunk, SupportedColumn.wrap(rawColumn), x, z, cliffPalette());
+    }
+
+    private CliffFace.Palette cliffPalette() {
+        return switch (profile) {
+            case RIVER -> null;
+            case STONY_SHORE -> CliffFace.Palette.of(Blocks.STONE.defaultBlockState(), Blocks.STONE.defaultBlockState(), Blocks.COBBLESTONE.defaultBlockState());
+            case FOREST, PLAINS, BIRCH_FOREST, OLD_GROWTH_BIRCH_FOREST, DARK_FOREST -> CliffFace.Palette.of(Blocks.STONE.defaultBlockState(), Blocks.COBBLESTONE.defaultBlockState(), Blocks.MOSSY_COBBLESTONE.defaultBlockState());
+        };
+    }
+
+    private void generateSurface(BiomeManager biomeManager, BlockColumn rawColumn, RandomSource random, ChunkAccess chunk, Biome biome, int x, int z, int vHeight, int seaLevel) {
+        BlockColumn column = SupportedColumn.wrap(rawColumn);
         int localX = x & 15;
         int localZ = z & 15;
         int topY = chunk.getHeight(Heightmap.Types.WORLD_SURFACE_WG, localX, localZ);
@@ -45,9 +62,9 @@ public final class TemperateSurfaceBuilder extends BiolithSurfaceBuilder {
                 if (column.getBlock(topY - d).getFluidState().is(FluidTags.WATER)) return;
             }
 
-            float soilNoise = smoothNoise(RandomSource.create(23874L), x, z, 0.1f);
-            float mossNoise = smoothNoise(RandomSource.create(57813L), x + 17, z - 43, 0.15f);
-            float podzolNoise = smoothNoise(RandomSource.create(98723L), x - 23, z + 61, 0.09f);
+            float soilNoise = smoothNoise(x, z, 0.1f);
+            float mossNoise = smoothNoise(x + 17, z - 43, 0.15f);
+            float podzolNoise = smoothNoise(x - 23, z + 61, 0.09f);
 
             for (int y = 0; y <= topY; y++) {
                 if (y != topY) continue;
@@ -89,8 +106,8 @@ public final class TemperateSurfaceBuilder extends BiolithSurfaceBuilder {
                 if (column.getBlock(topY - d).getFluidState().is(FluidTags.WATER)) return;
             }
 
-            float soilNoise = smoothNoise(RandomSource.create(41237L), x, z, 0.08f);
-            float lightSoilNoise = smoothNoise(RandomSource.create(71991L), x + 31, z - 17, 0.11f);
+            float soilNoise = smoothNoise(x, z, 0.08f);
+            float lightSoilNoise = smoothNoise(x + 31, z - 17, 0.11f);
 
             for (int y = 0; y <= topY; y++) {
                 if (y != topY) continue;
@@ -136,10 +153,10 @@ public final class TemperateSurfaceBuilder extends BiolithSurfaceBuilder {
             int bandC = Math.floorMod(((x - z) >> 1), period);
             boolean longBand = bandA <= 2 || bandB <= 1 || bandC <= 1;
 
-            float gate = smoothNoise(RandomSource.create(64231L), x - 37, z + 19, 0.030f);
-            float breakUp = smoothNoise(RandomSource.create(91217L), x + 11, z - 23, 0.085f);
-            float packedMudNoise = smoothNoise(RandomSource.create(33121L), x - 7, z + 5, 0.050f);
-            float patchAmplify = smoothNoise(RandomSource.create(77177L), x + 83, z - 41, 0.028f);
+            float gate = smoothNoise(x - 37, z + 19, 0.030f);
+            float breakUp = smoothNoise(x + 11, z - 23, 0.085f);
+            float packedMudNoise = smoothNoise(x - 7, z + 5, 0.050f);
+            float patchAmplify = smoothNoise(x + 83, z - 41, 0.028f);
             boolean enabled = gate > 0.76f && breakUp > 0.34f;
 
             for (int y = 0; y <= topY; y++) {
@@ -182,8 +199,8 @@ public final class TemperateSurfaceBuilder extends BiolithSurfaceBuilder {
             int underwaterTop = hasWater ? Math.min(waterTopY, bedrockY + 3) : bedrockY - 1;
             int landTopY = hasWater ? waterTopY : topSurfaceY;
 
-            float soilMask = smoothNoise(RandomSource.create(66111L), x - 21, z + 7, 0.035f);
-            float soilDetail = smoothNoise(RandomSource.create(77441L), x + 9, z - 13, 0.11f);
+            float soilMask = smoothNoise(x - 21, z + 7, 0.035f);
+            float soilDetail = smoothNoise(x + 9, z - 13, 0.11f);
             boolean sparseSoil = soilMask > 0.83f && soilDetail > 0.56f;
 
             for (int y = bedrockY; y <= underwaterTop; y++) {
@@ -246,8 +263,8 @@ public final class TemperateSurfaceBuilder extends BiolithSurfaceBuilder {
 
             int maxDepth = hasWater ? 3 : 0;
 
-            float bedNoise = smoothNoise(RandomSource.create(31117L), x, z, 0.11f);
-            float pocketNoise = smoothNoise(RandomSource.create(17171L), x + 41, z - 33, 0.12f);
+            float bedNoise = smoothNoise(x, z, 0.11f);
+            float pocketNoise = smoothNoise(x + 41, z - 33, 0.12f);
 
             int waterFloorY = hasWater ? bedrockY : topSurfaceY;
             int underwaterTop = hasWater ? Math.min(waterTopY - 1, bedrockY + maxDepth) : bedrockY - 1;
@@ -354,14 +371,14 @@ public final class TemperateSurfaceBuilder extends BiolithSurfaceBuilder {
                 if (column.getBlock(topY - d).getFluidState().is(FluidTags.WATER)) return;
             }
 
-            float mudGate = smoothNoise(RandomSource.create(88421L), x - 31, z + 77, 0.030f);
-            float mudShapeA = smoothNoise(RandomSource.create(22119L), x + 9, z - 13, 0.065f);
-            float mudShapeB = smoothNoise(RandomSource.create(99131L), x - 47, z + 21, 0.055f);
+            float mudGate = smoothNoise(x - 31, z + 77, 0.030f);
+            float mudShapeA = smoothNoise(x + 9, z - 13, 0.065f);
+            float mudShapeB = smoothNoise(x - 47, z + 21, 0.055f);
             boolean mudEnabled = mudGate > 0.82f && (mudShapeA + mudShapeB) * 0.5f > 0.58f;
 
-            float podzolNoise = smoothNoise(RandomSource.create(56771L), x + 33, z - 11, 0.090f);
-            float darkSoilNoise = smoothNoise(RandomSource.create(33551L), x - 19, z + 27, 0.120f);
-            float mycelNoise = smoothNoise(RandomSource.create(71237L), x + 61, z + 5, 0.045f);
+            float podzolNoise = smoothNoise(x + 33, z - 11, 0.090f);
+            float darkSoilNoise = smoothNoise(x - 19, z + 27, 0.120f);
+            float mycelNoise = smoothNoise(x + 61, z + 5, 0.045f);
 
             for (int y = 0; y <= topY; y++) {
                 if (y != topY) continue;
@@ -422,12 +439,12 @@ public final class TemperateSurfaceBuilder extends BiolithSurfaceBuilder {
                 if (column.getBlock(topY - d).getFluidState().is(FluidTags.WATER)) return;
             }
 
-            float mask = smoothNoise(RandomSource.create(912345L), x - 113, z + 271, 0.02f);
-            float n1 = smoothNoise(RandomSource.create(34187L), x, z, 0.08f);
-            float warpA = smoothNoise(RandomSource.create(87777L), x - 113, z + 271, 0.03f) * 6.0f;
-            float warpB = smoothNoise(RandomSource.create(12341L), x + 47, z - 31, 0.07f) * 2.5f;
-            float patchNoise = smoothNoise(RandomSource.create(44417L), x + (int) warpA, z + (int) warpB, 0.028f);
-            float detailNoise = smoothNoise(RandomSource.create(90123L), x, z, 0.085f);
+            float mask = smoothNoise(x - 113, z + 271, 0.02f);
+            float n1 = smoothNoise(x, z, 0.08f);
+            float warpA = smoothNoise(x - 113, z + 271, 0.03f) * 6.0f;
+            float warpB = smoothNoise(x + 47, z - 31, 0.07f) * 2.5f;
+            float patchNoise = smoothNoise(x + (int) warpA, z + (int) warpB, 0.028f);
+            float detailNoise = smoothNoise(x, z, 0.085f);
             boolean inPatch = patchNoise > 0.74f && detailNoise > 0.45f;
 
             for (int y = 0; y <= topY; y++) {
@@ -485,28 +502,11 @@ public final class TemperateSurfaceBuilder extends BiolithSurfaceBuilder {
     }
 
     private int mixIndex(int x, int y, int z) {
-        long seed = (long) x * 341873128712L + (long) y * 132897987541L + (long) z * 42317861L;
-        return RandomSource.create(seed).nextInt(100);
+        return SurfaceNoise.patchIndex(x, y, z);
     }
 
-    private float smoothNoise(RandomSource random, int x, int z, float scale) {
-        float xf = x * scale;
-        float zf = z * scale;
-        int xi = (int) Math.floor(xf);
-        int zi = (int) Math.floor(zf);
-        float tx = xf - xi;
-        float tz = zf - zi;
-        random.setSeed(xi * 49632L + zi * 325176L);
-        float c = random.nextFloat();
-        random.setSeed((xi + 1) * 49632L + zi * 325176L);
-        float e = random.nextFloat();
-        random.setSeed(xi * 49632L + (zi + 1) * 325176L);
-        float s = random.nextFloat();
-        random.setSeed((xi + 1) * 49632L + (zi + 1) * 325176L);
-        float se = random.nextFloat();
-        float i1 = lerp(c, e, tx);
-        float i2 = lerp(s, se, tx);
-        return lerp(i1, i2, tz);
+    private float smoothNoise(int x, int z, float scale) {
+        return SurfaceNoise.smooth(x, z, scale);
     }
 
     private float lerp(float a, float b, float t) {

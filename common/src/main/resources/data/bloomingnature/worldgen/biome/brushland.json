@@ -11,6 +11,12 @@
       "tick_delay": 6000,
       "block_search_extent": 8,
       "offset": 2
+    },
+    "music": {
+      "max_delay": 24000,
+      "min_delay": 12000,
+      "replace_current_music": false,
+      "sound": "minecraft:music.overworld.desert"
     }
   },
   "spawners": {
@@ -120,10 +126,8 @@
     [
       "bloomingnature:grass/dense_grass_patch_placed",
       "bloomingnature:trees/brushland_trees_checked"
-
     ],
-    [
-    ],
+    [],
     [
       "minecraft:lake_lava_underground"
     ],
@@ -142,8 +146,6 @@
     [
       "minecraft:ore_dirt",
       "minecraft:ore_gravel",
-      "minecraft:ore_granite_upper",
-      "minecraft:ore_granite_lower",
       "minecraft:ore_diorite_upper",
       "minecraft:ore_diorite_lower",
       "minecraft:ore_andesite_upper",

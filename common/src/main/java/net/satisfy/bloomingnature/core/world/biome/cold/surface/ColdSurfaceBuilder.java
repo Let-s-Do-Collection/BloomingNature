@@ -1,5 +1,8 @@
 package net.satisfy.bloomingnature.core.world.biome.cold.surface;
 
+import net.satisfy.bloomingnature.core.world.biome.CliffFace;
+import net.satisfy.bloomingnature.core.world.biome.SupportedColumn;
+import net.satisfy.bloomingnature.core.world.biome.SurfaceNoise;
 import com.terraformersmc.biolith.api.surface.BiolithSurfaceBuilder;
 import com.terraformersmc.biolith.api.surface.SurfaceGeneration;
 import net.minecraft.tags.FluidTags;
@@ -26,7 +29,20 @@ public final class ColdSurfaceBuilder extends BiolithSurfaceBuilder {
     }
 
     @Override
-    public void generate(BiomeManager biomeManager, BlockColumn column, RandomSource random, ChunkAccess chunk, Biome biome, int x, int z, int vHeight, int seaLevel) {
+    public void generate(BiomeManager biomeManager, BlockColumn rawColumn, RandomSource random, ChunkAccess chunk, Biome biome, int x, int z, int vHeight, int seaLevel) {
+        generateSurface(biomeManager, rawColumn, random, chunk, biome, x, z, vHeight, seaLevel);
+        CliffFace.paint(chunk, SupportedColumn.wrap(rawColumn), x, z, cliffPalette());
+    }
+
+    private CliffFace.Palette cliffPalette() {
+        return switch (profile) {
+            case FEN, COLD_RIVER -> null;
+            case TAIGA, OLD_GROWTH_SPRUCE_TAIGA, OLD_GROWTH_PINE_TAIGA, COLD_GRASSLAND, LARCH_FOREST, HIGHLAND_WOODS -> CliffFace.Palette.of(Blocks.STONE.defaultBlockState(), Blocks.COBBLESTONE.defaultBlockState(), Blocks.MOSSY_COBBLESTONE.defaultBlockState());
+        };
+    }
+
+    private void generateSurface(BiomeManager biomeManager, BlockColumn rawColumn, RandomSource random, ChunkAccess chunk, Biome biome, int x, int z, int vHeight, int seaLevel) {
+        BlockColumn column = SupportedColumn.wrap(rawColumn);
         int localX = x & 15;
         int localZ = z & 15;
         int topY = chunk.getHeight(Heightmap.Types.WORLD_SURFACE_WG, localX, localZ);
@@ -45,12 +61,12 @@ public final class ColdSurfaceBuilder extends BiolithSurfaceBuilder {
                 if (column.getBlock(topY - d).getFluidState().is(FluidTags.WATER)) return;
             }
 
-            float mask = smoothNoise(RandomSource.create(912345L), x - 113, z + 271, 0.02f);
-            float n1 = smoothNoise(RandomSource.create(34187L), x, z, 0.08f);
-            float warpA = smoothNoise(RandomSource.create(87777L), x - 113, z + 271, 0.03f) * 6.0f;
-            float warpB = smoothNoise(RandomSource.create(12341L), x + 47, z - 31, 0.07f) * 2.5f;
-            float patchNoise = smoothNoise(RandomSource.create(44417L), x + (int) warpA, z + (int) warpB, 0.028f);
-            float detailNoise = smoothNoise(RandomSource.create(90123L), x, z, 0.085f);
+            float mask = smoothNoise(x - 113, z + 271, 0.02f);
+            float n1 = smoothNoise(x, z, 0.08f);
+            float warpA = smoothNoise(x - 113, z + 271, 0.03f) * 6.0f;
+            float warpB = smoothNoise(x + 47, z - 31, 0.07f) * 2.5f;
+            float patchNoise = smoothNoise(x + (int) warpA, z + (int) warpB, 0.028f);
+            float detailNoise = smoothNoise(x, z, 0.085f);
             boolean inPatch = patchNoise > 0.74f && detailNoise > 0.45f;
 
             for (int y = 0; y <= topY; y++) {
@@ -106,9 +122,9 @@ public final class ColdSurfaceBuilder extends BiolithSurfaceBuilder {
                 if (column.getBlock(topY - depth).getFluidState().is(FluidTags.WATER)) return;
             }
 
-            float soilNoise = smoothNoise(RandomSource.create(23874L), x, z, 0.08f);
-            float mossNoise = smoothNoise(RandomSource.create(57813L), x + 31, z - 11, 0.12f);
-            float podzolNoise = smoothNoise(RandomSource.create(98723L), x - 12, z + 91, 0.06f);
+            float soilNoise = smoothNoise(x, z, 0.08f);
+            float mossNoise = smoothNoise(x + 31, z - 11, 0.12f);
+            float podzolNoise = smoothNoise(x - 12, z + 91, 0.06f);
 
             for (int y = 0; y <= topY; y++) {
                 if (y != topY) continue;
@@ -172,9 +188,9 @@ public final class ColdSurfaceBuilder extends BiolithSurfaceBuilder {
 
             if (column.getBlock(topY + 1).getFluidState().is(FluidTags.WATER)) return;
 
-            float soilNoise = smoothNoise(RandomSource.create(23874L), x, z, 0.1f);
-            float mossNoise = smoothNoise(RandomSource.create(57813L), x + 17, z - 43, 0.15f);
-            float podzolNoise = smoothNoise(RandomSource.create(98723L), x - 23, z + 61, 0.09f);
+            float soilNoise = smoothNoise(x, z, 0.1f);
+            float mossNoise = smoothNoise(x + 17, z - 43, 0.15f);
+            float podzolNoise = smoothNoise(x - 23, z + 61, 0.09f);
 
             for (int y = 0; y <= topY; y++) {
                 if (y != topY) continue;
@@ -232,9 +248,9 @@ public final class ColdSurfaceBuilder extends BiolithSurfaceBuilder {
                 return;
             }
 
-            float mossNoise = smoothNoise(RandomSource.create(77113L), x + 19, z - 37, 0.09f);
-            float coarseNoise = smoothNoise(RandomSource.create(88217L), x - 41, z + 23, 0.075f);
-            float mudNoise = smoothNoise(RandomSource.create(91337L), x + 7, z + 11, 0.11f);
+            float mossNoise = smoothNoise(x + 19, z - 37, 0.09f);
+            float coarseNoise = smoothNoise(x - 41, z + 23, 0.075f);
+            float mudNoise = smoothNoise(x + 7, z + 11, 0.11f);
 
             boolean mossPatch = mossNoise > 0.62f;
             boolean coarsePatch = coarseNoise > 0.72f;
@@ -293,9 +309,9 @@ public final class ColdSurfaceBuilder extends BiolithSurfaceBuilder {
                 if (column.getBlock(topY - d).getFluidState().is(FluidTags.WATER)) return;
             }
 
-            float soilNoise = smoothNoise(RandomSource.create(23874L), x, z, 0.09f);
-            float mossNoise = smoothNoise(RandomSource.create(57813L), x + 9, z - 21, 0.11f);
-            float dryNoise = smoothNoise(RandomSource.create(98723L), x - 17, z + 47, 0.08f);
+            float soilNoise = smoothNoise(x, z, 0.09f);
+            float mossNoise = smoothNoise(x + 9, z - 21, 0.11f);
+            float dryNoise = smoothNoise(x - 17, z + 47, 0.08f);
 
             for (int y = 0; y <= topY; y++) {
                 if (y != topY) continue;
@@ -352,8 +368,8 @@ public final class ColdSurfaceBuilder extends BiolithSurfaceBuilder {
             boolean hasWater = waterTopY < topSurfaceY && column.getBlock(waterTopY + 1).getFluidState().is(FluidTags.WATER);
             int maxDepth = hasWater ? 3 : 0;
 
-            float bedNoise = smoothNoise(RandomSource.create(31117L), x, z, 0.11f);
-            float pocketNoise = smoothNoise(RandomSource.create(17171L), x + 41, z - 33, 0.12f);
+            float bedNoise = smoothNoise(x, z, 0.11f);
+            float pocketNoise = smoothNoise(x + 41, z - 33, 0.12f);
 
             int waterFloorY = hasWater ? bedrockY : topSurfaceY;
             int underwaterTop = hasWater ? Math.min(waterTopY - 1, bedrockY + maxDepth) : bedrockY - 1;
@@ -431,28 +447,11 @@ public final class ColdSurfaceBuilder extends BiolithSurfaceBuilder {
     }
 
     private int mixIndex(int x, int y, int z) {
-        long seed = (long) x * 341873128712L + (long) y * 132897987541L + (long) z * 42317861L;
-        return RandomSource.create(seed).nextInt(100);
+        return SurfaceNoise.patchIndex(x, y, z);
     }
 
-    private float smoothNoise(RandomSource random, int x, int z, float scale) {
-        float xf = x * scale;
-        float zf = z * scale;
-        int xi = (int) Math.floor(xf);
-        int zi = (int) Math.floor(zf);
-        float tx = xf - xi;
-        float tz = zf - zi;
-        random.setSeed(xi * 49632L + zi * 325176L);
-        float c = random.nextFloat();
-        random.setSeed((xi + 1) * 49632L + zi * 325176L);
-        float e = random.nextFloat();
-        random.setSeed(xi * 49632L + (zi + 1) * 325176L);
-        float s = random.nextFloat();
-        random.setSeed((xi + 1) * 49632L + (zi + 1) * 325176L);
-        float se = random.nextFloat();
-        float i1 = lerp(c, e, tx);
-        float i2 = lerp(s, se, tx);
-        return lerp(i1, i2, tz);
+    private float smoothNoise(int x, int z, float scale) {
+        return SurfaceNoise.smooth(x, z, scale);
     }
 
     private float lerp(float a, float b, float t) {

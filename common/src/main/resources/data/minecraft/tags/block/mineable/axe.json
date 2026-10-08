@@ -187,6 +187,10 @@
     "bloomingnature:cactus_wall_hanging_sign",
     "bloomingnature:cactus_hanging_sign",
     "bloomingnature:cactus_sign",
-    "bloomingnature:wild_vines"
+    "bloomingnature:wild_vines",
+    "bloomingnature:aspen_sign",
+    "bloomingnature:aspen_wall_sign",
+    "bloomingnature:aspen_hanging_sign",
+    "bloomingnature:aspen_wall_hanging_sign"
   ]
 }

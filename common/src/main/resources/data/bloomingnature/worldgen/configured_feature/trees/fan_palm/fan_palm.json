@@ -30,7 +30,6 @@
         "Name": "bloomingnature:fan_palm_leaves",
         "Properties": {
           "distance": "7",
-          "distance_9": "9",
           "persistent": "false",
           "waterlogged": "false"
         }

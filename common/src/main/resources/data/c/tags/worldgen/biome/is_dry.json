@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "bloomingnature:cypress_fields",
+    "bloomingnature:brushland",
+    "bloomingnature:baobab_savanna",
+    "bloomingnature:desert_oasis",
+    "bloomingnature:desert_river"
+  ]
+}

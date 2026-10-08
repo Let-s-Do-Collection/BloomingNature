@@ -23,7 +23,7 @@ public final class WetBiomeRegistry extends BiolithSurfaceBuilder {
         ConfiguredBiomePlacement.addSubOverworld(Biomes.RIVER, BloomingNatureBiomeKeys.JUNGLE_RIVER, nearJungle);
 
         var riverTouch = neighbor(Biomes.RIVER);
-        var edgeBand = ratio(RatioTargets.EDGE, 0.35f, 1.0f);
+        var edgeBand = ratio(RatioTargets.EDGE, 0.0f, 0.15f);
         var condEdge = allOf(riverTouch, edgeBand);
 
         ConfiguredBiomePlacement.addSubOverworld(Biomes.JUNGLE, BloomingNatureBiomeKeys.JUNGLE_RIVER, condEdge);

@@ -1,0 +1,16 @@
+{
+  "replace": false,
+  "values": [
+    "bloomingnature:aspen_wall_sign",
+    "bloomingnature:baobab_wall_sign",
+    "bloomingnature:larch_wall_sign",
+    "bloomingnature:ebony_wall_sign",
+    "bloomingnature:chestnut_wall_sign",
+    "bloomingnature:swamp_oak_wall_sign",
+    "bloomingnature:swamp_cypress_wall_sign",
+    "bloomingnature:fan_palm_wall_sign",
+    "bloomingnature:fir_wall_sign",
+    "bloomingnature:cactus_wall_sign",
+    "bloomingnature:cypress_wall_sign"
+  ]
+}

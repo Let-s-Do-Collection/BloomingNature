@@ -11,7 +11,7 @@ authors = "satisfy"
 description = '''
 Hello wanderer! The overworld has changed: New flowers bloom, fresh woods grow, and reshaped biomes await your footsteps.
 '''
-logoFile = "logo.png"
+logoFile = "pack.png"
 displayURL = "https://www.lets-do.ch"
 
 [[dependencies.bloomingnature]]
@@ -38,6 +38,6 @@ side = "BOTH"
 [[dependencies.bloomingnature]]
 modId = "foundation"
 type = "required"
-versionRange = "[1.0.1,)"
+versionRange = "[1.0.2,)"
 ordering = "AFTER"
 side = "BOTH"

@@ -1,0 +1,11 @@
+{
+  "replace": false,
+  "values": [
+    "bloomingnature:aspen_forest",
+    "bloomingnature:flower_glade",
+    "bloomingnature:golden_glade",
+    "bloomingnature:larch_forest",
+    "bloomingnature:highland_woods",
+    "bloomingnature:forest_edge"
+  ]
+}

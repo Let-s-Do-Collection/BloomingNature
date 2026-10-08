@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "bloomingnature:cold_river",
+    "bloomingnature:cold_grassland",
+    "bloomingnature:larch_forest",
+    "bloomingnature:highland_woods",
+    "bloomingnature:fen"
+  ]
+}

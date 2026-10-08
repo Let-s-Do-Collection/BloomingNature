@@ -17,7 +17,10 @@ import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.material.Fluids;
 import org.jetbrains.annotations.NotNull;
 
+import java.util.ArrayDeque;
+import java.util.HashSet;
 import java.util.OptionalInt;
+import java.util.Set;
 
 
 public class ExtendedLeavesBlock extends LeavesBlock {
@@ -62,10 +65,34 @@ public class ExtendedLeavesBlock extends LeavesBlock {
 
     @Override
     public void randomTick(BlockState blockState, ServerLevel serverLevel, BlockPos blockPos, RandomSource randomSource) {
-        if (this.decaying(blockState)) {
+        if (!this.decaying(blockState)) return;
+        int distance = findLogDistance(serverLevel, blockPos);
+        if (distance < 11) {
+            serverLevel.setBlock(blockPos, blockState.setValue(DISTANCE_11, distance), 3);
+        } else {
             LeavesBlock.dropResources(blockState, serverLevel, blockPos);
             serverLevel.removeBlock(blockPos, false);
         }
+    }
+
+    private static int findLogDistance(ServerLevel level, BlockPos start) {
+        Set<BlockPos> visited = new HashSet<>();
+        ArrayDeque<BlockPos> queue = new ArrayDeque<>();
+        visited.add(start);
+        queue.add(start);
+        for (int distance = 1; distance < 11 && !queue.isEmpty(); distance++) {
+            for (int n = queue.size(); n > 0; n--) {
+                BlockPos current = queue.poll();
+                for (Direction direction : Direction.values()) {
+                    BlockPos next = current.relative(direction);
+                    if (!visited.add(next)) continue;
+                    BlockState state = level.getBlockState(next);
+                    if (state.is(BlockTags.LOGS)) return distance;
+                    if (state.hasProperty(DISTANCE_11)) queue.add(next);
+                }
+            }
+        }
+        return 11;
     }
 
     @Override
