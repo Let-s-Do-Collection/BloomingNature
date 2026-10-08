@@ -1,7 +1,7 @@
 [1.1.12]
 
 **Fixed**
-* Swamp Oak Leaves, Bottlebrushes, Jungle Fern, Tall Jungle Fern, Wild Vines and Flowering Lily Pad were missing from the creative tab
+* Swamp Oak Leaves, Bottlebrushes, Jungle Fern, Tall Jungle Fern, Wild Vines and Flowering Lily Pad were all missing from the creative tab
 * Potted Myosotis dropped nothing when broken
 * Potted Chestnut Sapling, Potted Dry Bush and Potted Fan Palm Sprout were missing their names
 * Windows no longer reconnect their top and bottom parts when a window in the middle of a stack is removed
@@ -10,7 +10,7 @@
 * Gravel and sand from biome surfaces could float on Stony Shore cliffs, overhangs and sea caves until a nearby block was updated
 * Rock piles could leave floating gravel on slopes and fill small caves underneath them
 * Biome surfaces could leave floating blocks under overhangs and on cliffs, such as hanging Marlstone walls in Cypress Fields
-* Clay from Cypress Fields could float above rivers and caves or show up on cliff faces instead of staying underground
+* Clay from Cypress Fields could float above rivers and caves or show up on cliff faces instead of staying where it belongs to: underground
 * Brushland mountains were a patchwork of bare stone, Granite blobs and Marlstone. Slopes are now covered in Marlstone and Granite veins no longer generate there
 * Fallen hollow trunks could generate on top of tree leaves or in water, and were using upright logs instead of sideways ones
 * Baobab trees could cut through stone, ores and other trees, grow long log pillars down cliffs and leave floating water inside their trunks
@@ -33,14 +33,19 @@
 * The Wandering Gardener now arrives with a leashed camel instead of trader llamas, and the camel leaves with him
 
 **Changed**
-* Added common `c:` tags for compatibility with other mods: stripped logs and woods, fences, fence gates, boats, stones, cobblestones, small and tall flowers, and climate, vegetation and type tags for every biome
+* Desert Oasis - the only source for Fan Palms - now generates more often
+* Added common `c:` tags for more and better compatibility with other mods: stripped logs and woods, fences, fence gates, boats, stones, cobblestones, small and tall flowers, and climate, vegetation and type tags for every biome
 * Forest Edge now only generates as a thin band in Plains, Sunflower Plains and Meadows right next to Forests and Flower Forests, instead of as large patches in plains, savannas, badlands and mountains
 * Old Growth Birch Forests inside Birch Forests now only generate in the middle of the biome
 * Aspen Forest, Cold Grassland, Larch Forest and Cypress Fields now replace less of their vanilla biomes, so Birch Forests, Snowy Taigas and Plains still show up. Larch Forests also generate more often in regular Taigas
 * Fens now only form as a strip along river banks in cold biomes and on frozen rivers, Jungle Rivers as a strip along jungle river banks, and Highland Woods as a border next to cold biomes
-* The Wandering Gardener now visits on his own schedule (every 1 to 2.5 days during daytime in the Overworld) instead of replacing the Wandering Trader. He no longer needs a mixin, only visits meadow-like biomes (see the `#bloomingnature:gardener_visits` tag), respects the `doTraderSpawning` game rule and biomes without trader spawns, and meets players at village bells like the trader
+* The Wandering Gardener now visits on his own schedule (every 1 to 2.5 days during daytime in the Overworld) instead of replacing the Wandering Trader. He only visits meadow like biomes (see the `#bloomingnature:gardener_visits` tag), respects the `doTraderSpawning` game rule and biomes without trader spawns, and meets players at village bells like the trader
 * The creative tab now has three side tabs: Timber & Treetops, Stone & Moss and Petals & Meadows
 * Boats, signs, windows, fireflies and the Completionist Banner now use Foundation. Boats placed in worlds before this update may load as Aspen boats
+
+FAQ: 
+I dont like fog. I dont like leaves. I dont like the new biomes!
+- Turn them off in the reworked config.
 
 ***
 

@@ -36,7 +36,8 @@ public final class ColdSurfaceBuilder extends BiolithSurfaceBuilder {
 
     private CliffFace.Palette cliffPalette() {
         return switch (profile) {
-            case FEN, COLD_RIVER -> null;
+            case COLD_RIVER -> null;
+            case FEN -> CliffFace.Palette.of(Blocks.STONE.defaultBlockState(), Blocks.STONE.defaultBlockState(), Blocks.MOSSY_COBBLESTONE.defaultBlockState());
             case TAIGA, OLD_GROWTH_SPRUCE_TAIGA, OLD_GROWTH_PINE_TAIGA, COLD_GRASSLAND, LARCH_FOREST, HIGHLAND_WOODS -> CliffFace.Palette.of(Blocks.STONE.defaultBlockState(), Blocks.COBBLESTONE.defaultBlockState(), Blocks.MOSSY_COBBLESTONE.defaultBlockState());
         };
     }
@@ -259,40 +260,27 @@ public final class ColdSurfaceBuilder extends BiolithSurfaceBuilder {
             int y = surfaceY;
             boolean aboveWater = column.getBlock(y + 1).getFluidState().is(FluidTags.WATER);
 
-            BlockState topState;
-            BlockState belowState;
+            if (slope >= 2) {
+                column.setBlock(y, aboveWater ? Blocks.MUD.defaultBlockState() : Blocks.GRASS_BLOCK.defaultBlockState());
+                if (!column.getBlock(y - 1).isAir()) column.setBlock(y - 1, Blocks.DIRT.defaultBlockState());
+                return;
+            }
 
-            if (slope >= 3) {
-                topState = Blocks.GRASS_BLOCK.defaultBlockState();
-                int mix = Math.floorMod(mixIndex(x, y - 1, z), 100);
-                belowState = mix < 70 ? Blocks.MUD.defaultBlockState() : Blocks.COARSE_DIRT.defaultBlockState();
-            } else if (rareMudPatch) {
+            BlockState topState;
+            if (rareMudPatch) {
                 topState = Blocks.MUD.defaultBlockState();
-                belowState = Blocks.MUD.defaultBlockState();
             } else if (mossPatch && !aboveWater) {
                 topState = ObjectRegistry.FEN_MOSS.get().defaultBlockState();
-                belowState = Blocks.MUD.defaultBlockState();
             } else if (coarsePatch) {
                 topState = Blocks.COARSE_DIRT.defaultBlockState();
-                belowState = Blocks.MUD.defaultBlockState();
             } else {
                 topState = Blocks.GRASS_BLOCK.defaultBlockState();
-                int mix = Math.floorMod(mixIndex(x, y - 1, z), 100);
-                belowState = mix < 70 ? Blocks.MUD.defaultBlockState() : Blocks.COARSE_DIRT.defaultBlockState();
             }
 
             column.setBlock(y, topState);
-            if (column.getBlock(y - 1).isAir()) {
-                return;
-            }
-            column.setBlock(y - 1, belowState);
-
-            for (int subY = y - 2; subY >= y - 5 && subY >= 0; subY--) {
-                if (column.getBlock(subY).isAir()) {
-                    break;
-                }
-                int clayMix = Math.floorMod(mixIndex(x, subY, z), 100);
-                column.setBlock(subY, clayMix < 85 ? Blocks.CLAY.defaultBlockState() : Blocks.COARSE_DIRT.defaultBlockState());
+            for (int subY = y - 1; subY >= y - 4 && subY >= 0; subY--) {
+                if (column.getBlock(subY).isAir()) break;
+                column.setBlock(subY, subY >= y - 2 ? Blocks.MUD.defaultBlockState() : Blocks.CLAY.defaultBlockState());
             }
 
             return;

@@ -1,26 +1,18 @@
 package net.satisfy.bloomingnature.core.registry;
 
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.FireBlock;
+import net.satisfy.foundation.flammable.FoundationFlammables;
 
 public class FlammableBlockRegistry {
 
     public static void init() {
         for (WoodSet set : WoodSet.all()) {
-            set.forEachPlankBlock(block -> addFlammable(5, 20, block));
-            set.forEachLogBlock(block -> addFlammable(5, 5, block));
+            set.forEachPlankBlock(block -> FoundationFlammables.wood(() -> block));
+            set.forEachLogBlock(block -> FoundationFlammables.register(5, 5, () -> block));
             if (set.leaves != null) {
-                addFlammable(30, 60, set.leaves.get());
+                FoundationFlammables.register(30, 60, set.leaves);
             }
         }
-        addFlammable(30, 60, ObjectRegistry.ORANGE_LEAVES.get(), ObjectRegistry.BLOOMING_OAK_LEAVES.get());
-    }
-
-    public static void addFlammable(int burnOdd, int igniteOdd, Block... blocks) {
-        FireBlock fireBlock = (FireBlock) Blocks.FIRE;
-        for (Block block : blocks) {
-            fireBlock.setFlammable(block, burnOdd, igniteOdd);
-        }
+        FoundationFlammables.register(30, 60, ObjectRegistry.ORANGE_LEAVES, ObjectRegistry.BLOOMING_OAK_LEAVES);
+        FoundationFlammables.apply();
     }
 }

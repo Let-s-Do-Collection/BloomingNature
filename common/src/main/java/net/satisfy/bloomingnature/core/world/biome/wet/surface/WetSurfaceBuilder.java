@@ -12,6 +12,7 @@ import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.biome.BiomeManager;
 import net.minecraft.world.level.biome.Biomes;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.chunk.BlockColumn;
 import net.minecraft.world.level.chunk.ChunkAccess;
 import net.minecraft.world.level.levelgen.Heightmap;
@@ -36,7 +37,7 @@ public final class WetSurfaceBuilder extends BiolithSurfaceBuilder {
 
     private CliffFace.Palette cliffPalette() {
         return switch (profile) {
-            case JUNGLE, SPARSE_JUNGLE -> CliffFace.Palette.of(ObjectRegistry.LATERIT.get().defaultBlockState(), ObjectRegistry.COBBLED_LATERIT.get().defaultBlockState(), ObjectRegistry.MOSSY_COBBLED_LATERIT.get().defaultBlockState());
+            case JUNGLE, SPARSE_JUNGLE -> CliffFace.Palette.of(ObjectRegistry.LATERIT.get().defaultBlockState(), ObjectRegistry.LATERIT.get().defaultBlockState(), ObjectRegistry.MOSSY_COBBLED_LATERIT.get().defaultBlockState());
             case JUNGLE_RIVER, SWAMP -> null;
         };
     }
@@ -145,6 +146,7 @@ public final class WetSurfaceBuilder extends BiolithSurfaceBuilder {
                 }
             }
 
+            lateritSubsoil(chunk, column, localX, localZ, topY);
             return;
         }
 
@@ -223,19 +225,7 @@ public final class WetSurfaceBuilder extends BiolithSurfaceBuilder {
                 }
             }
 
-            for (int stoneY = topY; stoneY >= floorY; stoneY--) {
-                if (column.getBlock(stoneY).isAir()) {
-                    break;
-                }
-                if (column.getBlock(stoneY).is(Blocks.STONE)) {
-                    int depthFromTop = topY - stoneY;
-                    if (depthFromTop <= 6) {
-                        column.setBlock(stoneY, ObjectRegistry.LATERIT.get().defaultBlockState());
-                    } else {
-                        column.setBlock(stoneY, Blocks.TUFF.defaultBlockState());
-                    }
-                }
-            }
+            lateritSubsoil(chunk, column, localX, localZ, topY);
 
             return;
         }
@@ -297,6 +287,27 @@ public final class WetSurfaceBuilder extends BiolithSurfaceBuilder {
 
             depth++;
         }
+    }
+
+    private void lateritSubsoil(ChunkAccess chunk, BlockColumn column, int localX, int localZ, int topY) {
+        int lowest = Math.min(
+                Math.min(neighborHeight(chunk, localX - 1, localZ, topY), neighborHeight(chunk, localX + 1, localZ, topY)),
+                Math.min(neighborHeight(chunk, localX, localZ - 1, topY), neighborHeight(chunk, localX, localZ + 1, topY)));
+        int bottom = Math.min(topY - 4, lowest - 1);
+        BlockState laterit = ObjectRegistry.LATERIT.get().defaultBlockState();
+        for (int y = topY - 1; y >= bottom && y >= 0; y--) {
+            BlockState state = column.getBlock(y);
+            if (state.isAir()) break;
+            if (state.is(Blocks.DIRT) || state.is(Blocks.COARSE_DIRT) || state.is(Blocks.ROOTED_DIRT) || state.is(Blocks.GRAVEL)
+                    || state.is(Blocks.STONE) || state.is(Blocks.TUFF) || state.is(Blocks.ANDESITE) || state.is(Blocks.DIORITE) || state.is(Blocks.GRANITE)) {
+                column.setBlock(y, laterit);
+            }
+        }
+    }
+
+    private int neighborHeight(ChunkAccess chunk, int localX, int localZ, int fallback) {
+        if (localX < 0 || localX > 15 || localZ < 0 || localZ > 15) return fallback;
+        return chunk.getHeight(Heightmap.Types.WORLD_SURFACE_WG, localX, localZ);
     }
 
     private float smoothNoise(int x, int z, float scale) {
